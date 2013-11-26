@@ -32,4 +32,8 @@
     <content src="index.html" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
+    <feature name="org.apache.cordova.facebook.Connect">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+    </feature>
+     <!--<access origin="*" />-->
 </widget>

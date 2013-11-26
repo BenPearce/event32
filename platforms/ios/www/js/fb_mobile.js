@@ -1,3 +1,4 @@
+    /*
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -8,9 +9,12 @@
         js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
-    window.fbAsyncInit = function () {
-
+    
+*/
+    //window.fbAsyncInit = function () {
+    	      document.addEventListener('deviceready', function () {
+    	      		      console.log("device ready");
+/*
         FB.init({
             //appId: '372363819446082', // App ID from the app dashboard
             appId: '253970731442450',
@@ -20,6 +24,13 @@
             status: true, // Check Facebook Login status
             xfbml: true
         });
+ */
+        
+        FB.init({
+                appId: '253970731442450',
+                nativeInterface: CDV.FB,
+                useCachedDialogs: false
+                });
          
         FB.getLoginStatus(function(response){
 	console.log("first fb call resp: "+JSON.stringify(response));
@@ -57,4 +68,4 @@
             scope: 'user_events,friends_events'
         });
          });
-    }
+    });
