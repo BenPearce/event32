@@ -1,43 +1,133 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" >
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <meta name="viewport" content="width=device-width" />
+      <title>The Popz</title>
+      <link rel="stylesheet" href="css/jquery.mobile-1.2.0-alpha.1.css?gfd" />
+      <link rel="stylesheet" href="css/main.css"/>
+      <link rel="stylesheet" href="css/jQueryMobileTheme.css"/>
+   </head>
+   <body>     
+     
+           <div data-role="page" id="date-page" class="type-interior" style="width:100%">
+                    <div data-role="header" data-position="fixed">
+<div id="header-pic"></div><div id="header-text"></div>
+                    </div>
+           <a data-role='button' id = 'fb-login-button'>Facebook Login</a>
+                  <div data-role="popup" data-position-to="#dateMainList" style="margin-top:300px" id="popupMap1" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+            <div id="mapWrap1" class="mapWrap"></div>
+         </div>
+         <!--map popup-->
+         <ul style="margin:0px;position:relative;display:none;width:100%" data-content-theme="a" data-theme='a' id='subList1' class="subList"  data-role="listview"></ul>
+         <ul  data-role='none' style="position:relative" class="mainList pageWidth" id="dateMainList"></ul>
+         <!--data-role="listview" MISSING BELOW?-->                                                                                                                                                                                                                                                                                                        
+         <!--<ul  data-role='none' style="position:relative" class="mainList" id="dateMainList">
+         <li class='date-list-elem-outter' id='date-elem-0-list' name='0' ><div name='0'  class='date-list-elem' id='date-elem-0'></div><div  class = 'event-ex' id ='event-ex-wrap-0'></div></li>  
+         <li class='date-list-elem-outter' id='date-elem-1-list' name='1' ><div name='1'  class='date-list-elem' id='date-elem-1'></div><div  class = 'event-ex' id ='event-ex-wrap-1'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-2-list' name='2' ><div name='2'  class='date-list-elem' id='date-elem-2'></div><div  class = 'event-ex' id ='event-ex-wrap-2'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-3-list' name='3' ><div name='3'  class='date-list-elem' id='date-elem-3'></div><div  class = 'event-ex' id ='event-ex-wrap-3'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-4-list' name='4' ><div name='4'  class='date-list-elem' id='date-elem-4'></div><div  class = 'event-ex' id ='event-ex-wrap-4'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-5-list' name='5' ><div name='5'  class='date-list-elem' id='date-elem-5'></div><div  class = 'event-ex' id ='event-ex-wrap-5'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-6-list' name='6' ><div name='6'  class='date-list-elem' id='date-elem-6'></div><div  class = 'event-ex' id ='event-ex-wrap-6'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-7-list' name='7' ><div name='7'  class='date-list-elem' id='date-elem-7'></div><div  class = 'event-ex' id ='event-ex-wrap-7'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-8-list' name='8' ><div name='8'  class='date-list-elem' id='date-elem-8'></div><div  class = 'event-ex' id ='event-ex-wrap-8'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-9-list' name='9' ><div name='9'  class='date-list-elem' id='date-elem-9'></div><div  class = 'event-ex' id ='event-ex-wrap-9'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-10-list' name='10'><div name='10' class='date-list-elem' id='date-elem-10'></div><div  class = 'event-ex' id ='event-ex-wrap-10'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-11-list' name='11'><div name='11' class='date-list-elem' id='date-elem-11'></div><div  class = 'event-ex' id ='event-ex-wrap-11'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-12-list' name='12'><div name='12' class='date-list-elem' id='date-elem-12'></div><div  class = 'event-ex' id ='event-ex-wrap-12'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-13-list' name='13'><div name='13' class='date-list-elem' id='date-elem-13'></div><div  class = 'event-ex' id ='event-ex-wrap-13'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-14-list' name='14'><div name='14' class='date-list-elem' id='date-elem-14'></div><div  class = 'event-ex' id ='event-ex-wrap-14'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-15-list' name='15'><div name='15' class='date-list-elem' id='date-elem-15'></div><div  class = 'event-ex' id ='event-ex-wrap-15'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-16-list' name='16'><div name='16' class='date-list-elem' id='date-elem-16'></div><div  class = 'event-ex' id ='event-ex-wrap-16'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-17-list' name='17'><div name='17' class='date-list-elem' id='date-elem-17'></div><div  class = 'event-ex' id ='event-ex-wrap-17'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-18-list' name='18'><div name='18' class='date-list-elem' id='date-elem-18'></div><div  class = 'event-ex' id ='event-ex-wrap-18'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-19-list' name='19'><div name='19' class='date-list-elem' id='date-elem-19'></div><div  class = 'event-ex' id ='event-ex-wrap-19'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-20-list' name='20'><div name='20' class='date-list-elem' id='date-elem-20'></div><div  class = 'event-ex' id ='event-ex-wrap-20'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-21-list' name='21'><div name='21' class='date-list-elem' id='date-elem-21'></div><div  class = 'event-ex' id ='event-ex-wrap-21'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-22-list' name='22'><div name='22' class='date-list-elem' id='date-elem-22'></div><div  class = 'event-ex' id ='event-ex-wrap-22'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-23-list' name='23'><div name='23' class='date-list-elem' id='date-elem-23'></div><div  class = 'event-ex' id ='event-ex-wrap-23'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-24-list' name='24'><div name='24' class='date-list-elem' id='date-elem-24'></div><div  class = 'event-ex' id ='event-ex-wrap-24'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-25-list' name='25'><div name='25' class='date-list-elem' id='date-elem-25'></div><div  class = 'event-ex' id ='event-ex-wrap-25'></div></li>
+         <li class='date-list-elem-outter' id='date-elem-26-list' name='26'><div name='26' class='date-list-elem' id='date-elem-26'></div><div  class = 'event-ex' id ='event-ex-wrap-26'></div></li>                         
+         <li class='date-list-elem-outter' id='date-elem-27-list' name='27'><div name='27' class='date-list-elem' id='date-elem-27'></div><div  class = 'event-ex' id ='event-ex-wrap-27'></div></li>
+         </ul> --> 
+                                             
+         <!--date main list-->
+         <div data-role="footer" data-position="fixed" id="footer1" class="footer-docs" style="display:inline!important;position:fixed!important">
+            <div data-role="navbar" id="footer-nav1" data-tap-toggle="false" data-visible-on-page-show="false">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+               <ul data-tap-toggle="false">
+                            <li><a class="ui-btn-active"  id="all" data-prefetch>All</a></li>
+                            <li><a class="ui-btn-active"  id="testButton" data-prefetch>Test</a></li>  
+               </ul>
             </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+            <!-- /navbar -->	
+         </div>
+         <!-- /footer -->
+      </div>
+      <!-- date-page -->
+
+      <div data-role="page" id="page" class="type-interior">
+      
+             <div data-role="popup" data-position-to=".mainList" style="margin-top:500px" id="popupMap" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+            <div id="mapWrap2" class="mapWrap"></div>
+         </div>
+         <img id="mainSpinner1" style="display:none;z-index:20000;width:40px;position:fixed;left:145px;top:180px" src="images/ajax-loader.gif"/>
+         <img style="display:none" src="css/images/ajax-loader.gif">
+         <ul data-role='none' data-filter="true" style="margin:0px;position:relative;border-top:1px solid white" class="mainList" id="mainList"></ul>
+         <ul style="margin:0px;position:relative;display:none" data-content-theme="a" data-theme='a' id='subList' class='subList' data-role="listview"></ul>
+         <div id="fb-root"></div>
+         <div data-role="footer" id="footer" data-position="fixed" class="footer-docs" style="display:inline!important;position:fixed!important">
+            <div data-role="navbar" id="footer-nav" data-tap-toggle="false" data-visible-on-page-show="false">
+               <ul data-tap-toggle="false">
+               <!--<li><a  id="me">Me</a></li>
+               <li><a class="ui-btn-active"  id="all" data-prefetch>All</a></li>-->
+                 <!-- <li><a class="ui-btn-active ui-state-persist" href="#page" id="socialLink">Me</a></li>
+                  <li><a  href="#date-page" data-transition="slide" id="dateLink" data-prefetch>All</a></li>-->			
+               </ul>
+            </div>
+            
+         </div>
+        	
+      </div>
+      <!-- /page -->
+            <!--<div data-role="page" id="fb-auth-page" class="type-interior">
+      <a data-role='button' id = 'fb-login-button'>Facebook Login</a>
+      </div>-->
+      <!--page-->
+       <!--<div data-role="page" id="list-page" class="type-interior">
+       </div>-->
+
+      <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script src="http://jquerymobile.com/demos/1.2.0-alpha.1/docs/_assets/js/jqm-docs.js"></script>
+      <script src="http://jquerymobile.com/demos/1.2.0-alpha.1/js/jquery.mobile-1.2.0-alpha.1.js"></script>
+      <script src="http://jquerymobile.com/demos/1.2.0/docs/pages/popup/popup-examples.js"></script>
+      <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+      <!--External Libraries-->
+      <script type="text/javascript" src="js/imageCluster.js"></script>
+      <script type="text/javascript" src="js/listElement.js"></script>
+      <script type="text/javascript" src="js/buttonList.js"></script>
+      <script type="text/javascript" src="js/button.js"></script>
+      <script type="text/javascript" src="js/mapButton.js"></script>
+      <script type="text/javascript" src="js/rsvpButton.js"></script>
+      <script type="text/javascript" src="js/event.js"></script>
+      <script type="text/javascript" src="js/friend.js"></script>
+      <script type="text/javascript" src="js/dateMap.js"></script>
+      <script type="text/javascript" src="js/evening.js"></script>
+      <!--<script type="text/javascript" src="js/main.js"></script>-->
+      <script type="text/javascript" src="js/handlers.js"></script>
+      <script type="text/javascript" src="js/main.js"></script> 
+      <!--<script type="text/javascript" src="js/dateApiProxy.js"></script>
+      <script type="text/javascript" src="js/venueApiProxy.js"></script>
+      <script type="text/javascript" src="js/date.js"></script>-->
+      <script type="text/javascript" src="js/venue.js"></script>
+      <script type="text/javascript" src="js/fb_mobile.js"></script>
+      <!--Local Libraries-->
+   </body>
 </html>
+
