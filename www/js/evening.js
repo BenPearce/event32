@@ -16,21 +16,18 @@ function evening() {
     this.eveningState;
     this.dateArray;
     this.monthNumber;
-    this.tempFriendArray;
 }
 
 function makeEvening(integer) {
-	console.log("make evening");
-    var result = new evening();  
+    var result = new evening();
     var proximity = makeListElement();
     $.extend(result, proximity);
     result.friendIdArray = new Array();
     result.eventIdArray = new Array();
-    result.eventList = new Array();                               
+    result.eventList = new Array();
     result.topArray = new Array();
     result.botArray = new Array();
-    result.dateArray = new Array();
-    result.tempFriendArray = new Array();
+    result.dateArray = new Array(); 
     result.friendListEventCalendarState = setBit(0,0);
     
     //result.friendListEventCalendarState & setBit (0,3)

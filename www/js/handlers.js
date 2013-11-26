@@ -73,17 +73,6 @@
 
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
     $(document).ready(function () {
-    		    
-    		    
-    		    //console.log("pageWidth set: "+pageWidth);
-    		    
-    		    var style = $('<style>.pageWidth {width: '+pageWidth+'px; }</style>');
-    		    //var style1 = $('<style>.halfWidth {width: '+((pageWidth*(.5)) - 2)+'px; }</style>');
-    		    var style1 = $('<style>.halfWidth {width: '+((pageWidth*(.5)-5) )+'px; }</style>');
-                    $('html > head').append(style);
-                      $('html > head').append(style1);
-                    
-    		    //$("#dateMainList").css('width',pageWidth);
     		    //alert("doc ready");
     		    /*
     		    FB.api('/me/permissions', function(response){
