@@ -13,7 +13,7 @@
     var batchItteration = 0;
     var deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     var pageWidth = deviceWidth != 'undefined'? parseInt(deviceWidth * .97): 320;
-    console.log("deviceWidth: "+deviceWidth);
+    //console.log("deviceWidth: "+deviceWidth);
     //var pageWidth = parseInt(deviceWidth) * (.97);
     var pageHalfWidth = parseInt(pageWidth) / 2;
     var halfwidth = (parseInt(deviceWidth) / parseInt(2)) - 25;

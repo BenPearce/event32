@@ -114,7 +114,7 @@ function populateCalendar(friendIdList){
     }
 
     function mainInit(url) {
-    	    
+    	    console.log("Main init");
         $('body').append("<style>.halfPageWidth {width:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.halfPageSquare {width:" + pageHalfWidth + "px;height:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.selectedListFlyer .attendee-wrap{width:" + halfwidth + "px}</style>");
@@ -214,6 +214,7 @@ function populateCalendar(friendIdList){
     }
 
     function parseFriend(friendValue, val, friendIndex) {
+    	     console.log("Parese friend");
         if (JSON.parse(friendValue.body).data.length > 0) {
             friendTrackingArray = val.friendTrackingArray;
             //FIRST ONE OF THESE IS COMING BACK UNSUPPORTED

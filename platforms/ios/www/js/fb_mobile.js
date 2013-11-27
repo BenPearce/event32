@@ -1,4 +1,4 @@
-    /*
+
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -6,32 +6,34 @@
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js";
+        js.src = "http://connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
-*/
-    //window.fbAsyncInit = function () {
+
+
+   window.fbAsyncInit = function () {
     	      document.addEventListener('deviceready', function () {
     	      		      console.log("device ready");
-/*
+
         FB.init({
             //appId: '372363819446082', // App ID from the app dashboard
             appId: '253970731442450',
             //channelUrl: 'http://www.bp2u.com', // Channel file for x-domain comms
             channelUrl: 'www.event32ios.com',
-            //channelUrl: 'http://event32test.com', // Channel file for x-domain comms
             status: true, // Check Facebook Login status
             xfbml: true
-        });
- */
-        
+});
+ 
+ 
+        /*
         FB.init({
                 appId: '253970731442450',
                 nativeInterface: CDV.FB,
+                //channelUrl: 'http://www.event32ios.com',
                 useCachedDialogs: false
                 });
-         
+         */
         FB.getLoginStatus(function(response){
 	console.log("first fb call resp: "+JSON.stringify(response));
         	if(response.status == "connected"){
@@ -69,3 +71,4 @@
         });
          });
     });
+    }
