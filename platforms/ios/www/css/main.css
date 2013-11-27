@@ -12,6 +12,7 @@ background:none!important;
 ul{
 /*background:white;*/
 background:none!important;
+list-style-type: none;
 }
 
 .event-list-wrap{
@@ -40,6 +41,7 @@ padding:0px!important;
 }
 
 #dateMainList {
+	padding:0px!important;
 	width: 97%;
 margin: auto;
 margin-top:0px!important;
@@ -909,7 +911,7 @@ border-top:solid black 3px;
 .more-events-text-wrap{
 	text-align: center;
         height:50px;
-        width:75%;
+        width:78%;
         background:white;
         position:absolute;
         bottom:0px;
