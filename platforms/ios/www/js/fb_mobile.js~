@@ -6,14 +6,14 @@
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js";
+        js.src = "http://connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
 
 
-    window.fbAsyncInit = function () {
-    	      //document.addEventListener('deviceready', function () {
+   window.fbAsyncInit = function () {
+    	      document.addEventListener('deviceready', function () {
     	      		      console.log("device ready");
 
         FB.init({
@@ -24,6 +24,7 @@
             status: true, // Check Facebook Login status
             xfbml: true
 });
+ 
  
         /*
         FB.init({
@@ -69,5 +70,5 @@
             scope: 'user_events,friends_events'
         });
          });
-   // });
+    });
     }
