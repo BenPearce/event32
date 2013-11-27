@@ -29,29 +29,37 @@ function moreEvents(dateId){
 }
 
 function populateCalendar(friendIdList){
+	//console.log("pop calendar");
 	selectedFriendGroup = friendIdList;
 	var tempFriendCount = 0;
 	var tempEventCount = 0;
 		$(".date-list-elem").html("");
 	                      for (var i = 0; i < 28; i++) {
 	     $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
-	     
-	  
+
 	                      //$("#date-elem-" + i).append(getDateHeader(eveningHash[i]));
 	                      
         dateTrackingArray[i] = 0;
     }
         
-
+console.log("pop calendar1");
 	$.each(friendIdList,function(i,friendId){
+			//console.log("pop calendar2");
 			tempFriendCount = tempFriendCount +1;
+			/*
+			console.log("pop calendar2.1");
+			console.log("fbArray[friendId].eventIdArray type: "+typeof fbArray[friendId].eventIdArray);
+			console.log("fbArray[friendId].eventIdArray length: "+fbArray[friendId].eventIdArray.length);
+			//console.log("fbArray[friendId].eventIdArray type: "+typeof fbArray[friendId].eventIdArray);
+			*/
 		$.each(fbArray[friendId].eventIdArray,function(j,eventId){
+				//console.log("pop calendar3");
 				dateTrackingArray[fbArray[eventId].dateId] = dateTrackingArray[fbArray[eventId].dateId] +1;
 				
 				if(dateTrackingArray[fbArray[eventId].dateId]<= 4){
 				tempEventCount = tempEventCount+1;
 				//$("#date-elem-" + fbArray[eventId].dateId).append(getEventRow(eventId));
-				
+				//console.log("event html: "+getEventRow(eventId));
 				$("#event-list-wrap-" + fbArray[eventId].dateId).append(getEventRow(eventId));
 				
 				}else if(dateTrackingArray[fbArray[eventId].dateId] == 5){
@@ -114,7 +122,7 @@ function populateCalendar(friendIdList){
     }
 
     function mainInit(url) {
-    	    console.log("Main init");
+    	    //console.log("Main init");
         $('body').append("<style>.halfPageWidth {width:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.halfPageSquare {width:" + pageHalfWidth + "px;height:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.selectedListFlyer .attendee-wrap{width:" + halfwidth + "px}</style>");
@@ -173,27 +181,32 @@ function populateCalendar(friendIdList){
     }
 
     function parseEvent(value, friendID) {
+    	    //console.log("Parse Event");
         try {
             var event = makeEvent(value);
+            console.log("event.dateId: "+event.dateId);
             //tempEventCountGlobal = tempEventCountGlobal +1;
         } catch (err) {
-            console.log("event parse err: " + err);
+            //console.log("event parse err: " + err);
         }
+        console.log("Parse Event1");
         	    if (event.dateId >= 0) {
-        	    	    
+        	    	    //console.log("Parse Event2");
             //Make sure date isn't more than three monthes in the future
             	      if (parseInt(event.dateId) < 28) {
                 if (typeof fbArray[value.id] == "undefined") {
                     //Need to run tests on friend before adding to fbArray
                     fbArray[value.id] = event;
-                    eveningHash[parseInt(event.dateCode)].eventIdArray.push(value.id);
-                    eveningHash[parseInt(event.dateCode)].friendListEventCalendarState = eveningHash[parseInt(event.dateCode)].friendListEventCalendarState & setBit(0, 3); 
+                    eveningHash[parseInt(event.dateId)].eventIdArray.push(value.id);
+                    eveningHash[parseInt(event.dateId)].friendListEventCalendarState = eveningHash[parseInt(event.dateId)].friendListEventCalendarState & setBit(0, 3); 
                 }
-                eveningHash[parseInt(event.dateCode)].friendIdArray.push(friendID);
+                //console.log("Parse Event3");
+                eveningHash[parseInt(event.dateId)].friendIdArray.push(friendID);
 
                 //If we create an operation that pushes to array as well as adds list element
+                console.log("line before insert friend");
                 fbArray[friendID].insertEvent(fbArray[value.id].fbId, event.dateId);
-                fbArray[value.id].insertFriend(fbArray[friendID].fbId, event.dateCode);
+                fbArray[value.id].insertFriend(fbArray[friendID].fbId, event.dateId);
                 //Local Event Detection
                 if (event.venue.clientDistance < 50) {
                     friend.local = true;
@@ -202,7 +215,7 @@ function populateCalendar(friendIdList){
                     fbArray[value.id].local = true;
                 }
                 //Detection for todays events
-                if (event.dateCode == 0) {
+                if (event.dateId == 0) {
                     friend.tonight = true;
                     fbArray[friendID].tonight = true;
                     event.tonight = true;
