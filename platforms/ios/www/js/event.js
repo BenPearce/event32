@@ -41,16 +41,20 @@ function makeEvent(data) {
     //result.mapButton = makeMapButton(result);
     result.eveningListArray = new Array();
     result.eveningInstanceCount = {};
-    var tempDate = new Date(data.start_time);
+    console.log("data.start_time: "+data.start_time);
+      var tempDate = new Date(data.start_time.substring(0, data.start_time.indexOf('T')));
+    //var tempDate = new Date(data.start_time);
+    console.log("tempDate: "+tempDate);
         //tempDate = new Date(result.start_time);
     //This line of code is critical if it is removed '00:00:00' will be listed as one day late
-    /*
+    
     if (result.formattedTime == '00:00:00') {
         tempDate = new Date(tempDate.getTime() + (24 * 60 * 60 * 1000));
     }
-    */
+    
     //result.dateId =tempDate;
     result.dateId = dateToInteger(tempDate);
+    console.log("result.dateId: "+result.dateId);
     //console.log("dat id set: "+result.dateId);
     //result.description = data.description;
     

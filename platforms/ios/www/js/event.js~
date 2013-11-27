@@ -38,7 +38,7 @@ function makeEvent(data) {
     result.data = data;
     result.type = "event";
     result.localDisplay ="";
-    result.mapButton = makeMapButton(result);
+    //result.mapButton = makeMapButton(result);
     result.eveningListArray = new Array();
     result.eveningInstanceCount = {};
     var tempDate = new Date(data.start_time);
@@ -182,8 +182,8 @@ function makeEvent(data) {
     //result.domClone = $("<div><li id='"+result.fbId+"-list' class='event'><div id='"+result.fbId+"'  class='event-wrap'><div id='"+result.fbId+"-flyer' class='flyer-wrap'><div class='event-name-wrap'><div class='event-name'>"+result.displayName+"</div></div><div class='flyer-img-wrap'><img id='"+result.fbId+"-event-img' class='event-img' src='https://graph.facebook.com/"+result.fbId+"/picture?width=70&height=70'></div><div class='formatted-date-wrap'><div class='formatted-date'>"+result.formattedDate+result.formattedTime+"</div></div></div><div id='"+result.fbId+"-friend-group' class='attendee-wrap'></div><div class='venue-wrap'></div><div class='formatted-time-wrap'></div><div class='distance-wrap'>"+result.venue.clientDistance +"</div></div><div class='event-desc-wrap'></div><div class='button-wrap'>hi<a href='.pop-map' data-rel='popup' data-role='button' class='map-button'>MAP</a><a id='' href='' data-role='button' class='rsvp-button'>RSVP</a></div></li><div>");
     result.domClone = $("<div><li id='"+result.fbId+"-list' class='event'><div id='"+result.fbId+"'  class='event-wrap'><div id='"+result.fbId+"-flyer' class='flyer-wrap'><div class='flyer-group-display-wrap'>"+result.description+"</div><div class='event-name-wrap'><div class='event-name'>"+result.displayName+"</div></div><div class='flyer-img-wrap'><img id='"+result.fbId+"-event-img' class='event-img' src='https://graph.facebook.com/"+result.fbId+"/picture?width=70&height=70'><div class='local-display'>"+result.localDisplay+"</div></div><div class='formatted-date-wrap'><div class='formatted-date'>"+result.formattedDate+result.formattedTime+"</div></div></div><div id='"+result.fbId+"-friend-group' class='attendee-wrap'></div><div class='formatted-time-wrap'></div><div class='distance-wrap'>"+result.venue.clientDistance +"</div></div></li><div>");
     //result.listElem = "<div class='event-list-elem-fixed'><img class='event-list-elem-fixed-img' src='https://graph.facebook.com/"+result.fbId+"/picture?width=70&height=70'><div class='event-list-elem-fixed-name'>"+result.displayName+"</div></div>";
-    result.buttonList = makeButtonList(result);
-    result.domClone.append(result.buttonList.wrap);
+    //result.buttonList = makeButtonList(result);
+    //result.domClone.append(result.buttonList.wrap);
     result.domClone.find(".event-name-wrap").css("font-size", "10pt");
     result.domClone.find(".formatted-date-wrap").css("font-size", "10pt");
     result.evening = makeEvening(result);
