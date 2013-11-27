@@ -187,7 +187,7 @@ console.log("pop calendar1");
             console.log("event.dateId: "+event.dateId);
             //tempEventCountGlobal = tempEventCountGlobal +1;
         } catch (err) {
-            //console.log("event parse err: " + err);
+             //console.log("event parse err: " + err);
         }
         console.log("Parse Event1");
         	    if (event.dateId >= 0) {
