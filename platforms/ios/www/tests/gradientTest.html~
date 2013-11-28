@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<script>
+	
+	</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+//Safari
+
+[Log] data.start_time: 2014-09-11T00:00:00 (event.js, line 44)
+[Log] tempDate: Wed Sep 10 2014 17:00:00 GMT-0700 (PDT) (event.js, line 46)
+[Log] result.dateId: 288 (event.js, line 56)
+
+
+
+[Log] Parese friend (main.js, line 217, x3)
+[Log] data.start_time: 2013-11-13T08:00:00-0800 (event.js, line 44)
+[Log] tempDate: Invalid Date (event.js, line 46)
+[Log] result.dateId: NaN (event.js, line 56)
+
+//Chrome
+
+data.start_time: 2014-09-11T00:00:00 event.js:44
+tempDate: Wed Sep 10 2014 17:00:00 GMT-0700 (PDT) event.js:46
+result.dateId: 288 event.js:56
+3
+Parese friend main.js:217
+data.start_time: 2013-11-13T08:00:00-0800 event.js:44
+tempDate: Wed Nov 13 2013 08:00:00 GMT-0800 (PST) event.js:46
+result.dateId: -13 
