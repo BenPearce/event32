@@ -1358,7 +1358,7 @@ bottom:2px;
         /*border: solid hsl(0, 100%, 100%) 1px;
         border:solid white 1px;*/
         float:left;
-        border-top-right-radius: 1em;
+        border-top-right-radius: .5em;
         /*margin-left:6px;*/
         margin-top:0px;
         width:62px;
