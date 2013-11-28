@@ -92,6 +92,17 @@ body{
 
 }
 
+.more-events-text{
+	width:90%;
+	height:100%;
+	background:black;
+	color:white;
+}
+
+.more-events-img{
+	
+}
+
 #date-page{
 padding:0px!important;
 }
@@ -99,7 +110,7 @@ padding:0px!important;
 .date-list-elem-wrap{
 	/*background: hsl(0, 100%, 100%);*/
 /*padding: 10px;*/
-margin-top:-43px;
+margin-top:-46px;
 }
 
 .dateDisplayer{
@@ -962,16 +973,6 @@ border-top:solid black 3px;
 	position:relative;
 }
 
-.more-events-text{
-	display:block;
-	width:100%;
-	height:70%;
-	background:white;
-	 border-left:solid black 3px;
-	 border-right:solid black 3px;
-	 border-bottom:solid black 3px;
-}
-
 .more-events-cut-away{
 	height:66%;
 	display:block;
@@ -1301,7 +1302,7 @@ bottom:0px;
         /*border: solid hsl(0, 100%, 100%) 1px;
         border:solid white 1px;*/
         float:left;
-        border-top-right-radius: 1em;
+        /*border-top-right-radius: 1em;*/
         /*margin-left:6px;*/
         margin-top:0px;
         width:55px;

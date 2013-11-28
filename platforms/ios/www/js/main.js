@@ -84,7 +84,8 @@ if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
      	     $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
      	 continue;     
      }
-     	$("#event-list-wrap-trans-"+ i).append(getMorebutton(i));
+     var moreText = (eveningHash[i].eventIdArray.length - 4) +" More Events";
+     	$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
 
      			     //$("#event-list-wrap-trans-"+ i).append(getMorebutton(fbArray[eveningHash[i].eventIdArray[3]].dateId));
 

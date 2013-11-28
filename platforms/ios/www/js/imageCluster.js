@@ -126,10 +126,10 @@
                 }
 }
 
-function getMorebutton(k){
+function getMorebutton(k,text1){
 	//return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="more-events-text">more events</div></div>';
 	//return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-corner"></div><div class="more-events-cut-away"></div></div><div class="more-events-text">more events</div></div>';
-	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div class="more-events-corner-tl"></div></div></div>';
+	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div class="more-events-text">'+text1+'</div><div class="more-events-img"></div></div></div>';
 
 }
 
