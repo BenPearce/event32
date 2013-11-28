@@ -29,62 +29,27 @@ function moreEvents(dateId){
 }
 
 function populateCalendar(friendIdList){
-	//console.log("pop calendar");
 	selectedFriendGroup = friendIdList;
 	var tempFriendCount = 0;
 	var tempEventCount = 0;
 		$(".date-list-elem").html("");
 	                      for (var i = 0; i < 28; i++) {
 	     $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
-
-	                      //$("#date-elem-" + i).append(getDateHeader(eveningHash[i]));
-	                      
         dateTrackingArray[i] = 0;
     }
-        
-console.log("pop calendar1");
 	$.each(friendIdList,function(i,friendId){
-			//console.log("pop calendar2");
 			tempFriendCount = tempFriendCount +1;
-			/*
-			console.log("pop calendar2.1");
-			console.log("fbArray[friendId].eventIdArray type: "+typeof fbArray[friendId].eventIdArray);
-			console.log("fbArray[friendId].eventIdArray length: "+fbArray[friendId].eventIdArray.length);
-			//console.log("fbArray[friendId].eventIdArray type: "+typeof fbArray[friendId].eventIdArray);
-			*/
 		$.each(fbArray[friendId].eventIdArray,function(j,eventId){
-				//console.log("pop calendar3");
 				dateTrackingArray[fbArray[eventId].dateId] = dateTrackingArray[fbArray[eventId].dateId] +1;
-				
 				if(dateTrackingArray[fbArray[eventId].dateId]<= 4){
 				tempEventCount = tempEventCount+1;
-				//$("#date-elem-" + fbArray[eventId].dateId).append(getEventRow(eventId));
-				//console.log("event html: "+getEventRow(eventId));
 				$("#event-list-wrap-" + fbArray[eventId].dateId).append(getEventRow(eventId));
 				
 				}else if(dateTrackingArray[fbArray[eventId].dateId] == 5){
-					//$("#date-elem-" + fbArray[eventId].dateId).append(getDateHeader(eventId));
-					//("#date-elem-" + fbArray[eventId].dateId).append("ji");
-					//$("#date-elem-" + fbArray[eventId].dateId).append(getMorebutton(fbArray[eventId].dateId));
-					//$("#event-list-wrap-" + fbArray[eventId].dateId).append(getMorebutton(fbArray[eventId].dateId));
-					//event-list-wrap-outter
-					//$("#event-list-wrap-outter-"+ fbArray[eventId].dateId).append("<div class='formatting-block'></div>");
-
-					
-					//$("#event-list-wrap-outter-"+ fbArray[eventId].dateId).append("<div class='formatting-block'></div>");
-					//$("#event-list-wrap-outter-"+ fbArray[eventId].dateId).append("<div class='formatting-block'><div class='formatting-block-inner'><div class='formatting-block-trans'></div><div class='formatting-block-more'></div></div></div>");
-					//$("#event-list-wrap-trans-"+ fbArray[eventId].dateId).append("<div class='formatting-block-trans'></div><div class='formatting-block-more'></div>");
-
-					//$("#event-list-wrap-trans-"+ fbArray[eventId].dateId).append(getMorebutton(fbArray[eventId].dateId));
 					$("#event-list-wrap-trans-"+ fbArray[eventId].dateId).append(getMorebutton(fbArray[eventId].dateId));
-					
-					
 				} else{					
-				}
-			
+				}	
 		});
-		
-
 	});
 	setFriendTap();
 }
@@ -189,7 +154,7 @@ console.log("pop calendar1");
         } catch (err) {
              //console.log("event parse err: " + err);
         }
-        console.log("Parse Event1");
+        //console.log("Parse Event1");
         	    if (event.dateId >= 0) {
         	    	    //console.log("Parse Event2");
             //Make sure date isn't more than three monthes in the future
