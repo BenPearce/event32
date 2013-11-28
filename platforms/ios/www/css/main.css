@@ -52,6 +52,34 @@ padding:0px!important;
 	display:none!important;
 }
 
+.more-events-corner-bl{
+position: absolute;
+height: 10px;
+width: 10px;
+background: white;
+bottom: 0px;
+left: 0px;
+border-bottom: solid hsl(0, 0%, 0%) 3px;
+border-left: solid hsl(0, 0%, 0%) 3px;	
+}
+
+.more-events-corner-tl{
+	/*
+	position: absolute;
+height: 10px;
+width: 10px;
+background: white;
+top: 0px;
+left: 0px;
+border-bottom: solid hsl(0, 0%, 0%) 3px;
+border-left: solid hsl(0, 0%, 0%) 3px;	
+*/
+}
+
+.cut-away-corner-tr{
+	
+}
+
 #dateMainList {
 	width: 97%;
 margin: auto;
@@ -869,7 +897,7 @@ background: hsl(0, 0%, 0%);
 	width:20%;
 	height:50px;
 display:block;
-border-top-right-radius: 1em;
+/*border-top-right-radius: 1em;*/
 position:absolute;
 bottom:0px;
 left:0px;
@@ -925,7 +953,7 @@ border-top:solid black 3px;
         /*margin-right:1px;*/
         border-right:solid black 3px;
         border-bottom:solid black 3px;
-        //border-left:solid black 3px;
+        border-left:solid black 3px;
         /*border-right:solid black 3px;*/
         /*border-bottom:solid black 3px;*/
 }
