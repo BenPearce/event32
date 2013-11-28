@@ -1324,7 +1324,7 @@ display:block;
 .date-abrev-bot{
 	display:block;
 	text-align:center;
-	        font-size:10pt;
+	        font-size:12pt;
 	        line-height: 12pt;
 	        color:white;
 	        /*
@@ -1333,30 +1333,36 @@ background: hsl(0, 100%, 100%);
 */
 width:100%;
 position:absolute;
-bottom:0px;
+bottom:2px;
 
 }
 
 .date-abrev-top{
 	display:block;
 	text-align:center;
-	        font-size:13pt;
-	        margin-top:0px;
+	font-family:"Arial";
+	        font-size:20pt;
+	        font-weight:bold;
+	       position:absolute;
+	       top:0px;
 	        color:white;
+	        width: 100%;
 }
 
 .date-abrev-wrap{
         display:block;
+        font-family:"Arial";
         /*border: solid hsl(0, 100%, 100%) 1px;
         border:solid white 1px;*/
         float:left;
-        /*border-top-right-radius: 1em;*/
+        border-top-right-radius: 1em;
         /*margin-left:6px;*/
         margin-top:0px;
         width:55px;
         height:50px;
         position:relative;
         background:black;
+        font-weight:bold;
         /*border-top-right-radius: 0.5em;*/
         /*background: url('../images/slash.png') no-repeat fixed center;
         background: url('../images/slash.png');*/
