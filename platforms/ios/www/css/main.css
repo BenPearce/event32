@@ -929,9 +929,9 @@ background: hsl(0, 0%, 0%);
 .event-list-wrap-border{
 	padding:0px 3px;
 	background:white;
-	border-right:solid black 3px;
-	border-left:solid black 3px;
-	border-top:solid black 3px;
+	border-right:solid black 1px;
+	border-left:solid black 1px;
+	border-top:solid black 1px;
 }
 
 .more-events-button{
@@ -946,15 +946,15 @@ background: hsl(0, 0%, 0%);
 }
 
 .cut-away-wrap{
-	width:20%;
+	width:22%;
 	height:50px;
 display:block;
 /*border-top-right-radius: 1em;*/
 position:absolute;
 bottom:0px;
 left:0px;
-border-right:solid black 3px;
-border-top:solid black 3px;
+/*border-right:solid black 3px;*/
+border-top:solid black 1px;
 }
 
 .more-events-text-block{
@@ -1003,9 +1003,9 @@ border-top:solid black 3px;
         bottom:0px;
         right:0px;
         /*margin-right:1px;*/
-        border-right:solid black 3px;
-        border-bottom:solid black 3px;
-        border-left:solid black 3px;
+        border-right:solid black 1px;
+        border-bottom:solid black 1px;
+        border-left:solid black 1px;
         
         		background: rgb(255,255,255); /* Old browsers */
 background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 55%, rgba(255,255,255,1) 100%); /* FF3.6+ */
