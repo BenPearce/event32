@@ -122,8 +122,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 
 .more-events-text{
 position:absolute;
-top:11px;
-left:25px;
+top:12px;
+left:40px;
+	font-family:"Arial";
+	        font-size:12pt;
+	        font-weight:bold;
 }
 
 .more-events-img{
