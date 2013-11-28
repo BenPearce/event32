@@ -31,13 +31,13 @@ function makeDateMap(){
 
 function dateToInteger(date){
 	var temp = new Date(date);
-	console.log("new date: "+temp);
+	//console.log("new date: "+temp);
         temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
-        console.log("temp2: "+temp);
+        //console.log("temp2: "+temp);
 	var today = new Date();
 
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
-	 console.log("today: "+today);
+	//console.log("today: "+today);
 	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
 }
 

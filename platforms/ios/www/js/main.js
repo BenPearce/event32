@@ -28,7 +28,9 @@
 function moreEvents(dateId){	
 }
 
+/*
 function populateCalendar(friendIdList){
+
 	selectedFriendGroup = friendIdList;
 	var tempFriendCount = 0;
 	var tempEventCount = 0;
@@ -52,6 +54,44 @@ function populateCalendar(friendIdList){
 		});
 	});
 	setFriendTap();
+}
+*/
+
+function populateCalendar(){
+	console.log("pop cal trig");
+	for (var i = 0; i < 28; i++) {
+		console.log("pop cal i: "+i);
+			     $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
+console.log("eveningHash[i].eventIdArray[0] "+fbArray[eveningHash[i].eventIdArray[0]]);
+if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId));
+     }else{
+      continue;	     
+     }
+     if(typeof eveningHash[i].eventIdArray[1] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[1]].fbId));
+     }else{
+      continue;	     
+     }
+     if(typeof eveningHash[i].eventIdArray[2] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[2]].fbId));
+     }else{
+     	 continue;     
+     }
+     	$("#event-list-wrap-trans-"+ i).append(getMorebutton(i));
+
+     			     //$("#event-list-wrap-trans-"+ i).append(getMorebutton(fbArray[eveningHash[i].eventIdArray[3]].dateId));
+
+     /*
+     if(typeof eveningHash[i].eventIdArray[3] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[3]].fbId));
+     }else{
+      continue;
+     }
+     */
+			     //$("#event-list-wrap-" + i).append(getEventRow(eventId));
+	//eveningHash[i];
+	}
 }
 
         //iphone width 320px
@@ -149,7 +189,7 @@ function populateCalendar(friendIdList){
     	    //console.log("Parse Event");
         try {
             var event = makeEvent(value);
-            console.log("event.dateId: "+event.dateId);
+            //console.log("event.dateId: "+event.dateId);
             //tempEventCountGlobal = tempEventCountGlobal +1;
         } catch (err) {
              //console.log("event parse err: " + err);
@@ -169,7 +209,7 @@ function populateCalendar(friendIdList){
                 eveningHash[parseInt(event.dateId)].friendIdArray.push(friendID);
 
                 //If we create an operation that pushes to array as well as adds list element
-                console.log("line before insert friend");
+                //console.log("line before insert friend");
                 fbArray[friendID].insertEvent(fbArray[value.id].fbId, event.dateId);
                 fbArray[value.id].insertFriend(fbArray[friendID].fbId, event.dateId);
                 //Local Event Detection
@@ -192,7 +232,7 @@ function populateCalendar(friendIdList){
     }
 
     function parseFriend(friendValue, val, friendIndex) {
-    	     console.log("Parese friend");
+    	     //console.log("Parese friend");
         if (JSON.parse(friendValue.body).data.length > 0) {
             friendTrackingArray = val.friendTrackingArray;
             //FIRST ONE OF THESE IS COMING BACK UNSUPPORTED
@@ -240,7 +280,8 @@ function populateCalendar(friendIdList){
                 batchItteration = batchItteration + 1;
                 if (batchItteration == batchCallArray.length) {
 
-populateCalendar(friendArray);
+//populateCalendar(friendArray);
+populateCalendar();
                 }
             }, this))
 

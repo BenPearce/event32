@@ -53,9 +53,9 @@ function makeEvent(data) {
     }
     
     //result.dateId =tempDate;
-    console.log("dateToInt Input: "+tempDate);
+    //console.log("dateToInt Input: "+tempDate);
     result.dateId = dateToInteger(tempDate);
-    console.log("result.dateId: "+result.dateId);
+    //console.log("result.dateId: "+result.dateId);
     //console.log("dat id set: "+result.dateId);
     //result.description = data.description;
     
@@ -102,15 +102,15 @@ function makeEvent(data) {
     
     result.insertFriend = function(friendId, dateCode){
     	    eventInsertionCountInternal = eventInsertionCountInternal +1;
-    	    console.log("eveinging instance count: "+result.eveningInstanceCount[result.fbId]);
-    	    console.log("eveinging instance type: "+typeof result.eveningInstanceCount[result.fbId]);
+    	    //console.log("eveinging instance count: "+result.eveningInstanceCount[result.fbId]);
+    	    //console.log("eveinging instance type: "+typeof result.eveningInstanceCount[result.fbId]);
     	    
     	 
     	    if(typeof result.eveningInstanceCount[result.fbId] != 'undefined'){
     	    	 result.eveningInstanceCount[result.fbId] =  parseInt(result.eveningInstanceCount[result.fbId]) + 1;
-    	    	 console.log("friendI pushed count: "+result.eveningInstanceCount[result.fbId]);
+    	    	 //console.log("friendI pushed count: "+result.eveningInstanceCount[result.fbId]);
     	    }else{
-    	    	 console.log("else trig");
+    	    	 //console.log("else trig");
 
     	    	 result.eveningInstanceCount[result.fbId] = 1;  
     	    	 
