@@ -61,15 +61,21 @@ function populateCalendar(friendIdList){
 
 function populateDate(k){
 	
-	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3)) + $("#event-list-wrap-"+k).height();
-            $("#event-list-wrap-"+k).animate({height:exHeight}, 500);
+	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
+            //$("#event-list-wrap-"+k).animate({height:exHeight}, 500);
+            $("#event-list-wrap-ex" +k).animate({height:exHeight}, 500);
             
 	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
 		//console.log(eveningHash[k].eventIdArray[i]);
-		$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"topEvent"));
+		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
+		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
 	
 	exDateIndex = k;
+	//Need scroll up here, i.e. before next line of code
+	
+	//$(".exEvent").
+	
 	
 	if(expandedDate==null){
 		alert("null");
@@ -81,22 +87,18 @@ function populateDate(k){
 		
 	}
 	
-	//expandedDate = k;
+	expandedDate = k;
 }
 
 
 function populateCalendar(){
-	console.log("pop cal trig");
 	for (var i = 0; i < 28; i++) {
-		console.log("pop cal i: "+i);
-			    // $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
-console.log("eveningHash[i].eventIdArray[0] "+fbArray[eveningHash[i].eventIdArray[0]]);
 if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
-				     $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
+	
+$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div><div id='event-list-wrap-ex"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
 
 			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId,"topEvent"));
      }else{
-     	     //$("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
      	           continue;	
       continue;	     
      }
