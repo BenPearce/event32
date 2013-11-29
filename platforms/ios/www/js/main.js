@@ -57,6 +57,32 @@ function populateCalendar(friendIdList){
 }
 */
 
+function populateDate(k){
+	//alert("popdate: "+k);
+	var exHeight = (75*k) ;
+	//$("#event-list-wrap-" + i).animate('{height:exHeight'+"px"+'}');
+        //$("#event-list-wrap-trans-"+ i).animate({height:"3000px"});
+        //$("#event-list-wrap-trans-"+ i).css("{height:2000px;transition: height 2s;-webkit-transition: width 2s;}");
+       // $("#event-list-wrap-" + i).css("{border:solid green 3px;}");
+          //$("#event-list-wrap-"+i).css("{height:2000px;}");
+           //$("#event-list-wrap-"+i).css('height','2000px');
+            $("#event-list-wrap-"+k).animate({height:"1000px"}, 500);
+            //$("#event-list-wrap-"+k).css("{height:2000px;transition: height 2s;-webkit-transition: height 2s;}");
+            //alert($("#event-list-wrap-"+k).html());
+        //{
+        
+        	/*
+{height:2000px;transition: height 2s;
+-webkit-transition: width 2s;}
+}
+*/
+	for (var i = 0; i < eveningHash[k].eventIdArray.length; i++) {
+		console.log(eveningHash[k].eventIdArray[i]);
+		//$("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId));
+	}
+}
+
+
 function populateCalendar(){
 	console.log("pop cal trig");
 	for (var i = 0; i < 28; i++) {
