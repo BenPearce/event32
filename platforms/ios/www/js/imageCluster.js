@@ -2,7 +2,7 @@
             //Since we've already filtered through friendGroup and created eveningHashSubset we can probably parse through eveningHashSubset[i].eventIdArray 
             //We should create list elements with handlers set and create some low cpu expansion for header click event
 
-            function getEventRow(eventId){
+            function getEventRow(eventId,eventClass){
             	    console.log("getEventRow eventID: "+eventId);
             	    var eventRowHtml;
 
@@ -24,11 +24,11 @@
           	 
             	 if(fbArray[eventId].friendIdArray.length == 0){
             	 
-            	 return '<div class="row-wrap"><div class="event-wrap"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
+            	 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
             	 
             	 } else if (fbArray[eventId].friendIdArray.length == 1){
             	 
-                  return '<div class="row-wrap"><div class="event-wrap"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
+                  return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
  
             	 } else {
             	 var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';      
@@ -44,7 +44,7 @@
 		 var two = typeof fbArray[eventId].friendIdArray[2] != "undefined" ? preLeft + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
                  var three = typeof fbArray[eventId].friendIdArray[3] != "undefined" ? preRight + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
 
-                 return '<div class="row-wrap"><div class="event-wrap"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendNameQuad+'</div></div></div></div>';
+                 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendNameQuad+'</div></div></div></div>';
             	 }
             }
 
