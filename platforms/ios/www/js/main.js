@@ -22,6 +22,7 @@
     var eventInsertionCountInternal = 0;
     var friendCount1;
     var eveningCountArray = new Array();
+    var expandedDate = null;
     
     
 
@@ -58,13 +59,26 @@ function populateCalendar(friendIdList){
 */
 
 function populateDate(k){
-	var exHeight = (74*k) + $("#event-list-wrap-"+k).height();
+	
+	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3)) + $("#event-list-wrap-"+k).height();
             $("#event-list-wrap-"+k).animate({height:exHeight}, 500);
             
-	for (var i = 0; i < eveningHash[k].eventIdArray.length; i++) {
+	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
 		//console.log(eveningHash[k].eventIdArray[i]);
 		$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId));
 	}
+	
+	if(expandedDate==null){
+		alert("null");
+	}else if(k>expandedDate){
+		//alert("no");
+	}else if(k = expandedDate){
+		alert("equal");
+	}else{
+		
+	}
+	
+	expandedDate = k;
 }
 
 
