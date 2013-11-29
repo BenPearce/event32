@@ -100,6 +100,7 @@ if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
 			     //$("#event-list-wrap-" + i).append(getEventRow(eventId));
 	//eveningHash[i];
 	}
+	setFriendTap()
 }
 
         //iphone width 320px
