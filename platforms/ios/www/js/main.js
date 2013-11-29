@@ -23,6 +23,7 @@
     var friendCount1;
     var eveningCountArray = new Array();
     var expandedDate = null;
+    var exDateIndex;
     
     
 
@@ -68,6 +69,8 @@ function populateDate(k){
 		$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId));
 	}
 	
+	exDateIndex = k;
+	
 	if(expandedDate==null){
 		alert("null");
 	}else if(k>expandedDate){
@@ -78,7 +81,7 @@ function populateDate(k){
 		
 	}
 	
-	expandedDate = k;
+	//expandedDate = k;
 }
 
 

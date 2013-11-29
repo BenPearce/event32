@@ -127,69 +127,15 @@
 }
 
 function getMorebutton(k,text1){
-	//return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="more-events-text">more events</div></div>';
-	//return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-corner"></div><div class="more-events-cut-away"></div></div><div class="more-events-text">more events</div></div>';
 	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div id="moreevents-'+k+'" class="more-events-text-inner-wrap"><div class="more-events-text">'+text1+'</div><img src="images/downArrow.png" width=25 class="more-events-img"></div></div></div></div>';
 
 }
 
 function getDateHeader(evening){
-	//return '<div class="date-text">'+evening.formattedDate+'<div>';
-	//return '<div class="date-text"><div class="day-wrap">'+evening.dateStringArray[0]+"</div><div class='date-wrap'>"+evening.monthNumber+"/"+evening.dateStringArray[2]+'</div><div>';
-	
-			 //return '<div class="date-wrap-quad"><div class="date-block-quad">hi</div><div class="attendee-block-event-quad">so</div><div class="attendee-block-event-quad">oo</div><div class="attendee-block-event-quad">ww</div></div>';
-	
-			 //return '<div class = "date-wrap"><class = "date-wrap-top">top</div><class = "date-wrap-bot">bot</div></div>';
-	
-			//return '<div class = "date-abrev-wrap"><div class="date-abrev-wrap-top"><div class="date-abrev-quad">'+evening.dateStringArray[2]+'</div><div class="date-quad"></div></div><div class = "dater-abrev-wrap-bot"><div class="date-quad"></div><div class="day-abrev-quad">'+evening.monthNumber+'</div></div></div>'; 
-			 
-			//return '<div class = "date-abrev-wrap"><div class="date-abrev-wrap-top"><div class="date-abrev-quad">'+evening.dateStringArray[2]+'</div><div class="date-quad"></div></div><div class = "dater-abrev-wrap-bot"><div class="date-quad"></div><div class="day-abrev-quad">'+evening.monthNumber+'</div></div></div>'; 
-//return '<div class = "date-abrev-wrap">'+evening.dateStringArray[0]+" "+evening.monthNumber+"."+evening.dateStringArray[2]+'</div>';
-	
-
-//    result.domClone = $("<div><li class='evening' id='' style='width:100%'><div class='date-list-elem' id='date-elem-"+result.id+"' style='border:1px solid black'><div class='date-wrap' style='height:50px;margin-left:15px;margin-top:10px;margin-bottom:10px;display:inline-block;background:white;border:2px solid black;height:50px;width:50px;padding:0px 0px;vertical-align:top'><div class='day-name-wrap' style='display:block;text-align:center;font-size:10pt'></div><div class='day-num-wrap' style='display:block;text-align:center;font-size:10pt'></div><div class='month-wrap' style='display:block;text-align:center;font-size:10pt'></div></div><div class='date-img-cluster' style='display:inline-block;margin:10px 5px;vertical-align:top'><div class='img-cluster-top' style='display:block'></div><div class='img-cluster-bot' style='visibility:hidden;display:block;height:25px'></div></div><ul style='display:block;height:100%;padding:0px 0px' class='eventExpand'></ul></div></li></div>");
-
-        //return '<div id="dateDisplayer-'+evening.id+'" class="date-displayer row-wrap"><div id="date-displayer-inner-'+evening.id+'" class="date-displayer-inner"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="get-above-events-wrap"></div></div></div>';
-
-        //return '<div id="dateDisplayer-'+evening.id+'" class="row-wrap dateDisplayer"><div id="date-displayer-inner-'+evening.id+'" class="date-displayer-inner"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="get-above-events-wrap"></div></div></div>';
-        //return '<div id="dateDisplayer-'+evening.id+'" class="date-row row-wrap opaque"><div id="date-displayer-inner-'+evening.id+'" class="date-displayer-inner"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="get-above-events-wrap"></div></div></div>';
-        return '<div id="dateDisplayer-'+evening.id+'" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';
-
-
-			/*		 
-return '<div class = "date-wrap">
-
-<class = "date-wrap-top">
-<class = "date-wrap-quad"></div>
-<class = "date-wrap-quad"></div>
-</div>
-
-<class = "date-wrap-bot">
-<class = "date-wrap-quad"></div>
-<class = "date-wrap-quad"></div>
-</div>
-
-</div>';
-*/
-			 //return '<div class="attendee-wrap-event-quad"><div class="attendee-block-event-quad">df</div><div class="attendee-block-event-quad">hi</div><div class="attendee-block-event-quad">hi</div><div class="attendee-block-event-quad">hi</div></div>';	
+        return '<div id="dateDisplayer-'+evening.id+'" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';	
 }
 
 function getDateHeaderHtml(i,evening){
-	
-	/*
-	         var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" width=25 height=25 src="';      
-		 var preLeft = '<div class="event-friend-img-wrap-quad left"><img class="event-friend-img-quad" width=25 height=25 src="'; 
-		 var preRight = '<div class="event-friend-img-wrap-quad right"><img class="event-friend-img-quad" width=25 height=25 src="'; 
-	         var post = '"></div>'; 
-	         var friendImgQuad = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : friendPre + "images/pinkX.png"+ post;
-            	 var friendNameQuad = typeof fbArray[fbArray[eventId].friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+fbArray[fbArray[eventId].friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + fbArray[fbArray[eventId].friendIdArray[0]].nameArray[1] +"</div><div class='extra-attendees-wrap'>+ "+(fbArray[eventId].friendIdArray.length - 1)+" more</div>" : "event-undefined";
-
-            	 var zero = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? preLeft + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-		 var one = typeof fbArray[eventId].friendIdArray[1] != "undefined" ? preRight + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[1]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;      
-		 var two = typeof fbArray[eventId].friendIdArray[2] != "undefined" ? preLeft + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-                 var three = typeof fbArray[eventId].friendIdArray[3] != "undefined" ? preRight + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-*/
-
             	 var friendName = typeof fbArray[evening.friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+fbArray[evening.friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + fbArray[evening.friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
                  var eventName = typeof evening !=   "undefined"  ? evening.name : "eventNameUndefined";
                  
@@ -207,14 +153,8 @@ function getDateHeaderHtml(i,evening){
 		 var two = typeof evening.friendIdArray[2] != "undefined" ? preLeft + "https://graph.facebook.com/"+fbArray[evening.friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
                  var three = typeof evening.friendIdArray[3] != "undefined" ? preRight + "https://graph.facebook.com/"+fbArray[evening.friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
 
-
-
-                 //return '<div class="row-wrap"><div class="event-wrap"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendNameQuad+'</div></div></div></div>';
-	
                return '<div><div class="event-wrap"><div class="row-pic-wrap event-pic-wrap"></div><div class="row-title-wrap event-title-wrap"><div class="date-header">'+evening.formattedDate+'</div></div></div><div id = "eveningFriendGroup-'+i+'" class="event-friend-group-wrap"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendNameQuad+'</div></div></div></div>';
 
-                 
-	//return evening.formattedDate;
 }
 
 function getImage(elemId){    
