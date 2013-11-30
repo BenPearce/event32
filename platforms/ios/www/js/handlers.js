@@ -126,7 +126,7 @@
                     
                     $('#testButton').tap(function(){
                     	var y = $(window).scrollTop();  //your current y position on the page      
-                    	$(window).scrollTop(y-122);   
+                    	$(window).scrollTop(y-testGap);   
                     });
 
                     /*

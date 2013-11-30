@@ -24,6 +24,7 @@
     var eveningCountArray = new Array();
     var expandedDate = null;
     var exDateIndex;
+    var testGap;
     
     
 
@@ -60,6 +61,9 @@ function populateCalendar(friendIdList){
 */
 
 function populateDate(k){
+		//$("#dateMainList").scrollview("scrollTo", 100, 0);
+		
+	
 	
 	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
             //$("#event-list-wrap-"+k).animate({height:exHeight}, 500);
@@ -71,23 +75,30 @@ function populateDate(k){
 		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
 	
-	exDateIndex = k;
+	//exDateIndex = k;
 	//Need scroll up here, i.e. before next line of code
-	
-	//$(".exEvent").
-	
 	
 	if(expandedDate==null){
 		alert("null");
+		
 	}else if(k>expandedDate){
 		//alert("no");
+			var scrollDiff = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
+			testGap = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
+			//$("#scrollDiv").scrollview("scrollTo", 0, 0);
+			//$("#dateMainList").scrollview("scrollTo", 100, 0);
+			/*
+				var y = $(window).scrollTop();  //your current y position on the page      
+                    	$(window).scrollTop(y-scrollDiff);   
+                    	*/
+		    $("#event-list-wrap-ex" +k).html("");
 	}else if(k = expandedDate){
+		    $("#event-list-wrap-ex" +k).html("");
 		alert("equal");
 	}else{
 		
-	}
-	
-	expandedDate = k;
+	}	
+		expandedDate = k;
 }
 
 

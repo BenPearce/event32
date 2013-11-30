@@ -13,9 +13,10 @@
    <body>     
 
            <div data-role="page" id="date-page" class="type-interior" style="width:100%">
-                    <div data-role="header" data-position="fixed">
+                    <div data-role="header" id="header" data-position="fixed">
 <div id="header-pic"></div><div id="header-text"></div>
                     </div>
+                    <img class="background" src="images/bgText_18.png" />
            <a data-role='button' id = 'fb-login-button'>Facebook Login</a>
            <div id="fb-root"></div>
                   <div data-role="popup" data-position-to="#dateMainList" style="margin-top:300px" id="popupMap1" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
