@@ -66,7 +66,8 @@ function populateDate(k,e){
 //alert("pop date");
 	testGap = $("#event-list-wrap-ex" +expandedDate).height();
 
-		         	 $("#event-list-wrap-ex" +expandedDate).html("");
+		         	 //$("#event-list-wrap-ex" +expandedDate).html("");
+		         	 $("#event-list-wrap-ex" +expandedDate).empty();
 	 $("#event-list-wrap-ex" +expandedDate).height("0");
 	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
             $("#event-list-wrap-ex" +k).animate({height:exHeight}, 500);
@@ -82,7 +83,7 @@ function populateDate(k,e){
 			var y = $(window).scrollTop();  //your current y position on the page      
                     	$(window).scrollTop(y-testGap); 
    
-	}else if(k = expandedDate){
+	}else if(k == expandedDate){
 		   
 	}else{
 		
@@ -92,7 +93,7 @@ function populateDate(k,e){
 		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
 
-
+//alert($("#event-list-wrap-ex" +k).html());
 		expandedDate = k;
 }
 
