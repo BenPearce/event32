@@ -27,6 +27,16 @@ list-style-type: none;
     left: 0;
 }
 
+.fixed{
+position:fixed!important;
+overflow-y: hidden!important; 
+}
+
+.relative{
+position:relative!important;	
+overflow-y: visible!important; 
+}
+
 .event-list-wrap{
 	/*border-left:solid black 3px;*/
 	/*border-right:solid black 3px;*/
@@ -75,6 +85,7 @@ border-bottom: solid hsl(0, 0%, 0%) 3px;
 border-left: solid hsl(0, 0%, 0%) 3px;	
 */
 }
+
 
 .cut-away-corner-tr{
 	

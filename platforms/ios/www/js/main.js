@@ -60,47 +60,39 @@ function populateCalendar(friendIdList){
 }
 */
 
-function populateDate(k){
-		//$("#dateMainList").scrollview("scrollTo", 100, 0);
-		
-	
-	
+
+
+function populateDate(k,e){
+//alert("pop date");
+	testGap = $("#event-list-wrap-ex" +expandedDate).height();
+
+		         	 $("#event-list-wrap-ex" +expandedDate).html("");
+	 $("#event-list-wrap-ex" +expandedDate).height("0");
 	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
-            //$("#event-list-wrap-"+k).animate({height:exHeight}, 500);
             $("#event-list-wrap-ex" +k).animate({height:exHeight}, 500);
             
-	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
-		//console.log(eveningHash[k].eventIdArray[i]);
-		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
-		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
-	}
-	
-	//exDateIndex = k;
-	//Need scroll up here, i.e. before next line of code
-	 $("#event-list-wrap-ex" +expandedDate).html("");
-	 testGap = $("#event-list-wrap-ex" +expandedDate).height();
-	 $("#event-list-wrap-ex" +expandedDate).height("0");
-	if(expandedDate==null){
-		alert("null");
-		
+   
+         
+            
+            	if(expandedDate==null){
+
 	}else if(k>expandedDate){
-		//alert("no");
+
 			var scrollDiff = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
-			//testGap = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
 			var y = $(window).scrollTop();  //your current y position on the page      
                     	$(window).scrollTop(y-testGap); 
-			//$("#scrollDiv").scrollview("scrollTo", 0, 0);
-			//$("#dateMainList").scrollview("scrollTo", 100, 0);
-			/*
-				var y = $(window).scrollTop();  //your current y position on the page      
-                    	$(window).scrollTop(y-scrollDiff);   
-                    	*/
-		   
+   
 	}else if(k = expandedDate){
 		   
 	}else{
 		
-	}	
+	}
+           
+	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
+		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
+	}
+
+
 		expandedDate = k;
 }
 
