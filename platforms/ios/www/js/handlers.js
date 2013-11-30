@@ -30,7 +30,7 @@
                          		});
                          		*/
                          		
-                         		
+                         		/*
                          		$(".more-events-text-inner-wrap").bind('touchstart',function(){
                          			$(this).addClass('more-events-button-touched');	
                          		});
@@ -46,8 +46,8 @@
                          			//alert(eveId);
                          			//moreevents-
                          		});
+                         		*/
                          		
-                         		/*
                          		$(".more-events-text-inner-wrap").click('touchend',function(e){
                          			$(this).removeClass('more-events-button-touched');
                          			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
@@ -56,7 +56,6 @@
                          			//moreevents-
                          		});                 		
                          		
-                         		*/
                          		$(".event-wrap").bind('touchstart',function(){
                          			$(this).addClass('event-wrap-touched');	
                          		});
