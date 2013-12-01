@@ -269,7 +269,7 @@ width:100px;
 height:100px;
 top:0px;
 }
-
+/*
 .selectedListFlyer .event-name-wrap{
 	position:initial !important;
 	text-align: center;
@@ -290,12 +290,8 @@ top:0px;
 	color:white;
 	background:black;
 }
-
-@-webkit-keyframes nameAnimation /* Safari and Chrome */
-{
-from {left:85px;top:5px}
-to {left:25px;top:5px}
-}
+*/
+/*
 
 .event .formatted-date-wrap{	
 	color:white;
@@ -315,7 +311,7 @@ to {left:25px;top:5px}
          -webkit-animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes dateAnimation /* Safari and Chrome */
+@-webkit-keyframes dateAnimation 
 {
 from {left:85px;top:20px}
 to {left:25px;top:234.42px}
@@ -335,12 +331,12 @@ to {left:25px;top:234.42px}
 	 position:absolute;
 }
 
-@-webkit-keyframes attendeeAnimation /* Safari and Chrome */
+@-webkit-keyframes attendeeAnimation 
 {
 from {left:85px;top:35px;}
 to {left:205px;top:0px;}
 }
-
+*/
 .selectedListFlyer .formatted-date{
 padding-top:25px;
 font-family:"Impact", Charcoal, sans-serif;
