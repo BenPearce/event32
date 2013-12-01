@@ -28,8 +28,44 @@
             	 
             	 } else if (fbArray[eventId].friendIdArray.length == 1){
             	 
+                  //return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
+                  
                   return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
- 
+                  /*
+                  return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">
+                  <div class="row-pic-wrap event-pic-wrap">
+                  <div class="row-pic event-pic">'+eventImg+'</div>
+                  </div>
+                  <div class="row-title event-title">'+eventName+'</div>
+                  </div>
+                  <div class="friend-wrap">
+                  <div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'">
+                  <div class="row-pic friend-pic">'+friendImg+'</div>
+                  </div>
+                  <div class="row-title-wrap friend-title-wrap">
+                  <div class="row-title friend-title">'+friendName+'</div>
+                  </div>
+                  </div>
+                  </div>';
+                  */
+                  /*
+                  return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">
+                  <div class="row-pic-wrap event-pic-wrap">
+                  <div class="row-pic event-pic">'+eventImg+'</div>
+                  </div>
+                  <div class="row-title event-title">'+eventName+'</div>
+                  </div>
+                  <div class="friend-wrap">
+                  <div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'">
+                  <div class="row-pic friend-pic">'+friendImg+'</div>
+                  </div>
+                  <div class="row-title-wrap friend-title-wrap">
+                  <div class="row-title friend-title">'+friendName+'</div>
+                  </div>
+                  </div>
+                  </div>';
+                  */
+
             	 } else {
             	 var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';      
 		 var preLeft = '<div class="event-friend-img-wrap-quad left"><img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="'; 
