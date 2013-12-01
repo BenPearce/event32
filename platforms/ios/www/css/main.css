@@ -939,7 +939,7 @@ bottom:2px;
         background:black;
         font-weight:bold;  
 }
-
+/*
 .get-above-events-wrap{
 	height:85%;
 	width:80%;
@@ -963,8 +963,6 @@ bottom:2px;
 	margin-left: 5px;
 }
 
-
-
 .friend-first-last-wrap{
 	display:block;
 	width:100%;
@@ -974,7 +972,7 @@ bottom:2px;
 	display:block;
 	width:100%;
 }
-
+*/
 .event-title{
 		  line-height: 1.5em;
      height: 4.5em; 
