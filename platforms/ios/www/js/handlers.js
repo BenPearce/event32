@@ -32,12 +32,12 @@
                          		
                          		/*
                          		$(".more-events-text-inner-wrap").bind('touchstart',function(){
-                         			$(this).addClass('more-events-button-touched');	
+                         			//$(this).addClass('more-events-button-touched');	
                          		});
                          		
                          		$(".more-events-text-inner-wrap").bind('touchend',function(e){
                          				//alert("touchend");
-                         			$(this).removeClass('more-events-button-touched');
+                         			//$(this).removeClass('more-events-button-touched');
                          			//var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
                                                  //$(this).removeClass('more-events-button-touched');
                          			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
@@ -47,14 +47,22 @@
                          			//moreevents-
                          		});
                          		*/
-                         		
-                         		$(".more-events-text-inner-wrap").click('touchend',function(e){
+                         		/*
+                         		$(".more-events-text-inner-wrap").click(function(e){
                          			$(this).removeClass('more-events-button-touched');
                          			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
                          			populateDate(eveId,e);
                                                  //alert(eveId);
                          			//moreevents-
-                         		});                 		
+                         		});
+                         		*/
+                         		$(".more-events-text-inner-wrap").tap(function(e){
+                         			$(this).removeClass('more-events-button-touched');
+                         			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
+                         			populateDate(eveId,e);
+                                                 //alert(eveId);
+                         			//moreevents-
+                         		});        
                          		
                          		$(".event-wrap").bind('touchstart',function(){
                          			$(this).addClass('event-wrap-touched');	

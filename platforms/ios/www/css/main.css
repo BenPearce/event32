@@ -114,7 +114,7 @@ body{
 	color:black;
 	margin:auto;
 	margin-bottom:5px;
-	box-shadow: 2px 2px 2px hsl(0, 9%, 38%);
+	/*box-shadow: 2px 2px 2px hsl(0, 9%, 38%);*/
 	position:relative;
 background: -moz-linear-gradient(top, rgba(183,182,186,0) 0%, rgba(183,182,186,0.07) 44%, rgba(183,182,186,0.07) 46%, rgba(183,182,186,0.07) 49%, rgba(183,182,186,0) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,182,186,0)), color-stop(44%,rgba(183,182,186,0.07)), color-stop(46%,rgba(183,182,186,0.07)), color-stop(49%,rgba(183,182,186,0.07)), color-stop(100%,rgba(183,182,186,0))); /* Chrome,Safari4+ */
@@ -205,9 +205,11 @@ border: 1px solid hsl(50, 94%, 43%);;
          overflow-x:hidden;
          background:white;
         /* border:2px solid blue;*/
+        /*
             box-shadow: 0 0 10px rgba(0, 0, 255, 1);
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 255, 1); 
     -moz-box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+         */
     border:1px solid rgba(0,0,255, 0.8); 
          
 }
@@ -240,11 +242,11 @@ margin-left:5px;
 	height:50px;
 	margin:0px auto;
 	display:block;
-	box-shadow: 2px 2px 2px 0px hsl(0, 9%, 38%);
+	/*box-shadow: 2px 2px 2px 0px hsl(0, 9%, 38%);*/
 }
 
 .friend-pic-wrap-touched{
-	box-shadow: 0px 2px 2px 2px hsl(0, 9%, 38%);
+	/*box-shadow: 0px 2px 2px 2px hsl(0, 9%, 38%);*/
 }
 
 .friend-title-wrap{
@@ -307,7 +309,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', end
 	/*font-weight:normal!important;*/
 	/*margin:2px;*/
 	
-	box-shadow: 2px 2px 2px hsl(0, 9%, 38%);
+	/*box-shadow: 2px 2px 2px hsl(0, 9%, 38%);*/
 	
 background: -moz-linear-gradient(top, rgba(183,182,186,0) 0%, rgba(183,182,186,0.07) 44%, rgba(183,182,186,0.07) 46%, rgba(183,182,186,0.07) 49%, rgba(183,182,186,0) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,182,186,0)), color-stop(44%,rgba(183,182,186,0.07)), color-stop(46%,rgba(183,182,186,0.07)), color-stop(49%,rgba(183,182,186,0.07)), color-stop(100%,rgba(183,182,186,0))); /* Chrome,Safari4+ */

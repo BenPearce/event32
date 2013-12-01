@@ -64,22 +64,21 @@ function populateCalendar(friendIdList){
 
 function populateDate(k,e){
 //alert("pop date");
-	testGap = $("#event-list-wrap-ex" +expandedDate).height();
+
+	//testGap = $("#event-list-wrap-ex" +expandedDate).height();
 
 		         	 //$("#event-list-wrap-ex" +expandedDate).html("");
-		         	 $("#event-list-wrap-ex" +expandedDate).empty();
-	 $("#event-list-wrap-ex" +expandedDate).height("0");
-	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
-	
-            //$("#event-list-wrap-ex" +k).animate({height:exHeight}, 500);
-            //$("#event-list-wrap-ex" +k).height(exHeight);
-             //$("#event-list-wrap-ex" +k).css('background','yellow');
-              //$("#event-list-wrap-ex" +k).css({background:yellow});
-            // $("#event-list-wrap-ex" +k).css("background-color","yellow");
-             //$("#event-list-wrap-ex" +k).css("height",exHeight);
+		         	  //$("#event-list-wrap-ex" +expandedDate).height("0");
+		         	 //$("#event-list-wrap-ex" +expandedDate).empty();
+
+	//var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
+
              //$("#event-list-wrap-ex" +k).height(exHeight);
-             $("#event-list-wrap-ex" +k).height("300");
-         
+             
+             $("#event-list-wrap-ex" +k).height("200");
+             
+             	
+          //$("#event-list-wrap-ex" +k).height("500");
             /*
             	if(expandedDate==null){
 
@@ -100,9 +99,8 @@ function populateDate(k,e){
 		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
 	*/
-
-//alert($("#event-list-wrap-ex" +k).html());
-		expandedDate = k;
+		//expandedDate = k;
+		
 }
 
 
