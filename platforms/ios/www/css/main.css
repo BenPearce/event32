@@ -41,8 +41,9 @@ overflow-y: visible!important;
 		transition: height 2s;
 -webkit-transition: height 2s; /* Safari */
 height:222px;
-	/*border-left:solid black 3px;*/
-	/*border-right:solid black 3px;*/
+	border-left:solid black 1px;
+	border-right:solid black 1px;
+	border-top:solid black 1px;
 	/*border-right:solid black 3px;*/
 }
 

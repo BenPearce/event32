@@ -128,6 +128,7 @@
 
 function getMorebutton(k,text1){
 	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div id="moreevents-'+k+'" class="more-events-text-inner-wrap"><div class="more-events-text">'+text1+'</div><img src="images/downArrow.png" width=25 class="more-events-img"></div></div></div></div>';
+	
 
 }
 
