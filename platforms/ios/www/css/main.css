@@ -245,13 +245,13 @@ margin-left: 5px;
 .friend-img{
 border:solid black 1px;	
 }
-
-@-webkit-keyframes eventWrap /* Safari and Chrome */
+/*
+@-webkit-keyframes eventWrap 
 {
 from {height:50px;}
 to {height:470px;}
 }
-
+*/
 .selectedListFlyer .event-img{
 	border:solid black 1px!important;
 	position:initial !important;
