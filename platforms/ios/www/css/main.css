@@ -337,6 +337,7 @@ from {left:85px;top:35px;}
 to {left:205px;top:0px;}
 }
 */
+/*
 .selectedListFlyer .formatted-date{
 padding-top:25px;
 font-family:"Impact", Charcoal, sans-serif;
@@ -348,7 +349,9 @@ padding-top:25px;
 font-family:Impact, Charcoal, sans-serif;
 font-size:16pt;
 }
+*/
 
+/*
 .formatted-date{
 	text-align: center;
 	margin: 4px 0px;
@@ -477,6 +480,7 @@ line-height: 21pt;
 	font-size:18pt;
 	display:block;
 }
+*/
 
 #fb-login-button{
 	display:none;
