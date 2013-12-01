@@ -273,10 +273,39 @@ overflow-x:hidden;
 display:block;	
 }
 
+.quadBr{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+
+.quadBl{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+}
+
+.quadUr{
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
+.quadUl{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
 .friend-wrap{
+
 	margin-top:3px;
 	margin-left:8px;
 	float:left;
+	
+	position:relative;
+	height:50px;
+	width:50px;
 	/*display:inline-block;*/
 	/*margin:2px;*/
 	/*height:100%;
