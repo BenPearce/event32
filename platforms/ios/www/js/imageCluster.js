@@ -13,11 +13,11 @@
             	 var friendName = typeof fbArray[fbArray[eventId].friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+fbArray[fbArray[eventId].friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + fbArray[fbArray[eventId].friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
                  var eventName = typeof fbArray[eventId] !=   "undefined"  ? fbArray[eventId].name : "eventNameUndefined";
                  
-            	 var friendPre = '<div class="event-friend-img-wrap"><img class="event-friend-img" style="pointer-events:none" width=50 height=50 src="'; 
+            	 var friendPre = '<img class="event-friend-img" style="pointer-events:none" width=50 height=50 src="'; 
 
             	 var eventPre = '<img class="event-img" style="pointer-events:none" width=50 height=50 src="'; 
 	         var post1 = '">'; 
-	         var post = '"></div>'; 
+	         var post = '">'; 
 	         var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
 	         var titlePost = '"></div>';  
             	 var friendImg = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
