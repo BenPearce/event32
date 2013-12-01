@@ -491,6 +491,8 @@ line-height: 21pt;
 	margin-bottom:10px;
 }
 
+/*
+
 .selectedListFlyer .flyer-wrap{
 	margin:auto;
 	}
@@ -501,7 +503,9 @@ line-height: 21pt;
 	vertical-align:middle;
 	background: hsl(0, 0%, 0%);
 }
+*/
 
+/*
 .event-friend-wrap{
 	display:inline-block;
 	margin:1px;
@@ -593,7 +597,7 @@ display:inline-block;
         right: 0px;
         z-index: 3;
 }
-
+*/
 
 .date-text{
 	text-align: center;
