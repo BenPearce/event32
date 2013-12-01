@@ -17,7 +17,7 @@
 
             	 var eventPre = '<img class="event-img" style="pointer-events:none" width=50 height=50 src="'; 
 	         var post1 = '">'; 
-	         var post = '">'; 
+	         var post = '"></div>'; 
 	         var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
 	         var titlePost = '"></div>';  
             	 var friendImg = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
@@ -25,13 +25,13 @@
           	 
             	 if(fbArray[eventId].friendIdArray.length == 0){
             	 
-            	 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div></div>';
+            	 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
             	 
             	 } else if (fbArray[eventId].friendIdArray.length == 1){
             	 
                   //return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
                  // return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
-                    return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">'+eventImg+'<div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'">'+friendImg+'</div></div></div>';
+                    return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">'+eventImg+'<div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"  id="friend-'+eventId+'"><div class="row-pic-wrap friend-pic-wrap">'+friendImg+'</div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
 
             	 } else {
             	 var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';      
