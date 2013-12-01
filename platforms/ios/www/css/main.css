@@ -39,16 +39,16 @@ height:222px;
 	border-right:solid black 1px;
 	border-top:solid black 1px;
 }
-
+/*
 .date-list-elem-outter{
 	
 padding:0px!important;
 }
-
+*/
 .hidden{
 	display:none!important;
 }
-
+/*
 .more-events-corner-bl{
 position: absolute;
 height: 10px;
@@ -62,10 +62,10 @@ border-left: solid hsl(0, 0%, 0%) 3px;
 
 .event-list-wrap-ex{
 	transition: height 2s;
--webkit-transition: height 2s; /* Safari */
+-webkit-transition: height 2s; 
 height:0px;
 }
-
+*/
 #dateMainList {
 	width: 97%;
 margin: auto;
