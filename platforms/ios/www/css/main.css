@@ -375,7 +375,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	display:block;
 	width:95%;
 }
-
+/*
 .more-events-corner{
 	background:white;
 	height:30%;
@@ -385,7 +385,7 @@ left:0px;
 border-left:solid black 3px;
 border-bottom:solid black 3px;
 }
-
+*/
 .row-wrap{
 	height:64px;
 	padding:5px 0px;
@@ -402,7 +402,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .date-row{
 		height:50px;
 }
-
+/*
 .date-list-elem{
 	/*border-right:solid black 5px !important;*/
 	background:none!important;
@@ -413,6 +413,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .flyer-img-wrap{
 	display:block;
 }
+*/
 /*
 .attendee-quad-row{
 	display:block;
