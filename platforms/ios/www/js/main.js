@@ -130,37 +130,7 @@ function populateCalendar(){
 	for (var i = 0; i < 28; i++) {
 if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
 	
-//$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div><div id='event-list-wrap-ex-"+i+"' class='event-list-wrap-ex'></div></div></div></div></div></li>");
-
-//$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
 $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(eveningHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
-
-/*
-$("#dateMainList").append(
-	"<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >
-	<div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> 
-	<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'>
-	<div id='event-list-wrap-"+i+"' class='event-list-wrap'></div>
-	</div>
-	</li>");
-*/
-
-/*
-$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >
-	
-	<div  class='date-list-elem-wrap'>
-	<div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> 
-	<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> 
-	<div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  
-	<div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> 
-	<div id='event-list-wrap-"+i+"' class='event-list-wrap'>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</li>");
-	*/
 
 			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId,"topEvent"));
      }else{
@@ -290,15 +260,12 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
     }
 
     function parseEvent(value, friendID) {
-    	    //console.log("Parse Event");
         try {
             var event = makeEvent(value);
-            //console.log("event.dateId: "+event.dateId);
             //tempEventCountGlobal = tempEventCountGlobal +1;
         } catch (err) {
              //console.log("event parse err: " + err);
         }
-        //console.log("Parse Event1");
         	    if (event.dateId >= 0) {
         	    	    //console.log("Parse Event2");
             //Make sure date isn't more than three monthes in the future
@@ -309,7 +276,6 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
                     eveningHash[parseInt(event.dateId)].eventIdArray.push(value.id);
                     eveningHash[parseInt(event.dateId)].friendListEventCalendarState = eveningHash[parseInt(event.dateId)].friendListEventCalendarState & setBit(0, 3); 
                 }
-                //console.log("Parse Event3");
                 eveningHash[parseInt(event.dateId)].friendIdArray.push(friendID);
 
                 //If we create an operation that pushes to array as well as adds list element
@@ -332,11 +298,9 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
                 }
             } //Is there already an entry for date code      
         } //Is date Tonuight
-
     }
 
     function parseFriend(friendValue, val, friendIndex) {
-    	     //console.log("Parese friend");
         if (JSON.parse(friendValue.body).data.length > 0) {
             friendTrackingArray = val.friendTrackingArray;
             //FIRST ONE OF THESE IS COMING BACK UNSUPPORTED

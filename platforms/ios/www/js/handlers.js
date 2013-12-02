@@ -58,7 +58,7 @@
                          			//moreevents-
                          		});
                          		*/
-                         		
+                         		/*
                          		$(".more-events-text-wrap").bind('touchstart',function(){
                          				$(this).addClass('more-events-button-touched');
                          		});
@@ -66,6 +66,12 @@
                          		$(".more-events-text-wrap").bind('touchend',function(){
                          				$(this).removeClass('more-events-button-touched');
                          				populateDate($(this).attr('data-dateId'));
+                         		});
+                         		*/
+                         		$(".more-events-text-wrap").tap(function(){
+                         				$(this).addClass('more-events-button-touched');
+                         				populateDate($(this).attr('data-dateId'));
+                         				$(this).removeClass('more-events-button-touched');
                          		});
                          		/*
                          		$(".more-events-text-inner-wrap").tap(function(){
