@@ -496,7 +496,7 @@ border: solid hsl(0, 100%, 100%) 1px;
 .hidden{
 	display:none!important;
 }
-
+/*
 .event-list-elem-fixed{
 	display:block;
 }
@@ -538,7 +538,7 @@ position: absolute;
 display: block;
 z-index: 20;	
 }
-
+*/
 .quad{
 height: 25px;	
 }
@@ -560,21 +560,16 @@ height: 25px;
 color:black;
 width: 75px;
 text-align: center;
-text-align: center;
 
 font-size:10pt;
 }
 
-.event-list-ex{
-display:block;	
-}
 
 .date-header{
 	font-size:12pt;
 }
 
 .date-abrev-bot{
-	display:block;
 	text-align:center;
 	        font-size:12pt;
 	        line-height: 12pt;
@@ -599,7 +594,6 @@ bottom:2px;
 }
 
 .date-abrev-top{
-	display:block;
 	text-align:center;
 	font-family:"Arial";
 	        font-size:16pt;
@@ -611,7 +605,6 @@ bottom:2px;
 }
 
 .date-abrev-wrap{
-        display:block;
         font-family:"Arial";
         float:left;
         /*border-top-right-radius: .5em;*/
