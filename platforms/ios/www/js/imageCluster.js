@@ -67,7 +67,7 @@
             	    	     return getEventRow(evening.eventIdArray[0]) + getEventRow(evening.eventIdArray[1]) + getEventRow(evening.eventIdArray[2]) + getEventRow(evening.eventIdArray[3]);
             	    }
             }
-           
+           /*
             function getImageCluster(groupArray){    
 		    if(groupArray.length == 0){ 
 		    	
@@ -132,7 +132,7 @@
 			}  
                 }
 }
-
+*/
 function getMorebutton(k,text1){
 	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div id="moreevents-'+k+'" data-dateId="'+k+'" class="more-events-text-inner-wrap"><div class="more-events-text">'+text1+'</div><img src="images/downArrow.png" width=25 class="more-events-img"></div></div></div></div>';
 	

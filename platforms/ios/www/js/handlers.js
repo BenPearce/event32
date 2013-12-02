@@ -138,12 +138,12 @@
                     */
                     	}
                     	
-                     
+                     /*
     	        	$("#all").tap(function(){	                                
     	        		$('.selected-event-ex').toggleClass("selected-event-ex","remove");
     	        		populateCalendar(friendArray.slice(0));
                          });   	
-
+*/
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
     $(document).ready(function () {
     		    //alert("doc ready");
@@ -152,12 +152,12 @@
     		    		    
     		    });
     		    */
-                    
+                    /*
                     $('#testButton').tap(function(){
                     	var y = $(window).scrollTop();  //your current y position on the page      
                     	$(window).scrollTop(y-testGap);   
                     });
-
+*/
                     /*
     		         $(document).bind("scrollstart", function() {
     		         		 
