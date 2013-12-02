@@ -413,7 +413,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .flyer-img-wrap{
 	display:block;
 }
-
+/*
 .attendee-quad-row{
 	display:block;
 	height:25px;
@@ -437,8 +437,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	border-bottom:solid black 1px;
 }
 
-
-
+*/
+/*
 
 .friend-group-display-wrap{
 	background:hsla(0, 0%, 0%, 0.70);
@@ -488,57 +488,11 @@ border: solid hsl(0, 100%, 100%) 1px;
 .forced-block{
 		display:block!important;
 }
-
-.forced-block .pinkX{
-	
-}
-
+*/
 .hidden{
 	display:none!important;
 }
-/*
-.event-list-elem-fixed{
-	display:block;
-}
 
-.event-list-elem-fixed-img{
-	display:inline-block;
-}
-
-.event-sub-elem-name{
-	display:inline-block;
-	border:solid hsla(0, 100%, 100%, 0.48) 1px;
-}
-
-.event-sub-elem{
-	display:none;
-}
-
-.event-cluster-wrap{
-	display:inline-block;
-	background:white;
-	height: 100%;
-}
-
-.friend-cluster-wrap{
-	display:inline-block;
-	height: 100%;
-	margin:auto;
-}
-
-.selected-friend-cluster{
-	background:white!important;
-}
-
-
-.tap-wrap{
-width: 54px;
-height: 54px;
-position: absolute;
-display: block;
-z-index: 20;	
-}
-*/
 .quad{
 height: 25px;	
 }
