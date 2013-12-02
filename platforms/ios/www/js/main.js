@@ -26,6 +26,7 @@
     var exDateIndex;
     var testGap;
     var mainCalendar = makeCalendar();
+    var displayCalendar;
 
 function populateDate(k){
 		         	 if(expandedDate != null){
@@ -33,7 +34,7 @@ function populateDate(k){
 		         	   $(".exEvent").remove();
 		         	 }
 		         	 
-	var exHeight = (74*((eveningHash[k].eventIdArray.length)));
+	var exHeight = (74*((displayCalendar[k].eventIdArray.length)));
              $("#event-list-wrap-"+k).css("height",exHeight);
             /*
             	if(expandedDate==null){
@@ -47,14 +48,15 @@ function populateDate(k){
            */ 
            
            var html = "";           
-	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
-		html = html +getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent");
+	for (var i = 3; i < displayCalendar[k].eventIdArray.length; i++) {
+		html = html +getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent");
 	}
 	$("#event-list-wrap-" +k).append(html);	
 		expandedDate = k;		
 }
 
 function populateCalendar(calendar){
+	displayCalendar = calendar;
 	for (var i = 0; i < 28; i++) {
 if(typeof calendar[i].eventIdArray[0] != "undefined"){
 	
