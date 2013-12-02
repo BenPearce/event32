@@ -156,14 +156,8 @@ overflow-x:hidden;
 	position:relative;
 	height:50px;
 	width:50px;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
-/*
-.event-friend-group-wrap{
-		display:inline-block;
-	margin:2px;
-}
-*/
+
 .friend-wrap-touched{
 	margin-top:4px;
 	margin-left:2px;
