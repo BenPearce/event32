@@ -72,12 +72,15 @@ function populateDate(k){
 		         	 $("#event-list-wrap-ex-" +expandedDate).empty();
 		         	 */
 		         	 if(expandedDate != null){
+		         	 	 //alert("no null");
 		         	   //$("#event-list-wrap-" +expandedDate).height("200");
 		         	   $("#event-list-wrap-"+expandedDate).css("height","222px");
-		         	 $("#event-list-wrap-" +expandedDate).empty();	 
+		         	 //$("#event-list-wrap-" +expandedDate).empty();
+		         	 //$("#event-list-wrap-"+expandedDate).find(".exEvent").remove();
+		         	   //$(".exEvent").remove();
 		         	 }
 
-	//var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
+	var exHeight = (74*((eveningHash[k].eventIdArray.length)));
 
              //$("#event-list-wrap-ex-" +k).height(exHeight);
              //$("#event-list-wrap-ex-" +k).height("800");
@@ -85,7 +88,10 @@ function populateDate(k){
              //$("#event-list-wrap-ex" +k).height("200");
              //alert( $("#event-list-wrap-ex" +k).html());
              //$("#event-list-wrap-"+k).height("700");
-             $("#event-list-wrap-"+k).css("height","700px");
+             //$("#event-list-wrap-"+k).css("height","700px");
+             $("#event-list-wrap-"+k).css("height",exHeight);
+             
+            
              
              	
           //$("#event-list-wrap-ex" +k).height("500");
@@ -103,16 +109,20 @@ function populateDate(k){
 	}else{
 		
 	}
-           */        
-           //var html = "";
+           */ 
            /*
+           var html = "";
+           
 	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
-		html = html +getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent");
-		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
+		//html = html +getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent");
+		$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
-	*/
 	//$("#event-list-wrap-" +k).append(html);
-		expandedDate = k;		
+	*/
+		expandedDate = k;
+		
+
+		
 }
 
 

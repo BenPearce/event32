@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
    <head>
+         <title>The Popz</title>
       <meta charset="utf-8">
       <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" >
       <meta name="apple-mobile-web-app-capable" content="yes"/>
       <meta name="viewport" content="width=device-width" />
-      <title>The Popz</title>
             <link rel="stylesheet" href="css/main.css"/>
    </head>
    <body>     
@@ -14,7 +14,7 @@
                     <div data-role="header" id="header" data-position="fixed">
 <div id="header-pic"></div><div id="header-text"></div>
                     </div>
-                    <!--<img class="background" src="images/bgText_18.png" />--> 
+
            <a data-role='button' id = 'fb-login-button'>Facebook Login</a>
            <div id="fb-root"></div>
                   <div data-role="popup" data-position-to="#dateMainList" style="margin-top:300px" id="popupMap1" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
@@ -38,28 +38,6 @@
       </div>
       <!-- date-page -->
 
-     <!-- <div data-role="page" id="page" class="type-interior">
-      
-             <div data-role="popup" data-position-to=".mainList" style="margin-top:500px" id="popupMap" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
-            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-            <div id="mapWrap2" class="mapWrap"></div>
-         </div>
-         <img id="mainSpinner1" style="display:none;z-index:20000;width:40px;position:fixed;left:145px;top:180px" src="images/ajax-loader.gif"/>
-         <img style="display:none" src="css/images/ajax-loader.gif">
-         <ul data-role='none' data-filter="true" style="margin:0px;position:relative;border-top:1px solid white" class="mainList" id="mainList"></ul>
-         <ul style="margin:0px;position:relative;display:none" data-content-theme="a" data-theme='a' id='subList' class='subList' data-role="listview"></ul>
-         <div id="fb-root"></div>
-         <div data-role="footer" id="footer" data-position="fixed" class="footer-docs" style="display:inline!important;position:fixed!important">
-            <div data-role="navbar" id="footer-nav" data-tap-toggle="false" data-visible-on-page-show="false">
-               <ul data-tap-toggle="false">		
-               </ul>
-            </div>
-            
-         </div>
-        	
-      </div>-->
-
-       <!--</div>-->
        <script type="text/javascript" src="cordova.js"></script>
        
       <script src="cdv-plugin-fb-connect.js"></script>
@@ -76,7 +54,6 @@
         js.src = "facebook-js-sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    //alert("mobile 1");
 }else{
     var x = document.createElement('script');
 x.src = 'http://connect.facebook.net/en_US/all.js';

@@ -25,13 +25,13 @@
           	 
             	 if(fbArray[eventId].friendIdArray.length == 0){
             	 
-            	 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div></div>';
+            	 return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div></div>';
             	 
             	 } else if (fbArray[eventId].friendIdArray.length == 1){
             	 
                   //return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
                  // return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div></div>';
-                    return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div>'+friendImg+'<div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div>';
+                    return '<div class="row-wrap '+eventClass+'"><div class="event-wrap">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div>'+friendImg+'<div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendName+'</div></div></div>';
 
             	 } else {
             	 var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';      
@@ -50,7 +50,7 @@
                  var three = typeof fbArray[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : preBR + "images/pinkX.png"+ post;
 
                  //return '<div class="row-wrap"><div class="event-wrap '+eventClass+'"><div class="row-pic-wrap event-pic-wrap"><div class="row-pic event-pic">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap" id="friend-'+eventId+'"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div><div class="row-title-wrap friend-title-wrap"><div class="row-title friend-title">'+friendNameQuad+'</div></div></div>';
-                 return '<div class="row-wrap"><div class="event-wrap '+eventClass+'">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div><div class="friend-wrap" id="friend-'+eventId+'">'+zero+one+two+three+'</div></div></div>';
+                 return '<div class="row-wrap '+eventClass+'"><div class="event-wrap ">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div><div class="friend-wrap" id="friend-'+eventId+'">'+zero+one+two+three+'</div></div></div>';
 
             	 }
             }
@@ -58,13 +58,13 @@
             function getEventHtml(evening){
             	    if(evening.eventIdArray.length == 0){
             	    }else if(evening.eventIdArray.length == 1){
-            	    	    return getEventRow(evening.eventIdArray[0]);
+            	    	    return getEventRow(evening.eventIdArray[0],"topEvent");
             	    	     }else if(evening.eventIdArray.length == 2){
-            	    	     	              	    	     return getEventRow(evening.eventIdArray[0]) + getEventRow(evening.eventIdArray[1]);            	    	     	     
+            	    	     	              	    	     return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent");            	    	     	     
             	    	     	      }else if(evening.eventIdArray.length == 3){            	    	     	      	      
-            	    	     	      	                  	    	     return getEventRow(evening.eventIdArray[0]) + getEventRow(evening.eventIdArray[1]) + getEventRow(evening.eventIdArray[2]);
+            	    	     	      	                  	    	     return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent");
             	    	     	      	       }else{
-            	    	     return getEventRow(evening.eventIdArray[0]) + getEventRow(evening.eventIdArray[1]) + getEventRow(evening.eventIdArray[2]) + getEventRow(evening.eventIdArray[3]);
+            	    	     return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent") + getEventRow(evening.eventIdArray[3],"topEvent");
             	    }
             }
            /*
