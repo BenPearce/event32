@@ -59,11 +59,11 @@
                          		});
                          		*/
                          		
-                         		$(".more-events-text-inner-wrap").bind('touchstart',function(){
+                         		$(".more-events-text-wrap").bind('touchstart',function(){
                          				$(this).addClass('more-events-button-touched');
                          		});
                          		
-                         		$(".more-events-text-inner-wrap").bind('touchend',function(){
+                         		$(".more-events-text-wrap").bind('touchend',function(){
                          				$(this).removeClass('more-events-button-touched');
                          				populateDate($(this).attr('data-dateId'));
                          		});
