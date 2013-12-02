@@ -3,7 +3,15 @@
 body { 
 overflow-x: hidden; 
 -webkit-user-select: none;
+
+background:gray;
 }
+
+#date-page{
+padding:0px!important;
+
+}
+
 li{
 border-top-width:0px !important;
 background:none!important;
@@ -105,9 +113,6 @@ left:40px;
 	top:5px;
 }
 
-#date-page{
-padding:0px!important;
-}
 
 .date-list-elem-wrap{
 margin-top:-40px;
