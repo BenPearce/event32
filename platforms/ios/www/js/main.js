@@ -118,7 +118,11 @@ $("#event-list-wrap-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[0
     }
     
     mainCalendar.init();
-
+    
+    
+    //FQL Queries
+    //SELECT eid, name, pic_big, start_time, end_time, location, description, creator, host, venue FROM event WHERE eid IN (SELECT eid FROM event_member WHERE uid = 1317821699) AND update_time >= 1383264000
+//SELECT eid, name, pic_big, start_time, end_time, location, description, creator, host, venue FROM event WHERE eid IN (SELECT eid FROM event_member WHERE uid = 1317821699) AND update_time >= 1385942400 AND start_time >= now()
     function mainInit(url) {
     	    /*
         $('body').append("<style>.halfPageWidth {width:" + pageHalfWidth + "px}</style>");
@@ -270,6 +274,10 @@ $("#event-list-wrap-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[0
 
                 batchItteration = batchItteration + 1;
                 if (batchItteration == batchCallArray.length) {
+                	
+                	 for (var i = 0; i < 28; i++) {
+                	 eveningHash[i].generateHtml();	 
+                	 }
                 	
 populateCalendar(eveningHash);
                 }

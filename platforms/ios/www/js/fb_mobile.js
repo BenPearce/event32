@@ -14,7 +14,14 @@
 
    //window.fbAsyncInit = function () {
     	      document.addEventListener('deviceready', function () {
-    	      		      console.log("device ready");
+    	      	 var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+        
+        //var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+db.transaction(queryDB, errorCB);
+
+    	      		      
+    	      		      
 /*
         FB.init({
             //appId: '372363819446082', // App ID from the app dashboard

@@ -20,6 +20,7 @@ function evening() {
     this.insertFriendId;
     this.topEventsHtml;
     this.eventExHtml;
+    this.generateHtml;
 }
 
 function makeEvening(integer) {
@@ -34,6 +35,13 @@ function makeEvening(integer) {
     result.dateArray = new Array(); 
     result.topEventsHtml = "";
     result.eventExHtml = "";
+    result.generateHtml = function(){
+    	    /*
+    	    $.each(){
+    	    	    
+    	    }
+    	    */
+    }
     
     result.insertEventId = function(eventId){
     	   result.eventIdArray.push(eventId);
