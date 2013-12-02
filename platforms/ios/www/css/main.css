@@ -39,6 +39,17 @@ position:relative!important;
 overflow-y: visible!important; 
 }
 
+.event-list-wrap-ex{
+			transition: height 2s;
+-webkit-transition: height 2s; /* Safari */
+height:0px;
+/*
+	border-left:solid black 1px;
+	border-right:solid black 1px;
+	border-top:solid black 1px;
+	*/
+}
+
 .event-list-wrap{
 		transition: height 2s;
 -webkit-transition: height 2s; /* Safari */

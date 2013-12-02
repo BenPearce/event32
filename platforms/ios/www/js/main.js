@@ -66,16 +66,18 @@ function populateDate(k,e){
 	//testGap = $("#event-list-wrap-ex" +expandedDate).height();
 
 		         	 //$("#event-list-wrap-ex" +expandedDate).html("");
-		         	  //$("#event-list-wrap-ex" +expandedDate).height("0");
-		         	 //$("#event-list-wrap-ex" +expandedDate).empty();
+		         	 //event-list-wrap-ex
+		         	  $("#event-list-wrap-ex-" +expandedDate).height("0");
+		         	 $("#event-list-wrap-ex-" +expandedDate).empty();
 
 	//var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
+	var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
 
-             //$("#event-list-wrap-ex" +k).height(exHeight);
+             $("#event-list-wrap-ex-" +k).height(exHeight);
              
              //$("#event-list-wrap-ex" +k).height("200");
              //alert( $("#event-list-wrap-ex" +k).html());
-             $("#event-list-wrap-"+k).height("700");
+             //$("#event-list-wrap-"+k).height("700");
              
              	
           //$("#event-list-wrap-ex" +k).height("500");
@@ -94,12 +96,12 @@ function populateDate(k,e){
 		
 	}
            */
-           /*
+           
 	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
-		$("#event-list-wrap-ex" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
+		$("#event-list-wrap-ex-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
-	*/
-		//expandedDate = k;
+	
+		expandedDate = k;
 		
 }
 
@@ -108,9 +110,9 @@ function populateCalendar(){
 	for (var i = 0; i < 28; i++) {
 if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
 	
-//$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div><div id='event-list-wrap-ex"+i+"' class='event-list-wrap-ex'></div></div></div></div></div></li>");
+//$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div><div id='event-list-wrap-ex-"+i+"' class='event-list-wrap-ex'></div></div></div></div></div></li>");
 
-$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></li>");
+$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div><div id='event-list-wrap-ex-"+i+"' class='event-list-wrap-ex'></div></div></div></li>");
 /*
 $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >
 	
