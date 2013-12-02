@@ -16,6 +16,10 @@ function evening() {
     this.eveningState;
     this.dateArray;
     this.monthNumber;
+    this.insertEventId;
+    this.insertFriendId;
+    this.topEventsHtml;
+    this.eventExHtml;
 }
 
 function makeEvening(integer) {
@@ -28,6 +32,19 @@ function makeEvening(integer) {
     result.topArray = new Array();
     result.botArray = new Array();
     result.dateArray = new Array(); 
+    result.topEventsHtml = "";
+    result.eventExHtml = "";
+    
+    result.insertEventId = function(eventId){
+    	   result.eventIdArray.push(eventId);
+    	   //result.topEventsHtml = topEventsHtml +;
+    }
+    
+    result.insertFriendId = function(friendId){
+    	    result.friendIdArray.push(friendId); 
+    	    //result.eventExHtml = topEventsHtml +;
+    }
+    
     result.friendListEventCalendarState = setBit(0,0);
     
     //result.friendListEventCalendarState & setBit (0,3)

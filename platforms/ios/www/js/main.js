@@ -54,31 +54,31 @@ function populateDate(k){
 		expandedDate = k;		
 }
 
-function populateCalendar(){
+function populateCalendar(calendar){
 	for (var i = 0; i < 28; i++) {
-if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
+if(typeof calendar[i].eventIdArray[0] != "undefined"){
 	
-$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(eveningHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
+$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(calendar[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
 			     
-$("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId,"topEvent"));
+$("#event-list-wrap-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[0]].fbId,"topEvent"));
      
 }else{
      	           continue;	
       continue;	     
      }
-     if(typeof eveningHash[i].eventIdArray[1] != "undefined"){
-			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[1]].fbId,"topEvent"));
+     if(typeof calendar[i].eventIdArray[1] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[1]].fbId,"topEvent"));
      }else{
      	     $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
       continue;	     
      }
-     if(typeof eveningHash[i].eventIdArray[2] != "undefined"){
-			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[2]].fbId,"topEvent"));
+     if(typeof calendar[i].eventIdArray[2] != "undefined"){
+			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[2]].fbId,"topEvent"));
      }else{
      	     $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
      	 continue;     
      }
-     var moreText = (eveningHash[i].eventIdArray.length - 4) +" More Events";
+     var moreText = (calendar[i].eventIdArray.length - 4) +" More Events";
      	$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
 	}
 	setFriendTap()
@@ -268,7 +268,8 @@ $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArra
 
                 batchItteration = batchItteration + 1;
                 if (batchItteration == batchCallArray.length) {
-populateCalendar();
+                	
+populateCalendar(eveningHash);
                 }
             }, this))
 
