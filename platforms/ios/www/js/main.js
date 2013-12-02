@@ -60,7 +60,7 @@ function populateCalendar(friendIdList){
 
 
 
-function populateDate(k,e){
+function populateDate(k){
 //alert("pop date");
 
 	//testGap = $("#event-list-wrap-ex" +expandedDate).height();

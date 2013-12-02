@@ -1,6 +1,7 @@
     
                         	function setFriendTap(){  
                         		//$(".date-displayer").click(function () {
+                        		/*
                         		$(".date-displayer").tap(function () {
                         var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
                         eveId = parseInt(eveId);
@@ -23,6 +24,7 @@
                          		$(".friend-pic-wrap").bind('touchend',function(){
                          		$(this).removeClass('friend-pic-wrap-touched');
                          		});
+                         		*/
                          		/*
                          		$(".more-events-text-wrap").click(function () {
                          				alert("tap");
@@ -57,10 +59,11 @@
                          		});
                          		*/
                          		
-                         		$(".more-events-text-inner-wrap").tap(function(e){
+                         		$(".more-events-text-inner-wrap").tap(function(){
                          			//$(this).removeClass('more-events-button-touched');
-                         			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
-                         			populateDate(eveId,e);
+                         			//var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
+                         			//alert($(this).attr('data-dateId'));
+                         			populateDate($(this).attr('data-dateId'));
                                                  //alert(eveId);
                          			//moreevents-
                          		});  
@@ -76,7 +79,7 @@
                          		}); 
                          		
                          		*/
-                         		
+                         		/*
                          		$(".event-wrap").bind('touchstart',function(){
                          			$(this).addClass('event-wrap-touched');	
                          		});
@@ -92,6 +95,7 @@
                          		$(".friend-pic-wrap").bind('touchend',function(){
                          			$(this).removeClass('friend-pic-wrap-touched');	
                          		});
+                         		*/
 /*
                          		$(".friend-pic-wrap").mouseover(function(){	
                          		});
