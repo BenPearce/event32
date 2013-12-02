@@ -58,7 +58,7 @@
                          		*/
                          		
                          		$(".more-events-text-inner-wrap").tap(function(e){
-                         			$(this).removeClass('more-events-button-touched');
+                         			//$(this).removeClass('more-events-button-touched');
                          			var eveId = $(this).attr('id').toString().substr(parseInt($(this).attr('id').toString().indexOf("-"))+1);
                          			populateDate(eveId,e);
                                                  //alert(eveId);
