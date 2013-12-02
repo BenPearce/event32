@@ -25,115 +25,44 @@
     var expandedDate = null;
     var exDateIndex;
     var testGap;
-
-function moreEvents(dateId){	
-}
-
-/*
-function populateCalendar(friendIdList){
-
-	selectedFriendGroup = friendIdList;
-	var tempFriendCount = 0;
-	var tempEventCount = 0;
-		$(".date-list-elem").html("");
-	                      for (var i = 0; i < 28; i++) {
-	     $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' ><div  class='date-list-elem-wrap'><div name='"+i+"'  class='date-list-elem' id='date-elem-"+i+"'>"+getDateHeader(eveningHash[i])+"</div> <div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'> <div id='event-list-wrap-border-"+i+"' class='event-list-wrap-border'>  <div id='event-list-wrap-outter-"+i+"' class='event-list-wrap-outter'> <div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></div></div></div></li>");
-        dateTrackingArray[i] = 0;
-    }
-	$.each(friendIdList,function(i,friendId){
-			tempFriendCount = tempFriendCount +1;
-		$.each(fbArray[friendId].eventIdArray,function(j,eventId){
-				dateTrackingArray[fbArray[eventId].dateId] = dateTrackingArray[fbArray[eventId].dateId] +1;
-				if(dateTrackingArray[fbArray[eventId].dateId]<= 4){
-				tempEventCount = tempEventCount+1;
-				$("#event-list-wrap-" + fbArray[eventId].dateId).append(getEventRow(eventId));
-				
-				}else if(dateTrackingArray[fbArray[eventId].dateId] == 5){
-					$("#event-list-wrap-trans-"+ fbArray[eventId].dateId).append(getMorebutton(fbArray[eventId].dateId));
-				} else{					
-				}	
-		});
-	});
-	setFriendTap();
-}
-*/
-
-
+    var mainCalendar = makeCalendar();
 
 function populateDate(k){
-//alert("pop date");
-
-	//testGap = $("#event-list-wrap-ex" +expandedDate).height();
-
-		         	 //$("#event-list-wrap-ex" +expandedDate).html("");
-		         	 //event-list-wrap-ex
-		         	 /*
-		         	  $("#event-list-wrap-ex-" +expandedDate).height("0");
-		         	 $("#event-list-wrap-ex-" +expandedDate).empty();
-		         	 */
 		         	 if(expandedDate != null){
-		         	 	 //alert("no null");
-		         	   //$("#event-list-wrap-" +expandedDate).height("200");
 		         	   $("#event-list-wrap-"+expandedDate).css("height","222px");
-		         	 //$("#event-list-wrap-" +expandedDate).empty();
-		         	 //$("#event-list-wrap-"+expandedDate).find(".exEvent").remove();
 		         	   $(".exEvent").remove();
 		         	 }
-
+		         	 
 	var exHeight = (74*((eveningHash[k].eventIdArray.length)));
-
-             //$("#event-list-wrap-ex-" +k).height(exHeight);
-             //$("#event-list-wrap-ex-" +k).height("800");
-             
-             //$("#event-list-wrap-ex" +k).height("200");
-             //alert( $("#event-list-wrap-ex" +k).html());
-             //$("#event-list-wrap-"+k).height("700");
-             //$("#event-list-wrap-"+k).css("height","700px");
              $("#event-list-wrap-"+k).css("height",exHeight);
-             
-            
-             
-             	
-          //$("#event-list-wrap-ex" +k).height("500");
             /*
             	if(expandedDate==null){
-
 	}else if(k>expandedDate){
-
 			var scrollDiff = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
 			var y = $(window).scrollTop();  //your current y position on the page      
-                    	$(window).scrollTop(y-testGap); 
-   
-	}else if(k == expandedDate){
-		   
-	}else{
-		
+                    	$(window).scrollTop(y-testGap);  
+	}else if(k == expandedDate){		   
+	}else{		
 	}
            */ 
            
-           var html = "";
-           
+           var html = "";           
 	for (var i = 3; i < eveningHash[k].eventIdArray.length; i++) {
 		html = html +getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent");
-		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[eveningHash[k].eventIdArray[i]].fbId,"exEvent"));
 	}
-	$("#event-list-wrap-" +k).append(html);
-	
-		expandedDate = k;
-		
-
-		
+	$("#event-list-wrap-" +k).append(html);	
+		expandedDate = k;		
 }
-
 
 function populateCalendar(){
 	for (var i = 0; i < 28; i++) {
 if(typeof eveningHash[i].eventIdArray[0] != "undefined"){
 	
 $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(eveningHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
-
-			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId,"topEvent"));
-     }else{
+			     
+$("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[0]].fbId,"topEvent"));
+     
+}else{
      	           continue;	
       continue;	     
      }
@@ -151,19 +80,6 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
      }
      var moreText = (eveningHash[i].eventIdArray.length - 4) +" More Events";
      	$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
-
-     			     //$("#event-list-wrap-trans-"+ i).append(getMorebutton(fbArray[eveningHash[i].eventIdArray[3]].dateId));
-
-     /*
-     if(typeof eveningHash[i].eventIdArray[3] != "undefined"){
-			     $("#event-list-wrap-" + i).append(getEventRow(fbArray[eveningHash[i].eventIdArray[3]].fbId));
-     }else{
-     $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
-      continue;
-     }
-     */
-			     //$("#event-list-wrap-" + i).append(getEventRow(eventId));
-	//eveningHash[i];
 	}
 	setFriendTap()
 }
@@ -197,11 +113,12 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
         eveningHash[i] = makeEvening(i);
         dateStateArray[i] = mask(i);
         dateTrackingArray[i] = 0;
-        //$("#dateDisplayer-"+i).append(getDateHeader(eveningHash[i]));
     }
+    
+    mainCalendar.init();
 
     function mainInit(url) {
-    	    //console.log("Main init");
+    	    /*
         $('body').append("<style>.halfPageWidth {width:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.halfPageSquare {width:" + pageHalfWidth + "px;height:" + pageHalfWidth + "px}</style>");
         $('body').append("<style>.selectedListFlyer .attendee-wrap{width:" + halfwidth + "px}</style>");
@@ -210,7 +127,7 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
         $('body').append("<style>.selectedListFlyer .formatted-date-wrap{width:" + halfwidth + "px}</style>");
         $('body').append("<style>.selectedListFlyer .event-img{width:" + halfwidth + "px;height:" + halfwidth + "px}</style>");
         $('body').append("<style>@-webkit-keyframes eventImgAnim{from {height:50px;width:50px;top:0px;left:0px}to {height:" + halfwidth + "px;width:" + halfwidth + "px;top:34.42px;left:25px}}</style>");
-
+*/
         $.get(url, $.proxy(function (response) {
             var batchItem = {};
             batch = new Array();
@@ -262,22 +179,26 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
     function parseEvent(value, friendID) {
         try {
             var event = makeEvent(value);
-            //tempEventCountGlobal = tempEventCountGlobal +1;
         } catch (err) {
-             //console.log("event parse err: " + err);
         }
         	    if (event.dateId >= 0) {
-        	    	    //console.log("Parse Event2");
             //Make sure date isn't more than three monthes in the future
             	      if (parseInt(event.dateId) < 28) {
                 if (typeof fbArray[value.id] == "undefined") {
                     //Need to run tests on friend before adding to fbArray
                     fbArray[value.id] = event;
+                    
                     eveningHash[parseInt(event.dateId)].eventIdArray.push(value.id);
+                    
+                    //mainCalendar.init();
+                    mainCalendar.eveningArray[parseInt(event.dateId)].eventIdArray.push(value.id);
+                    
                     eveningHash[parseInt(event.dateId)].friendListEventCalendarState = eveningHash[parseInt(event.dateId)].friendListEventCalendarState & setBit(0, 3); 
                 }
                 eveningHash[parseInt(event.dateId)].friendIdArray.push(friendID);
-
+                
+                mainCalendar.eveningArray[parseInt(event.dateId)].friendIdArray.push(value.id);
+                
                 //If we create an operation that pushes to array as well as adds list element
                 //console.log("line before insert friend");
                 fbArray[friendID].insertEvent(fbArray[value.id].fbId, event.dateId);
@@ -347,8 +268,6 @@ $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(2
 
                 batchItteration = batchItteration + 1;
                 if (batchItteration == batchCallArray.length) {
-
-//populateCalendar(friendArray);
 populateCalendar();
                 }
             }, this))

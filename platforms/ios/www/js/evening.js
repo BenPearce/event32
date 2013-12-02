@@ -88,31 +88,6 @@ function makeEvening(integer) {
 
     result.domClone.attr('id', integer);
     result.id = integer;
-/*
-    result.init = function(){
-    	            var imgStringTop = "";
-    		    var imgStringBot = "";
-    		    var doubleRow = false;
-    	        		for (var i = 0; i <= result.friendIdArray.length -1; i++) {
-    		if(i <= 6){
-    			  imgStringTop = imgStringTop + "<div class='evening-friend-wrap'><img class='evening-friend-img' style='pointer-events:none' src='"+fbArray[result.friendIdArray[i]].picUrl+"' height = 25px width = 25px /><div class='evening-friend-name-wrap'><div class='evening-friend-first-name'>"+fbArray[result.friendIdArray[i]].nameArray[0]+"</div><div class='evening-friend-last-name'>"+fbArray[result.friendIdArray[i]].nameArray[fbArray[result.friendIdArray[i]].nameArray.length - 1]+"</div></div></div>";
-    		}else if (6 < i & i <= 13){
-    			var doubleRow = true;
-    		    	  imgStringBot = imgStringBot + "<div class='evening-friend-wrap'><img class='evening-friend-img' style='pointer-events:none' src='"+fbArray[result.friendIdArray[i]].picUrl+"' height = 25px width = 25px /><div class='evening-friend-name-wrap'><div class='evening-friend-first-name'>"+fbArray[result.friendIdArray[i]].nameArray[0]+"</div><div class='evening-friend-last-name'>"+fbArray[result.friendIdArray[i]].nameArray[fbArray[result.friendIdArray[i]].nameArray.length - 1]+"</div></div></div>";
 
-    		}
-    				}
-    				
-    result.domClone.find(".img-cluster-top").html(imgStringTop);
-    result.domClone.find(".img-cluster-bot").html(imgStringBot);
-    if(doubleRow){
-    result.domClone.find(".img-cluster-bot").css('visibility','visible');
-    }
-    
-      result.domClone.find('.day-name-wrap').text(result.dateStringArray[0]);
-      result.domClone.find('.day-num-wrap').text(result.dateStringArray[2]);
-      result.domClone.find('.month-wrap').text(result.dateStringArray[1]);
-    }
-*/
     return result;
 }
