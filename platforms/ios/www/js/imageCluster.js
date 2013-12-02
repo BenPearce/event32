@@ -40,8 +40,8 @@
 		 var preBL = '<img class="quadBl event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="'; 
 		 var preBR = '<img class="quadBr event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="'; 
 	         var post = '">'; 
-	         var friendImgQuad = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : friendPre + "images/pinkX.png"+ post;
-            	 var friendNameQuad = typeof fbArray[fbArray[eventId].friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+fbArray[fbArray[eventId].friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + fbArray[fbArray[eventId].friendIdArray[0]].nameArray[1] +"</div><div class='extra-attendees-wrap'>+ "+(fbArray[eventId].friendIdArray.length - 1)+" more</div>" : "event-undefined";
+	         //var friendImgQuad = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : friendPre + "images/pinkX.png"+ post;
+            	 //var friendNameQuad = typeof fbArray[fbArray[eventId].friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+fbArray[fbArray[eventId].friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + fbArray[fbArray[eventId].friendIdArray[0]].nameArray[1] +"</div><div class='extra-attendees-wrap'>+ "+(fbArray[eventId].friendIdArray.length - 1)+" more</div>" : "event-undefined";
 
             	 
             	 var zero = typeof fbArray[eventId].friendIdArray[0] != "undefined"  ? preUL + "https://graph.facebook.com/"+fbArray[fbArray[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : preUL + "images/pinkX.png"+ post;
