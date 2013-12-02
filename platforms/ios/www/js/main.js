@@ -28,15 +28,9 @@
     var mainCalendar = makeCalendar();
     var displayCalendar;
 
-function populateDate(k){
-		         	 if(expandedDate != null){
-		         	   $("#event-list-wrap-"+expandedDate).css("height","222px");
-		         	   $(".exEvent").remove();
-		         	 }
-		         	 
-	var exHeight = (74*((displayCalendar[k].eventIdArray.length)));
-             $("#event-list-wrap-"+k).css("height",exHeight);
-            /*
+function populateDate(k,e){
+
+             /*
             	if(expandedDate==null){
 	}else if(k>expandedDate){
 			var scrollDiff = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
@@ -47,13 +41,48 @@ function populateDate(k){
 	}
            */ 
            
-           var html = "";           
+            
+		         	 
+		         	 var exHeight = (74*20);
+		//var exHeight = (74*((displayCalendar[k].eventIdArray.length)));
+             //$("#event-list-wrap-"+k).css("height",exHeight);
+             e.preventDefault();
+            // $("#event-list-wrap-"+k).animate({height: exHeight}, 500)
+             //console.log($("#event-list-wrap-"+k).height());
+         
+             /*
+           var html = "";   
+     
 	for (var i = 3; i < displayCalendar[k].eventIdArray.length; i++) {
-		html = html +getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent");
+		//html = html +getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent");
+		html = html +"<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>";
+		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent"));	
 	}
-	$("#event-list-wrap-" +k).append(html);	
-		expandedDate = k;		
+*/
+	$("#event-list-wrap-" +k).append("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>");
+	
+			if(expandedDate != null){
+		         	   //$("#event-list-wrap-"+expandedDate).css("height","222px");
+		         	   $("#event-list-wrap-"+expandedDate).animate({height: 222}, 500)
+		         	   $("#event-list-wrap-"+expandedDate).find(".exEvent").remove();
+		         	   //$(".exEvent").remove();
+		         	 }
+		         	
+		        // $("#event-list-wrap-"+k).stop().animate({height: exHeight}, 1000,function() {
+		         		 $("#event-list-wrap-"+k).stop().animate({height: exHeight}, 500,function() {
+        enable_scroll();
+    });
+    
+		         	 
+             	//$("#event-list-wrap-" +k).append(html);	
+      //$("#event-list-wrap-" +k).append("<div style='height:74px;width;100px;background:green'>hi</div>");
+            //$("#event-list-wrap-" +k).append("dssddf");
+		expandedDate = k;
+
+		
 }
+
+
 
 function populateCalendar(calendar){
 	displayCalendar = calendar;

@@ -47,6 +47,8 @@ height:222px;
 	border-left:solid black 1px;
 	border-right:solid black 1px;
 	border-top:solid black 1px;
+	/*-webkit-backface-visibility: hidden;*/
+	-webkit-perspective: 1000;
 }
 
 .hidden{

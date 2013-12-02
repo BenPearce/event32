@@ -1,5 +1,39 @@
+    function wheel(e) {
+  preventDefault(e);
+}
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function keydown(e) {
+    for (var i = keys.length; i--;) {
+        if (e.keyCode === keys[i]) {
+            preventDefault(e);
+            return;
+        }
+    }
+}
+                        	
+    function disable_scroll() {
+  if (window.addEventListener) {
+      window.addEventListener('DOMMouseScroll', wheel, false);
+  }
+  window.onmousewheel = document.onmousewheel = wheel;
+  document.onkeydown = keydown;
+}
+
+function enable_scroll() {
+    if (window.removeEventListener) {
+        window.removeEventListener('DOMMouseScroll', wheel, false);
+    }
+    window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+}
     
-                        	function setFriendTap(){  
+    function setFriendTap(){  
                         		//$(".date-displayer").click(function () {
                         		/*
                         		$(".date-displayer").tap(function () {
@@ -58,21 +92,26 @@
                          			//moreevents-
                          		});
                          		*/
-                         		/*
-                         		$(".more-events-text-wrap").bind('touchstart',function(){
+                         	/*
+                         		$(".more-events-text-wrap").bind('touchstart',function(e){
                          				$(this).addClass('more-events-button-touched');
                          		});
                          		
-                         		$(".more-events-text-wrap").bind('touchend',function(){
+                         		$(".more-events-text-wrap").bind('touchend',function(e){
                          				$(this).removeClass('more-events-button-touched');
-                         				populateDate($(this).attr('data-dateId'));
+                         				populateDate($(this).attr('data-dateId'),e);
                          		});
                          		*/
-                         		$(".more-events-text-wrap").tap(function(){
+                         		
+                         		
+                         		$(".more-events-text-wrap").tap(function(e){
+                         				disable_scroll();
                          				$(this).addClass('more-events-button-touched');
-                         				populateDate($(this).attr('data-dateId'));
+                         				populateDate($(this).attr('data-dateId'),e);
                          				$(this).removeClass('more-events-button-touched');
+
                          		});
+                         		
                          		/*
                          		$(".more-events-text-inner-wrap").tap(function(){
                          			//$(this).removeClass('more-events-button-touched');

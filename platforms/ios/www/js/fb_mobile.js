@@ -18,7 +18,7 @@
 
 //window.localStorage.removeItem('runned');
     	      document.addEventListener('deviceready', function () {
-    	      		      alert("device ready1");
+/*
     	      		        //window.localStorage.setItem('runned','i') 
     	      		         if(window.localStorage.getItem('runned')==null){ 
 alert("first run");
@@ -26,7 +26,7 @@ alert("first run");
 } else{
 alert("not first run");	
 }
-   
+ */  
     	      		         /*
     	      	 var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
         db.transaction(populateDB, errorCB, successCB);
