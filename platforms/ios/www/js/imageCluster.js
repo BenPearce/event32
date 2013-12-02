@@ -15,7 +15,7 @@
                  
             	 var friendPre = '<img class="event-friend-img friend-wrap"   id="friend-'+eventId+'" style="pointer-events:none" width=50 height=50 src="'; 
 
-            	 var eventPre = '<img class="event-img" style="pointer-events:none" width=50 height=50 src="'; 
+            	 var eventPre = '<img class="event-img" style="pointer-events:none" src="'; 
 	         var post1 = '">'; 
 	         var post = '"></div>'; 
 	         var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
@@ -135,8 +135,6 @@
 */
 function getMorebutton(k,text1){
 	return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap"><div id="moreevents-'+k+'" data-dateId="'+k+'" class="more-events-text-inner-wrap"><div class="more-events-text">'+text1+'</div><img src="images/downArrow.png" width=25 class="more-events-img"></div></div></div></div>';
-	
-
 }
 
 function getDateHeader(evening){

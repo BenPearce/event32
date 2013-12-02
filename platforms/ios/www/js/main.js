@@ -71,6 +71,11 @@ function populateDate(k){
 		         	  $("#event-list-wrap-ex-" +expandedDate).height("0");
 		         	 $("#event-list-wrap-ex-" +expandedDate).empty();
 		         	 */
+		         	 if(expandedDate != null){
+		         	   //$("#event-list-wrap-" +expandedDate).height("200");
+		         	   $("#event-list-wrap-"+expandedDate).css("height","222px");
+		         	 $("#event-list-wrap-" +expandedDate).empty();	 
+		         	 }
 
 	//var exHeight = (74*((eveningHash[k].eventIdArray.length)-3));
 
@@ -107,7 +112,7 @@ function populateDate(k){
 	}
 	*/
 	//$("#event-list-wrap-" +k).append(html);
-		//expandedDate = k;		
+		expandedDate = k;		
 }
 
 
