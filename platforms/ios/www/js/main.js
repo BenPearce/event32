@@ -79,7 +79,8 @@ function populateDate(k,e){
              
              //$("#event-list-wrap-ex" +k).height("200");
              //alert( $("#event-list-wrap-ex" +k).html());
-             $("#event-list-wrap-"+k).height("700");
+             //$("#event-list-wrap-"+k).height("700");
+             $("#event-list-wrap-"+k).css("height","700px");
              
              	
           //$("#event-list-wrap-ex" +k).height("500");
