@@ -106,21 +106,7 @@ margin-top:-40px;
 	height: 43px;
 	margin:0px 3px;
 }
-/*
-.event{
-background:black;
-border-top-width:1px;
-border: 1px solid hsl(50, 94%, 43%);;
-}
 
-.event-pic-wrap{
-	display:inline-block;
-width: 50px;
-height: 50px;
-margin-left:5px;
-
-}
-*/
 .event-title-wrap{
 	display:inline-block;
 	width:65%;
@@ -138,9 +124,6 @@ margin-left:5px;
 overflow-x:hidden;
 }
 
-.extra-attendees-wrap{
-display:block;	
-}
 
 .quadBr{
 	position:absolute;
