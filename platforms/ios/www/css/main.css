@@ -40,6 +40,7 @@ overflow-y: visible!important;
 }
 
 .event-list-wrap{
+	
 	-webkit-transform: translate3d(0px,0px,0px);
 		transition: height .5s;
 -webkit-transition: height .5s; /* Safari */

@@ -109,7 +109,7 @@ function enable_scroll() {
                          				$(this).addClass('more-events-button-touched');
                          				populateDate($(this).attr('data-dateId'),e);
                          				$(this).removeClass('more-events-button-touched');
-
+                                                        //expandedDate = $(this).attr('data-dateId');
                          		});
                          		
                          		/*
