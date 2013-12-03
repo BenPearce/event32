@@ -256,6 +256,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .event-list-wrap-trans{
 	position:relative;
+	/*background:hsl(186, 29%, 93%);*/
+		
+	-webkit-transform: translate3d(0px,0px,0px);
+		transition: height 1s;
+-webkit-transition: height 1s; 
+	-webkit-perspective: 1000;
+
+/*height:272px;*/
+/*
+	border-left:solid black 1px;
+	border-right:solid black 1px;
+	border-top:solid black 1px;
+	*/
+	/*-webkit-backface-visibility: hidden;*/
 }
 
 .more-events-cut-away{

@@ -98,6 +98,7 @@ function enable_scroll() {
                          		});
                          		
                          		$(".more-events-text-wrap").bind('touchend',function(e){
+                         				disable_scroll();
                          				$(this).removeClass('more-events-button-touched');
                          				populateDate($(this).attr('data-dateId'),e);
                          		});
