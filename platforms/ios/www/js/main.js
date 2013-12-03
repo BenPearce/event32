@@ -59,19 +59,32 @@ function populateDate(k,e){
 		//$("#event-list-wrap-" +k).append(getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent"));	
 	}
 */
-	$("#event-list-wrap-" +k).append("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>");
 	
 			if(expandedDate != null){
 		         	   //$("#event-list-wrap-"+expandedDate).css("height","222px");
-		         	   $("#event-list-wrap-"+expandedDate).animate({height: 222}, 500)
+		         	   //$("#event-list-wrap-"+expandedDate).animate({height: 222}, 500);
+		         	   
+   $("#event-list-wrap-"+expandedDate).stop().animate({height: 222}, 500,function() {
+
+    });	     	
+		         	   
+		         	    $("#event-list-wrap-"+k).stop().animate({height: exHeight}, 500,function() {
+		         	    		    	$("#event-list-wrap-" +k).append("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>");
+
+		         	    		            enable_scroll();
+		         	    		            
+		         	    		      });
+
+	         	   
 		         	   $("#event-list-wrap-"+expandedDate).find(".exEvent").remove();
 		         	   //$(".exEvent").remove();
-		         	 }
+		         	 }else{
 		         	
 		        // $("#event-list-wrap-"+k).stop().animate({height: exHeight}, 1000,function() {
 		         		 $("#event-list-wrap-"+k).stop().animate({height: exHeight}, 500,function() {
         enable_scroll();
     });
+    				 }
     
 		         	 
              	//$("#event-list-wrap-" +k).append(html);	
