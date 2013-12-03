@@ -76,7 +76,13 @@ db.transaction(queryDB, errorCB);
         
                  $("#fb-login-button").click(function(){
          		         FB.login($.proxy(function (response) {
-         		         		// alert(JSON.stringify(response.data.shift()));
+         		         		 /*
+         		         		  FB.login($.proxy(function(groupAuthResp) {
+                                                 alert(JSON.stringify(groupAuthResp.data.shift()));
+                                                      }, this), {scope: 'read_friendlists'});
+         		         		 
+         		         		alert(JSON.stringify(response.data.shift()));
+         		         		*/
             if (response.authResponse) {
                 accessToken = response.authResponse.accessToken;
                 $("#fb-login-button").css('display','none');
@@ -90,4 +96,6 @@ db.transaction(queryDB, errorCB);
         });
          });
     });
+    	      //manage_friendlists
+
     //}
