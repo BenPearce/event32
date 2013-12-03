@@ -4,7 +4,7 @@ body {
 overflow-x: hidden; 
 -webkit-user-select: none;
 
-//background:gray;
+/*background:gray;*/
 }
 
 #date-page{
@@ -267,6 +267,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .row-wrap{
 	height:64px;
 	padding:5px 0px;
+	border-right:solid black 1px;
+	border-left:solid black 1px;
 	/*
 		background: rgb(255,255,255); 
 background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 55%, rgba(255,255,255,1) 100%);
@@ -281,6 +283,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .date-row{
 		height:50px;
+		border-bottom:solid black 1px;
 }
 
 .hidden{
