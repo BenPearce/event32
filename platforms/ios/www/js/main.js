@@ -176,7 +176,7 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
 //SELECT name, birthday, email, uid FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me())
 
 
-SELECT eid, name, pic_big, start_time, end_time, location, description, creator, host, venue FROM event WHERE eid IN (SELECT eid FROM event_member WHERE uid = 1317821699) AND update_time >= 1385942400 AND start_time >= now()
+//SELECT eid, name, pic_big, start_time, end_time, location, description, creator, host, venue FROM event WHERE eid IN (SELECT eid FROM event_member WHERE uid = 1317821699) AND update_time >= 1385942400 AND start_time >= now()
 
     function mainInit(url) {
     	    /*
