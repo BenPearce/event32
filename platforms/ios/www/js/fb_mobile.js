@@ -62,7 +62,7 @@ function updateEvents(){
                                         });
 
                                         function init(){
-                                            db.transaction(populateDB, errorCB, successCB);
+                                            
                                             FB.init({
                                                     appId: '253970731442450',
                                                     nativeInterface: CDV.FB,
@@ -74,7 +74,8 @@ function updateEvents(){
                                             FB.getLoginStatus(function(response){
                                                               if(response.status == "connected"){
                                                               accessToken = response.authResponse.accessToken;
-                                                                 updateFriends();
+                                                              db.transaction(populateDB, errorCB, updateFriends);
+                                                                 //updateFriends();
                                                               }else if (response.status == "not_authorized"){
                                                               /*
                                                               $("#fb-login-button").text("Facebook Authorization");
