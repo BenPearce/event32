@@ -18,7 +18,7 @@
    $(document).ready(function () {
                      alert("doc ready");
                      });
-
+/*
    document.addEventListener('resume', function () {
                              
                              alert("resume");
@@ -28,25 +28,81 @@ document.addEventListener('pause', function () {
                           
                           alert("pause");
                           });
+ */
+
+var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+var accessToken;
+
+function updateFriends(){
+    alert("update friend token: "+accessToken);
+    FB.api(
+           {
+           method: 'fql.query',
+           query: 'SELECT uid2 FROM friend WHERE uid1 = me()&access_token='+accessToken
+           },
+           function(friendData) {
+           console.log(JSON.stringify(friendData));
+           }
+           );
+
+}
+
+function updateEvents(){
+    
+    
+}
 
     	      document.addEventListener('deviceready', function () {
+                                        alert("ready1");
                                         //window.fbAsyncInit only necessary for desktop
                                         window.fbAsyncInit = function() {
-                                        alert("device ready 2");
+                                        //alert("device ready 2");
+  
+                                        
+                  
                                         init();
                                         }
                                         });
 
                                         function init(){
-                                        alert("init trigger");
-                                        console.log("todaysStamp: "+todaysStamp);
-                                         //window.localStorage.setItem('runned','i')
-                                         if(window.localStorage.getItem('lastRanStamp')==null){
-                                         alert("first run");
-                                         window.localStorage.setItem('lastRanStamp',todaysStamp)
+                                            db.transaction(populateDB, errorCB, successCB);
+                                            FB.init({
+                                                    appId: '253970731442450',
+                                                    nativeInterface: CDV.FB,
+                                                    //channelUrl: 'http://www.event32ios.com',
+                                                    useCachedDialogs: false
+                                                    });
+                                              //if(window.localStorage.getItem('firstRun')==null){
+                                                  //alert("first run");
+                                            FB.getLoginStatus(function(response){
+                                                              if(response.status == "connected"){
+                                                              accessToken = response.authResponse.accessToken;
+                                                                 updateFriends();
+                                                              }else if (response.status == "not_authorized"){
+                                                              /*
+                                                              $("#fb-login-button").text("Facebook Authorization");
+                                                              $("#fb-login-button").css('display','block');
+                                                               */
+                                                              }else if (response.status == "unknown"){
+                                                              /*
+                                                              $("#fb-login-button").text("Facebook Login");
+                                                              $("#fb-login-button").css('display','block');
+                                                               */
+                                                              }
+                                                              });
+
+                                             window.localStorage.setItem('firstRun','1');
+                                                  /*
                                          } else{
-                                         alert("last run stamp "+window.localStorage.getItem('lastRanStamp'));
+                                              db.transaction(populateDB, errorCB, successCB);
+                                              //updateFriends();
+                                    //alert("last run stamp "+window.localStorage.getItem('firstRun'));
+                                             window.localStorage.getItem('lastFriendIdUpdate');
+                                             window.localStorage.getItem('lastFriendFieldUpdate');
+                                             window.localStorage.getItem('lastEventIdUpdate');
+                                             window.localStorage.getItem('lastEventFieldUpdate');
                                          }
+                                                   */
 
                                         /*
                                          var today = new Date();
@@ -75,47 +131,21 @@ db.transaction(queryDB, errorCB);
  */
  
         
-        FB.init({
-                appId: '253970731442450',
-                nativeInterface: CDV.FB,
-                //channelUrl: 'http://www.event32ios.com',
-                useCachedDialogs: false
-                });
-         
-        FB.getLoginStatus(function(response){
-	console.log("first fb call resp: "+JSON.stringify(response));
-        	if(response.status == "connected"){
-        		accessToken = response.authResponse.accessToken;
-        		    navigator.geolocation.getCurrentPosition(function(position){
-        		    		    var loc = {};
-      loc.lat = position.coords.latitude;
-      loc.lng = position.coords.longitude;
-         clientLocation = new google.maps.LatLng(parseFloat(loc.lat), parseFloat(loc.lng));
 
-        		$.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
-        		});
-        	}else if (response.status == "not_authorized"){
-        		$("#fb-login-button").text("Facebook Authorization");
-        		$("#fb-login-button").css('display','block');
-        	}else if (response.status == "unknown"){
-        		$("#fb-login-button").text("Facebook Login");
-        		$("#fb-login-button").css('display','block');
-        	}
-        });   
-        
-                 $("#fb-login-button").click(function(){
-         		         FB.login($.proxy(function (response) {
-         		         		// alert(JSON.stringify(response.data.shift()));
-            if (response.authResponse) {
-                accessToken = response.authResponse.accessToken;
-                $("#fb-login-button").css('display','none');
-                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
-
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        }, this), {
-            scope: 'user_events,friends_events'
-        });
-         });
                                         }    //}
+
+$("#fb-login-button").click(function(){
+                            FB.login($.proxy(function (response) {
+                                             alert(JSON.stringify(response.data.shift()));
+                                             if (response.authResponse) {
+                                             accessToken = response.authResponse.accessToken;
+                                             $("#fb-login-button").css('display','none');
+                                             $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
+                                             
+                                             } else {
+                                             console.log('User cancelled login or did not fully authorize.');
+                                             }
+                                             }, this), {
+                                     scope: 'user_events,friends_events'
+                                     });
+                            });
