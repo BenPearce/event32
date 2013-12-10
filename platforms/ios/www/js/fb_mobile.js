@@ -13,20 +13,49 @@
 
 
    //window.fbAsyncInit = function () {
-   
-   
 
 //window.localStorage.removeItem('runned');
+   $(document).ready(function () {
+                     alert("doc ready");
+                     });
+
+   document.addEventListener('resume', function () {
+                             
+                             alert("resume");
+                             });
+
+document.addEventListener('pause', function () {
+                          
+                          alert("pause");
+                          });
+
     	      document.addEventListener('deviceready', function () {
-/*
-    	      		        //window.localStorage.setItem('runned','i') 
-    	      		         if(window.localStorage.getItem('runned')==null){ 
-alert("first run");
-  window.localStorage.setItem('runned','1') 
-} else{
-alert("not first run");	
-}
- */  
+                                        //window.fbAsyncInit only necessary for desktop
+                                        window.fbAsyncInit = function() {
+                                        alert("device ready 2");
+                                        init();
+                                        }
+                                        });
+
+                                        function init(){
+                                        alert("init trigger");
+                                        console.log("todaysStamp: "+todaysStamp);
+                                         //window.localStorage.setItem('runned','i')
+                                         if(window.localStorage.getItem('lastRanStamp')==null){
+                                         alert("first run");
+                                         window.localStorage.setItem('lastRanStamp',todaysStamp)
+                                         } else{
+                                         alert("last run stamp "+window.localStorage.getItem('lastRanStamp'));
+                                         }
+
+                                        /*
+                                         var today = new Date();
+                                         var tomorrow = new Date();
+                                         tomorrow.setDate(today.getDate()+1);
+                                         */
+                                        
+                                        //SELECT eid, name, pic_big, start_time, end_time, location, description, creator, host, venue FROM event WHERE eid IN (SELECT eid FROM event_member WHERE uid = 1317821699) AND update_time >= 1385942400 AND start_time >= now()
+                                        
     	      		         /*
     	      	 var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
         db.transaction(populateDB, errorCB, successCB);
@@ -89,5 +118,4 @@ db.transaction(queryDB, errorCB);
             scope: 'user_events,friends_events'
         });
          });
-    });
-    //}
+                                        }    //}
