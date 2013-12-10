@@ -57,9 +57,6 @@ function updateEvents(){
                                         //window.fbAsyncInit only necessary for desktop
                                         window.fbAsyncInit = function() {
                                         //alert("device ready 2");
-  
-                                        
-                  
                                         init();
                                         }
                                         });
