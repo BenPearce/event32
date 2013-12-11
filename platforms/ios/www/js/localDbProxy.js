@@ -1,17 +1,18 @@
 
 function createTable(tx){
-    tx.executeSql('DROP TABLE IF EXISTS DEMO');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+    
+    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (id unique, data)');
 }
 function populateFriendtable(tx) {
-    tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+    tx.executeSql('INSERT INTO FRIENDS (id, data) VALUES (1, "First row")');
+    tx.executeSql('INSERT INTO FRIENDS (id, data) VALUES (2, "Second row")');
 }
 
 // Query the database
 //
 function queryDB(tx) {
-    tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM FRIENDS', [], querySuccess, errorCB);
 }
 
 // Query the success callback
