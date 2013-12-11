@@ -28,11 +28,11 @@ document.addEventListener('pause', function () {
                           });
  */
 
-var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+//var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
 var accessToken;
 
 function updateFriends(){
-    alert("update friend token: "+accessToken);
+    //alert("update friend token: "+accessToken);
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
            //console.log(JSON.stringify(friendData));
                  //db.transaction(insertFriend("hi"), errorCB, successCB);
@@ -63,10 +63,67 @@ function updateFriends(){
            insertData = insertData +";"
            console.log(insertData);
            
-           db.transaction(function (tx) {
-                          //tx.executeSql(insertData, [],function(){alert("suck it")}, errorCB);
-                          tx.executeSql(insertData,[], errorCB,function(tx, results){alert("suck it")});
-                          alert("Select Before");
+           var db1 = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+           db1.transaction(populateDB1, errorCB, successCB);
+           
+           //alert("mark 1");
+           /*
+           db.transaction( function (tx) {
+                          tx.executeSql('DROP TABLE IF EXISTS DEMO');
+                          tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+                          tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+                          tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+                          }, errorCB,  function successCB() {
+                          var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+                          db.transaction( function (tx) {
+                                         tx.executeSql('SELECT * FROM DEMO', [],  function (tx, results) {
+                                                       // this will be empty since no rows were inserted.
+                                                       console.log("Insert ID = " + results.insertId);
+                                                       // this will be 0 since it is a select statement
+                                                       console.log("Rows Affected = " + results.rowAffected);
+                                                       // the number of rows returned by the select statement
+                                                       alert("Insert ID = " + results.rows.length);
+                                                       }, errorCB);
+                                         }, errorCB);
+                          });
+           */
+          
+           
+           /*
+           db.transaction(function (tx) {tx.executeSql("INSERT INTO 'friends' ('name', 'fbId', 'touched') VALUES ('2', 'Second row', 'Second row')")},errorCB,function(tx){
+                         
+                          //'SELECT * FROM DEMO', [], querySuccess, errorCB
+                          
+                          //db.transaction(function (tx) {tx.executeSql("SELECT * FROM friends")},errorCB,function(tx,results){alert(results)});
+                          tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+                          db.transaction(function (tx) {tx.executeSql("SELECT * FROM friends", [], function(tx,results){alert(results)}, errorCB)}, errorCB);
+                          //db.transaction(function (tx) {tx.executeSql("SELECT * FROM friends")},errorCB,function(tx,results){alert(results)});
+                          //tx.executeSql('SELECT * FROM friends', [], function(tx,results){alert(results);}, errorCB);
+                          
+                          });
+            */
+           
+           
+           //}
+           
+           
+           
+           //});
+});
+
+    /*
+                                        db.transaction(function (tx) {
+                                                 
+                                        tx.executeSql('SELECT * FROM friends',[], errorCB, function(tx,results){
+                                                      alert("select resulte: "+results.rows.length);
+                                                      //console.log("Select CB");
+                                                      //console.log("db resulte: "+results.rows.length);
+                                                      });
+                                        
+                                        });
+                                        */
+                                       // }
+                          //alert("Select Before");
                           /*
                           db.transaction(function (tx) {
                                          
@@ -78,7 +135,9 @@ function updateFriends(){
                                          
                             });
                           */
-                             });
+                             //});
+
+
            
            
            /*
@@ -88,7 +147,7 @@ function updateFriends(){
         // tx.executeSql('INSERT INTO serials (serial) VALUES (' + data[i] + ')')
                           });
             */
-           });
+ 
     
     /*
     FB.api(
@@ -117,16 +176,22 @@ function updateEvents(){
 }
 
     	      document.addEventListener('deviceready', function () {
-                                        alert("ready1");
+                                        
+                                        var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                        db1.transaction(createTable, errorCB, createTableSuccess);
+                                        
                                         //window.fbAsyncInit only necessary for desktop
+                                        
+                                        /*
                                         window.fbAsyncInit = function() {
-                                        //alert("device ready 2");
                                         init();
                                         }
+                                        */
+                                        
                                         });
 
                                         function init(){
-                                            alert("init");
+                                            //alert("init");
                                             FB.init({
                                                     appId: '253970731442450',
                                                     nativeInterface: CDV.FB,
@@ -134,9 +199,8 @@ function updateEvents(){
                                                     useCachedDialogs: false
                                                     });
                                               //if(window.localStorage.getItem('firstRun')==null){
-                                                  //alert("first run");
                                             FB.getLoginStatus(function(response){
-                                                              alert("login status response");
+                                                              //alert("login status response");
                                                               if(response.status == "connected"){
                                                               alert("connected");
                                                               accessToken = response.authResponse.accessToken;
