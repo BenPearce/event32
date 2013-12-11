@@ -75,7 +75,14 @@ function updateFriends(){
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            //db.transaction(populateDB, errorCB, successCB);
            //db.transaction(insertFriends, errorCB, insertFriendsSuccess);
-           db.transaction(insertFriends, errorCB, successCB);
+           //db.transaction(insertFriends, errorCB, successCB);
+           db.transaction(insertFriends, errorCB, function(){
+                          var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                          db3.transaction(queryDB, errorCB);
+                          
+                          });
+           
+         
            
            //alert("mark 1");
            /*
