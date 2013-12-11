@@ -79,10 +79,16 @@ function updateFriends(){
            db.transaction(insertFriends, errorCB, function(){
                           var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                           db3.transaction(function (tx) {
-                                          tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+                                          tx.executeSql('SELECT * FROM DEMO', [], function (tx, results) {
+                                                        var len = results.rows.length;
+                                                        console.log("DEMO table: " + len + " rows found.");
+                                                        for (var i=0; i<len; i++){
+                                                        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+                                                        }
+                                                        }, errorCB);
                                           }, errorCB);
                           
-                          
+   
                           
                           });
            
