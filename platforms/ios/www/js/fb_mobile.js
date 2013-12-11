@@ -177,16 +177,15 @@ function updateEvents(){
 
     	      document.addEventListener('deviceready', function () {
                                         
-                                        var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                        db1.transaction(createTable, errorCB, createTableSuccess);
+                                       
                                         
                                         //window.fbAsyncInit only necessary for desktop
                                         
-                                        /*
+                                        
                                         window.fbAsyncInit = function() {
                                         init();
                                         }
-                                        */
+                                        
                                         
                                         });
 
@@ -205,7 +204,9 @@ function updateEvents(){
                                                               alert("connected");
                                                               accessToken = response.authResponse.accessToken;
                                                               alert("connected line before db");
-                                                              db.transaction(populateDB, errorCB, updateFriends);
+                                                              //db.transaction(populateDB, errorCB, updateFriends);
+                                                              var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                                              db1.transaction(createTable, errorCB, createTableSuccess);
                                                                  //updateFriends();
                                                               }else if (response.status == "not_authorized"){
                                                               alert("not_authorized");
