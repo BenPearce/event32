@@ -15,9 +15,7 @@
    //window.fbAsyncInit = function () {
 
 //window.localStorage.removeItem('runned');
-   $(document).ready(function () {
-                     alert("doc ready");
-                     });
+
 /*
    document.addEventListener('resume', function () {
                              
@@ -34,21 +32,24 @@ var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
 var accessToken;
 
 function updateFriends(){
-    //alert("update friend token: "+accessToken);
+    alert("update friend token: "+accessToken);
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
            //console.log(JSON.stringify(friendData));
                  //db.transaction(insertFriend("hi"), errorCB, successCB);
            var friendParse = friendData.data;
            
            var insertData = "INSERT INTO 'friends' ('name', 'fbId', 'touched') VALUES";
+           //var insertData = "INSERT INTO 'friends' ('name', 'fbId') VALUES";
            
-           insertData = insertData + "("+friendParse[0].name+","+friendParse[0].id+","+todaysStamp+")"
+           insertData = insertData + "('"+friendParse[0].name+"','"+friendParse[0].id+"','"+todaysStamp+"')";
+           //insertData = insertData + "('"+friendParse[0].name+"','"+friendParse[0].id+"')";
            
            for(i=1;i<=friendParse.length - 1;i++){
            //console.log(i);
-           insertData = insertData + ",("+friendParse[i].name+","+friendParse[i].id+","+todaysStamp+")"
-           
+           insertData = insertData + ",('"+friendParse[i].name+"','"+friendParse[i].id+"','"+todaysStamp+"')"
+           //insertData = insertData + ",('"+friendParse[i].name+"','"+friendParse[i].id+"')"
            }
+           
            /*
            $.each(friendData.data,function(i,value){
                   
@@ -61,6 +62,23 @@ function updateFriends(){
             */
            insertData = insertData +";"
            console.log(insertData);
+           
+           db.transaction(function (tx) {
+                          //tx.executeSql(insertData, [],function(){alert("suck it")}, errorCB);
+                          tx.executeSql(insertData,[], errorCB,function(tx, results){alert("suck it")});
+                          alert("Select Before");
+                          /*
+                          db.transaction(function (tx) {
+                                         
+                          tx.executeSql('SELECT * FROM DEMO', [], function(tx,results){
+                                        //console.log("Select CB");
+                                        //console.log("db resulte: "+results.rows.length);
+                                        }
+                                        , errorCB);
+                                         
+                            });
+                          */
+                             });
            
            
            /*
@@ -108,7 +126,7 @@ function updateEvents(){
                                         });
 
                                         function init(){
-                                            
+                                            alert("init");
                                             FB.init({
                                                     appId: '253970731442450',
                                                     nativeInterface: CDV.FB,
@@ -118,20 +136,25 @@ function updateEvents(){
                                               //if(window.localStorage.getItem('firstRun')==null){
                                                   //alert("first run");
                                             FB.getLoginStatus(function(response){
+                                                              alert("login status response");
                                                               if(response.status == "connected"){
+                                                              alert("connected");
                                                               accessToken = response.authResponse.accessToken;
+                                                              alert("connected line before db");
                                                               db.transaction(populateDB, errorCB, updateFriends);
                                                                  //updateFriends();
                                                               }else if (response.status == "not_authorized"){
-                                                              /*
+                                                              alert("not_authorized");
+                                                              
                                                               $("#fb-login-button").text("Facebook Authorization");
                                                               $("#fb-login-button").css('display','block');
-                                                               */
+                                                               
                                                               }else if (response.status == "unknown"){
-                                                              /*
+                                                              alert("unknown");
+                                                              
                                                               $("#fb-login-button").text("Facebook Login");
                                                               $("#fb-login-button").css('display','block');
-                                                               */
+                                                              
                                                               }
                                                               });
 
@@ -177,6 +200,9 @@ db.transaction(queryDB, errorCB);
         
 
                                         }    //}
+$(document).ready(function () {
+                  //alert("doc ready");
+
 
 $("#fb-login-button").click(function(){
                             FB.login($.proxy(function (response) {
@@ -193,3 +219,4 @@ $("#fb-login-button").click(function(){
                                      scope: 'user_events,friends_events'
                                      });
                             });
+                                    });
