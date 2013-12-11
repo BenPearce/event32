@@ -77,11 +77,13 @@ function updateFriends(){
            //db.transaction(insertFriends, errorCB, insertFriendsSuccess);
            //db.transaction(insertFriends, errorCB, successCB);
            db.transaction(insertFriends, errorCB, function(){
+                          console.log("insert friends success");
                           var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                           db3.transaction(function (tx) {
-                                          tx.executeSql('SELECT * FROM DEMO', [], function (tx, results) {
+                                          console.log("line before select");
+                                          tx.executeSql('SELECT * FROM friends', [], function (tx, results) {
                                                         var len = results.rows.length;
-                                                        console.log("DEMO table: " + len + " rows found.");
+                                                        console.log("friends table: " + len + " rows found.");
                                                         for (var i=0; i<len; i++){
                                                         console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
                                                         }
