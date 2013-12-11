@@ -30,6 +30,7 @@ document.addEventListener('pause', function () {
 
 //var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
 var accessToken;
+var insertData;
 
 function updateFriends(){
     //alert("update friend token: "+accessToken);
@@ -38,15 +39,20 @@ function updateFriends(){
                  //db.transaction(insertFriend("hi"), errorCB, successCB);
            var friendParse = friendData.data;
            
-           var insertData = "INSERT INTO 'friends' ('name', 'fbId', 'touched') VALUES";
+           //insertData = "'INSERT INTO FRIENDS (fbId, data, name,touched) VALUES";
+           insertData = "INSERT INTO FRIENDS (name, data, fbId,touched) VALUES";
            //var insertData = "INSERT INTO 'friends' ('name', 'fbId') VALUES";
            
-           insertData = insertData + "('"+friendParse[0].name+"','"+friendParse[0].id+"','"+todaysStamp+"')";
+           //insertData = insertData + "('"+friendParse[0].name+"','ran','"+friendParse[0].id+"','"+todaysStamp+"')";
+           insertData = insertData + '("'+friendParse[0].name+'","ran","'+friendParse[0].id+'","'+todaysStamp+'")';
            //insertData = insertData + "('"+friendParse[0].name+"','"+friendParse[0].id+"')";
            
-           for(i=1;i<=friendParse.length - 1;i++){
+           
+           //for(i=1;i<=friendParse.length - 1;i++){
+           for(i=1;i<=2;i++){
            //console.log(i);
-           insertData = insertData + ",('"+friendParse[i].name+"','"+friendParse[i].id+"','"+todaysStamp+"')"
+           //insertData = insertData + ",('"+friendParse[i].name+"','ran','"+friendParse[i].id+"','"+todaysStamp+"')"
+           insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
            //insertData = insertData + ",('"+friendParse[i].name+"','"+friendParse[i].id+"')"
            }
            
@@ -60,8 +66,8 @@ function updateFriends(){
                    //db.transaction(insertFriend, errorCB, successCB);
                   });
             */
-           insertData = insertData +";"
-           console.log(insertData);
+           //insertData = insertData +"'"
+           
            /*
            var db1 = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
            db1.transaction(populateDB1, errorCB, successCB);
@@ -78,10 +84,40 @@ function updateFriends(){
            //db.transaction(insertFriends, errorCB, successCB);
            
            
+
+           
+           
            
            db.transaction(function (tx) {
+                          /*
                           tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (1, "First row", "Betty","32424")');
                           tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (2, "Second row", "Alph","923492349")');
+                           */
+                          //tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (2, "Second row", "Alph","923492349")');
+                        /*
+tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES("Lizzy Van Alstine","ran","203131","1386765685583"),("Ange Leonilla Morais","ran",800040","1386765685583"),("Gina Won","ran","1206349","1386765685583")');
+                          
+'INSERT INTO FRIENDS (fbId, data, name,touched) VALUES("Lizzy Van Alstine","ran","203131","1386765768738"),("Ange Leonilla Morais","ran","800040","1386765768738"),("Gina Won","ran","1206349","1386765768738")'
+                         */
+                          
+        //tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (2, "Second row", "Alph","923492349"),(3, "third row", "joe","873902")');
+                         
+                          // 'INSERT INTO FRIENDS (fbId, data, name,touched) VALUES(Lizzy Van Alstine,ran,203131,1386765246616),(Ange Leonilla Morais,ran,800040,1386765246616),(Gina Won,ran,1206349,1386765246616)'
+                          console.log(insertData);
+                           tx.executeSql(insertData);
+                          
+                          //tx.executeSql('INSERT INTO FRIENDS (name, data, fbId,touched) VALUES("Lizzy Van Alstine","ran","203131","1386765919679"),("Ange Leonilla Morais","ran","800040","1386765919679"),("Gina Won","ran","1206349","1386765919679")');
+                          /*
+                          tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES(Lizzy Van Alstine,ran,203131,1386764975761),(Ange Leonilla Morais,ran,800040,1386764975761),(Gina Won,ran,1206349,1386764975761),(Kallista Haltom,ran,1215667,1386764975761)');
+                          */
+                       
+//console.log(insertData);
+                          //tx.executeSql(insertData);
+  //tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (Lizzy Van Alstine,ran,203131,1386764184763)');
+  //tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (Lizzy Van Alstine,ran,203131,1386764184763)';
+                          
+                          
+                          
                           }, errorCB, function(){
                           console.log("insert friends success");
                           var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
