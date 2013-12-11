@@ -35,15 +35,33 @@ var accessToken;
 
 function updateFriends(){
     alert("update friend token: "+accessToken);
+    FB.api('/me/friends?access_token='+accessToken,function(friendData){
+           console.log(JSON.stringify(friendData));
+           $.each(friendData.data,function(i,value){
+                  console.log("name: "+JSON.stringify(value.name));
+                  console.log("fbId: "+JSON.stringify(value.id));
+                  //db.transaction(insertFriend(friendData.id,friendData.name), errorCB, successCB);
+                  });
+           });
+    
+    /*
     FB.api(
            {
            method: 'fql.query',
-           query: 'SELECT uid2 FROM friend WHERE uid1 = me()&access_token='+accessToken
+           query: 'SELECT uid2 FROM friend WHERE uid1 = me()',
+           access_token:accessToken
            },
            function(friendData) {
-           console.log(JSON.stringify(friendData));
+           //console.log("friendData: "+JSON.stringify(friendData));
+           $.each(friendData,function(){
+                  console.log("name: "+friendData.name);
+                  db.transaction(insertFriend(friendData.id,friendData.name), errorCB, successCB);
+                  });
+            
+                  //}
            }
-           );
+        );
+     */
 
 }
 
