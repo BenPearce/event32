@@ -85,7 +85,7 @@ function updateFriends(){
                                                         var len = results.rows.length;
                                                         console.log("friends table1: " + len + " rows found.");
                                                         for (var i=0; i<len; i++){
-                                                        console.log("Row = " + i + " fbId = " + results.rows.item(i).fbId + " Data =  " + results.rows.item(i).data);
+                                                        console.log("Row = " + i + " fbId = " + results.rows.item(i).fbId + " Data =  " + results.rows.item(i).name);
                                                         }
                                                         }, errorCB);
                                           }, errorCB);
