@@ -13,7 +13,7 @@ function createTable(tx){
     console.log("tables created")
      */
 }
-//tester
+//testered
 
 function insertFriends(tx){
     console.log("insert friends");
