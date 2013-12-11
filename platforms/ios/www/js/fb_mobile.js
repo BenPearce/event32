@@ -76,7 +76,13 @@ function updateFriends(){
            //db.transaction(populateDB, errorCB, successCB);
            //db.transaction(insertFriends, errorCB, insertFriendsSuccess);
            //db.transaction(insertFriends, errorCB, successCB);
-           db.transaction(populateFriendtable, errorCB, function(){
+           
+           
+           
+           db.transaction(function (tx) {
+                          tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (1, "First row", "Betty","32424")');
+                          tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (2, "Second row", "Alph","923492349")');
+                          }, errorCB, function(){
                           console.log("insert friends success");
                           var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                           db3.transaction(function (tx) {
