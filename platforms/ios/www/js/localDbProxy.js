@@ -1,48 +1,17 @@
 
 function createTable(tx){
-    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
-    /*
-    tx.executeSql('DROP TABLE IF EXISTS events');
-    tx.executeSql('DROP TABLE IF EXISTS dates');
-     */
-    //tx.executeSql('DROP TABLE IF EXISTS dates');
-    //tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS friends (id unique, data)');
-    /*
-    tx.executeSql('CREATE TABLE friends (id unique, fbId, name, touched)');
-    tx.executeSql('CREATE TABLE events (id unique, fbId, title, description, venueLat, venueLng, venueFbId, venueName, venuePhone, dateHash, dateId, ticketLink)');
-    tx.executeSql('CREATE TABLE dates (id unique, hashId)');
-    console.log("tables created")
-     */
+    tx.executeSql('DROP TABLE IF EXISTS DEMO');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
 }
-//testered
-
-function insertFriends(tx){
-    console.log("insert friends");
-    tx.executeSql('INSERT INTO FRIENDS (id unique, data) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO FRIENDS (id unique, data) VALUES (2, "Second row")');
-    console.log("insert friends complete");
-}
-
-function insertFriendsSuccess(tx,results){
-    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    db.transaction(queryDB, errorCB);
-}
-
 function populateDB(tx) {
-    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (2, "Second row")');
+    tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+    tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
 }
 
 // Query the database
 //
 function queryDB(tx) {
-    tx.executeSql('SELECT * FROM friends', [], querySuccess, errorCB);
-}
-
-function createTableSuccess(tx) {
-    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    db.transaction(populateDB, errorCB, successCB);
+    tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
 }
 
 // Query the success callback
