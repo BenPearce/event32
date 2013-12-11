@@ -34,14 +34,42 @@ var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
 var accessToken;
 
 function updateFriends(){
-    alert("update friend token: "+accessToken);
+    //alert("update friend token: "+accessToken);
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
-           console.log(JSON.stringify(friendData));
+           //console.log(JSON.stringify(friendData));
+                 //db.transaction(insertFriend("hi"), errorCB, successCB);
+           var friendParse = friendData.data;
+           
+           var insertData = "INSERT INTO 'friends' ('name', 'fbId', 'touched') VALUES";
+           
+           insertData = insertData + "("+friendParse[0].name+","+friendParse[0].id+","+todaysStamp+")"
+           
+           for(i=1;i<=friendParse.length - 1;i++){
+           //console.log(i);
+           insertData = insertData + ",("+friendParse[i].name+","+friendParse[i].id+","+todaysStamp+")"
+           
+           }
+           /*
            $.each(friendData.data,function(i,value){
-                  console.log("name: "+JSON.stringify(value.name));
-                  console.log("fbId: "+JSON.stringify(value.id));
-                  //db.transaction(insertFriend(friendData.id,friendData.name), errorCB, successCB);
+                  
+                  insertData = insertData + ",("+value.name+","+value.id+")"
+                  //console.log("name: "+JSON.stringify(value.name));
+                  //console.log("fbId: "+JSON.stringify(value.id));
+                  //db.transaction(insertFriend(value.id,value.name), errorCB, successCB);
+                   //db.transaction(insertFriend, errorCB, successCB);
                   });
+            */
+           insertData = insertData +";"
+           console.log(insertData);
+           
+           
+           /*
+           db.transaction(function (tx) {
+         tx.executeSql('INSERT INTO friends (fbId, touched) VALUES ('+hi+', '+todaysStamp+')');
+        //INSERT INTO Table ( Column1, Column2 ) VALUES ( Value1, Value2 ), ( Value1, Value2 )
+        // tx.executeSql('INSERT INTO serials (serial) VALUES (' + data[i] + ')')
+                          });
+            */
            });
     
     /*
