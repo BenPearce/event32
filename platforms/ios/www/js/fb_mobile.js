@@ -48,8 +48,8 @@ function updateFriends(){
            //insertData = insertData + "('"+friendParse[0].name+"','"+friendParse[0].id+"')";
            
            
-           //for(i=1;i<=friendParse.length - 1;i++){
-           for(i=1;i<=2;i++){
+           for(i=1;i<=friendParse.length - 1;i++){
+           //for(i=1;i<=2;i++){
            //console.log(i);
            //insertData = insertData + ",('"+friendParse[i].name+"','ran','"+friendParse[i].id+"','"+todaysStamp+"')"
            insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
