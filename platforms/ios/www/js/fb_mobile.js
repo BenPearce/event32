@@ -206,7 +206,14 @@ function updateEvents(){
                                                               alert("connected line before db");
                                                               //db.transaction(populateDB, errorCB, updateFriends);
                                                               var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                                              db1.transaction(createTable, errorCB, createTableSuccess);
+                                                              //db1.transaction(createTable, errorCB, createTableSuccess);
+                                                              db1.transaction(createTable, errorCB, function(tx){
+                                                                              var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                                                              db.transaction(populateDB, errorCB, successCB);
+                                                                              
+                                                                              });
+
+                                                              
                                                                  //updateFriends();
                                                               }else if (response.status == "not_authorized"){
                                                               alert("not_authorized");
