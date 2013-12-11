@@ -2,11 +2,11 @@
 function createTable(tx){
     
     tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (id unique, data)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (id unique, data, name)');
 }
 function populateFriendtable(tx) {
-    tx.executeSql('INSERT INTO FRIENDS (id, data) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO FRIENDS (id, data) VALUES (2, "Second row")');
+    tx.executeSql('INSERT INTO FRIENDS (id, data, name) VALUES (1, "First row", "Betty")');
+    tx.executeSql('INSERT INTO FRIENDS (id, data, name) VALUES (2, "Second row", "Alph")');
 }
 
 // Query the database
