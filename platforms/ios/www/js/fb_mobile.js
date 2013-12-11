@@ -62,9 +62,18 @@ function updateFriends(){
             */
            insertData = insertData +";"
            console.log(insertData);
-           
+           /*
            var db1 = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
            db1.transaction(populateDB1, errorCB, successCB);
+           */
+           /*
+           var db2 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+           //db1.transaction(createTable, errorCB, createTableSuccess);
+           db2.transaction(insertFriends, errorCB, insertFriendsSuccess);
+           */
+           
+           var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+           db.transaction(populateDB, errorCB, successCB);
            
            //alert("mark 1");
            /*
@@ -208,9 +217,11 @@ function updateEvents(){
                                                               var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                                               //db1.transaction(createTable, errorCB, createTableSuccess);
                                                               db1.transaction(createTable, errorCB, function(tx){
+                                                                              updateFriends();
+                                                                              /*
                                                                               var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                                                              db.transaction(populateDB, errorCB, successCB);
-                                                                              
+                                                                              db.transaction(populateDB, errorCB, updateFriends);
+                                                                              */
                                                                               });
 
                                                               
