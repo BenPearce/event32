@@ -1,8 +1,10 @@
 
 function createTable(tx){
-    tx.executeSql('DROP TABLE IF EXISTS friends');
+    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
+    /*
     tx.executeSql('DROP TABLE IF EXISTS events');
     tx.executeSql('DROP TABLE IF EXISTS dates');
+     */
     //tx.executeSql('DROP TABLE IF EXISTS dates');
     //tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS friends (id unique, data)');
@@ -17,8 +19,8 @@ function createTable(tx){
 
 function insertFriends(tx){
     console.log("insert friends");
-    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (2, "Second row")');
+    tx.executeSql('INSERT INTO FRIENDS (id unique, data) VALUES (1, "First row")');
+    tx.executeSql('INSERT INTO FRIENDS (id unique, data) VALUES (2, "Second row")');
     console.log("insert friends complete");
 }
 
@@ -28,8 +30,8 @@ function insertFriendsSuccess(tx,results){
 }
 
 function populateDB(tx) {
-    tx.executeSql('INSERT INTO friends (id unique, fbId, name, touched) VALUES (1, "First row")');
-    tx.executeSql('INSERT INTO friends (id unique, fbId, name, touched) VALUES (2, "Second row")');
+    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (1, "First row")');
+    tx.executeSql('INSERT INTO friends (id unique, data) VALUES (2, "Second row")');
 }
 
 // Query the database

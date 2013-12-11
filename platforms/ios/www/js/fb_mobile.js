@@ -81,7 +81,7 @@ function updateFriends(){
                           var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                           db3.transaction(function (tx) {
                                           console.log("line before select");
-                                          tx.executeSql('SELECT * FROM friends', [], function (tx, results) {
+                                          tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
                                                         var len = results.rows.length;
                                                         console.log("friends table: " + len + " rows found.");
                                                         for (var i=0; i<len; i++){
