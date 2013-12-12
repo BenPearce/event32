@@ -59,13 +59,25 @@ function updateEventAttr(){
                     
                     tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
                                   var len1 = results.rows.length;
-                                  //var friendIdList =results.rows.item(0).fbId;
+                                  var friendIdList1 =results.rows.item(0).eventFbId;
                                   for (var i=1; i<len1; i++){
-                                  console.log("dist event ID's: "+results.rows.item(i).eventFbId)
-                                  //friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
+                                  friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
                                   }
+                                  console.log("friendIdList1: "+friendIdList1);
+                                  
+                                  FB.api(
+                                         {
+                                         method: 'fql.query',
+                                         //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
+                                         query: "SELECT name FROM event WHERE eid IN ("+friendIdList1+")",
+                                         access_token:accessToken
+                                         },
+                                         function(eventAttrParse) {
+                                         console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+                                         });
+                                  
                                   });
-                            
+                                  
                                   });
 }
 
