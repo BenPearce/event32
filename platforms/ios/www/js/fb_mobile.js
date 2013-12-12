@@ -74,10 +74,24 @@ function updateEventAttr(){
                                          },
                                          function(eventAttrParse) {
                                          console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+                                         /*
+                                         var insertData2 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
+                                         insertData2 = insertData2+ '("'+eventAttrParse[0].eid+'","'+eventAttrParse[0].uid+'","'+eventAttrParse[0].start_time+'")';
+                                         for(i=1;i<=eventAttrParse.length - 1;i++){
+                                         insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                         }
+                                         var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                         db4.transaction(function (tx) {
+                                                         tx.executeSql(insertData1);
+                                                         }, errorCB, function(){
+                                                         
+                                                         updateEventAttr();
+                                                         });
                                          });
-                                  
+                                          */
+                                         
+                                         });
                                   });
-                                  
                                   });
 }
 
