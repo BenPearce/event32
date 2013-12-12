@@ -6,147 +6,40 @@ function updateFriends(){
            var friendParse = friendData.data;
            insertData = "INSERT INTO FRIENDS (name, data, fbId,touched) VALUES";
            insertData = insertData + '("'+friendParse[0].name+'","ran","'+friendParse[0].id+'","'+todaysStamp+'")';
-
+           
            for(i=1;i<=friendParse.length - 1;i++){
            insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
            }
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            db.transaction(function (tx) {
-                           tx.executeSql(insertData);
+                          tx.executeSql(insertData);
                           }, errorCB, function(){
                           updateEvents();
                           });
-});
+           });
 }
 
 function updateEvents(){
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                   var len = results.rows.length;
+                                  var len = results.rows.length;
                                   var friendIdList =results.rows.item(0).fbId;
-                                   for (var i=1; i<len; i++){
+                                  for (var i=1; i<len; i++){
                                   friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
-                                   }
+                                  }
                                   FB.api(
                                          {
                                          method: 'fql.query',
-                                   query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
+                                         query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
                                          access_token:accessToken
                                          },
                                          function(friendEventsParse) {
                                          var insertData1 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
-                 insertData1 = insertData1+ '("'+friendEventsParse[0].eid+'","'+friendEventsParse[0].uid+'","'+friendEventsParse[0].start_time+'")';
+                                         insertData1 = insertData1+ '("'+friendEventsParse[0].eid+'","'+friendEventsParse[0].uid+'","'+friendEventsParse[0].start_time+'")';
                                          for(i=1;i<=friendEventsParse.length - 1;i++){
-              insertData1 = insertData1 + ',("'+friendEventsParse[i].eid+'","'+friendEventsParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                         insertData1 = insertData1 + ',("'+friendEventsParse[i].eid+'","'+friendEventsParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
                                          }
-                                         var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                         db4.transaction(function (tx) {
-                                                        tx.executeSql(insertData1);
-                                                        }, errorCB, function(){
-
-                                                         updateEventAttr();
-                                                        });
-                                         });
-                                  }, errorCB);
-                    }, errorCB);
-}
-
-function updateEventAttr(){
-  
-    var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    db4.transaction(function (tx) {
-                    
-                    tx.executeSql('SELECT DISTINCT eventFbId start_time from FRIENDS_EVENTS', [], function (tx, results) {
-                                  var len1 = results.rows.length;
-                                  var friendIdList1 =results.rows.item(0).eventFbId;
-                                  for (var i=1; i<len1; i++){
-                                  friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
-                                  }
-                                  //console.log("friendIdList1: "+friendIdList1);
-                                  
-                                  FB.api(
-                                         {
-                                         method: 'fql.query',
-                                         //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
-                                         //query: "SELECT name,start_time,eid FROM event WHERE eid IN ("+friendIdList1+")",
-                                         query: "SELECT name FROM event WHERE eid IN ("+friendIdList1+")",
-                                         access_token:accessToken
-                                         },
-                                         function(eventAttrParse) {
-                                         console.log("eventAttrParse1: "+JSON.stringify(eventAttrParse));
-                                         //eventAttrParse = eventAttrData.data;
-                                         
-                                        var insertData2 = "INSERT INTO EVENTS (startTime,eventFbId) VALUES";
-                                         insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+'","'+eventAttrParse[0].eventFbId+'")';
-                                         
-                                         console.log("insertData2: "+ insertData2);
-                                         /*
-                                         var insertData2 = "INSERT INTO EVENTS (startTime,update_time,eventFbId,name,description,end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,name) VALUES";
-                                         
-                                          insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+'","'+eventAttrParse[0].update_time+'","'+eventAttrParse[0].eventFbId+'","'+eventAttrParse[0].description+'","'+eventAttrParse[0].end_time+'","'+eventAttrParse[0].attending_count+'","'+eventAttrParse[0].pic+'","'+eventAttrParse[0].pic_big+'","'+eventAttrParse[0].pic_square+'","'+eventAttrParse[0].ticket_uri+'","'+eventAttrParse[0].timezone+'","'+eventAttrParse[0].unsure_count+'","'+eventAttrParse[0].venue_street+'","'+eventAttrParse[0].venue_city+'","'+eventAttrParse[0].venue_state+'","'+eventAttrParse[0].venue_country+'","'+eventAttrParse[0].venue_zip+'","'+eventAttrParse[0].venue_latitude+'","'+eventAttrParse[0].venue_longitude+'","'+eventAttrParse[0].venue_id+'","'+eventAttrParse[0].venue_name+'","'+eventAttrParse[0].pic_small+'","'+eventAttrParse[0].venue_located_in+'")';
-                                         */
-                                         
-                                         
-                                          
-                                         
-                               /*
-insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+
-                                         '","'
-                                         +eventAttrParse[0].update_time+
-                                         '","'
-                                         +eventAttrParse[0].eventFbId+
-                                         '","'
-                                         +eventAttrParse[0].description+
-                                         '","'
-                                         +eventAttrParse[0].end_time+
-                                         '","'
-                                         +eventAttrParse[0].attending_count+
-                                         '","'
-                                         +eventAttrParse[0].pic+
-                                         '","'
-                                         +eventAttrParse[0].pic_big+
-                                         '","'
-                                         +eventAttrParse[0].pic_square+
-                                         '","'
-                                         +eventAttrParse[0].ticket_uri+
-                                         '","'
-                                         +eventAttrParse[0].timezone+
-                                         '","'
-                                         +eventAttrParse[0].unsure_count+
-                                         '","'
-                                         +eventAttrParse[0].venue_street+
-                                         '","'
-                                         +eventAttrParse[0].venue_city+
-                                         '","'
-                                         +eventAttrParse[0].venue_state+
-                                         '","'
-                                         +eventAttrParse[0].venue_country+
-                                         '","'
-                                         +eventAttrParse[0].venue_zip+
-                                         '","'
-                                         +eventAttrParse[0].venue_latitude+
-                                         '","'
-                                         +eventAttrParse[0].venue_longitude+
-                                         '","'
-                                         +eventAttrParse[0].venue_id+
-                                         '","'
-                                         +eventAttrParse[0].venue_name+
-                                         '","'
-                                         +eventAttrParse[0].pic_small+
-                                         '","'
-                                         +eventAttrParse[0].venue_located_in+
-                                         '")';
-                                         */
-                                         for(i=1;i<=eventAttrParse.length - 1;i++){
-                                         
-insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
-                                         
-                                         }
-                                         /*
-startTime,update_time,eventFbId,name,description,end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
-                                          */
-                                           /*
                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db4.transaction(function (tx) {
                                                          tx.executeSql(insertData1);
@@ -155,67 +48,107 @@ startTime,update_time,eventFbId,name,description,end_time,attending_count,pic,pi
                                                          updateEventAttr();
                                                          });
                                          });
+                                  }, errorCB);
+                    }, errorCB);
+}
+
+function updateEventAttr(){
+    
+    var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db4.transaction(function (tx) {
+                    
+                    tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
+                                  var len1 = results.rows.length;
+                                  var friendIdList1 =results.rows.item(0).eventFbId;
+                                  for (var i=1; i<len1; i++){
+                                  friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
+                                  }
+                                  console.log("friendIdList1: "+friendIdList1);
+                                  
+                                  FB.api(
+                                         {
+                                         method: 'fql.query',
+                                         //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
+                                         query: "SELECT name FROM event WHERE eid IN ("+friendIdList1+")",
+                                         access_token:accessToken
+                                         },
+                                         function(eventAttrParse) {
+                                         console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+                                         /*
+                                          var insertData2 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
+                                          insertData2 = insertData2+ '("'+eventAttrParse[0].eid+'","'+eventAttrParse[0].uid+'","'+eventAttrParse[0].start_time+'")';
+                                          for(i=1;i<=eventAttrParse.length - 1;i++){
+                                          insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                          }
+                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                          db4.transaction(function (tx) {
+                                          tx.executeSql(insertData1);
+                                          }, errorCB, function(){
+                                          
+                                          updateEventAttr();
+                                          });
+                                          });
                                           */
                                          
                                          });
                                   });
-                                  });
+                    });
 }
 
-    	      document.addEventListener('deviceready', function () {
-                                        window.fbAsyncInit = function() {
-                                        init();
-                                        }
-                                        });
+document.addEventListener('deviceready', function () {
+                          window.fbAsyncInit = function() {
+                          init();
+                          }
+                          });
 
-                                        function init(){
-                                            alert("init");
-                                            FB.init({
-                                                    appId: '253970731442450',
-                                                    nativeInterface: CDV.FB,
-                                                    //channelUrl: 'http://www.event32ios.com',
-                                                    useCachedDialogs: false
-                                                    });
-                                              //if(window.localStorage.getItem('firstRun')==null){
-                                            FB.getLoginStatus(function(response){
-                                                              if(response.status == "connected"){
-                                                              alert("connected");
-                                                              accessToken = response.authResponse.accessToken;
-                                                              alert("connected line before db");
-                                                              //db.transaction(populateDB, errorCB, updateFriends);
-                                                              var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                                              //db1.transaction(createTable, errorCB, createTableSuccess);
-                                                              db1.transaction(createTable, errorCB, function(tx){
-                                                                              updateFriends();
-                                                                              });
-
-                                                              }else if (response.status == "not_authorized"){
-                                                              alert("not_authorized");
-                                                              $("#fb-login-button").text("Facebook Authorization");
-                                                              $("#fb-login-button").css('display','block');
-                                                              }else if (response.status == "unknown"){
-                                                              alert("unknown");
-                                                              $("#fb-login-button").text("Facebook Login");
-                                                              $("#fb-login-button").css('display','block');
-                                                              }
-                                                              });
-
-                                             window.localStorage.setItem('firstRun','1');
-
-                                        }
+function init(){
+    alert("init");
+    FB.init({
+            appId: '253970731442450',
+            nativeInterface: CDV.FB,
+            //channelUrl: 'http://www.event32ios.com',
+            useCachedDialogs: false
+            });
+    //if(window.localStorage.getItem('firstRun')==null){
+    FB.getLoginStatus(function(response){
+                      if(response.status == "connected"){
+                      alert("connected");
+                      accessToken = response.authResponse.accessToken;
+                      alert("connected line before db");
+                      //db.transaction(populateDB, errorCB, updateFriends);
+                      var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                      //db1.transaction(createTable, errorCB, createTableSuccess);
+                      db1.transaction(createTable, errorCB, function(tx){
+                                      updateFriends();
+                                      });
+                      
+                      }else if (response.status == "not_authorized"){
+                      alert("not_authorized");
+                      $("#fb-login-button").text("Facebook Authorization");
+                      $("#fb-login-button").css('display','block');
+                      }else if (response.status == "unknown"){
+                      alert("unknown");
+                      $("#fb-login-button").text("Facebook Login");
+                      $("#fb-login-button").css('display','block');
+                      }
+                      });
+    
+    window.localStorage.setItem('firstRun','1');
+    
+}
 $(document).ready(function () {
-
-$("#fb-login-button").click(function(){
-                            FB.login($.proxy(function (response) {
-                                             if (response.authResponse) {
-                                             accessToken = response.authResponse.accessToken;
-                                             $("#fb-login-button").css('display','none');
-                                             $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
-                                             } else {
-                                             console.log('User cancelled login or did not fully authorize.');
-                                             }
-                                             }, this), {
-                                     scope: 'user_events,friends_events'
-                                     });
-                            });
-                                    });
+                  
+                  $("#fb-login-button").click(function(){
+                                              FB.login($.proxy(function (response) {
+                                                               if (response.authResponse) {
+                                                               accessToken = response.authResponse.accessToken;
+                                                               $("#fb-login-button").css('display','none');
+                                                               $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
+                                                               } else {
+                                                               console.log('User cancelled login or did not fully authorize.');
+                                                               }
+                                                               }, this), {
+                                                       scope: 'user_events,friends_events'
+                                                       });
+                                              });
+                  });
