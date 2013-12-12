@@ -51,14 +51,14 @@ function updateEvents(){
                                   FB.api(
                                          {
                                          method: 'fql.query',
-                                   query: "SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
+                                   query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
                                          access_token:accessToken
                                          },
                                          function(friendData) {
                                          console.log("friend data: "+JSON.stringify(friendData));
                                          }
                                          );
-                                   
+                                  
                                   //SELECT eid,uid  FROM event_member WHERE uid IN( 1317821699,744603592)
                                   //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now()
                                   //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now() AND rsvp_status = 'attending'
