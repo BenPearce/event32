@@ -10,25 +10,11 @@ function updateFriends(){
            for(i=1;i<=friendParse.length - 1;i++){
            insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
            }
-
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-
            db.transaction(function (tx) {
-                          console.log(insertData);
                            tx.executeSql(insertData);
                           }, errorCB, function(){
-                          console.log("insert friends success");
-                          
-                          
                           updateEvents();
-                          /*
-                          db3.transaction(function (tx) {
-                                          console.log("line before select");
-                                          tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                           
-                                                        }, errorCB);
-                                          }, errorCB);
-                           */
                           });
 });
 }
@@ -36,18 +22,12 @@ function updateFriends(){
 function updateEvents(){
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
-                    console.log("line before select");
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                  
                                    var len = results.rows.length;
-                                   console.log("friends table1: " + len + " rows found.");
                                   var friendIdList =results.rows.item(0).fbId;
                                    for (var i=1; i<len; i++){
                                   friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
-                                   //console.log("Row1 = " + i + " fbId1 = " + results.rows.item(i).fbId + " Data1 =  " + results.rows.item(i).name);
-                                  
                                    }
-                                  
                                   FB.api(
                                          {
                                          method: 'fql.query',
@@ -55,23 +35,11 @@ function updateEvents(){
                                          access_token:accessToken
                                          },
                                          function(friendEventsParse) {
-                                         //console.log("friendEventsData: "+JSON.stringify(friendEventsData));
-                                         //var friendEventsParse = friendEventsData.data;
-                                         //console.log("friends events parse: "+JSON.stringify(friendEventsParse));
                                          var insertData1 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
                  insertData1 = insertData1+ '("'+friendEventsParse[0].eid+'","'+friendEventsParse[0].uid+'","'+friendEventsParse[0].start_time+'")';
                                          for(i=1;i<=friendEventsParse.length - 1;i++){
               insertData1 = insertData1 + ',("'+friendEventsParse[i].eid+'","'+friendEventsParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
                                          }
-                                         
-                                         console.log("INSERT STRING: "+insertData1);
-                                         //FRIENDS_EVENTS
-                                         /*
-                                         insertData = insertData + '("'+friendParse[0].name+'","ran","'+friendParse[0].id+'","'+todaysStamp+'")';
-                                         for(i=1;i<=friendParse.length - 1;i++){
-                                         insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
-                                         }
-                                         */
                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db4.transaction(function (tx) {
                                                         tx.executeSql(insertData1);
@@ -79,16 +47,8 @@ function updateEvents(){
                                                          alert("success");
                                                         });
                                          });
-                                  
-                                  //SELECT eid,uid  FROM event_member WHERE uid IN( 1317821699,744603592)
-                                  //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now()
-                                  //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now() AND rsvp_status = 'attending'
-                                  //console.log("id list: "+friendIdList);
-                                  
-                                  
                                   }, errorCB);
                     }, errorCB);
-    
 }
 
     	      document.addEventListener('deviceready', function () {
@@ -107,7 +67,6 @@ function updateEvents(){
                                                     });
                                               //if(window.localStorage.getItem('firstRun')==null){
                                             FB.getLoginStatus(function(response){
-                                                              //alert("login status response");
                                                               if(response.status == "connected"){
                                                               alert("connected");
                                                               accessToken = response.authResponse.accessToken;
@@ -121,16 +80,12 @@ function updateEvents(){
 
                                                               }else if (response.status == "not_authorized"){
                                                               alert("not_authorized");
-                                                              
                                                               $("#fb-login-button").text("Facebook Authorization");
                                                               $("#fb-login-button").css('display','block');
-                                                               
                                                               }else if (response.status == "unknown"){
                                                               alert("unknown");
-                                                              
                                                               $("#fb-login-button").text("Facebook Login");
                                                               $("#fb-login-button").css('display','block');
-                                                              
                                                               }
                                                               });
 
@@ -141,12 +96,10 @@ $(document).ready(function () {
 
 $("#fb-login-button").click(function(){
                             FB.login($.proxy(function (response) {
-                                             //alert(JSON.stringify(response.data.shift()));
                                              if (response.authResponse) {
                                              accessToken = response.authResponse.accessToken;
                                              $("#fb-login-button").css('display','none');
                                              $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
-                                             
                                              } else {
                                              console.log('User cancelled login or did not fully authorize.');
                                              }
