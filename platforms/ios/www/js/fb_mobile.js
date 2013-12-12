@@ -18,23 +18,35 @@ function updateFriends(){
                            tx.executeSql(insertData);
                           }, errorCB, function(){
                           console.log("insert friends success");
-                          var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                          
+                          
+                          updateEvents();
+                          /*
                           db3.transaction(function (tx) {
                                           console.log("line before select");
                                           tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                                        var len = results.rows.length;
-                                                        console.log("friends table1: " + len + " rows found.");
-                                                        for (var i=0; i<len; i++){
-                                                        console.log("Row = " + i + " fbId = " + results.rows.item(i).fbId + " Data =  " + results.rows.item(i).name);
-                                                        }
+                           
                                                         }, errorCB);
                                           }, errorCB);
+                           */
                           });
 });
 }
 
 function updateEvents(){
-    
+    var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db3.transaction(function (tx) {
+                    console.log("line before select");
+                    tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
+                                  
+                                   var len = results.rows.length;
+                                   console.log("friends table1: " + len + " rows found.");
+                                   for (var i=0; i<len; i++){
+                                   console.log("Row1 = " + i + " fbId1 = " + results.rows.item(i).fbId + " Data1 =  " + results.rows.item(i).name);
+                                   }
+                                  
+                                  }, errorCB);
+                    }, errorCB);
     
 }
 
@@ -45,7 +57,7 @@ function updateEvents(){
                                         });
 
                                         function init(){
-                                            //alert("init");
+                                            alert("init");
                                             FB.init({
                                                     appId: '253970731442450',
                                                     nativeInterface: CDV.FB,
@@ -88,7 +100,7 @@ $(document).ready(function () {
 
 $("#fb-login-button").click(function(){
                             FB.login($.proxy(function (response) {
-                                             alert(JSON.stringify(response.data.shift()));
+                                             //alert(JSON.stringify(response.data.shift()));
                                              if (response.authResponse) {
                                              accessToken = response.authResponse.accessToken;
                                              $("#fb-login-button").css('display','none');
