@@ -54,15 +54,36 @@ function updateEvents(){
                                    query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
                                          access_token:accessToken
                                          },
-                                         function(friendData) {
-                                         console.log("friend data: "+JSON.stringify(friendData));
+                                         function(friendEventsParse) {
+                                         //console.log("friendEventsData: "+JSON.stringify(friendEventsData));
+                                         //var friendEventsParse = friendEventsData.data;
+                                         //console.log("friends events parse: "+JSON.stringify(friendEventsParse));
+                                         var insertData1 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
+                 insertData1 = insertData1+ '("'+friendEventsParse[0].eid+'","'+friendEventsParse[0].uid+'","'+friendEventsParse[0].start_time+'")';
+                                         for(i=1;i<=friendEventsParse.length - 1;i++){
+              insertData1 = insertData1 + ',("'+friendEventsParse[i].eid+'","'+friendEventsParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
                                          }
-                                         );
+                                         
+                                         console.log("INSERT STRING: "+insertData1);
+                                         //FRIENDS_EVENTS
+                                         /*
+                                         insertData = insertData + '("'+friendParse[0].name+'","ran","'+friendParse[0].id+'","'+todaysStamp+'")';
+                                         for(i=1;i<=friendParse.length - 1;i++){
+                                         insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
+                                         }
+                                         */
+                                         var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                         db4.transaction(function (tx) {
+                                                        tx.executeSql(insertData1);
+                                                        }, errorCB, function(){
+                                                         alert("success");
+                                                        });
+                                         });
                                   
                                   //SELECT eid,uid  FROM event_member WHERE uid IN( 1317821699,744603592)
                                   //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now()
                                   //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now() AND rsvp_status = 'attending'
-                                  console.log("id list: "+friendIdList);
+                                  //console.log("id list: "+friendIdList);
                                   
                                   
                                   }, errorCB);
