@@ -41,9 +41,28 @@ function updateEvents(){
                                   
                                    var len = results.rows.length;
                                    console.log("friends table1: " + len + " rows found.");
-                                   for (var i=0; i<len; i++){
-                                   console.log("Row1 = " + i + " fbId1 = " + results.rows.item(i).fbId + " Data1 =  " + results.rows.item(i).name);
+                                  var friendIdList =results.rows.item(0).fbId;
+                                   for (var i=1; i<len; i++){
+                                  friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
+                                   //console.log("Row1 = " + i + " fbId1 = " + results.rows.item(i).fbId + " Data1 =  " + results.rows.item(i).name);
+                                  
                                    }
+                                  
+                                  FB.api(
+                                         {
+                                         method: 'fql.query',
+                                   query: "SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
+                                         access_token:accessToken
+                                         },
+                                         function(friendData) {
+                                         console.log("friend data: "+JSON.stringify(friendData));
+                                         }
+                                         );
+                                   
+                                  //SELECT eid,uid  FROM event_member WHERE uid IN( 1317821699,744603592)
+                                  //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now()
+                                  //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now() AND rsvp_status = 'attending'
+                                  console.log("id list: "+friendIdList);
                                   
                                   }, errorCB);
                     }, errorCB);
