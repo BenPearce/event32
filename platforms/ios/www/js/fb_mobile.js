@@ -57,29 +57,96 @@ function updateEventAttr(){
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     
-                    tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
+                    tx.executeSql('SELECT DISTINCT eventFbId start_time from FRIENDS_EVENTS', [], function (tx, results) {
                                   var len1 = results.rows.length;
                                   var friendIdList1 =results.rows.item(0).eventFbId;
                                   for (var i=1; i<len1; i++){
                                   friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
                                   }
-                                  console.log("friendIdList1: "+friendIdList1);
+                                  //console.log("friendIdList1: "+friendIdList1);
                                   
                                   FB.api(
                                          {
                                          method: 'fql.query',
                                          //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
+                                         //query: "SELECT name,start_time,eid FROM event WHERE eid IN ("+friendIdList1+")",
                                          query: "SELECT name FROM event WHERE eid IN ("+friendIdList1+")",
                                          access_token:accessToken
                                          },
                                          function(eventAttrParse) {
-                                         console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+                                         console.log("eventAttrParse1: "+JSON.stringify(eventAttrParse));
+                                         //eventAttrParse = eventAttrData.data;
+                                         
+                                        var insertData2 = "INSERT INTO EVENTS (startTime,eventFbId) VALUES";
+                                         insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+'","'+eventAttrParse[0].eventFbId+'")';
+                                         
+                                         console.log("insertData2: "+ insertData2);
                                          /*
-                                         var insertData2 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
-                                         insertData2 = insertData2+ '("'+eventAttrParse[0].eid+'","'+eventAttrParse[0].uid+'","'+eventAttrParse[0].start_time+'")';
+                                         var insertData2 = "INSERT INTO EVENTS (startTime,update_time,eventFbId,name,description,end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,name) VALUES";
+                                         
+                                          insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+'","'+eventAttrParse[0].update_time+'","'+eventAttrParse[0].eventFbId+'","'+eventAttrParse[0].description+'","'+eventAttrParse[0].end_time+'","'+eventAttrParse[0].attending_count+'","'+eventAttrParse[0].pic+'","'+eventAttrParse[0].pic_big+'","'+eventAttrParse[0].pic_square+'","'+eventAttrParse[0].ticket_uri+'","'+eventAttrParse[0].timezone+'","'+eventAttrParse[0].unsure_count+'","'+eventAttrParse[0].venue_street+'","'+eventAttrParse[0].venue_city+'","'+eventAttrParse[0].venue_state+'","'+eventAttrParse[0].venue_country+'","'+eventAttrParse[0].venue_zip+'","'+eventAttrParse[0].venue_latitude+'","'+eventAttrParse[0].venue_longitude+'","'+eventAttrParse[0].venue_id+'","'+eventAttrParse[0].venue_name+'","'+eventAttrParse[0].pic_small+'","'+eventAttrParse[0].venue_located_in+'")';
+                                         */
+                                         
+                                         
+                                          
+                                         
+                               /*
+insertData2 = insertData2+ '("'+eventAttrParse[0].start_time+
+                                         '","'
+                                         +eventAttrParse[0].update_time+
+                                         '","'
+                                         +eventAttrParse[0].eventFbId+
+                                         '","'
+                                         +eventAttrParse[0].description+
+                                         '","'
+                                         +eventAttrParse[0].end_time+
+                                         '","'
+                                         +eventAttrParse[0].attending_count+
+                                         '","'
+                                         +eventAttrParse[0].pic+
+                                         '","'
+                                         +eventAttrParse[0].pic_big+
+                                         '","'
+                                         +eventAttrParse[0].pic_square+
+                                         '","'
+                                         +eventAttrParse[0].ticket_uri+
+                                         '","'
+                                         +eventAttrParse[0].timezone+
+                                         '","'
+                                         +eventAttrParse[0].unsure_count+
+                                         '","'
+                                         +eventAttrParse[0].venue_street+
+                                         '","'
+                                         +eventAttrParse[0].venue_city+
+                                         '","'
+                                         +eventAttrParse[0].venue_state+
+                                         '","'
+                                         +eventAttrParse[0].venue_country+
+                                         '","'
+                                         +eventAttrParse[0].venue_zip+
+                                         '","'
+                                         +eventAttrParse[0].venue_latitude+
+                                         '","'
+                                         +eventAttrParse[0].venue_longitude+
+                                         '","'
+                                         +eventAttrParse[0].venue_id+
+                                         '","'
+                                         +eventAttrParse[0].venue_name+
+                                         '","'
+                                         +eventAttrParse[0].pic_small+
+                                         '","'
+                                         +eventAttrParse[0].venue_located_in+
+                                         '")';
+                                         */
                                          for(i=1;i<=eventAttrParse.length - 1;i++){
-                                         insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                         
+insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                         
                                          }
+                                         /*
+startTime,update_time,eventFbId,name,description,end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
+                                          */
+                                           /*
                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db4.transaction(function (tx) {
                                                          tx.executeSql(insertData1);

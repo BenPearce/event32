@@ -12,13 +12,8 @@ function createTable(tx){
     //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
     tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
     
-    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in)');
-    
-    
-    
+    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small)');
 
-    
-    
     //Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 }
 function populateFriendtable(tx) {
