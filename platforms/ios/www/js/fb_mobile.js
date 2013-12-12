@@ -64,6 +64,7 @@ function updateEvents(){
                                   //SELECT eid,uid,rsvp_status  FROM event_member WHERE uid IN( 1317821699,744603592) AND start_time >= now() AND rsvp_status = 'attending'
                                   console.log("id list: "+friendIdList);
                                   
+                                  
                                   }, errorCB);
                     }, errorCB);
     

@@ -2,7 +2,16 @@
 function createTable(tx){
     
     tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
+    tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
     tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, data, name,touched)');
+    //UNIQUE(user_id, image_id)
+    //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(startTime DATETIME,touched DATETIME DEFAULT CURRENT_TIMESTAMP,UNIQUE(eventFbId, friendFbId))');
+    //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
+    //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
+    //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
+    tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
+    
+    //Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 }
 function populateFriendtable(tx) {
     tx.executeSql('INSERT INTO FRIENDS (fbId, data, name,touched) VALUES (1, "First row", "Betty","32424")');
