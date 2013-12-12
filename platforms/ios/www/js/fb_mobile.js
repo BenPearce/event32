@@ -69,17 +69,20 @@ function updateEventAttr(){
                                          {
                                          method: 'fql.query',
                                          //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
-                                         query: "SELECT name FROM event WHERE eid IN ("+friendIdList1+")",
+                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
                                          access_token:accessToken
                                          },
                                          function(eventAttrParse) {
                                          console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
-                                         /*
-                                          var insertData2 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
-                                          insertData2 = insertData2+ '("'+eventAttrParse[0].eid+'","'+eventAttrParse[0].uid+'","'+eventAttrParse[0].start_time+'")';
+                                      
+                                          var insertData3 = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES";
+                                          insertData3 = insertData3+ '("'+eventAttrParse[0].name+'","'+eventAttrParse[0].eid+'","'+eventAttrParse[0].start_time+'")';
                                           for(i=1;i<=eventAttrParse.length - 1;i++){
-                                          insertData1 = insertData1 + ',("'+eventAttrParse[i].eid+'","'+eventAttrParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
+                                          insertData3 = insertData3 + ',("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")';
                                           }
+                                         
+                                         console.log("insertData3 "+insertData3);
+                                            /*
                                           var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                           db4.transaction(function (tx) {
                                           tx.executeSql(insertData1);
