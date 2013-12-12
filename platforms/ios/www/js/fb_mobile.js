@@ -44,11 +44,29 @@ function updateEvents(){
                                          db4.transaction(function (tx) {
                                                         tx.executeSql(insertData1);
                                                         }, errorCB, function(){
-                                                         alert("success");
+
+                                                         updateEventAttr();
                                                         });
                                          });
                                   }, errorCB);
                     }, errorCB);
+}
+
+function updateEventAttr(){
+  
+    var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db4.transaction(function (tx) {
+                    
+                    tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
+                                  var len1 = results.rows.length;
+                                  //var friendIdList =results.rows.item(0).fbId;
+                                  for (var i=1; i<len1; i++){
+                                  console.log("dist event ID's: "+results.rows.item(i).eventFbId)
+                                  //friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
+                                  }
+                                  });
+                            
+                                  });
 }
 
     	      document.addEventListener('deviceready', function () {
