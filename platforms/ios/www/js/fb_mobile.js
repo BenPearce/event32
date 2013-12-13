@@ -79,10 +79,29 @@ function updateEventAttr(){
                                           var insertData3 = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES";
                                           insertData3 = insertData3+ '("'+eventAttrParse[0].name+'","'+eventAttrParse[0].eid+'","'+eventAttrParse[0].start_time+'")';
                                           for(i=1;i<=eventAttrParse.length - 1;i++){
-                                          insertData3 = insertData3 + ',("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")';
+                                         
+                          var isData ='[("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")]';
+                                         console.log("isData "+isData);
+                          //insertData3 = insertData3 + ',("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")';
+   
+                                          var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                          db7.transaction(function (tx) {
+                        //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",[("3", todaysStamp,"431")]);
+                       // tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
+tx.executeSql('INSERT INTO EVENTS ("name","start_time","eventFbId") VALUES (?,?,?)',+'["Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800"]');
+       
+                                                          
+                                                          //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
+                                                          
+//tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)", ("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
+                                          }, errorCB, function(){
+                                          //success
+                                          });
+                                         
+                                         //("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
                                           }
                                          
-                                         console.log("insertData3 "+insertData3);
+                                         
                                          
                                          var insertPre = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES (?,?),"
                                          var insertValues= [("1","foo","hi"), ("2", "bar","gee"), ("3", "baz","din")];
@@ -99,20 +118,32 @@ function updateEventAttr(){
                                                             INSERT INTO some_table ('item_num', 'item_name')
                                                             VALUES (?, ?)""", values_to_insert)
                                                             */
-                                                            
+                                      
                                          
+                                         
+                                                            
+                                         /*
                                           var db5 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          
                                          db5.transaction(function (tx) {
-                                //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?, ?,?)",["3", "baz","din"]);
-                                  tx.executeSql("INSERT INTO EVENTS ('name','eventFbId') VALUES (?,?)",[("3", "baz"),("3", "baz")]);
-                                //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?,?,?)",[("3", "baz","din"),("4", "bmo","goo")]);
+
+    tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",[("3", todaysStamp,"431")]);
+
                                           }, errorCB, function(){
-                                          
-                                                         alert("successer2");
-                                          //});
+                                                    
+                                                         var db6 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                                         db6.transaction(function (tx) {
+                                                         tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
+
+                                                                       var len4 = results.rows.length
+                                                                       for (var i=1; i<len4; i++){
+
+                                                                       }
+                                                                                      }, errorCB);
+                                                                       
+                                                                         });
                                           });
-                                  
+                                */
                                          
                                          });
                                   });
