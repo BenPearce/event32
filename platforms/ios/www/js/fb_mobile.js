@@ -6,14 +6,15 @@ function updateFriends(){
 
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            db.transaction(function (tx) {
-                          /*
+                          
                           var friendParse = friendData.data;
                           for(i=1;i<=friendParse.length - 1;i++){
                           //insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
-                          }
+                      
                           
-                          tx.executeSql("INSERT INTO FRIENDS ('name', 'data', 'fbId','touched') VALUES (?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time]);
-*/
+                          tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)",[friendParse[i].name,friendParse[i].id,todaysStamp]);
+                           
+                               }
                           
                           }, errorCB, function(){
                           updateEvents();
