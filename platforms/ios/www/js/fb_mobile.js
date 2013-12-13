@@ -69,7 +69,8 @@ function updateEventAttr(){
                                          {
                                          method: 'fql.query',
                                          //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
-                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
+                                         //query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
+                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN (534230870005637,539043099523278)",
                                          access_token:accessToken
                                          },
                                          function(eventAttrParse) {
@@ -82,16 +83,34 @@ function updateEventAttr(){
                                           }
                                          
                                          console.log("insertData3 "+insertData3);
-                                            /*
-                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                          db4.transaction(function (tx) {
-                                          tx.executeSql(insertData1);
+                                         
+                                         var insertPre = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES (?,?),"
+                                         var insertValues= [("1","foo","hi"), ("2", "bar","gee"), ("3", "baz","din")];
+                                         var statement = insertPre + insertValues;
+                                         
+                                         /*
+                                         insertData3 = 'INSERT INTO EVENTS (name,eventFbId,start_time) VALUES("LADIES NIGHT AT THE CONTINENTAL: SQUAREFISH | IRIS | AZALiA SNAiL | MARIA SWEET","534230870005637","2013-12-17T21:00:00-0800"),("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")'
+                                          */
+                                         
+                                         /*
+                                         values_to_insert = [(1,"foo"), (2, "bar"), (3, "baz")]
+                                         
+                                         cursor.executemany("""
+                                                            INSERT INTO some_table ('item_num', 'item_name')
+                                                            VALUES (?, ?)""", values_to_insert)
+                                                            */
+                                                            
+                                         
+                                          var db5 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                         
+                                         db5.transaction(function (tx) {
+                                tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?, ?,?)",["3", "baz","din"]);
                                           }, errorCB, function(){
                                           
-                                          updateEventAttr();
+                                                         alert("successer1");
+                                          //});
                                           });
-                                          });
-                                          */
+                                  
                                          
                                          });
                                   });
