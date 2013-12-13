@@ -3,16 +3,18 @@ var insertData;
 
 function updateFriends(){
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
-           var friendParse = friendData.data;
-           insertData = "INSERT INTO FRIENDS (name, data, fbId,touched) VALUES";
-           insertData = insertData + '("'+friendParse[0].name+'","ran","'+friendParse[0].id+'","'+todaysStamp+'")';
-           
-           for(i=1;i<=friendParse.length - 1;i++){
-           insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
-           }
+
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            db.transaction(function (tx) {
-                          tx.executeSql(insertData);
+                          /*
+                          var friendParse = friendData.data;
+                          for(i=1;i<=friendParse.length - 1;i++){
+                          //insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
+                          }
+                          
+                          tx.executeSql("INSERT INTO FRIENDS ('name', 'data', 'fbId','touched') VALUES (?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time]);
+*/
+                          
                           }, errorCB, function(){
                           updateEvents();
                           });
