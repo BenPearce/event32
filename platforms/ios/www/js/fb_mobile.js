@@ -35,14 +35,18 @@ function updateEvents(){
                                          access_token:accessToken
                                          },
                                          function(friendEventsParse) {
-                                         var insertData1 = "INSERT INTO FRIENDS_EVENTS (eventFbId,friendFbId,startTime) VALUES";
-                                         insertData1 = insertData1+ '("'+friendEventsParse[0].eid+'","'+friendEventsParse[0].uid+'","'+friendEventsParse[0].start_time+'")';
-                                         for(i=1;i<=friendEventsParse.length - 1;i++){
-                                         insertData1 = insertData1 + ',("'+friendEventsParse[i].eid+'","'+friendEventsParse[i].uid+'","'+friendEventsParse[i].start_time+'")';
-                                         }
+                  
                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db4.transaction(function (tx) {
-                                                         tx.executeSql(insertData1);
+
+                                        for(i=1;i<=friendEventsParse.length - 1;i++){
+                                          //tx.executeSql(insertData1);
+                            
+tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime') VALUES (?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time]);
+ 
+                                                                                      }
+ 
+                                                       
                                                          }, errorCB, function(){
                                                          
                                                          updateEventAttr();
@@ -93,7 +97,7 @@ tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TI
 tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,eventAttrParse[i].end_time,eventAttrParse[i].description,eventAttrParse[i].name,eventAttrParse[i].attending_count,eventAttrParse[i].unsure_count,eventAttrParse[i].not_replied_count,eventAttrParse[i].all_members_count,eventAttrParse[i].timezone,eventAttrParse[i].ticket_uri,eventAttrParse[i].pic_small,eventAttrParse[i].pic,eventAttrParse[i].pic_big,eventAttrParse[i].pic_square,eventAttrParse[i].pic_cover,eventAttrParse[i].can_invite_friends,eventAttrParse[i].creator]);
  }
                                           }, errorCB, function(){
-                                                          alert("suck-ces");
+                                                          //alert("suck-ces");
                                                           var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                                           db7.transaction(function (tx) {
                                                                           tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
