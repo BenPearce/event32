@@ -83,7 +83,7 @@ function updateEventAttr(){
                                           var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                           db7.transaction(function (tx) {
                                                           console.log("eventAttrParse.length: "+eventAttrParse.length);
-                                                          for(i=1;i<=eventAttrParse.length - 1;i++){
+                                                          for(i=0;i<=eventAttrParse.length - 1;i++){
                                                           console.log("loop");
 tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time',description) VALUES (?,?,?,?)",["test name",eventAttrParse[i].eid,todaysStamp,"testDescription"]);
  }
