@@ -4,7 +4,7 @@ function createTable(tx){
     tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
     tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
     tx.executeSql('DROP TABLE IF EXISTS EVENTS');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, data, name,touched)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, name,touched DATETIME)');
     //UNIQUE(user_id, image_id)
     //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(startTime DATETIME,touched DATETIME DEFAULT CURRENT_TIMESTAMP,UNIQUE(eventFbId, friendFbId))');
     //tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
