@@ -14,7 +14,7 @@ function createTable(tx){
     /*
     tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small)');
     */
-    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy)');
+    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,pic_cover,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy)');
     
     //all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy
     
