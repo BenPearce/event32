@@ -44,7 +44,7 @@ function updateEvents(){
                                         for(i=1;i<=friendEventsParse.length - 1;i++){
                                           //tx.executeSql(insertData1);
                             
-tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime') VALUES (?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time]);
+tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched') VALUES (?,?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time,todaysStamp]);
  
                                                                                       }
  
