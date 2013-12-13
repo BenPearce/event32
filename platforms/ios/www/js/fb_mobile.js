@@ -85,7 +85,12 @@ function updateEventAttr(){
                                                           console.log("eventAttrParse.length: "+eventAttrParse.length);
                                                           for(i=0;i<=eventAttrParse.length - 1;i++){
                                                           console.log("loop");
-tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time',description) VALUES (?,?,?,?)",["test name",eventAttrParse[i].eid,todaysStamp,"testDescription"]);
+                                              /*
+   tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small)');
+                                               */
+                                                          
+                                                          
+tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','description','name') VALUES (?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,"testDescription","testDescription"]);
  }
                                           }, errorCB, function(){
                                                           alert("suck-ces");
