@@ -63,41 +63,30 @@ function updateEventAttr(){
                                   for (var i=1; i<len1; i++){
                                   friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
                                   }
-                                  console.log("friendIdList1: "+friendIdList1);
+                                  //console.log("friendIdList1: "+friendIdList1);
                                   
                                   FB.api(
                                          {
                                          method: 'fql.query',
                                          //"SELECT name FROM event WHERE eid IN (118153501641714,125550270812056,127285060766632)"
-                                         //query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
-                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN (534230870005637,539043099523278)",
+                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
+                                         //query: "SELECT name,eid,start_time FROM event WHERE eid IN (534230870005637,539043099523278)",
                                          access_token:accessToken
                                          },
                                          function(eventAttrParse) {
-                                         console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+                                         //console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
                                       
-                                          var insertData3 = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES";
-                                          insertData3 = insertData3+ '("'+eventAttrParse[0].name+'","'+eventAttrParse[0].eid+'","'+eventAttrParse[0].start_time+'")';
-                                          for(i=1;i<=eventAttrParse.length - 1;i++){
+                                          //var insertData3 = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES";
+                                          //insertData3 = insertData3+ '("'+eventAttrParse[0].name+'","'+eventAttrParse[0].eid+'","'+eventAttrParse[0].start_time+'")';
                                          
-                          var isData ='[("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")]';
-                                         console.log("isData "+isData);
-                          //insertData3 = insertData3 + ',("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")';
-   
+                          //var isData ='[("'+eventAttrParse[i].name+'","'+eventAttrParse[i].eid+'","'+eventAttrParse[i].start_time+'")]';
                                           var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                           db7.transaction(function (tx) {
-                        //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",[("3", todaysStamp,"431")]);
-                       // tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
-//tx.executeSql('INSERT INTO EVENTS ("name","start_time","eventFbId") VALUES (?,?,?)',+'["Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800"]');
-                                                          
-       //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId') VALUES (?,?)",[("3", "baz"),("3", "baz")]);
-       tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?,?,?)",["3", "baz",todaysStamp]);
-
-       
-                                                          
-                                                          //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
-                                                          
-//tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)", ("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
+                                                          console.log("eventAttrParse.length: "+eventAttrParse.length);
+                                                          for(i=1;i<=eventAttrParse.length - 1;i++){
+                                                          console.log("loop");
+tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time',description) VALUES (?,?,?,?)",["test name",eventAttrParse[i].eid,todaysStamp,"testDescription"]);
+ }
                                           }, errorCB, function(){
                                                           alert("suck-ces");
                                                           var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
@@ -106,18 +95,15 @@ function updateEventAttr(){
                                                                                         
                                                                                         var len5 = results.rows.length
                                                                                         for (var i=0; i<len5; i++){
-                                                                                        console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
+                                                  console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
                                                                                         }
                                                                                         }, errorCB);
                                                                           
                                                                           });
                                           });
                                          
-                                         //("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
-                                          }
                                          
-                                         
-                                         
+
                                          var insertPre = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES (?,?),"
                                          var insertValues= [("1","foo","hi"), ("2", "bar","gee"), ("3", "baz","din")];
                                          var statement = insertPre + insertValues;
