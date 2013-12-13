@@ -9,13 +9,8 @@ function updateFriends(){
                           
                           var friendParse = friendData.data;
                           for(i=1;i<=friendParse.length - 1;i++){
-                          //insertData = insertData + ',("'+friendParse[i].name+'","ran","'+friendParse[i].id+'","'+todaysStamp+'")';
-                      
-                          
                           tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)",[friendParse[i].name,friendParse[i].id,todaysStamp]);
-                           
                                }
-                          
                           }, errorCB, function(){
                           updateEvents();
                           });
@@ -46,10 +41,7 @@ function updateEvents(){
                                           //tx.executeSql(insertData1);
                             
 tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched') VALUES (?,?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time,todaysStamp]);
- 
                                                                                       }
- 
-                                                       
                                                          }, errorCB, function(){
                                                          
                                                          updateEventAttr();
@@ -115,10 +107,11 @@ tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_ti
                                           });
                                          
                                          
-
+/*
                                          var insertPre = "INSERT INTO EVENTS (name,eventFbId,start_time) VALUES (?,?),"
                                          var insertValues= [("1","foo","hi"), ("2", "bar","gee"), ("3", "baz","din")];
                                          var statement = insertPre + insertValues;
+ */
                                          
                                          /*
                                          insertData3 = 'INSERT INTO EVENTS (name,eventFbId,start_time) VALUES("LADIES NIGHT AT THE CONTINENTAL: SQUAREFISH | IRIS | AZALiA SNAiL | MARIA SWEET","534230870005637","2013-12-17T21:00:00-0800"),("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")'
