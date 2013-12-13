@@ -88,14 +88,29 @@ function updateEventAttr(){
                                           db7.transaction(function (tx) {
                         //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",[("3", todaysStamp,"431")]);
                        // tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
-tx.executeSql('INSERT INTO EVENTS ("name","start_time","eventFbId") VALUES (?,?,?)',+'["Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800"]');
+//tx.executeSql('INSERT INTO EVENTS ("name","start_time","eventFbId") VALUES (?,?,?)',+'["Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800"]');
+                                                          
+       //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId') VALUES (?,?)",[("3", "baz"),("3", "baz")]);
+       tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?,?,?)",["3", "baz",todaysStamp]);
+
        
                                                           
                                                           //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)",+isData);
                                                           
 //tx.executeSql("INSERT INTO EVENTS ('name','start_time','eventFbId') VALUES (?,?,?)", ("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
                                           }, errorCB, function(){
-                                          //success
+                                                          alert("suck-ces");
+                                                          var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                                                          db7.transaction(function (tx) {
+                                                                          tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
+                                                                                        
+                                                                                        var len5 = results.rows.length
+                                                                                        for (var i=0; i<len5; i++){
+                                                                                        console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
+                                                                                        }
+                                                                                        }, errorCB);
+                                                                          
+                                                                          });
                                           });
                                          
                                          //("Accidental Bear 3 Yr Anniversary Party! Feat Eric Himan & Zbornak!","539043099523278","2013-12-17T21:00:00-0800")
