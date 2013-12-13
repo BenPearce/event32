@@ -104,10 +104,12 @@ function updateEventAttr(){
                                           var db5 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          
                                          db5.transaction(function (tx) {
-                                tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?, ?,?)",["3", "baz","din"]);
+                                //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?, ?,?)",["3", "baz","din"]);
+                                  tx.executeSql("INSERT INTO EVENTS ('name','eventFbId') VALUES (?,?)",[("3", "baz"),("3", "baz")]);
+                                //tx.executeSql("INSERT INTO EVENTS ('name','eventFbId','start_time') VALUES (?,?,?)",[("3", "baz","din"),("4", "bmo","goo")]);
                                           }, errorCB, function(){
                                           
-                                                         alert("successer1");
+                                                         alert("successer2");
                                           //});
                                           });
                                   
