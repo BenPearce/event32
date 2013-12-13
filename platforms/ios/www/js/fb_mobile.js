@@ -90,7 +90,7 @@ function updateEventAttr(){
                                                */
                                                           
                                                           
-tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','description','name') VALUES (?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,"testDescription","testDescription"]);
+tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','description','name') VALUES (?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,"testDescription","testDescription"]);
  }
                                           }, errorCB, function(){
                                                           alert("suck-ces");
