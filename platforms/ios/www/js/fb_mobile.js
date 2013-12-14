@@ -95,11 +95,12 @@ function insertEventIdsDb(friendEventsParse){
                     });
     return dfd.promise();
 }
-
+/*
 function updateEventAttr1(){
     
     updateEventAttr();
 }
+ */
 
 var updateEventAttr = function(){
     var dfd = $.Deferred();
@@ -215,7 +216,7 @@ function init(){
                                                             updateEventAttr().done(function(friendIdList1){
                                                                                                       
                                                                             getEventAttrFb(friendIdList1).done(function(eventAttrParse){
-                                                                                                                        insertEventArrtDb(eventAttrParse);
+                                                                                            insertEventArrtDb(eventAttrParse);
                                                                                                                                          })
                                                                                                       
                                                                                                      
