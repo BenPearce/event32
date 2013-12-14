@@ -21,6 +21,7 @@ function getFriendsFb(){
 }
 
 function insertFriendsDb(friendParse){
+    console.log("insertFriendsDb");
     var dfd = $.Deferred();
     var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db.transaction(function (tx) {
@@ -36,9 +37,11 @@ function insertFriendsDb(friendParse){
 }
 
 var updateEvents = function(){
+    console.log("updateEvents");
     var dfd = $.Deferred();
     getFriendsDb().done(function(friendIdList){
                         getEventIdsFb(friendIdList).done(function(friendEventsParse){
+                                                         console.log("line begore nsertEventIdsDb");
                                                          insertEventIdsDb(friendEventsParse);
                                                          dfd.resolve("blah");
                                                          });
@@ -46,7 +49,21 @@ var updateEvents = function(){
       return dfd.promise();
 }
 
+var updateEventAttr = function(){
+    var dfd = $.Deferred();
+    getEventIDsDb().done(function(eventIdList1){
+                         getEventAttrFb().done(function(eventAttrParse){
+                                               insertEventArrtDb(eventAttrParse).done(function(){
+                                                                                      console.log("line begore get event arrt");
+                                                                                      getEventArrtDb();
+                                                                                      });
+                                               });
+                         });
+    return dfd.promise();
+}
+
 function getFriendsDb(){
+    console.log("getFriendsDb");
     var dfd = $.Deferred();
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
@@ -63,6 +80,7 @@ function getFriendsDb(){
 }
 
 function getEventIdsFb(friendIdList){
+    console.log("getEventIdsFb");
     var dfd = $.Deferred();
     FB.api(
            {
@@ -79,6 +97,7 @@ function getEventIdsFb(friendIdList){
 }
 
 function insertEventIdsDb(friendEventsParse){
+    console.log("insertEventIdsDb");
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
@@ -96,80 +115,77 @@ function insertEventIdsDb(friendEventsParse){
     return dfd.promise();
 }
 
-var updateEventAttr = function(){
+
+
+function getEventIDsDb(){
+    console.log("getEventIDsDb");
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
                                   var len1 = results.rows.length;
-                                  var friendIdList1 =results.rows.item(0).eventFbId;
+                                  var eventIdList1 =results.rows.item(0).eventFbId;
                                   for (var i=1; i<len1; i++){
-                                  friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
+                                  eventIdList1 = eventIdList1 + ","+ results.rows.item(i).eventFbId;
                                   }
+                                  dfd.resolve(eventIdList1);
                                   
-                                  
-
-                                  FB.api(
-                                         {
-                                         method: 'fql.query',
-                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
-                                         access_token:accessToken
-                                         },
-                                         function(eventAttrParse) {
-                                         
-                                         
-                                          var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                          db7.transaction(function (tx) {
-                                                          for(i=0;i<=eventAttrParse.length - 1;i++){
-                                    
-tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,eventAttrParse[i].end_time,eventAttrParse[i].description,eventAttrParse[i].name,eventAttrParse[i].attending_count,eventAttrParse[i].unsure_count,eventAttrParse[i].not_replied_count,eventAttrParse[i].all_members_count,eventAttrParse[i].timezone,eventAttrParse[i].ticket_uri,eventAttrParse[i].pic_small,eventAttrParse[i].pic,eventAttrParse[i].pic_big,eventAttrParse[i].pic_square,eventAttrParse[i].pic_cover,eventAttrParse[i].can_invite_friends,eventAttrParse[i].creator]);
- }
-                                          }, errorCB, function(){
-                                                          
-                                                          
-                                                          
-                                                          var eventsUpdateTime = new Date().getTime();
-                                                          window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
-                                                          dfd.resolve("reesolved");
-                                                          
-                                         
-                                          });
-                                         });
                                   });
                     });
     return dfd.promise();
 }
 
-function getEventIDsDb(){
-    
-}
-
-function getEventAttrFb(friendIdList1){
-    
+function getEventAttrFb(eventIdList1){
+    console.log("getEventAttrFb");
+    var dfd = $.Deferred();
+    FB.api(
+           {
+           method: 'fql.query',
+           query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+eventIdList1+")",
+           access_token:accessToken
+           },
+           function(eventAttrParse) {
+           dfd.resolve(eventAttrParse);
+           });
+     return dfd.promise();
 }
 
 function insertEventArrtDb(eventAttrParse){
-    
+    console.log("insertEventArrtDb");
+    var dfd = $.Deferred();
+    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db7.transaction(function (tx) {
+                    for(i=0;i<=eventAttrParse.length - 1;i++){
+                
+                    console.log("loop");
+                    tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,eventAttrParse[i].end_time,eventAttrParse[i].description,eventAttrParse[i].name,eventAttrParse[i].attending_count,eventAttrParse[i].unsure_count,eventAttrParse[i].not_replied_count,eventAttrParse[i].all_members_count,eventAttrParse[i].timezone,eventAttrParse[i].ticket_uri,eventAttrParse[i].pic_small,eventAttrParse[i].pic,eventAttrParse[i].pic_big,eventAttrParse[i].pic_square,eventAttrParse[i].pic_cover,eventAttrParse[i].can_invite_friends,eventAttrParse[i].creator]);
+                    }
+                    }, errorCB, function(){
+                    var eventsUpdateTime = new Date().getTime();
+                    window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
+                    dfd.resolve("reesolved");
+                    });
+     return dfd.promise();
 }
 
 function getEventArrtDb(){
+    var dfd = $.Deferred();
+    console.log("mark 1");
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
+                     console.log("mark 2");
                     tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
-                                  
-                                  
-                                  
-                                  
+                                    console.log("mark 3");
                                   var len5 = results.rows.length
+                                  console.log("mark 4");
+                                  console.log("results.rows.length "+results.rows.length);
                                   for (var i=0; i<len5; i++){
                                   console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
                                   }
-                                  
-                                  
-                                  
+                                  dfd.resolve("reesolved");
                                   }, errorCB);
-                    
                     });
+     return dfd.promise();
 }
 
 document.addEventListener('deviceready', function () {
@@ -202,7 +218,7 @@ function init(){
                                                            function(){
                                                            updateEvents().done(function(){
                                                                                updateEventAttr().done(function(){
-                                                                                                getEventArrtDb();      
+                                                                                                getEventArrtDb();
                                                                                                       });
                                                                                });
                                                            }
