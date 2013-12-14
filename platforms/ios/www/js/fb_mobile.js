@@ -97,7 +97,7 @@ function insertEventIdsDb(friendEventsParse){
 }
 
 var updateEventAttr = function(){
-    
+    var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
@@ -130,12 +130,14 @@ tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_ti
                                                           
                                                           var eventsUpdateTime = new Date().getTime();
                                                           window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
-                                                          getEventArrtDb();
+                                                          dfd.resolve("reesolved");
+                                                          
                                          
                                           });
                                          });
                                   });
                     });
+    return dfd.promise();
 }
 
 function getEventIDsDb(){
@@ -199,7 +201,9 @@ function init(){
                                       updateFriends().done(
                                                            function(){
                                                            updateEvents().done(function(){
-                                                                               updateEventAttr();
+                                                                               updateEventAttr().done(function(){
+                                                                                                getEventArrtDb();      
+                                                                                                      });
                                                                                });
                                                            }
                                                            );
