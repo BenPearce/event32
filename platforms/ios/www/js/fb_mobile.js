@@ -37,37 +37,71 @@ function insertFriendsDb(friendParse){
 
 var updateEvents = function(){
     var dfd = $.Deferred();
+    getFriendsDb().done(function(friendIdList){
+                        getEventIdsFb(friendIdList).done(function(friendEventsParse){
+                                                         insertEventIdsDb(friendEventsParse);
+                                                         dfd.resolve("blah");
+                                                         });
+                        });
+      return dfd.promise();
+}
+
+function getFriendsDb(){
+    var dfd = $.Deferred();
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
+                                  
+                                  
+                                  
                                   var len = results.rows.length;
                                   var friendIdList =results.rows.item(0).fbId;
                                   for (var i=1; i<len; i++){
                                   friendIdList = friendIdList + ","+ results.rows.item(i).fbId;
                                   }
-                                  FB.api(
-                                         {
-                                         method: 'fql.query',
-                                         query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
-                                         access_token:accessToken
-                                         },
-                                         function(friendEventsParse) {
-                                         var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                                         db4.transaction(function (tx) {
-
-                                        for(i=1;i<=friendEventsParse.length - 1;i++){
-tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched') VALUES (?,?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time,todaysStamp]);
-                                                                                      }
-                                                         }, errorCB, function(){
-                                                         var friendsEventsUpdateTime = new Date().getTime();
-                                                         window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
-                                                         //var value = window.localStorage.getItem("key");
-                                                         dfd.resolve("reesolved");
-                                                         //updateEventAttr();
-                                                         });
-                                         });
+                                  
+                                  dfd.resolve(friendIdList);
+                                  
+                                  
                                   }, errorCB);
+                    
+                    
+                    
                     }, errorCB);
+    return dfd.promise();
+}
+
+function getEventIdsFb(friendIdList){
+    var dfd = $.Deferred();
+    FB.api(
+           {
+           method: 'fql.query',
+           query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN("+friendIdList+") AND start_time >= now() AND rsvp_status = 'attending'",
+           access_token:accessToken
+           },
+           function(friendEventsParse) {
+           
+           dfd.resolve(friendEventsParse);
+           
+           });
+    return dfd.promise();
+}
+
+function insertEventIdsDb(friendEventsParse){
+    var dfd = $.Deferred();
+    var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db4.transaction(function (tx) {
+                    
+                    for(i=1;i<=friendEventsParse.length - 1;i++){
+                    tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched') VALUES (?,?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time,todaysStamp]);
+                    }
+                    }, errorCB, function(){
+                    var friendsEventsUpdateTime = new Date().getTime();
+                    window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
+                    //var value = window.localStorage.getItem("key");
+                    dfd.resolve("reesolved");
+                    //updateEventAttr();
+                    });
     return dfd.promise();
 }
 
