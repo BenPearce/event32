@@ -16,8 +16,9 @@ function updateFriends(){
                                      dfd.resolve("reesolved");
                           //callBack();
                           });
-                 return dfd.promise();
+           
            });
+     return dfd.promise();
 }
 
 var updateEvents = function(){
@@ -147,7 +148,7 @@ document.addEventListener('deviceready', function () {
                                               });
                            */
                           
-                          //init();
+                          init();
                           }
                           });
 
