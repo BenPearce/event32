@@ -95,14 +95,12 @@ function insertEventIdsDb(friendEventsParse){
                     });
     return dfd.promise();
 }
-/*
-function updateEventAttr1(){
-    
-    updateEventAttr();
-}
- */
 
 var updateEventAttr = function(){
+
+}
+
+function getEventIDsDb(){
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
@@ -115,16 +113,9 @@ var updateEventAttr = function(){
                                   
                                   dfd.resolve(friendIdList1);
                                   
-                               
-                                  
-                                  
                                   });
                     });
     return dfd.promise();
-}
-
-function getEventIDsDb(){
-    
 }
 
 function getEventAttrFb(friendIdList1){
@@ -213,7 +204,7 @@ function init(){
                                                            function(){
                                                            updateEvents().done(function(){
                                                                                
-                                                            updateEventAttr().done(function(friendIdList1){
+                                                            getEventIDsDb().done(function(friendIdList1){
                                                                                                       
                                                                             getEventAttrFb(friendIdList1).done(function(eventAttrParse){
                                                                                             insertEventArrtDb(eventAttrParse);
