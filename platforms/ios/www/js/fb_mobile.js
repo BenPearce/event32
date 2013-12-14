@@ -22,6 +22,7 @@ function updateFriends(){
 }
 
 var updateEvents = function(){
+    var dfd = $.Deferred();
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
@@ -48,11 +49,13 @@ tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime',
                                                          window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
                                                          //var value = window.localStorage.getItem("key");
                                                          //callBack();
-                                                         updateEventAttr();
+                                                         dfd.resolve("reesolved");
+                                                         //updateEventAttr();
                                                          });
                                          });
                                   }, errorCB);
                     }, errorCB);
+    return dfd.promise();
 }
 
 var updateEventAttr = function(){
@@ -173,11 +176,15 @@ function init(){
                                       //var updateEv = updateEvents(updateEventAttr);
                                       //updateFriends(updateEvents(updateEventAttr));
                                       //updateFriends().done("done");
-                                      updateFriends().done(function(){
+                                      updateFriends().done(
+                                                           function(){
                                                            
-                                                           
-                                                           updateEvents();
-                                                           });
+                                                           updateEvents().done(function(){
+                                                                               
+                                                                               updateEventAttr();
+                                                                               });
+                                                           }
+                                                           );
                                       });
                       }else if (response.status == "not_authorized"){
                       alert("not_authorized");
