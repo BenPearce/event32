@@ -12,6 +12,8 @@ function updateFriends(){
                           tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)",[friendParse[i].name,friendParse[i].id,todaysStamp]);
                                }
                           }, errorCB, function(){
+                          var friendsUpdateTime = new Date().getTime();
+                          window.localStorage.setItem("friendUpdateTime",friendsUpdateTime);
                           updateEvents();
                           });
            });
@@ -33,7 +35,6 @@ function updateEvents(){
                                          access_token:accessToken
                                          },
                                          function(friendEventsParse) {
-                  
                                          var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db4.transaction(function (tx) {
 
@@ -41,7 +42,9 @@ function updateEvents(){
 tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched') VALUES (?,?,?,?)",[friendEventsParse[i].eid,friendEventsParse[i].uid,friendEventsParse[i].start_time,todaysStamp]);
                                                                                       }
                                                          }, errorCB, function(){
-                                                         
+                                                         var friendsEventsUpdateTime = new Date().getTime();
+                                                         window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
+                                                         //var value = window.localStorage.getItem("key");
                                                          updateEventAttr();
                                                          });
                                          });
@@ -75,6 +78,9 @@ function updateEventAttr(){
 tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,eventAttrParse[i].end_time,eventAttrParse[i].description,eventAttrParse[i].name,eventAttrParse[i].attending_count,eventAttrParse[i].unsure_count,eventAttrParse[i].not_replied_count,eventAttrParse[i].all_members_count,eventAttrParse[i].timezone,eventAttrParse[i].ticket_uri,eventAttrParse[i].pic_small,eventAttrParse[i].pic,eventAttrParse[i].pic_big,eventAttrParse[i].pic_square,eventAttrParse[i].pic_cover,eventAttrParse[i].can_invite_friends,eventAttrParse[i].creator]);
  }
                                           }, errorCB, function(){
+                                                          var eventsUpdateTime = new Date().getTime();
+                                                          window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
+                                                          
                                                           var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                                           db7.transaction(function (tx) {
                                                                           tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
@@ -84,10 +90,8 @@ tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_ti
                                                   console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
                                                                                         }
                                                                                         }, errorCB);
-                                                                          
                                                                           });
                                           });
-
                                          });
                                   });
                     });
@@ -134,8 +138,7 @@ function init(){
     window.localStorage.setItem('firstRun','1');
     
 }
-$(document).ready(function () {
-                  
+$(document).ready(function () {                  
                   $("#fb-login-button").click(function(){
                                               FB.login($.proxy(function (response) {
                                                                if (response.authResponse) {

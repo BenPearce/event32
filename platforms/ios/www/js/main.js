@@ -28,6 +28,7 @@
     var mainCalendar = makeCalendar();
     var displayCalendar;
     var todaysStamp = new Date().getTime();
+    var storage = window.localStorage;
 
 function populateDate(k,e){
 
