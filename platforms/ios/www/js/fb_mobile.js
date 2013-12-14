@@ -1,12 +1,10 @@
 var accessToken;
 var insertData;
 
-function updateFriends(){
+function updateFriends(callBack){
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
-
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            db.transaction(function (tx) {
-                          
                           var friendParse = friendData.data;
                           for(i=1;i<=friendParse.length - 1;i++){
                           tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)",[friendParse[i].name,friendParse[i].id,todaysStamp]);
@@ -14,12 +12,13 @@ function updateFriends(){
                           }, errorCB, function(){
                           var friendsUpdateTime = new Date().getTime();
                           window.localStorage.setItem("friendUpdateTime",friendsUpdateTime);
-                          updateEvents();
+                          
+                          callBack();
                           });
            });
 }
 
-function updateEvents(){
+var updateEvents = function(){
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
@@ -56,7 +55,6 @@ function updateEventAttr(){
     
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
-                    
                     tx.executeSql('SELECT DISTINCT eventFbId from FRIENDS_EVENTS', [], function (tx, results) {
                                   var len1 = results.rows.length;
                                   var friendIdList1 =results.rows.item(0).eventFbId;
@@ -116,14 +114,13 @@ function init(){
                       if(response.status == "connected"){
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
-                      alert("connected line before db");
+                      //alert("connected line before db");
                       //db.transaction(populateDB, errorCB, updateFriends);
                       var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                       //db1.transaction(createTable, errorCB, createTableSuccess);
                       db1.transaction(createTable, errorCB, function(tx){
-                                      updateFriends();
+                                      updateFriends(updateEvents);
                                       });
-                      
                       }else if (response.status == "not_authorized"){
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");
