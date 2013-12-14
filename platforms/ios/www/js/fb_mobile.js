@@ -103,60 +103,13 @@ tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_ti
                     });
 }
 
-/*
-function test(val){
-     var dfd = $.Deferred();
-    alert("test");
-     console.log("doer");
-  FB.api('/me/friends?access_token='+accessToken,function(friendData){
-            alert("friends");
-         dfd.resolve("reesolved");
-         });
-    return dfd.promise();
-}
-
-function test1(val){
-    var dfd = $.Deferred();
-    alert("test1");
-    console.log("doer");
-    FB.api('/me?access_token='+accessToken,function(friendData){
-           alert("me");
-           dfd.resolve("reesolved");
-           });
-    return dfd.promise();
-}
- */
-
 document.addEventListener('deviceready', function () {
-                          alert("device ready");
                           window.fbAsyncInit = function() {
-                          /*
-                          alert("ln");
-                          
-                          
-                          test().pipe(test1());
-                          
-                          test().done(function(){
-                                      alert("done");
-                                      });
-                          */
-                                      //}
-                          /*
-                          test().done(function(ret){
-                                      alert(ret);
-                                      alert("fud");
-                                      }).done(function(){
-                                              
-                                              alert("mooo");
-                                              });
-                           */
-                          
                           init();
                           }
                           });
 
 function init(){
-    alert("init");
     FB.init({
             appId: '253970731442450',
             nativeInterface: CDV.FB,
@@ -178,9 +131,7 @@ function init(){
                                       //updateFriends().done("done");
                                       updateFriends().done(
                                                            function(){
-                                                           
                                                            updateEvents().done(function(){
-                                                                               
                                                                                updateEventAttr();
                                                                                });
                                                            }
