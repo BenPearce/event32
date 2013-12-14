@@ -97,7 +97,15 @@ function insertEventIdsDb(friendEventsParse){
 }
 
 var updateEventAttr = function(){
-
+    var dfd = $.Deferred();
+    getEventIDsDb().done(function(friendIdList1){
+                         getEventAttrFb(friendIdList1).done(function(eventAttrParse){
+                                                            insertEventArrtDb(eventAttrParse);
+                                                            getEventArrtDb();
+                                                            dfd.resolve("friendIdList1");
+                                                            });
+                         });
+    return dfd.promise();
 }
 
 function getEventIDsDb(){
@@ -147,7 +155,7 @@ function insertEventArrtDb(eventAttrParse){
                     
                     var eventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
-                    getEventArrtDb();
+                    
                     
                     
                     
@@ -203,16 +211,14 @@ function init(){
                                       updateFriends().done(
                                                            function(){
                                                            updateEvents().done(function(){
-                                                                               
+                                                                               updateEventAttr();
+                                                              /*
                                                             getEventIDsDb().done(function(friendIdList1){
-                                                                                                      
                                                                             getEventAttrFb(friendIdList1).done(function(eventAttrParse){
                                                                                             insertEventArrtDb(eventAttrParse);
-                                                                                                                                         })
-                                                                                                      
-                                                                                                     
-                                                                                                      
+                                                                                                               });
                                                                                                       });
+                                                                               */
                                                                                });
                                                            }
                                                            );
