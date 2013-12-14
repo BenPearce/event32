@@ -112,19 +112,11 @@ var updateEventAttr = function(){
                                   friendIdList1 = friendIdList1 + ","+ results.rows.item(i).eventFbId;
                                   }
                                   
+                                  dfd.resolve(friendIdList1);
+                                  
+                               
                                   
                                   
-                                  FB.api(
-                                         {
-                                         method: 'fql.query',
-                                         query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
-                                         access_token:accessToken
-                                         },
-                                         function(eventAttrParse) {
-                                         
-                                         dfd.resolve(eventAttrParse);
-                                  
-                                         });
                                   });
                     });
     return dfd.promise();
@@ -135,7 +127,19 @@ function getEventIDsDb(){
 }
 
 function getEventAttrFb(friendIdList1){
-    
+    var dfd = $.Deferred();
+    FB.api(
+           {
+           method: 'fql.query',
+           query: "SELECT name,eid,start_time FROM event WHERE eid IN ("+friendIdList1+")",
+           access_token:accessToken
+           },
+           function(eventAttrParse) {
+           
+           dfd.resolve(eventAttrParse);
+           
+           });
+    return dfd.promise();
 }
 
 function insertEventArrtDb(eventAttrParse){
@@ -208,8 +212,13 @@ function init(){
                                                            function(){
                                                            updateEvents().done(function(){
                                                                                
-                                                                               updateEventAttr().done(function(eventAttrParse){
-                                                                                                      insertEventArrtDb(eventAttrParse);
+                                                            updateEventAttr().done(function(friendIdList1){
+                                                                                                      
+                                                                            getEventAttrFb(friendIdList1).done(function(eventAttrParse){
+                                                                                                                        insertEventArrtDb(eventAttrParse);
+                                                                                                                                         })
+                                                                                                      
+                                                                                                     
                                                                                                       
                                                                                                       });
                                                                                });
