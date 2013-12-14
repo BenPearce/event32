@@ -116,8 +116,9 @@ var updateEventAttr = function(){
                                          access_token:accessToken
                                          },
                                          function(eventAttrParse) {
-                                         
-                                         
+                                         insertEventArrtDb(eventAttrParse);
+                                          dfd.resolve(eventAttrParse);
+                                         /*
                                          var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                                          db7.transaction(function (tx) {
                                                          for(i=0;i<=eventAttrParse.length - 1;i++){
@@ -126,16 +127,33 @@ var updateEventAttr = function(){
                                                          }
                                                          }, errorCB, function(){
                                                          
-                                                         
-                                                         
                                                          var eventsUpdateTime = new Date().getTime();
                                                          window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
                                                          dfd.resolve("reesolved");
-                                                         
-                                                         
+
                                                          });
+                                         */
                                          });
                                   });
+                    });
+    return dfd.promise();
+}
+
+function insertEventArrtDb(eventAttrParse){
+    var dfd = $.Deferred();
+    //console.log("eventAttrParse: "+JSON.stringify(eventAttrParse));
+    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db7.transaction(function (tx) {
+                    for(i=0;i<=eventAttrParse.length - 1;i++){
+                    
+                    tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[eventAttrParse[i].eid,todaysStamp,eventAttrParse[i].start_time,eventAttrParse[i].update_time,eventAttrParse[i].end_time,eventAttrParse[i].description,eventAttrParse[i].name,eventAttrParse[i].attending_count,eventAttrParse[i].unsure_count,eventAttrParse[i].not_replied_count,eventAttrParse[i].all_members_count,eventAttrParse[i].timezone,eventAttrParse[i].ticket_uri,eventAttrParse[i].pic_small,eventAttrParse[i].pic,eventAttrParse[i].pic_big,eventAttrParse[i].pic_square,eventAttrParse[i].pic_cover,eventAttrParse[i].can_invite_friends,eventAttrParse[i].creator]);
+                    }
+                    }, errorCB, function(){
+                    
+                    var eventsUpdateTime = new Date().getTime();
+                    window.localStorage.setItem("friendUpdateTime",eventsUpdateTime);
+                    dfd.resolve("reesolved");
+                    
                     });
     return dfd.promise();
 }
@@ -148,27 +166,19 @@ function getEventAttrFb(friendIdList1){
     
 }
 
-function insertEventArrtDb(eventAttrParse){
-    
-}
+
+
 
 function getEventArrtDb(){
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
                                   
-                                  
-                                  
-                                  
                                   var len5 = results.rows.length
                                   for (var i=0; i<len5; i++){
                                   console.log("name: "+results.rows.item(i).name+"start: +"+results.rows.item(i).eventFbId)
                                   }
-                                  
-                                  
-                                  
                                   }, errorCB);
-                    
                     });
 }
 
@@ -201,8 +211,11 @@ function init(){
                                       updateFriends().done(
                                                            function(){
                                                            updateEvents().done(function(){
-                                                                               updateEventAttr().done(function(){
-                                                                                                      getEventArrtDb();
+                                                                               updateEventAttr().done(function(eventAttrParse){
+                                                                                                      insertEventArrtDb(eventAttrParse).done(function(){
+                                                                                                          getEventArrtDb();                                    
+                                                                                                                                             });
+                                                                                                     
                                                                                                       });
                                                                                });
                                                            }
