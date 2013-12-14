@@ -1,7 +1,8 @@
 var accessToken;
 var insertData;
 
-function updateFriends(callBack){
+function updateFriends(){
+    var dfd = $.Deferred();
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
            db.transaction(function (tx) {
@@ -12,9 +13,10 @@ function updateFriends(callBack){
                           }, errorCB, function(){
                           var friendsUpdateTime = new Date().getTime();
                           window.localStorage.setItem("friendUpdateTime",friendsUpdateTime);
-                          
-                          callBack();
+                                     dfd.resolve("reesolved");
+                          //callBack();
                           });
+                 return dfd.promise();
            });
 }
 
@@ -44,6 +46,7 @@ tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime',
                                                          var friendsEventsUpdateTime = new Date().getTime();
                                                          window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
                                                          //var value = window.localStorage.getItem("key");
+                                                         //callBack();
                                                          updateEventAttr();
                                                          });
                                          });
@@ -51,7 +54,8 @@ tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime',
                     }, errorCB);
 }
 
-function updateEventAttr(){
+var updateEventAttr = function(){
+    
     
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
@@ -95,9 +99,55 @@ tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_ti
                     });
 }
 
+/*
+function test(val){
+     var dfd = $.Deferred();
+    alert("test");
+     console.log("doer");
+  FB.api('/me/friends?access_token='+accessToken,function(friendData){
+            alert("friends");
+         dfd.resolve("reesolved");
+         });
+    return dfd.promise();
+}
+
+function test1(val){
+    var dfd = $.Deferred();
+    alert("test1");
+    console.log("doer");
+    FB.api('/me?access_token='+accessToken,function(friendData){
+           alert("me");
+           dfd.resolve("reesolved");
+           });
+    return dfd.promise();
+}
+ */
+
 document.addEventListener('deviceready', function () {
+                          alert("device ready");
                           window.fbAsyncInit = function() {
-                          init();
+                          /*
+                          alert("ln");
+                          
+                          
+                          test().pipe(test1());
+                          
+                          test().done(function(){
+                                      alert("done");
+                                      });
+                          */
+                                      //}
+                          /*
+                          test().done(function(ret){
+                                      alert(ret);
+                                      alert("fud");
+                                      }).done(function(){
+                                              
+                                              alert("mooo");
+                                              });
+                           */
+                          
+                          //init();
                           }
                           });
 
@@ -119,7 +169,14 @@ function init(){
                       var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                       //db1.transaction(createTable, errorCB, createTableSuccess);
                       db1.transaction(createTable, errorCB, function(tx){
-                                      updateFriends(updateEvents);
+                                      //var updateEv = updateEvents(updateEventAttr);
+                                      //updateFriends(updateEvents(updateEventAttr));
+                                      //updateFriends().done("done");
+                                      updateFriends().done(function(){
+                                                           
+                                                           
+                                                           updateEvents();
+                                                           });
                                       });
                       }else if (response.status == "not_authorized"){
                       alert("not_authorized");
