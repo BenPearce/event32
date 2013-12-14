@@ -4,11 +4,9 @@ var insertData;
 function updateFriends(){
     var dfd = $.Deferred();
     getFriendsFb().done(function(friendParse){
-                        //alert("hi");
                         insertFriendsDb(friendParse).done(function(){
                                                           dfd.resolve(friendParse);
                                                           });
-                        
                         });
     return dfd.promise();
 }
@@ -17,29 +15,22 @@ function getFriendsFb(){
     var dfd = $.Deferred();
     FB.api('/me/friends?access_token='+accessToken,function(friendData){
            var friendParse = friendData.data;
-           
            dfd.resolve(friendParse);
-           
            });
     return dfd.promise();
 }
 
 function insertFriendsDb(friendParse){
-
     var dfd = $.Deferred();
     var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db.transaction(function (tx) {
-                   //alert("before");
                    for(i=1;i<=friendParse.length - 1;i++){
-                       //console.log("loop: "+friendParse[i].name);
                    tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)",[friendParse[i].name,friendParse[i].id,todaysStamp]);
                    }
                    }, errorCB, function(){
                    var friendsUpdateTime = new Date().getTime();
                    window.localStorage.setItem("friendUpdateTime",friendsUpdateTime);
                    dfd.resolve("reesolved");
-                   //callBack();
-                   //alert("done");
                    });
     return dfd.promise();
 }
@@ -71,7 +62,6 @@ tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime',
                                                          var friendsEventsUpdateTime = new Date().getTime();
                                                          window.localStorage.setItem("friendUpdateTime",friendsEventsUpdateTime);
                                                          //var value = window.localStorage.getItem("key");
-                                                         //callBack();
                                                          dfd.resolve("reesolved");
                                                          //updateEventAttr();
                                                          });
