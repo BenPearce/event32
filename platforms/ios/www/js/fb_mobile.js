@@ -194,10 +194,9 @@ function init() {
                       $("#fb-login-button").css('display', 'block');
                       }
                       });
-    
     window.localStorage.setItem('firstRun', '1');
-    
 }
+
 $(document).ready(function () {
                   $("#fb-login-button").click(function () {
                                               FB.login($.proxy(function (response) {
