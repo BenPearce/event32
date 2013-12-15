@@ -188,7 +188,7 @@ function createTable1(){
  tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
  var len6 = results.rows.length
  for (var i = 0; i < len6; i++) {
- console.log("name: " + results.rows.item(i).name + "starter:" + results.rows.item(i).eventFbId)
+ console.log("name: " + results.rows.item(i).FRIENDS_EVENTS.name + "starter:" + results.rows.item(i).eventFbId)
  }
  
  }, errorCB);
