@@ -206,6 +206,11 @@ function createTable1(){
 
 }
 
+
+
+
+
+
 function
 
 document.addEventListener('deviceready', function () {
