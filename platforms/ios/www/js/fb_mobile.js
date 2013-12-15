@@ -150,68 +150,32 @@ var updateEventAttr = function () {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
                                                             insertEventArrtDb(eventAttrParse);
                                                             getEventArrtDb();
-                                                            //getEventsDb();
                                                             dfd.resolve("friendIdList1");
                                                             });
                          });
     return dfd.promise();
 }
 
-//SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;
-
-/*
- tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
- tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
- tx.executeSql('DROP TABLE IF EXISTS EVENTS');
- */
-
-/*
-function getEventsDb(){
-    var dfd = $.Deferred();
-    var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    //db1.transaction(createTable, errorCB, function (tx) {
-    db9.transaction(function (tx) {
-                    
-                    tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
-                                  var len6 = results.rows.length
-                                  for (var i = 0; i < len6; i++) {
-                                  console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
-                                  }
-                                  
-                                  }, errorCB);
-                    
-                     dfd.resolve("friendIdList1");
-                    });
-    return dfd.promise();
-}
- */
 
 function createTable1(){
     var dfd = $.Deferred();
     var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     //db1.transaction(createTable, errorCB, function (tx) {
     db1.transaction(function (tx) {
-    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
-    tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
-    tx.executeSql('DROP TABLE IF EXISTS EVENTS');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, name,touched DATETIME)');
-    tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
-
-    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,pic_cover,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy)');
-
+                    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
+                    tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
+                    tx.executeSql('DROP TABLE IF EXISTS EVENTS');
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, name,touched DATETIME)');
+                    tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,startTime DATETIME,eventFbId,friendFbId,UNIQUE(eventFbId, friendFbId))');
+                    
+                    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATETIME DEFAULT CURRENT_TIMESTAMP,start_time DATETIME,update_time DATETIME,eventFbId unique, name, description, end_time,attending_count,pic,pic_big,pic_square,pic_cover,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy)');
+                    
                     },errorCB,function(){
-                         dfd.resolve("friendIdList1");
+                    dfd.resolve("friendIdList1");
                     });
     return dfd.promise();
-
+    
 }
-
-
-
-
-
-
-function
 
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
@@ -226,28 +190,28 @@ function init() {
             //channelUrl: 'http://www.event32ios.com',
             useCachedDialogs: false
             });
-    
+    //if(window.localStorage.getItem('firstRun')==null){
     FB.getLoginStatus(function (response) {
                       if (response.status == "connected") {
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
                       
-                      if(window.localStorage.getItem('firstRun')==null){
+                      
+                      //var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+                      //db1.transaction(createTable, errorCB, function (tx) {
                       createTable1().done(function(){
-                                      updateFriends().done(function () {
-                                                           updateEvents().done(function () {
-                                                                               updateEventAttr();
-                                                                               
-                                                                               window.localStorage.setItem('firstRun', '1');
-                                                                               });
-                                                           });
+                                          
+                                          
+                                          
+                                          updateFriends().done(function () {
+                                                               updateEvents().done(function () {
+                                                                                   updateEventAttr();
+                                                                                   });
+                                                               });
                                           });
-                      }else if(window.localStorage.getItem('firstRun')==1{
-                      //getEventsDb();
+                      //});
                       
-                      }
                       
-
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");
@@ -258,7 +222,7 @@ function init() {
                       $("#fb-login-button").css('display', 'block');
                       }
                       });
-    //window.localStorage.setItem('firstRun', '1');
+    window.localStorage.setItem('firstRun', '1');
 }
 
 $(document).ready(function () {
