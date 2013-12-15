@@ -178,17 +178,19 @@ function createTable1(){
     
 }
 
-
  function getEventsDb(){
  //var dfd = $.Deferred();
  var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
  //db1.transaction(createTable, errorCB, function (tx) {
  db9.transaction(function (tx) {
  
- tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+ //tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+                 tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId;', [], function (tx, results) {
+                               
  var len6 = results.rows.length
  for (var i = 0; i < len6; i++) {
- console.log("name: " + results.rows.item(i).FRIENDS_EVENTS.name + "starter:" + results.rows.item(i).eventFbId)
+ console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName)
+               //alert("name: " + results.rows.item(i).eventFbId);
  }
  
  }, errorCB);
@@ -197,7 +199,6 @@ function createTable1(){
  });
  //return dfd.promise();
  }
-
 
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
@@ -222,9 +223,7 @@ function init() {
                       //var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                       //db1.transaction(createTable, errorCB, function (tx) {
                       createTable1().done(function(){
-                                          
-                                          
-                                          
+
                                           updateFriends().done(function () {
                                                                updateEvents().done(function () {
                                                                                    updateEventAttr();
