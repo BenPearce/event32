@@ -150,12 +150,41 @@ var updateEventAttr = function () {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
                                                             insertEventArrtDb(eventAttrParse);
                                                             getEventArrtDb();
+                                                            //getEventsDb();
                                                             dfd.resolve("friendIdList1");
                                                             });
                          });
     return dfd.promise();
 }
 
+//SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;
+
+/*
+ tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
+ tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
+ tx.executeSql('DROP TABLE IF EXISTS EVENTS');
+ */
+
+/*
+function getEventsDb(){
+    var dfd = $.Deferred();
+    var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    //db1.transaction(createTable, errorCB, function (tx) {
+    db9.transaction(function (tx) {
+                    
+                    tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+                                  var len6 = results.rows.length
+                                  for (var i = 0; i < len6; i++) {
+                                  console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
+                                  }
+                                  
+                                  }, errorCB);
+                    
+                     dfd.resolve("friendIdList1");
+                    });
+    return dfd.promise();
+}
+ */
 
 function createTable1(){
     var dfd = $.Deferred();
@@ -177,6 +206,8 @@ function createTable1(){
 
 }
 
+function
+
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
                           init();
@@ -190,28 +221,28 @@ function init() {
             //channelUrl: 'http://www.event32ios.com',
             useCachedDialogs: false
             });
-    //if(window.localStorage.getItem('firstRun')==null){
+    
     FB.getLoginStatus(function (response) {
                       if (response.status == "connected") {
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
                       
-                      
-                      //var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                      //db1.transaction(createTable, errorCB, function (tx) {
+                      if(window.localStorage.getItem('firstRun')==null){
                       createTable1().done(function(){
-                                          
-                                       
-                                      
                                       updateFriends().done(function () {
                                                            updateEvents().done(function () {
                                                                                updateEventAttr();
+                                                                               
+                                                                               window.localStorage.setItem('firstRun', '1');
                                                                                });
                                                            });
                                           });
-                                      //});
+                      }else if(window.localStorage.getItem('firstRun')==1{
+                      //getEventsDb();
                       
+                      }
                       
+
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");
@@ -222,7 +253,7 @@ function init() {
                       $("#fb-login-button").css('display', 'block');
                       }
                       });
-    window.localStorage.setItem('firstRun', '1');
+    //window.localStorage.setItem('firstRun', '1');
 }
 
 $(document).ready(function () {
