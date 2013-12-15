@@ -149,7 +149,8 @@ var updateEventAttr = function () {
     getEventIDsDb().done(function (friendIdList1) {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
                                                             insertEventArrtDb(eventAttrParse);
-                                                            getEventArrtDb();
+                                                            //getEventArrtDb();
+                                                            getEventsDb();
                                                             dfd.resolve("friendIdList1");
                                                             });
                          });
@@ -176,6 +177,27 @@ function createTable1(){
     return dfd.promise();
     
 }
+
+
+ function getEventsDb(){
+ //var dfd = $.Deferred();
+ var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+ //db1.transaction(createTable, errorCB, function (tx) {
+ db9.transaction(function (tx) {
+ 
+ tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+ var len6 = results.rows.length
+ for (var i = 0; i < len6; i++) {
+ console.log("name: " + results.rows.item(i).name + "starter:" + results.rows.item(i).eventFbId)
+ }
+ 
+ }, errorCB);
+ 
+ //dfd.resolve("friendIdList1");
+ });
+ //return dfd.promise();
+ }
+
 
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
