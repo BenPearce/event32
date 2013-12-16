@@ -27,7 +27,12 @@
     var testGap;
     var mainCalendar = makeCalendar();
     var displayCalendar;
-    var todaysStamp = new Date().getTime();
+    var tempDate = new Date();
+    var todaysStamp = tempDate.getDate();
+
+   var date = new Date();
+   var todaysStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+
     var storage = window.localStorage;
 
 function populateDate(k,e){
