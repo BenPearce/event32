@@ -249,41 +249,18 @@ function insertEventArrtDb(eventAttrParse) {
                     window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
                     });
 }
-/*
-function dateHashUpdate(results){
-    var dfd = $.Deferred();
-    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    db7.transaction(function (tx1) {
-                    for (var i = 0; i < results.rows.length; i++) {
-                      tx1.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
-                                     //console.log("suck");
-                                     dfd.resolve(tx1);
-                                  });
-                    }
-                    });
-       return dfd.promise();
 
-}
-*/
 function updateDateIntegerDb(){
     var dfd = $.Deferred();
     console.log("update triggered");
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
-                     tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
-                                   
+                     tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {      
                                    for (var i = 0; i < results.rows.length; i++) {
                       tx.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
-                                                  //console.log("suck");
                                                   dfd.resolve("tx1");
                                                   });
                                    }
-                                   /*
-                                   dateHashUpdate(results).done(function(tx1){
-                                                                dfd.resolve("tx1");
-                                                                });
-                                   */
-                                   
                       }, errorCB);
                       });
      return dfd.promise();
