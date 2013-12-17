@@ -31,14 +31,29 @@ function makeDateMap(){
 
 function dateToInteger(date){
 	var temp = new Date(date);
-	//console.log("new date: "+temp);
         temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
-        //console.log("temp2: "+temp);
 	var today = new Date();
-
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
-	//console.log("today: "+today);
 	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
+}
+
+function dateToInt(fbDate){
+    var tempDate;
+    if(fbTimeOffSet.indexOf('T') > 0){
+    tempDate = new Date(fbDate.substring(0, fbDate.indexOf('T')));
+    }
+    
+    if (result.formattedTime == '00:00:00') {
+        tempDate = new Date(tempDate.getTime() + (24 * 60 * 60 * 1000));
+    }
+
+	var temp = new Date(tempDate);
+    temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
+	var today = new Date();
+	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
+	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
+    
+
 }
 
 function integerToDate(integer){

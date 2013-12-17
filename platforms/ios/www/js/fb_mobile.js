@@ -100,18 +100,6 @@ function getEventAttrFb(friendIdList1) {
     return dfd.promise();
 }
 
-function insertEventArrtDb(eventAttrParse) {
-    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    db7.transaction(function (tx) {
-                    for (i = 0; i <= eventAttrParse.length - 1; i++) {
-                    //console.log("todaysStamp: "+todaysStamp);
-                    tx.executeSql("INSERT INTO EVENTS ('eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [eventAttrParse[i].eid, todaysStamp, fbStampToDbDate(eventAttrParse[i].start_time), eventAttrParse[i].update_time, eventAttrParse[i].end_time, eventAttrParse[i].description, eventAttrParse[i].name, eventAttrParse[i].attending_count, eventAttrParse[i].unsure_count, eventAttrParse[i].not_replied_count, eventAttrParse[i].all_members_count, eventAttrParse[i].timezone, eventAttrParse[i].ticket_uri, eventAttrParse[i].pic_small, eventAttrParse[i].pic, eventAttrParse[i].pic_big, eventAttrParse[i].pic_square, eventAttrParse[i].pic_cover, eventAttrParse[i].can_invite_friends, eventAttrParse[i].creator]);
-                    }
-                    }, errorCB, function () {
-                    var eventsUpdateTime = new Date().getTime();
-                    window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
-                    });
-}
 
 function getEventArrtDb() {
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
@@ -164,27 +152,66 @@ function fbStampToDbDate(fbTimeOffSet){
     //console.log("fbTimeOffSet.indexOf('T') "+fbTimeOffSet.indexOf('T'))
     if(fbTimeOffSet.indexOf('T') > 0){
         var date = new Date(fbTimeOffSet.substring(0, fbTimeOffSet.indexOf('T')));
+        //console.log("date1: "+date.toISOString());
+        var temp = date.toISOString();
         var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        var stamp = temp.split("T");
     }else{
         var date = new Date(fbTimeOffSet);
         var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+         var stamp = fbTimeOffSet.split("T");
     }
    // console.log("fbStamp "+fbStamp);
-    return fbStamp;
+    //return fbStamp;
+    //stampe = new Date();
+    console.log(stamp[0]);
+    return stamp[0];
 }
 
 function fbStampToDbTime(fbTimeOffSet){
-    //console.log("fbTimeOffSet: "+fbTimeOffSet);
-    //console.log("fbTimeOffSet.indexOf('T') "+fbTimeOffSet.indexOf('T'))
-    if(fbTimeOffSet.indexOf('T') > 0){
-        var date = new Date(fbTimeOffSet.substring(0, fbTimeOffSet.indexOf('T')));
-        var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-    }else{
-        var date = new Date(fbTimeOffSet);
-        var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-    }
-    // console.log("fbStamp "+fbStamp);
-    return fbStamp;
+    console.log("fbTimeOffSet1 "+fbTimeOffSet);
+    var d = new Date(fbTimeOffSet.replace(' ', 'T'));
+    var t = d.getTime();
+    //console.log("fbTimeOffSet "+fbTimeOffSet);
+    //var time = new Date(fbTimeOffSet).getTime();
+    //var time = new Date(d);
+    console.log("time4 "+t);
+    
+    //var date = new Date(time*1000);
+    /*
+    var year    = date.getFullYear();
+    var month   = time.getMonth();
+    var day     = date.getDay();
+    var hour    = date.getHours();
+    var minute  = date.getMinutes();
+    var seconds = date.getSeconds();
+     */
+    //var temp = new Date(date.UTC(date));
+    //console.log("hour "+hour);
+    //console.log("min "+minute);
+    //console.log("sec "+seconds);
+    //var fbStamp = new Date(temp.getHours()+":"+temp.getMinutes()+":"+temp.getSeconds());
+    //var fbStamp = hour+":"+minute+":"+seconds;
+     //console.log("fbTimeStamp "+fbStamp);
+    return t;
+}
+
+function insertEventArrtDb(eventAttrParse) {
+    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db7.transaction(function (tx) {
+                    for (i = 0; i <= eventAttrParse.length - 1; i++) {
+                    //console.log("todaysStamp: "+todaysStamp);
+                    //formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME
+                    //console.log("insert type"+typeof fbStampToDbDateTime(eventAttrParse[i].start_time));
+                    //console.log("insert var"+fbStampToDbDateTime(eventAttrParse[i].start_time));
+                    //var test = new Date(fbStampToDbDateTime(eventAttrParse[i].start_time));
+                    //console.log("test: "+test);
+                    tx.executeSql("INSERT INTO EVENTS ('formattedTime','formattedDateTime','formattedDate','eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [fbStampToDbTime(eventAttrParse[i].start_time),fbStampToDbDateTime(eventAttrParse[i].start_time),fbStampToDbDateTime(eventAttrParse[i].start_time),eventAttrParse[i].eid, todaysStamp, fbStampToDbDate(eventAttrParse[i].start_time), eventAttrParse[i].update_time, eventAttrParse[i].end_time, eventAttrParse[i].description, eventAttrParse[i].name, eventAttrParse[i].attending_count, eventAttrParse[i].unsure_count, eventAttrParse[i].not_replied_count, eventAttrParse[i].all_members_count, eventAttrParse[i].timezone, eventAttrParse[i].ticket_uri, eventAttrParse[i].pic_small, eventAttrParse[i].pic, eventAttrParse[i].pic_big, eventAttrParse[i].pic_square, eventAttrParse[i].pic_cover, eventAttrParse[i].can_invite_friends, eventAttrParse[i].creator]);
+                    }
+                    }, errorCB, function () {
+                    var eventsUpdateTime = new Date().getTime();
+                    window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
+                    });
 }
 
 function fbStampToDbDateTime(fbTimeOffSet){
@@ -192,32 +219,20 @@ function fbStampToDbDateTime(fbTimeOffSet){
     //console.log("fbTimeOffSet.indexOf('T') "+fbTimeOffSet.indexOf('T'))
     if(fbTimeOffSet.indexOf('T') > 0){
         var date = new Date(fbTimeOffSet.substring(0, fbTimeOffSet.indexOf('T')));
+        console.log("type 1: "+typeof date);
         var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        console.log("type 2: "+typeof fbStamp);
     }else{
         var date = new Date(fbTimeOffSet);
         var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
     }
     // console.log("fbStamp "+fbStamp);
-    return fbStamp;
+    return date;
 }
 
-
-function createTable1(){
-    var dfd = $.Deferred();
-    var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    //db1.transaction(createTable, errorCB, function (tx) {
-    db1.transaction(function (tx) {
-                    tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
-                    tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
-                    tx.executeSql('DROP TABLE IF EXISTS EVENTS');
-                    tx.executeSql('CREATE TABLE IF NOT EXISTS FRIENDS (fbId unique, name,touched DATE)');
-                    tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME,startTime DATETIME,eventFbId, formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME,friendFbId,UNIQUE(eventFbId, friendFbId))');
-                    tx.executeSql('CREATE TABLE EVENTS(id unique,touched DATE,start_time DATE,update_time DATETIME,eventFbId unique, name, description, end_time, formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME,attending_count,pic,pic_big,pic_square,pic_cover,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy)');
-                    
-                    },errorCB,function(){
-                    dfd.resolve("friendIdList1");
-                    });
-    return dfd.promise();
+function updateDateIntegerDb(){
+    
+    
 }
 
  function getEventsDb(){
@@ -225,20 +240,16 @@ function createTable1(){
  var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
  //db1.transaction(createTable, errorCB, function (tx) {
  db9.transaction(function (tx) {
- 
- //tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
-                 
-                 //tx.executeSql('SELECT FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId;', [], function (tx, results) {
-                 
-                                  tx.executeSql('SELECT EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY DATE(start_time) DESC;', [], function (tx, results) {
-                               
-                               
-                               //order  by date(dateColumn) DESC Limit 1
+
+                                  tx.executeSql('SELECT EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
+                            
                                
  var len6 = results.rows.length
  for (var i = 0; i < len6; i++) {
     //console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
-                                                console.log("fb time: "+results.rows.item(i).start_time);
+                                                //console.log("fb time: "+results.rows.item(i).start_time);
+                                                //console.log("Type of EVENTS.formattedDate "+typeof results.rows.item(i).formattedStartDate);
+                                                //console.log("EVENTS.formattedDate"+results.rows.item(i).formattedStartDate);
                                                  //console.log("touched: "+results.rows.item(i).touched);
 
                //alert("name: " + results.rows.item(i).eventFbId);
