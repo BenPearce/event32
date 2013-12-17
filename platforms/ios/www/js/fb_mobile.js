@@ -159,7 +159,7 @@ function getEventArrtDb() {
                     tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
                                   var len5 = results.rows.length
                                   for (var i = 0; i < len5; i++) {
-                                  console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
+                                  //console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
                                   }
                                   }, errorCB);
                     });
@@ -179,6 +179,7 @@ var updateEventAttr = function () {
 }
 
 function insertEventArrtDb(eventAttrParse) {
+    var test = 99;
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
@@ -211,8 +212,9 @@ function insertEventArrtDb(eventAttrParse) {
                                   +'pic_square'+"," //20
                                   +'pic_cover'+"," //21
                                   +'can_invite_friends'+"," //22
-                                  +'creator'+ //23
-                                  ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                                  +'dateHash'+"," //23
+                                  +'creator'+ //24
+                                  ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                                   
                         [fbStampToDbTime(eventAttrParse[i].start_time),//1
                          fbStampToDbDateTime(eventAttrParse[i].start_time),//2
@@ -236,7 +238,8 @@ function insertEventArrtDb(eventAttrParse) {
                          eventAttrParse[i].pic_square,//20
                          eventAttrParse[i].pic_cover,//21
                          eventAttrParse[i].can_invite_friends,//22
-                         eventAttrParse[i].creator//23
+                         test,//23
+                         eventAttrParse[i].creator//24
                          ]
                                   );
                     }
@@ -246,20 +249,68 @@ function insertEventArrtDb(eventAttrParse) {
                     });
 }
 
+function dateHashSelect(results){
+    var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db7.transaction(function (tx1) {
+                    
+                    
+                    
+                    
+                    
+                    //tx.executeSql("UPDATE [EVENTS] SET [dateHash] = '1' WHERE (id = 5)",errorCB,function(){
+                    //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",errorCB,function(){
+                    console.log("line before");
+                                  //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",errorCB,function(){
+                    //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",function(){
+                    //tx.executeSql("UPDATE [EVENTS] SET [dateHash] = 12 WHERE (id = 5)",function(){console.log("Error");},function(){
+                    //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
+                    //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
+                      tx1.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id = 6",function(){console.log("Error");},function(){
+                                   
+
+                                  console.log("Success");
+                                  tx1.executeSql('SELECT start_time, id, dateHash  FROM EVENTS', [], function (tx1, results1) {
+                                                 var len6 = results.rows.length;
+                                                 for (var i = 0; i < len6; i++) {
+                                                 console.log("ider: " + results1.rows.item(i).id + "dateHasher: " + results1.rows.item(i).dateHash);
+                                                 }
+                                                
+                                                
+                                                }, errorCB);
+                                  });
+                    
+                    /*
+                    tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
+                                  console.log("succees");
+                                  var len5 = results.rows.length
+                                  for (var i = 0; i < len5; i++) {
+                                  //console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
+                         }
+                                  }, errorCB);
+                                   */
+                    });
+       
+
+}
+
 function updateDateIntegerDb(){
-    
+    console.log("update triggered");
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
                      
-                     tx.executeSql('SELECT start_time, id FROM EVENTS', [], function (tx, results) {
-                                   
-                                   var len7 = results.rows.length;
-                     
-                                   for (var i = 0; i < len7; i++) {
-                                   console.log("start: " + results.rows.item(i).start_time +"id: "+results.rows.item(i).id);
+                     tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
+                                   /*
+                                   var len5 = results.rows.length
+                                   for (var i = 0; i < len5; i++) {
+                                   console.log("idy: " + results.rows.item(i).id + "dateHashy: " + results.rows.item(i).dateHash)
                                    }
+                                   */
+                                   dateHashSelect(results);
+                                   
                      
                       }, errorCB);
+                     
+                     
                       });
     
 }
@@ -276,7 +327,7 @@ function getEventsDb(){
                                   
                                   //loop through results
                                   for (var i = 0; i < len6; i++) {
-                                  console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
+                                  //console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
                                   }
                                   
                                   }, errorCB);
