@@ -171,7 +171,8 @@ var updateEventAttr = function () {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
                                                             insertEventArrtDb(eventAttrParse);
                                                             //getEventArrtDb();
-                                                            getEventsDb();
+                                                            //getEventsDb();
+                                                            getEventsImplementation();
                                                             dfd.resolve("friendIdList1");
                                                             });
                          });
@@ -253,92 +254,64 @@ function dateHashSelect(results){
     var dfd = $.Deferred();
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx1) {
-                    
-                    
-                    
-                    
-                    
-                    //tx.executeSql("UPDATE [EVENTS] SET [dateHash] = '1' WHERE (id = 5)",errorCB,function(){
-                    //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",errorCB,function(){
-                    console.log("line before");
-                                  //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",errorCB,function(){
-                    //tx.executeSql("UPDATE EVENTS SET dateHash=1 WHERE id=2",function(){
-                    //tx.executeSql("UPDATE [EVENTS] SET [dateHash] = 12 WHERE (id = 5)",function(){console.log("Error");},function(){
-                    //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
-                    //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
-                    
-                    //var len7 = results.rows.length;
                     for (var i = 0; i < results.rows.length; i++) {
-                    
                       tx1.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
-                                     console.log("suck");
+                                     //console.log("suck");
                                      dfd.resolve(tx1);
-                                   
                                   });
-                    
                     }
-                    
-                    /*
-                    tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
-                                  console.log("succees");
-                                  var len5 = results.rows.length
-                                  for (var i = 0; i < len5; i++) {
-                                  //console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
-                         }
-                                  }, errorCB);
-                                   */
                     });
        return dfd.promise();
 
 }
 
 function updateDateIntegerDb(){
+    var dfd = $.Deferred();
     console.log("update triggered");
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
-                     
                      tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
-                                   /*
-                                   var len5 = results.rows.length
-                                   for (var i = 0; i < len5; i++) {
-                                   console.log("idy: " + results.rows.item(i).id + "dateHashy: " + results.rows.item(i).dateHash)
-                                   }
-                                   */
                                    dateHashSelect(results).done(function(tx1){
-                                                                console.log("deffered done");
-                                                                console.log("Success");
+                                                                dfd.resolve("tx1");
+                                                                //console.log("deffered done");
+                                                                //console.log("Success");
+                                                                
+                                                                /*
                                                                 tx1.executeSql('SELECT start_time, id, dateHash  FROM EVENTS', [], function (tx1, results1) {
                                                                                var len6 = results.rows.length;
                                                                                for (var i = 0; i < len6; i++) {
                                                                                console.log("ider: " + results1.rows.item(i).id + "dateHasher: " + results1.rows.item(i).dateHash);
                                                                                }
-                                                                               
-                                                                               
                                                                                }, errorCB);
-                                                                
+                                                                 */
                                                                 });
-                                   
-                     
                       }, errorCB);
                      
                      
                       });
+     return dfd.promise();
     
+}
+
+function getEventsImplementation(){
+    updateDateIntegerDb().done(function(){
+                               getEventsDb();
+                               });
 }
 
 function getEventsDb(){
     //var dfd = $.Deferred();
-    updateDateIntegerDb();
+  
     var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db9.transaction(function (tx) {
                     
-                    tx.executeSql('SELECT EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
+                    tx.executeSql('SELECT dateHash as dateHash, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
                                   
                                   var len6 = results.rows.length
                                   
                                   //loop through results
                                   for (var i = 0; i < len6; i++) {
-                                  //console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
+                                  console.log("name: " + results.rows.item(i).name + "dateHash:" + results.rows.item(i).dateHash+" start time: "+results.rows.item(i).start_time);
                                   }
                                   
                                   }, errorCB);
