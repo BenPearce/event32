@@ -251,33 +251,39 @@ function updateDateIntegerDb(){
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
                      
-                     tx.executeSql('SELECT start EVENTS', [], function (tx, results) {
+                     tx.executeSql('SELECT start_time, id FROM EVENTS', [], function (tx, results) {
+                                   
+                                   var len7 = results.rows.length;
                      
+                                   for (var i = 0; i < len7; i++) {
+                                   console.log("start: " + results.rows.item(i).start_time +"id: "+results.rows.item(i).start_time);
+                                   }
                      
                       }, errorCB);
                       });
     
 }
 
- function getEventsDb(){
- //var dfd = $.Deferred();
- updateDateIntegerDb();
- var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
- db9.transaction(function (tx) {
-
-                                  tx.executeSql('SELECT id, start_time FROM EVENTS;', [], function (tx, results) {
-                                                
-
- var len6 = results.rows.length
-//loop through results
-
- for (var i = 0; i < len6; i++) {
-    console.log("start int: " + results.rows.item(i).start_time);
- }
-
- }, errorCB);
- });
- }
+function getEventsDb(){
+    //var dfd = $.Deferred();
+    updateDateIntegerDb();
+    var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db9.transaction(function (tx) {
+                    
+                    tx.executeSql('SELECT EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
+                                  
+                                  var len6 = results.rows.length
+                                  
+                                  //loop through results
+                                  for (var i = 0; i < len6; i++) {
+                                  console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
+                                  }
+                                  
+                                  }, errorCB);
+                    
+                    });
+    
+}
 
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
