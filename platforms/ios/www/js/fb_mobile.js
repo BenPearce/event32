@@ -188,7 +188,33 @@ function insertEventArrtDb(eventAttrParse) {
                     //console.log("insert var"+fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //var test = new Date(fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //console.log("test: "+test);
-                    tx.executeSql("INSERT INTO EVENTS ('formattedTime','formattedDateTime','formattedDate','eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [fbStampToDbTime(eventAttrParse[i].start_time),fbStampToDbDateTime(eventAttrParse[i].start_time),fbStampToDbDateTime(eventAttrParse[i].start_time),eventAttrParse[i].eid, todaysStamp, fbStampToDbDate(eventAttrParse[i].start_time), eventAttrParse[i].update_time, eventAttrParse[i].end_time, eventAttrParse[i].description, eventAttrParse[i].name, eventAttrParse[i].attending_count, eventAttrParse[i].unsure_count, eventAttrParse[i].not_replied_count, eventAttrParse[i].all_members_count, eventAttrParse[i].timezone, eventAttrParse[i].ticket_uri, eventAttrParse[i].pic_small, eventAttrParse[i].pic, eventAttrParse[i].pic_big, eventAttrParse[i].pic_square, eventAttrParse[i].pic_cover, eventAttrParse[i].can_invite_friends, eventAttrParse[i].creator]);
+                    tx.executeSql("INSERT INTO EVENTS ('formattedTime','formattedDateTime','formattedDate','eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                                  
+                                  
+                        [fbStampToDbTime(eventAttrParse[i].start_time),
+                         fbStampToDbDateTime(eventAttrParse[i].start_time),
+                         fbStampToDbDateTime(eventAttrParse[i].start_time),
+                         eventAttrParse[i].eid, todaysStamp,
+                         eventAttrParse[i].start_time,
+                         eventAttrParse[i].update_time,
+                         eventAttrParse[i].end_time,
+                         eventAttrParse[i].description,
+                         eventAttrParse[i].name,
+                         eventAttrParse[i].attending_count,
+                         eventAttrParse[i].unsure_count,
+                         eventAttrParse[i].not_replied_count,
+                         eventAttrParse[i].all_members_count,
+                         eventAttrParse[i].timezone,
+                         eventAttrParse[i].ticket_uri,
+                         eventAttrParse[i].pic_small,
+                         eventAttrParse[i].pic,
+                         eventAttrParse[i].pic_big,
+                         eventAttrParse[i].pic_square,
+                         eventAttrParse[i].pic_cover,
+                         eventAttrParse[i].can_invite_friends,
+                         eventAttrParse[i].creator
+                         ]
+                                  );
                     }
                     }, errorCB, function () {
                     var eventsUpdateTime = new Date().getTime();
@@ -198,27 +224,35 @@ function insertEventArrtDb(eventAttrParse) {
 
 function updateDateIntegerDb(){
     
+    var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db10.transaction(function (tx) {
+                     
+                     tx.executeSql('SELECT EVENTS', [], function (tx, results) {
+                     
+                     
+                      }, errorCB);
+                      });
     
 }
 
  function getEventsDb(){
  //var dfd = $.Deferred();
+ updateDateIntegerDb();
  var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
  db9.transaction(function (tx) {
 
-                                  tx.executeSql('SELECT EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.eventFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
-                              
- var len6 = results.rows.length
+                                  tx.executeSql('SELECT id, start_time FROM EVENTS;', [], function (tx, results) {
                                                 
+
+ var len6 = results.rows.length
 //loop through results
+
  for (var i = 0; i < len6; i++) {
-    //console.log("name: " + results.rows.item(i).name + "eventName:" + results.rows.item(i).eventName+" start time: "+results.rows.item(i).start_time);
+    console.log("start int: " + results.rows.item(i).start_time);
  }
- 
+
  }, errorCB);
-
  });
-
  }
 
 document.addEventListener('deviceready', function () {
@@ -239,7 +273,6 @@ function init() {
                       if (response.status == "connected") {
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
-                      
                       //var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
                       //db1.transaction(createTable, errorCB, function (tx) {
                       createTable1().done(function(){
@@ -248,7 +281,7 @@ function init() {
                                                                updateEvents().done(function () {
                                                                                    updateEventAttr();
                                                                                    });
-                                                               });
+                                                              });
                                           });
 
                       } else if (response.status == "not_authorized") {
