@@ -251,7 +251,7 @@ function updateDateIntegerDb(){
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
                      
-                     tx.executeSql('SELECT EVENTS', [], function (tx, results) {
+                     tx.executeSql('SELECT start EVENTS', [], function (tx, results) {
                      
                      
                       }, errorCB);
