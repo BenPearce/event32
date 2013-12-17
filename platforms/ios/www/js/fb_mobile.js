@@ -29,6 +29,7 @@ function fbStampToDbDate(fbTimeOffSet){
 
 function fbStampToDbTime(fbTimeOffSet){
     var d = new Date(fbTimeOffSet.replace(' ', 'T'));
+    console.log("d "+d);
     var t = d.getTime();
     return t;
 }
@@ -257,7 +258,8 @@ function updateDateIntegerDb(){
     db10.transaction(function (tx) {
                      tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {      
                                    for (var i = 0; i < results.rows.length; i++) {
-                      tx.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
+                                   console.log("date to int"+dateToInteger(results.rows.item(i).start_time))
+                      tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                                   dfd.resolve("tx1");
                                                   });
                                    }
