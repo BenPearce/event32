@@ -266,11 +266,17 @@ function dateHashSelect(results){
                     //tx.executeSql("UPDATE [EVENTS] SET [dateHash] = 12 WHERE (id = 5)",function(){console.log("Error");},function(){
                     //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
                     //tx1.executeSql("UPDATE EVENTS SET dateHash = '1' WHERE (id = '10')",function(){console.log("Error");},function(){
-                      tx1.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id = 5",function(){console.log("Error");},function(){
+                    
+                    //var len7 = results.rows.length;
+                    for (var i = 0; i < results.rows.length; i++) {
+                    
+                      tx1.executeSql("UPDATE 'EVENTS' SET dateHash = 1 WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                      console.log("suck");
                                      dfd.resolve(tx1);
                                    
                                   });
+                    
+                    }
                     
                     /*
                     tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
