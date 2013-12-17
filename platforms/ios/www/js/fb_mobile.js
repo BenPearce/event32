@@ -256,7 +256,7 @@ function updateDateIntegerDb(){
                                    var len7 = results.rows.length;
                      
                                    for (var i = 0; i < len7; i++) {
-                                   console.log("start: " + results.rows.item(i).start_time +"id: "+results.rows.item(i).start_time);
+                                   console.log("start: " + results.rows.item(i).start_time +"id: "+results.rows.item(i).id);
                                    }
                      
                       }, errorCB);
