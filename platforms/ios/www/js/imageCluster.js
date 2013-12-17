@@ -1,7 +1,7 @@
             //If we want to populate row by row we should switch argument to eveningHashSubset[i]
             //Since we've already filtered through friendGroup and created eveningHashSubset we can probably parse through eveningHashSubset[i].eventIdArray 
             //We should create list elements with handlers set and create some low cpu expansion for header click event
-
+//test
             function getEventRow(eventId,eventClass){
             	    console.log("getEventRow eventID: "+eventId);
             	    var eventRowHtml;
