@@ -188,54 +188,55 @@ function insertEventArrtDb(eventAttrParse) {
                     //console.log("insert var"+fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //var test = new Date(fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //console.log("test: "+test);
-                    tx.executeSql("INSERT INTO EVENTS ("+'formattedTime'+","
-                                  +'formattedDateTime'+","
-                                  +'formattedDate'+","
-                                  +'eventFbId'+","
-                                  +'touched'+","
-                                  +'start_time'+","
-                                  +'update_time'+","
-                                  +'end_time'+","
-                                  +'description'+","
-                                  +'name'+","
-                                  +'attending_count'+","
-                                  +'unsure_count'+","
-                                  +'not_replied_count'+","
-                                  +'all_members_count'+","
-                                  +'timezone'+","
-                                  +'ticket_uri'+","
-                                  +'pic_small'+","
-                                  +'pic'+","
-                                  +'pic_big'+","
-                                  +'pic_square'+","
-                                  +'pic_cover'+","+
-                                  'can_invite_friends'+","
-                                  +'creator'+
+                    tx.executeSql("INSERT INTO EVENTS ("
+                                  +'formattedTime'+"," //1
+                                  +'formattedDateTime'+"," //2
+                                  +'formattedDate'+"," //3
+                                  +'eventFbId'+"," //4
+                                  +'touched'+"," //5
+                                  +'start_time'+"," //6
+                                  +'update_time'+"," //7
+                                  +'end_time'+"," //8
+                                  +'description'+"," //9
+                                  +'name'+"," //10
+                                  +'attending_count'+"," //11
+                                  +'unsure_count'+"," //12
+                                  +'not_replied_count'+"," //13
+                                  +'all_members_count'+"," //14
+                                  +'timezone'+"," //15
+                                  +'ticket_uri'+"," //16
+                                  +'pic_small'+"," //17
+                                  +'pic'+"," //18
+                                  +'pic_big'+"," //19
+                                  +'pic_square'+"," //20
+                                  +'pic_cover'+"," //21
+                                  +'can_invite_friends'+"," //22
+                                  +'creator'+ //23
                                   ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                                   
-                                  
-                        [fbStampToDbTime(eventAttrParse[i].start_time),
-                         fbStampToDbDateTime(eventAttrParse[i].start_time),
-                         fbStampToDbDateTime(eventAttrParse[i].start_time),
-                         eventAttrParse[i].eid, todaysStamp,
-                         eventAttrParse[i].start_time,
-                         eventAttrParse[i].update_time,
-                         eventAttrParse[i].end_time,
-                         eventAttrParse[i].description,
-                         eventAttrParse[i].name,
-                         eventAttrParse[i].attending_count,
-                         eventAttrParse[i].unsure_count,
-                         eventAttrParse[i].not_replied_count,
-                         eventAttrParse[i].all_members_count,
-                         eventAttrParse[i].timezone,
-                         eventAttrParse[i].ticket_uri,
-                         eventAttrParse[i].pic_small,
-                         eventAttrParse[i].pic,
-                         eventAttrParse[i].pic_big,
-                         eventAttrParse[i].pic_square,
-                         eventAttrParse[i].pic_cover,
-                         eventAttrParse[i].can_invite_friends,
-                         eventAttrParse[i].creator
+                        [fbStampToDbTime(eventAttrParse[i].start_time),//1
+                         fbStampToDbDateTime(eventAttrParse[i].start_time),//2
+                         fbStampToDbDateTime(eventAttrParse[i].start_time),//3
+                         eventAttrParse[i].eid,//4
+                         todaysStamp,//5
+                         eventAttrParse[i].start_time,//6
+                         eventAttrParse[i].update_time,//7
+                         eventAttrParse[i].end_time,//8
+                         eventAttrParse[i].description,//9
+                         eventAttrParse[i].name,//10
+                         eventAttrParse[i].attending_count,//11
+                         eventAttrParse[i].unsure_count,//12
+                         eventAttrParse[i].not_replied_count,//13
+                         eventAttrParse[i].all_members_count,//14
+                         eventAttrParse[i].timezone,//15
+                         eventAttrParse[i].ticket_uri,//16
+                         eventAttrParse[i].pic_small,//17
+                         eventAttrParse[i].pic,//18
+                         eventAttrParse[i].pic_big,//19
+                         eventAttrParse[i].pic_square,//20
+                         eventAttrParse[i].pic_cover,//21
+                         eventAttrParse[i].can_invite_friends,//22
+                         eventAttrParse[i].creator//23
                          ]
                                   );
                     }
