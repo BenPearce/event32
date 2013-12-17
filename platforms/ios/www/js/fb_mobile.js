@@ -188,7 +188,9 @@ function insertEventArrtDb(eventAttrParse) {
                     //console.log("insert var"+fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //var test = new Date(fbStampToDbDateTime(eventAttrParse[i].start_time));
                     //console.log("test: "+test);
-                    tx.executeSql("INSERT INTO EVENTS ('formattedTime','formattedDateTime','formattedDate','eventFbId','touched','start_time','update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    tx.executeSql("INSERT INTO EVENTS ("+'formattedTime'+","
+                                  +'formattedDateTime'+","
+                                  +'formattedDate'+","+'eventFbId','touched'+","+'start_time'+",'update_time','end_time','description','name','attending_count','unsure_count','not_replied_count','all_members_count','timezone','ticket_uri','pic_small','pic','pic_big','pic_square','pic_cover','can_invite_friends','creator') VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                                   
                                   
                         [fbStampToDbTime(eventAttrParse[i].start_time),
