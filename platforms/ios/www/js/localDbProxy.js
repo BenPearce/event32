@@ -49,16 +49,14 @@ function querySuccess(tx, results) {
 }
 */
 // Transaction error callback
-//
 function errorCB(err) {
     console.log("Error processing SQL code: "+err.code+" message: "+err.message);
 }
-
+/*
 // Transaction success callback
-//
 function successCB() {
     var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db.transaction(queryDB, errorCB);
 }
-
+*/
 
