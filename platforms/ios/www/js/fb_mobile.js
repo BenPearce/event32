@@ -262,10 +262,12 @@ var updateEventAttr = function () {
     var dfd = $.Deferred();
     getEventIDsDb().done(function (friendIdList1) {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
+                                                            deleteExpiredEvents().done(function(){
                                                             insertEventArrtDb(eventAttrParse).done(function(){
-                                                                                                   deleteExpiredEvents();
+                                                                                                   //deleteExpiredEvents();
                                                                                                     dfd.resolve("friendIdList1");
                                                                                                    });
+                                                                                        });
                                                             //getEventArrtDb();
                                                             //getEventsDb();
                                                             getEventsImplementation();
