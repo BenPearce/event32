@@ -44,7 +44,7 @@ function updateFriends() {
     return dfd.promise();
 }
 
-function deleteExpiredEvents(){
+function deleteExpiredFriendsEvents(){
      console.log("Deleted trig");
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
@@ -58,7 +58,7 @@ function deleteExpiredEvents(){
                     console.log("stat1:"+stat1);
                     console.log("stat2:"+stat2);
                     
-                    tx.executeSql(stat1,function(){console.log("Error");},function(){
+                    tx.executeSql(stat2,function(){console.log("Error");},function(){
                                   console.log("Deleted success");
                     
                                    dfd.resolve("friendParse");
@@ -71,11 +71,13 @@ var updateEvents = function () {
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
+                                                         deleteExpiredFriendsEvents().done(function(){
                                                          insertEventIdsDb(friendEventsParse).done(function(){
                                                                                                   console.log("insert events db done");
-                                                                                                  deleteExpiredEvents();
+                                                                                                 dfd.resolve("blah");
                                                                                                   });
-                                                         dfd.resolve("blah");
+                                                                                            });
+                                                         //dfd.resolve("blah");
                                                          });
                         });
     return dfd.promise();
@@ -184,9 +186,6 @@ function insertEventIdsDb(friendEventsParse) {
                                   //});
                     
                     });
-    
-    
-    
     
     
     return dfd.promise();
