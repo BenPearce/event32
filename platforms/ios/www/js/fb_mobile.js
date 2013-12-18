@@ -44,11 +44,30 @@ function updateFriends() {
     return dfd.promise();
 }
 
+function deleteExpiredEvents(){
+     console.log("Deleted trig");
+    var dfd = $.Deferred();
+    var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db4.transaction(function (tx) {
+                    console.log("getTodaysDate(): "+getTodaysDate());
+                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp > "+getTodaysDate(),function(){console.log("Error");},function(){
+                    tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')",function(){console.log("Error");},function(){
+                                  console.log("Deleted success");
+                    
+                                   dfd.resolve("friendParse");
+                                  });
+                    });
+        return dfd.promise();
+}
+
 var updateEvents = function () {
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
-                                                         insertEventIdsDb(friendEventsParse);
+                                                         insertEventIdsDb(friendEventsParse).done(function(){
+                                                                                                  console.log("insert events db done");
+                                                                                                  deleteExpiredEvents();
+                                                                                                  });
                                                          dfd.resolve("blah");
                                                          });
                         });
@@ -110,7 +129,10 @@ function getEventIdsFb(friendIdList) {
 
 function getTodaysDate(){
     var tempDate = new Date();
-    var todaysStamp = tempDate.getDate();
+    console.log("tempDate "+tempDate);
+    //var todaysStamp = tempDate.getDate();
+    //var todaysStamp = (tempDate.getMonth() + 1) + '-' + tempDate.getDate() + '-' + tempDate.getFullYear();
+    var todaysStamp = tempDate.getFullYear() + '-'+(tempDate.getMonth() + 1) + '-' + tempDate.getDate();
     return todaysStamp;
 }
 /*
@@ -132,20 +154,29 @@ function insertEventIdsDb(friendEventsParse) {
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
-                    
-                      //tx.executeSql("DELETE FROM formattedDate WHERE timestamp < "+getTodaysDate(),function(){console.log("Error");},function(){
-                    
+                    console.log("getTodaysDate(): "+getTodaysDate());
+                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp > "+getTodaysDate(),function(){console.log("Error");},function(){
+                    //tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < 2014-01-11",function(){console.log("Error");},function(){
                     console.log("line before INSERT INTO FRIENDS_EVENTS loop");
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
                     }, errorCB, function () {
+                    /*
+                          tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < 2014-01-11",function(){console.log("Error");},function(){
+                                        var friendsEventsUpdateTime = new Date().getTime();
+                                        window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
+                                        dfd.resolve("reesolved");
+                                        });
+                     */
+                    
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
                     dfd.resolve("reesolved");
-                    });
+
+                                  //});
                     
-                    //});
+                    });
     
     
     
