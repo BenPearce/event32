@@ -30,13 +30,13 @@ function makeDateMap(){
 }
 
 function dateToInteger(date){
-    console.log("date to int dat: "+date);
+    //console.log("date to int dat: "+date);
     //var d = new Date(fbTimeOffSet.replace(' ', 'T'));
-	//var temp = new Date(date.replace(' ', 'T'));
+	var temp = new Date(date.replace(' ', 'T'));
     var temp = new Date(date.split("T")[0]);
-    console.log("temp1: "+temp);
+    //console.log("temp1: "+temp);
         temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
-     console.log("temp: "+temp);
+     //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
 	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
