@@ -50,8 +50,15 @@ function deleteExpiredEvents(){
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     console.log("getTodaysDate(): "+getTodaysDate());
-                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp > "+getTodaysDate(),function(){console.log("Error");},function(){
-                    tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')",function(){console.log("Error");},function(){
+                    
+                    var stat1 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
+                    var stat2 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')";
+                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp < date('"+getTodaysDate()+"')",function(){console.log("Error");},function(){
+                    //tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')",function(){console.log("Error");},function(){
+                    console.log("stat1:"+stat1);
+                    console.log("stat2:"+stat2);
+                    
+                    tx.executeSql(stat1,function(){console.log("Error");},function(){
                                   console.log("Deleted success");
                     
                                    dfd.resolve("friendParse");
