@@ -137,7 +137,7 @@ function insertEventIdsDb(friendEventsParse) {
                     
                     console.log("line before INSERT INTO FRIENDS_EVENTS loop");
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
-                    tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDateTime(friendEventsParse[i].start_time)]);
+                    tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
                     }, errorCB, function () {
                     var friendsEventsUpdateTime = new Date().getTime();
@@ -315,7 +315,7 @@ function getEventsDb(){
                                   var len6 = results.rows.length
                                   //loop through results
                                   for (var i = 0; i < len6; i++) {
-                                  console.log("namer: " + results.rows.item(i).name + "feFormattedStartDate:" + results.rows.item(i).feFormattedDate+" start time: "+results.rows.item(i).start_time);
+                                  console.log("feFormattedStartDate:" + results.rows.item(i).feFormattedDate);
                                   }
                                   }, errorCB);
                     });
