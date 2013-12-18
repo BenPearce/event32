@@ -1,7 +1,6 @@
 function createTable1(){
     var dfd = $.Deferred();
     var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-    //db1.transaction(createTable, errorCB, function (tx) {
     db1.transaction(function (tx) {
                     tx.executeSql('DROP TABLE IF EXISTS FRIENDS');
                     tx.executeSql('DROP TABLE IF EXISTS FRIENDS_EVENTS');
@@ -68,18 +67,10 @@ function deleteExpiredFriendsEvents(){
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
-                    console.log("getTodaysDate(): "+getTodaysDate());
-                    
                     var stat1 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
                     var stat2 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')";
-                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp < date('"+getTodaysDate()+"')",function(){console.log("Error");},function(){
-                    //tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')",function(){console.log("Error");},function(){
-                    console.log("stat1:"+stat1);
-                    console.log("stat2:"+stat2);
-                    
+
                     tx.executeSql(stat2,function(){console.log("Error");},function(){
-                                  console.log("Deleted success");
-                                  
                                   dfd.resolve("friendParse");
                                   });
                     });
@@ -92,11 +83,9 @@ var updateEvents = function () {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
                                                          deleteExpiredFriendsEvents().done(function(){
                                                                                            insertEventIdsDb(friendEventsParse).done(function(){
-                                                                                                                                    console.log("insert events db done");
                                                                                                                                     dfd.resolve("blah");
                                                                                                                                     });
                                                                                            });
-                                                         //dfd.resolve("blah");
                                                          });
                         });
     return dfd.promise();
@@ -157,58 +146,23 @@ function getEventIdsFb(friendIdList) {
 
 function getTodaysDate(){
     var tempDate = new Date();
-    console.log("tempDate "+tempDate);
-    //var todaysStamp = tempDate.getDate();
-    //var todaysStamp = (tempDate.getMonth() + 1) + '-' + tempDate.getDate() + '-' + tempDate.getFullYear();
     var todaysStamp = tempDate.getFullYear() + '-'+(tempDate.getMonth() + 1) + '-' + tempDate.getDate();
     return todaysStamp;
 }
-/*
- function deleteExpiredFriendsEvents(){
- var dfd = $.Deferred();
- console.log("getTodaysDate(): "+getTodaysDate());
- 
- tx.executeSql("DELETE FROM sessions WHERE timestamp < "+getTodaysDate(),function(){console.log("Error");},function(){
- console.log("success");
- dfd.resolve("tx1");
- });
- return dfd.promise();
- 
- }
- */
 
 function insertEventIdsDb(friendEventsParse) {
-    //deleteExpiredFriendsEvents().done(function(){
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
-                    console.log("getTodaysDate(): "+getTodaysDate());
-                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp > "+getTodaysDate(),function(){console.log("Error");},function(){
-                    //tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < 2014-01-11",function(){console.log("Error");},function(){
-                    console.log("line before INSERT INTO FRIENDS_EVENTS loop");
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
                     }, errorCB, function () {
-                    /*
-                     tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < 2014-01-11",function(){console.log("Error");},function(){
-                     var friendsEventsUpdateTime = new Date().getTime();
-                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
-                     dfd.resolve("reesolved");
-                     });
-                     */
-                    
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
                     dfd.resolve("reesolved");
-                    
-                    //});
-                    
                     });
-    
-    
     return dfd.promise();
-    //});
 }
 
 function getEventIDsDb() {
@@ -247,7 +201,6 @@ function getEventArrtDb() {
                     tx.executeSql('SELECT * FROM EVENTS', [], function (tx, results) {
                                   var len5 = results.rows.length
                                   for (var i = 0; i < len5; i++) {
-                                  //console.log("name: " + results.rows.item(i).name + "start: +" + results.rows.item(i).eventFbId)
                                   }
                                   }, errorCB);
                     });
@@ -258,18 +211,9 @@ function deleteExpiredEvents(){
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
-                    console.log("getTodaysDate(): "+getTodaysDate());
-                    
                     var stat1 = "DELETE FROM EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
                     var stat2 = "DELETE FROM EVENTS WHERE formattedDate < date('2014-01-11')";
-                    //tx.executeSql("DELETE FROM formattedDate WHERE timestamp < date('"+getTodaysDate()+"')",function(){console.log("Error");},function(){
-                    //tx.executeSql("DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')",function(){console.log("Error");},function(){
-                    console.log("stat1:"+stat1);
-                    console.log("stat2:"+stat2);
-                    
                     tx.executeSql(stat1,function(){console.log("Error");},function(){
-                                  console.log("Deleted events success");
-                                  
                                   dfd.resolve("friendParse");
                                   });
                     });
@@ -282,12 +226,9 @@ var updateEventAttr = function () {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
                                                             deleteExpiredEvents().done(function(){
                                                                                        insertEventArrtDb(eventAttrParse).done(function(){
-                                                                                                                              //deleteExpiredEvents();
-                                                                                                                              dfd.resolve("friendIdList1");
+                                                                                                                      dfd.resolve("friendIdList1");
                                                                                                                               });
                                                                                        });
-                                                            //getEventArrtDb();
-                                                            //getEventsDb();
                                                             getEventsImplementation();
                                                             dfd.resolve("friendIdList1");
                                                             });
@@ -301,12 +242,6 @@ function insertEventArrtDb(eventAttrParse) {
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
-                    //console.log("todaysStamp: "+todaysStamp);
-                    //formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME
-                    //console.log("insert type"+typeof fbStampToDbDateTime(eventAttrParse[i].start_time));
-                    //console.log("insert var"+fbStampToDbDateTime(eventAttrParse[i].start_time));
-                    //var test = new Date(fbStampToDbDateTime(eventAttrParse[i].start_time));
-                    //console.log("test: "+test);
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -371,12 +306,10 @@ function insertEventArrtDb(eventAttrParse) {
 
 function updateDateIntegerDb(){
     var dfd = $.Deferred();
-    //console.log("update triggered");
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
                      tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
                                    for (var i = 0; i < results.rows.length; i++) {
-                                   //console.log("date to int"+dateToInteger(results.rows.item(i).start_time))
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                                  dfd.resolve("tx1");
                                                  });
@@ -400,7 +333,6 @@ function getEventsDb(){
                     
                     tx.executeSql('SELECT dateHash as dateHash, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
                                   var len6 = results.rows.length
-                                  //loop through results
                                   for (var i = 0; i < len6; i++) {
                                   console.log("formattedStartDate:" + results.rows.item(i).formattedStartDate);
                                   }
