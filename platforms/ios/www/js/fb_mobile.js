@@ -1,5 +1,4 @@
 
-
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
                           init();
@@ -18,13 +17,11 @@ function init() {
                       if (response.status == "connected") {
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
-                      //var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                      //db1.transaction(createTable, errorCB, function (tx) {
-                      console.log("create table ln");
                       createTable1().done(function(){
                                           console.log("create table");
                                           updateFriends().done(function () {
                                                                updateEvents().done(function () {
+                                                                                   console.log("line before update attr");
                                                                                    updateEventAttr();
                                                                                    });
                                                               });

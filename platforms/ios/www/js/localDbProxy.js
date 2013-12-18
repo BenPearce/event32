@@ -213,7 +213,9 @@ function deleteExpiredEvents(){
     db4.transaction(function (tx) {
                     var stat1 = "DELETE FROM EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
                     var stat2 = "DELETE FROM EVENTS WHERE formattedDate < date('2014-01-11')";
+                     console.log("ln before delete");
                     tx.executeSql(stat1,function(){console.log("Error");},function(){
+                                  console.log("delete success");
                                   dfd.resolve("friendParse");
                                   });
                     });
@@ -221,27 +223,37 @@ function deleteExpiredEvents(){
 }
 
 var updateEventAttr = function () {
+    console.log("updateEventAttr");
     var dfd = $.Deferred();
     getEventIDsDb().done(function (friendIdList1) {
+                         console.log("mark 1");
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
+                                                            console.log("mark 2");
                                                             deleteExpiredEvents().done(function(){
+                                                                                       console.log("mark 3");
                                                                                        insertEventArrtDb(eventAttrParse).done(function(){
-                                                                                                                      dfd.resolve("friendIdList1");
+                                                                                                                              
+                                                                                                                     // dfd.resolve("friendIdList1");
+                                                                                                                              
+                                                                                                                              console.log("line before get events imp");
+                                                                                                                              getEventsImplementation();
+                                                                                                                              dfd.resolve("friendIdList1");
                                                                                                                               });
                                                                                        });
-                                                            getEventsImplementation();
-                                                            dfd.resolve("friendIdList1");
+                                                           
                                                             });
                          });
     return dfd.promise();
 }
 
 function insertEventArrtDb(eventAttrParse) {
+    console.log("insert Event Attr trig");
     var dfd = $.Deferred();
     var test = 99;
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
+                    console.log("loop");
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -297,8 +309,10 @@ function insertEventArrtDb(eventAttrParse) {
                                   );
                     }
                     }, errorCB, function () {
+                    console.log("insert Event Attr success");
                     var eventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
+                     console.log("insert Event Attr res");
                     dfd.resolve("friendIdList1");
                     });
     return dfd.promise();
@@ -310,6 +324,7 @@ function updateDateIntegerDb(){
     db10.transaction(function (tx) {
                      tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
                                    for (var i = 0; i < results.rows.length; i++) {
+                                   console.log("line before update");
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                                  dfd.resolve("tx1");
                                                  });
@@ -321,6 +336,7 @@ function updateDateIntegerDb(){
 }
 
 function getEventsImplementation(){
+    console.log("get events imp");
     updateDateIntegerDb().done(function(){
                                getEventsDb();
                                });
