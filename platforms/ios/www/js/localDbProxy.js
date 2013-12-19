@@ -373,11 +373,11 @@ function popUi(){
                                          
                                                 for(k=0;k<results.rows.length; k++){
                                             
-                                               //console.log("friends event ID: "+results.rows.item(k).eventFbId);
+                                               console.log("friends event ID: "+results.rows.item(k).eventFbId);
                                             
-                                                tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+                                                //tx.executeSql("SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbIdWHERE FRIENDS_EVENTS.eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
                                             
-                                            //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
+                                            tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
                                                           //console.log("friends events row length: "+results.rows.length);
                                                           
                                                           for(l=0;l<results.rows.length; l++){
@@ -386,21 +386,19 @@ function popUi(){
                                                           //console.log("eventFbId type: "+typeof results.rows.item(l).eventFbId);
                                                           //console.log("eventFbId type: "+typeof eventList[results.rows.item(l).eventFbId]);
                                                           //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
-                                                           var event = makeEvent(eventList[results.rows.item(l));
+                                                           //var event = makeEvent(eventList[results.rows.item(l)]);
                                                                                            
-                                                                              
+                                                          /*
                                                           if(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'){
                                                             eventList[results.rows.item(l).eventFbId] = makeEvent(results.rows.item(l));
                                                             //need a join query to have dateHash
                                                             //dateHash[results.rows.item(l).dateHash].eventList.push(results.rows.item(l).eventFbId);
                                                             //
                                                           console.log("undef true");
-                                                          }
-                                                                                           
-                                                                                           else{
+                                                          }else{
                                                           console.log("hi");
                                                            }
-                                                                                            
+                                                          */
                                                           }
                                                            }, errorCB);
                                                 }
