@@ -383,7 +383,9 @@ function popUi(){
                                                       
                                                           // tx.executeSql("SELECT EVENTS.eventFbId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
                                                                          
-                                                                               tx.executeSql("SELECT EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
+                                                                               //tx.executeSql("SELECT EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
+                                            
+                                            tx.executeSql("SELECT FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
                                                       
                                                       /*
                                                       SELECT *
@@ -403,6 +405,7 @@ function popUi(){
                                                      console.log("frEvId: "+results.rows.item(l).frEvId);
                                                     console.log("name: "+results.rows.item(l).name);
                                                     console.log("date hash: "+results.rows.item(l).dateHash);
+                                                          console.log("fr id: "+results.rows.item(l).frId);
                                                           //console.log("eventFbId type: "+typeof results.rows.item(l).eventFbId);
                                                           //console.log("eventFbId type: "+typeof eventList[results.rows.item(l).eventFbId]);
                                                           //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
