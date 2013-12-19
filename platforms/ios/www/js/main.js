@@ -29,7 +29,7 @@
     var displayCalendar;
     var tempDate = new Date();
     var todaysStamp = tempDate.getDate();
-    var eventList = new Array();
+
 
    var date = new Date();
    var todaysStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();

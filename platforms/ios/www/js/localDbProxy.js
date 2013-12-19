@@ -1,3 +1,6 @@
+    //var eventList = new Array();
+var eventList = {};
+
 function createTable1(){
     var dfd = $.Deferred();
     var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
@@ -246,7 +249,7 @@ function insertEventArrtDb(eventAttrParse) {
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
-                    //console.log("loop");
+                    console.log("eid insert: "+eventAttrParse[i].eid);
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -350,8 +353,8 @@ function popUi(){
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
                                   
                                   for (var j = 1; j < results.rows.length; j++) {
-                                  console.log("friend name: "+results.rows.item(j).name);
-                                  console.log("friend id: "+results.rows.item(j).fbId);
+                                  //console.log("friend name: "+results.rows.item(j).name);
+                                  //console.log("friend id: "+results.rows.item(j).fbId);
                                   
                                   var fbIder = results.rows.item(j).fbId;
                                   /*
@@ -366,24 +369,40 @@ function popUi(){
                               //tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '654412648'", [], function (tx, results) {
                               tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+results.rows.item(j).fbId+"'", [], function (tx, results) {
                                             
-                                                console.log("friends events row length: "+results.rows.length);
+                                                //console.log("friends events row length: "+results.rows.length);
                                          
                                                 for(k=0;k<results.rows.length; k++){
                                             
-                                               console.log("friends event ID: "+results.rows.item(k).eventFbId);
+                                               //console.log("friends event ID: "+results.rows.item(k).eventFbId);
                                             
-                                            tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
-                                                          console.log("friends events row length: "+results.rows.length);
+                                                tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId;', [], function (tx, results) {
+                                            
+                                            //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
+                                                          //console.log("friends events row length: "+results.rows.length);
                                                           
                                                           for(l=0;l<results.rows.length; l++){
-                                                          console.log("event name: "+results.rows.item(l).name);
+
+                                                    //console.log("eventFbId: "+results.rows.item(l).eventFbId);
+                                                          //console.log("eventFbId type: "+typeof results.rows.item(l).eventFbId);
+                                                          //console.log("eventFbId type: "+typeof eventList[results.rows.item(l).eventFbId]);
+                                                          //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
+                                                           var event = makeEvent(eventList[results.rows.item(l));
+                                                                                           
+                                                                              
+                                                          if(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'){
+                                                            eventList[results.rows.item(l).eventFbId] = makeEvent(results.rows.item(l));
+                                                            //need a join query to have dateHash
+                                                            //dateHash[results.rows.item(l).dateHash].eventList.push(results.rows.item(l).eventFbId);
+                                                            //
+                                                          console.log("undef true");
                                                           }
-                                                          
-                                                          
+                                                                                           
+                                                                                           else{
+                                                          console.log("hi");
+                                                           }
+                                                                                            
+                                                          }
                                                            }, errorCB);
-                                            
-                                            
-                                                      console.log("friends where: "+results.rows.item(k).friendFbId);
                                                 }
                                   /*
                                   if (eventList[typeof results.rows.item(0).fbId] == 'undefined'){
@@ -412,8 +431,12 @@ function popUi(){
 function getEventsDb(){
     var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db9.transaction(function (tx) {
-                    tx.executeSql('SELECT dateHash as dateHash, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
-                                  
+                    tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
+                                  /*
+                                  for(i=0;i<results.rows.length;i++){
+                                  console.log("event intersect result: "+results.rows.item(i).eventFbId);
+                                  }
+                                  */
                                   }, errorCB);
                     });
 }
