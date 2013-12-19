@@ -1,4 +1,12 @@
-
+var dateHashMap = new Array();
+/*
+function populateUi(){
+    for (i=0;i=32){
+        dateHashMap[i] = makeEvening(i,);
+        dateHashMap[i].eventIdArray.push(value.id);
+    }
+}
+*/
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
                           init();
@@ -22,11 +30,12 @@ function init() {
                                           updateFriends().done(function () {
                                                                updateEvents().done(function () {
                                                                                    console.log("line before update attr");
-                                                                                   updateEventAttr();
+                                                                                   updateEventAttr().done(function(){
+                                                                                                          popUi();
+                                                                                                          });
                                                                                    });
                                                               });
                                           });
-
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");

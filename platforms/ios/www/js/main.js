@@ -29,6 +29,7 @@
     var displayCalendar;
     var tempDate = new Date();
     var todaysStamp = tempDate.getDate();
+    var eventList = new Array();
 
    var date = new Date();
    var todaysStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
@@ -255,16 +256,13 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
                 if (typeof fbArray[value.id] == "undefined") {
                     //Need to run tests on friend before adding to fbArray
                     fbArray[value.id] = event;
-                    
                     eveningHash[parseInt(event.dateId)].eventIdArray.push(value.id);
-                    
                     //mainCalendar.init();
                     mainCalendar.eveningArray[parseInt(event.dateId)].eventIdArray.push(value.id);
                     
                     eveningHash[parseInt(event.dateId)].friendListEventCalendarState = eveningHash[parseInt(event.dateId)].friendListEventCalendarState & setBit(0, 3); 
                 }
                 eveningHash[parseInt(event.dateId)].friendIdArray.push(friendID);
-                
                 mainCalendar.eveningArray[parseInt(event.dateId)].friendIdArray.push(value.id);
                 
                 //If we create an operation that pushes to array as well as adds list element

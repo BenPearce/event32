@@ -40,13 +40,11 @@ function fbStampToDbDate(fbTimeOffSet){
         var fbStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
         var stamp = fbTimeOffSet.split("T");
     }
-    //console.log(stamp[0]);
     return stamp[0];
 }
 
 function fbStampToDbTime(fbTimeOffSet){
     var d = new Date(fbTimeOffSet.replace(' ', 'T'));
-    //console.log("d "+d);
     var t = d.getTime();
     return t;
 }
@@ -63,7 +61,6 @@ function updateFriends() {
 
 
 function deleteExpiredFriendsEvents(){
-    //console.log("Deleted trig");
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
@@ -337,17 +334,76 @@ function getEventsImplementation(){
                                getEventsDb();
                                });
 }
+/*
+function populateDateHash(results){
+     var len6 = results.rows.length
+    for (var i = 0; i < len6; i++) {
+        console.log("popDate Hash:" + results.rows.item(i).formattedStartDate);
+    }
+}
+ */
+
+function popUi(){
+    var dfd = $.Deferred();
+    var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    db3.transaction(function (tx) {
+                    tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
+                                  
+                                  for (var j = 1; j < results.rows.length; j++) {
+                                  console.log("friend name: "+results.rows.item(j).name);
+                                  console.log("friend id: "+results.rows.item(j).fbId);
+                                  
+                                  var fbIder = results.rows.item(j).fbId;
+                                  
+                                  /*
+                                  tx.executeSql("SELECT * FROM FRIENDS_EVENTS", [], function (tx, results) {
+                                                console.log("inner len: "+results.rows.length);
+                                                
+                                                for(i=0;i<results.rows.length; i++){
+                                                console.log("friends events id: "+results.rows.item(i).friendFbId);
+                                                }
+                                  */
+                              //tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = "+fbIder, [], function (tx, results) {
+                              //tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '654412648'", [], function (tx, results) {
+                              tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+results.rows.item(j).fbId+"'", [], function (tx, results) {
+
+                                                console.log("friends events sucess");
+                                                console.log("friends events row length: "+results.rows.length);
+                                                for(k=0;k<results.rows.length; k++){
+                                                      console.log("friends where: "+results.rows.item(k).friendFbId);
+                                                }
+
+                                  /*
+                                  if (eventList[typeof results.rows.item(0).fbId] == 'undefined'){
+                                  eventList[typeof results.rows.item(0).fbId] = makeEvent(results.rows.item(i));
+                                  dateHash[results.rows.item(i).dateHash].event
+                                  }
+                                     */
+                                              //}, errorCB);
+                                    }, errorCB);
+                                  }
+                                  //var len = results.rows.length;
+                                  //var friendIdList = results.rows.item(0).fbId;
+                                  /*
+                                  results.rows.length
+                                  for (var i = 1; i < results.rows.length; i++) {
+                                  friendIdList = friendIdList + "," + results.rows.item(i).fbId;
+                                  }
+                                  dfd.resolve(friendIdList);
+                                  */
+                                  
+                                  }, errorCB);
+                    }, errorCB);
+    return dfd.promise();
+}
+
 
 function getEventsDb(){
     //console.log("get events db");
     var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db9.transaction(function (tx) {
-                    
                     tx.executeSql('SELECT dateHash as dateHash, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
-                                  var len6 = results.rows.length
-                                  for (var i = 0; i < len6; i++) {
-                                  //console.log("formattedStartDate:" + results.rows.item(i).formattedStartDate);
-                                  }
+                                  
                                   }, errorCB);
                     });
 }

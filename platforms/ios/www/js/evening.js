@@ -23,7 +23,7 @@ function evening() {
     this.generateHtml;
 }
 
-function makeEvening(integer) {
+function makeEvening(integer,dbData) {
     var result = new evening();
     var proximity = makeListElement();
     $.extend(result, proximity);
