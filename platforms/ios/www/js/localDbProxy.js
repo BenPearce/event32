@@ -375,19 +375,29 @@ function popUi(){
                                             
                                                console.log("friends event ID: "+results.rows.item(k).eventFbId);
                                             
-                                                //tx.executeSql("SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE FRIENDS_EVENTS.eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
+                                    //tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId;', [], function (tx, results) {
+                                                  
+                                                  console.log("successey");
+                                            
+                                        //tx.executeSql("SELECT *FROM FRIENDS_EVENTS FULL JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
+                                                      
+                                                           tx.executeSql("SELECT EVENTS.eventFbId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
+                                                      
+                                                      /*
+                                                      SELECT *
+                                                      FROM Orders
+                                                      LEFT JOIN OrderLines ON OrderLines.OrderID=Orders.ID
+                                                      WHERE Orders.ID = 12345
+                                            */
                                             
                                             //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
-                                            
-                                            
-                                            tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
 
                                             
                                                           //console.log("friends events row length: "+results.rows.length);
                                                           
                                                           for(l=0;l<results.rows.length; l++){
 
-                                                    console.log("eventFbId1: "+results.rows.item(l).eventFbId);
+                                                    console.log("eventFbId2: "+results.rows.item(l).eventFbId);
                                                           //console.log("eventFbId type: "+typeof results.rows.item(l).eventFbId);
                                                           //console.log("eventFbId type: "+typeof eventList[results.rows.item(l).eventFbId]);
                                                           //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
