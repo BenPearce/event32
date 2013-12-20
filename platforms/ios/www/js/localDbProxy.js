@@ -365,105 +365,35 @@ function popUi(){
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                  console.log("friend select");
                                   for (var j = 1; j < results.rows.length; j++) {
-                                  
-                                  console.log("results.rows.item(j).fbId "+results.rows.item(j).fbId);
                                           var friend = makeFriend(results.rows.item(j));
-                                  //console.log("friend name: "+results.rows.item(j).name);
-                                  //console.log("friend id: "+results.rows.item(j).fbId);
-                                  
                                   var fbIder = results.rows.item(j).fbId;
-                                  /*
-                                  tx.executeSql("SELECT * FROM FRIENDS_EVENTS", [], function (tx, results) {
-                                                console.log("inner len: "+results.rows.length);
-                                                
-                                                for(i=0;i<results.rows.length; i++){
-                                                console.log("friends events id: "+results.rows.item(i).friendFbId);
-                                                }
-                                  */
-                              //tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = "+fbIder, [], function (tx, results) {
-                              //tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '654412648'", [], function (tx, results) {
                               tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+results.rows.item(j).fbId+"'", [], function (tx, results) {
-                                              console.log("friends events");
-                                                //console.log("friends events row length: "+results.rows.length);
-                                         
                                                 for(k=0;k<results.rows.length; k++){
-                                            
-                                    
-                                               //console.log("friends event ID: "+results.rows.item(k).eventFbId);
-
-                                           // tx.executeSql("SELECT FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
-                                                         
                                                           tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
-                                                          
-                                                          console.log("sel done");
-                                                      /*
-                                                      SELECT *
-                                                      FROM Orders
-                                                      LEFT JOIN OrderLines ON OrderLines.OrderID=Orders.ID
-                                                      WHERE Orders.ID = 12345
-                                            */
-                                            
-                                            //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+results.rows.item(k).eventFbId+"'", [], function (tx, results) {
-
-                                            
-                                                          //console.log("friends events row length: "+results.rows.length);
-                                                          
                                                           for(l=0;l<results.rows.length; l++){
                                                                          console.log("description: "+results.rows.item(l).description);
                                                                         var event = makeEvent(results.rows.item(l));
-                                                    //console.log("eventFbId2: "+results.rows.item(l).evId);
-                                                     //console.log("frEvId: "+results.rows.item(l).frEvId);
-                                                    //console.log("name: "+results.rows.item(l).name);
-                                                    //console.log("date hash: "+results.rows.item(l).dateHash);
-                                                          //console.log("fr id: "+results.rows.item(l).frId);
-
-                                                          //console.log("eventFbId type: "+typeof results.rows.item(l).eventFbId);
-                                                          //console.log("eventFbId type: "+typeof eventList[results.rows.item(l).eventFbId]);
-                                                          //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
-                                                           //var event = makeEvent(eventList[results.rows.item(l)]);
-                                                                                           
-                                           
                                                           if(typeof eventList[event.fbId] == 'undefined'){
-                                                                        
                                                               eventList[event.fbId] = event;
-                                                           
                                                                         if(typeof dateHash[event.dateHash] == 'undefined'){
                                                                         dateHash[event.dateHash] = makeEvening(event.dateHash);
                                                                         }
-                                                                        
                                                             dateHash[event.dateHash].eventList.push(event.fbId);
-                                                                        
                                                                         friend.eventIdArray.push(event.fbId);
-                                                          console.log("undef true");
-                                                                             
                                                           }else{
                                                           console.log("hi");
+                                                                        
+                                                                        
+                                                                        
                                                            }
                                                      
                                                           }
                                                                         friendList[friend.fbId] = friend;
                                                            }, errorCB);
                                                 }
-                                  /*
-                                  if (eventList[typeof results.rows.item(0).fbId] == 'undefined'){
-                                  eventList[typeof results.rows.item(0).fbId] = makeEvent(results.rows.item(i));
-                                  dateHash[results.rows.item(i).dateHash].event
-                                  }
-                                     */
-                                              //}, errorCB);
                                     }, errorCB);
                                   }
-                                  //var len = results.rows.length;
-                                  //var friendIdList = results.rows.item(0).fbId;
-                                  /*
-                                  results.rows.length
-                                  for (var i = 1; i < results.rows.length; i++) {
-                                  friendIdList = friendIdList + "," + results.rows.item(i).fbId;
-                                  }
-                                  dfd.resolve(friendIdList);
-                                  */
                                   }, errorCB);
                     }, errorCB);
     return dfd.promise();
