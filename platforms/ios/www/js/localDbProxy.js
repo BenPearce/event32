@@ -365,6 +365,9 @@ function popUi(){
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
                                   console.log("friend select");
                                   for (var j = 1; j < results.rows.length; j++) {
+                                  
+                                  console.log("results.rows.item(j).fbId "+results.rows.item(j).fbId);
+                                          var friend = makeFriend(results.rows.item(j));
                                   //console.log("friend name: "+results.rows.item(j).name);
                                   //console.log("friend id: "+results.rows.item(j).fbId);
                                   
@@ -385,7 +388,7 @@ function popUi(){
                                          
                                                 for(k=0;k<results.rows.length; k++){
                                             
-                                            var friend = makeFriend(results.rows.item(k));
+                                    
                                                //console.log("friends event ID: "+results.rows.item(k).eventFbId);
 
                                            // tx.executeSql("SELECT FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '594435507287355'", [], function (tx, results) {
