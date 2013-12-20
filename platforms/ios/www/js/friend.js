@@ -27,10 +27,13 @@ function friend() {
     this.dateBitArray;
 }
 
-function makeFriend(rawData, fbId, index) {
+//function makeFriend(rawData, fbId, index) {
+function makeFriend(rawData) {
+    console.log("make friend");
     var result = new friend();
     var proximity = makeListElement(rawData);
     $.extend(result, rawData);
+    console.log("make friend xtend");
     result.eventIdArray = new Array();
     result.dateIdArray = new Array();
     result.eventList = new Array();
@@ -43,16 +46,9 @@ function makeFriend(rawData, fbId, index) {
     result.eveningEventArray = {};
     result.dateState = setBit(0,0);
     result.eventSelectors = {};
-    //result.eventSelectors = new Array();
     result.tonight = false;
     result.local = false;
     result.type = "friend";
-/*
-     typeof rawData != "undefined"  ? result.data =  rawData : throw "eventNameUndefined";
-     typeof fbId != "undefined"  ? result.fbId = fbId : throw "eventNameUndefined";
-     typeof rawData.name != "undefined"  ? result.nameArray =  rawData.name.split(" ") : throw "eventNameUndefined";
-     typeof rawData.picture.data.url != "undefined"  ?  result.picUrl =  rawData.picture.data.url : throw "eventNameUndefined";
-     */
      
      if (typeof rawData != "undefined"){
      	   result.data =  rawData;
@@ -80,13 +76,9 @@ function makeFriend(rawData, fbId, index) {
      }else{
      	  throw "eventNameUndefined"   
      }
-     
-    //result.fbId = fbId;
+
     result.dateMask = 0;
 
-    //result.nameArray = rawData.name.split(" ");
-    //result.nameArray = rawData.name.split(" ");
-    //result.picUrl = rawData.picture.data.url;
 
     result.eventListHtml= "";
     
@@ -100,28 +92,7 @@ function makeFriend(rawData, fbId, index) {
     
     
     result.insertEvent = function(eventId, dateCode){
-    	    
-    	    //eveningEventArray[dateCode]
-    	    //Look up the date
-    	    //Calculate the hash code
-    	    //Start with original mask of all zeros
-    	    //When I bring in an event master or it with original
-    	   // result.dateMask = mask[dateCode] | result.dateMask;
-    	    //Store all masks in an array of length 32
-            console.log("event-friend insert start");
-            /*
-    	    var i = parseInt(dateCode);
-    	    result.eveningEventArray.dateCode = eventId;
-    	    result.eventSelectors[parseInt(dateCode)] = eventId;   	
-    	    //result.dateState = result.dateState &fbArray[eventId].dateState;
-    	    result.dateState = setBit(result.dateState,mask(dateCode));
-    	    result.dateBitArray[dateCode].push(eventId);
-    	    */
-    	    
     	    result.eventIdArray.push(eventId);
-    	    //result.eventIdArray[eventId];
-    	    //result.eventListHtml = result.eventListHtml + "<div class='event-sub-elem'><img class='event-list-elem-fixed-img' width=25 height=25 src='https://graph.facebook.com/"+fbArray[eventId].fbId+"/picture?width=50&height=50'><div class='event-sub-elem-name'>"+fbArray[eventId].formattedDate+"</div></div>";
-   console.log("event-friend insert end");
     }
     
     
