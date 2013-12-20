@@ -40,15 +40,16 @@ function makeEvent(data) {
     result.localDisplay ="";
     result.eveningListArray = new Array();
     result.eveningInstanceCount = {};
+    /*
       var tempDate = new Date(data.start_time.substring(0, data.start_time.indexOf('T')));
     //This line of code is critical if it is removed '00:00:00' will be listed as one day late
     if (result.formattedTime == '00:00:00') {
         tempDate = new Date(tempDate.getTime() + (24 * 60 * 60 * 1000));
     }
     result.dateId = dateToInteger(tempDate);
-
+*/
          if (typeof  data.description != "undefined"){
-     	     result.description
+     	     result.description = data.description;
      }else{
      	  throw "eventDescriptionUndefined";   
      }
@@ -63,8 +64,8 @@ function makeEvent(data) {
      	  throw "eventTimeZoneUndefined";   
      }
     */
-                 if (typeof  data.id != "undefined"){
-     	      result.fbId = data.id;
+                 if (typeof  data.frEvId != "undefined"){
+     	      result.fbId = data.frEvId;
      }else{
      	  throw "eventFbIdUndefined"   
      }
@@ -107,8 +108,10 @@ function makeEvent(data) {
     
     
     var temp1 = temp.getHours();
-    result.pictureUrl = data.picture.data.url;
+    //result.pictureUrl = data.picture.data.url;
     temp = new Date(result.start_time);
+    
+    /*
     //This line of code is critical if it is removed '00:00:00' will be listed as one day late
     if (result.formattedTime == '00:00:00') {
         temp = new Date(temp.getTime() + (24 * 60 * 60 * 1000));
@@ -131,7 +134,8 @@ function makeEvent(data) {
             }
         }
     }
-
+*/
+    /*
     temp = temp.toString().substr(0, temp.toString().indexOf(":") - 3);
     result.formattedDate = temp;
     result.formattedDate = result.formattedDate.substr(0, result.formattedDate.length - 5);
@@ -141,6 +145,6 @@ function makeEvent(data) {
     result.domClone.find(".event-name-wrap").css("font-size", "10pt");
     result.domClone.find(".formatted-date-wrap").css("font-size", "10pt");
     result.evening = makeEvening(result);
-
+*/
     return result;
 }
