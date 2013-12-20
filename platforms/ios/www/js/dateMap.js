@@ -24,7 +24,7 @@ function makeDateMap(){
 }
 
 function dateToInteger(date){
-    console.log("date to int date input: "+date);
+    //console.log("date to int date input: "+date);
     //var d = new Date(fbTimeOffSet.replace(' ', 'T'));
 	var temp = new Date(date.replace(' ', 'T'));
     var temp = new Date(date.split("T")[0]);
@@ -34,7 +34,7 @@ function dateToInteger(date){
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
-    console.log("date to int date output: "+ dateHash);
+    //console.log("date to int date output: "+ dateHash);
 	return  dateHash;
 }
 
