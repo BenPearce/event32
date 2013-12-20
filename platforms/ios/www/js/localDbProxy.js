@@ -409,7 +409,7 @@ function popUi(){
                                                           //console.log("friends events row length: "+results.rows.length);
                                                           
                                                           for(l=0;l<results.rows.length; l++){
-
+                                                                        var event = makeEvent(results.rows.item(l));
                                                     //console.log("eventFbId2: "+results.rows.item(l).evId);
                                                      //console.log("frEvId: "+results.rows.item(l).frEvId);
                                                     //console.log("name: "+results.rows.item(l).name);
