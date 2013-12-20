@@ -374,19 +374,25 @@ function popUi(){
                                                           for(l=0;l<results.rows.length; l++){
                                                                          console.log("description: "+results.rows.item(l).description);
                                                                         var event = makeEvent(results.rows.item(l));
-                                                          if(typeof eventList[event.fbId] == 'undefined'){
+                                                          
+                                                                        
+                                                                        
+                                                                        if(typeof eventList[event.fbId] == 'undefined'){
                                                               eventList[event.fbId] = event;
+                                                                        }
+                                                                        
                                                                         if(typeof dateHash[event.dateHash] == 'undefined'){
                                                                         dateHash[event.dateHash] = makeEvening(event.dateHash);
                                                                         }
-                                                            dateHash[event.dateHash].eventList.push(event.fbId);
-                                                                        friend.eventIdArray.push(event.fbId);
+                                                                        
+                                                            dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                                                                        friend.eventIdArray.push(eventList[event.fbId].fbId);
+                                                                        /*
                                                           }else{
-                                                          console.log("hi");
-                                                                        
-                                                                        
-                                                                        
+            
                                                            }
+                                                                         */
+                                                                        
                                                      
                                                           }
                                                                         friendList[friend.fbId] = friend;
