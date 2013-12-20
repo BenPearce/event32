@@ -25,6 +25,7 @@ function friend() {
     this.dateMask;
     this.eveningEventArray;
     this.dateBitArray;
+    //this.friendIdList;
 }
 
 //function makeFriend(rawData, fbId, index) {
@@ -40,6 +41,7 @@ function makeFriend(rawData) {
     result.eventList = new Array();
     result.eveningArray = new Array();
     result.dateBitArray = new Array();
+    //result.friendIdList = new Array();
     
     for(i=0;i<=32;i++){
     	result.dateBitArray[setBit(i)] = new Array();  

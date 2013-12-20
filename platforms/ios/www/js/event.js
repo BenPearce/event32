@@ -28,6 +28,7 @@ function event() {
     this.eveningListArray;
     this.eveningInstanceCount;
     this.dateId;
+    this.dateHash;
 }
 
 function makeEvent(data) {
@@ -40,6 +41,7 @@ function makeEvent(data) {
     result.localDisplay ="";
     result.eveningListArray = new Array();
     result.eveningInstanceCount = {};
+    result.dateHash = data.dateHash;
     /*
       var tempDate = new Date(data.start_time.substring(0, data.start_time.indexOf('T')));
     //This line of code is critical if it is removed '00:00:00' will be listed as one day late

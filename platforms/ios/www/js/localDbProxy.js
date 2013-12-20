@@ -1,5 +1,7 @@
     //var eventList = new Array();
 var eventList = {};
+var friendList = {};
+var dateHash = {};
 
 function createTable1(){
     var dfd = $.Deferred();
@@ -422,16 +424,26 @@ function popUi(){
                                                           //console.log("eventFbId type: "+(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'));
                                                            //var event = makeEvent(eventList[results.rows.item(l)]);
                                                                                            
-                                                 
-                                                          if(typeof eventList[results.rows.item(l).eventFbId] == 'undefined'){
-                                                            //eventList[results.rows.item(l).eventFbId] = makeEvent(results.rows.item(l));
-                                                            //need a join query to have dateHash
-                                                            //dateHash[results.rows.item(l).dateHash].eventList.push(results.rows.item(l).eventFbId);
+                                           
+                                                          if(typeof eventList[event.fbId] == 'undefined'){
+                                                                        
+                                                              eventList[event.fbId] = event;
+                                                           
+                                                                        if(typeof dateHash[event.dateHash] == 'undefined'){
+                                                                        dateHash[event.dateHash] = makeEvening(event.dateHash);
+                                                                        }
+                                                                        
+                                                            dateHash[event.dateHash].eventList.push(event.fbId);
+                                                                        
+                                                                        friend.eventIdArray.push(event.fbId);
                                                           console.log("undef true");
+                                                                             
                                                           }else{
                                                           console.log("hi");
                                                            }
+                                                     
                                                           }
+                                                                        friendList[friend.fbId] = friend;
                                                            }, errorCB);
                                                 }
                                   /*
