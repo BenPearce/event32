@@ -359,8 +359,33 @@ function getEventsImplementation(){
  }
  */
 
-function getFriendsEventsDb(){
-    
+function getFriendsEventsDb(friendRow,tx){
+                                    var friend = makeFriend(friendRow);
+    tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
+                  console.log("friend length: "+results.rows.length);
+                  if(results.rows.length > 0){
+                  tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(0).eventFbId+"'", [], function (tx, results) {
+                                
+                   
+                                for(l=0;l<results.rows.length; l++){
+                                console.log("description: "+results.rows.item(l).description);
+                                var event = makeEvent(results.rows.item(l));
+                                
+                                if(typeof eventList[event.fbId] == 'undefined'){
+                                eventList[event.fbId] = event;
+                                }
+                                
+                                if(typeof dateHash[event.dateHash] == 'undefined'){
+                                dateHash[event.dateHash] = makeEvening(event.dateHash);
+                                }
+                                
+                                dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                                friend.eventIdArray.push(eventList[event.fbId].fbId);
+                                }
+                                friendList[friend.fbId] = friend;
+                                }, errorCB);
+                  }
+                  }, errorCB);
 }
 
 function popUi(){
@@ -370,37 +395,10 @@ function popUi(){
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
                                   for (var j = 1; j < results.rows.length; j++) {
-                                  var friend = makeFriend(results.rows.item(j));
-                                  var fbIder = results.rows.item(j).fbId;
                                  
-                                  
-                                  
-                                  tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+results.rows.item(j).fbId+"'", [], function (tx, results) {
-                                                console.log("friend length: "+results.rows.length);
-                                                if(results.rows.length > 0){
-                                                //for(k=0;k<results.rows.length; k++){
-                                                tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(0).eventFbId+"'", [], function (tx, results) {
-                                                              for(l=0;l<results.rows.length; l++){
-                                                              console.log("description: "+results.rows.item(l).description);
-                                                              var event = makeEvent(results.rows.item(l));
-                                                              
-                                                              
-                                                              
-                                                              if(typeof eventList[event.fbId] == 'undefined'){
-                                                              eventList[event.fbId] = event;
-                                                              }
-                                                              
-                                                              if(typeof dateHash[event.dateHash] == 'undefined'){
-                                                              dateHash[event.dateHash] = makeEvening(event.dateHash);
-                                                              }
-                                                              
-                                                              dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
-                                                              friend.eventIdArray.push(eventList[event.fbId].fbId);
-                                                              }
-                                                              friendList[friend.fbId] = friend;
-                                                              }, errorCB);
-                                                }
-                                                }, errorCB);
+                                  //var fbIder = results.rows.item(j).fbId;
+
+                                 getFriendsEventsDb(results.rows.item(j),tx)
                                   
                                   }
                                   }, errorCB);
