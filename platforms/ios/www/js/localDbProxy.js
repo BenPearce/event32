@@ -403,7 +403,6 @@ function popUi(){
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                      
                                   //var fbIder = results.rows.item(j).fbId;
                                  //dfd.resolve("tx1");
                                   for (var j = 1; j < results.rows.length; j++) {
