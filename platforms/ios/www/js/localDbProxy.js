@@ -399,7 +399,7 @@ function popUi(){
                                   //var fbIder = results.rows.item(j).fbId;
                                   
                                   getFriendsEventsDb(results.rows.item(j),tx)
-                                  
+                                    dfd.resolve("tx1");
                                   }
                                   }, errorCB);
                     
@@ -426,4 +426,3 @@ function getEventsDb(){
 function errorCB(err) {
     console.log("Error processing SQL code: "+err.code+" message: "+err.message);
 }
-
