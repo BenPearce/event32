@@ -360,9 +360,12 @@ function getEventsImplementation(){
  */
 
 function getFriendsEventsDb(friendRow,tx){
+    var dfd = $.Deferred();
     var friend = makeFriend(friendRow);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
                   console.log("friend length: "+results.rows.length);
+                  
+
                   if(results.rows.length > 0){
                   tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(0).eventFbId+"'", [], function (tx, results) {
                                 
@@ -383,14 +386,19 @@ function getFriendsEventsDb(friendRow,tx){
                                 friend.eventIdArray.push(eventList[event.fbId].fbId);
                                 }
                                 friendList[friend.fbId] = friend;
+                                // dfd.resolve();
                                 }, errorCB);
                   }
+
+                  dfd.resolve();
                   }, errorCB);
+      return dfd.promise();
 }
 
 function popUi(){
     console.log("popui triggered");
     var dfd = $.Deferred();
+    var prmis = [];
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
@@ -398,9 +406,14 @@ function popUi(){
                                   
                                   //var fbIder = results.rows.item(j).fbId;
                                   
-                                  getFriendsEventsDb(results.rows.item(j),tx)
-                                    dfd.resolve("tx1");
+                                 
+                                  prmis.push(getFriendsEventsDb(results.rows.item(j),tx));
+                          
                                   }
+                                  when = dfd.pipe($.when.apply($, prmis));
+                                  //return $.when.apply($, prmis);
+                                  console.log("prmis.length "+prmis.length);
+                                  dfd.resolve();
                                   }, errorCB);
                     
                     
