@@ -332,10 +332,11 @@ function updateDateIntegerDb(){
                                                                 console.log("hash: "+results.rows.item(i).dateHash);
                                                                 }
                                                                 */
+                                                               
                                                                }, errorCB);
                                                  
                                                  
-                                                 dfd.resolve("tx1");
+                               
                                                  });
                                    }
                                    }, errorCB);
@@ -360,12 +361,13 @@ function getEventsImplementation(){
  */
 
 function getFriendsEventsDb(friendRow,tx){
-                                    var friend = makeFriend(friendRow);
+    var dfd = $.Deferred();
+
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
                   console.log("friend length: "+results.rows.length);
                   if(results.rows.length > 0){
                   tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(0).eventFbId+"'", [], function (tx, results) {
-                                
+                                console.log("Select Events success");
                    
                                 for(l=0;l<results.rows.length; l++){
                                 console.log("description: "+results.rows.item(l).description);
@@ -383,29 +385,43 @@ function getFriendsEventsDb(friendRow,tx){
                                 friend.eventIdArray.push(eventList[event.fbId].fbId);
                                 }
                                 friendList[friend.fbId] = friend;
+                                dfd.resolve("tx1");
                                 }, errorCB);
                   }
                   }, errorCB);
+    
+    return dfd.promise();
 }
 
 function popUi(){
+        var dfd = $.Deferred();
+    //Need to figure out when this function is absolutely done so I can trigger UI populations
     console.log("popui triggered");
-    var dfd = $.Deferred();
+
+    //var dfd = $.Deferred();
+     var prmis = [];
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                  for (var j = 1; j < results.rows.length; j++) {
-                                 
+                      
                                   //var fbIder = results.rows.item(j).fbId;
-
-                                 getFriendsEventsDb(results.rows.item(j),tx)
-                                  
-                                  }
+                                 //dfd.resolve("tx1");
+                                  for (var j = 1; j < results.rows.length; j++) {
+                                  var friend = makeFriend(results.rows.item(j));
+                                  console.log("promise push");
+                                 prmis.push(getFriendsEventsDb(results.rows,tx));
+                                 $.when.apply($, prmis);
+                                  $.when.done(function(){
+                                     dfd.resolve("tx1");
+                                                                  }
+                                              });
+                 
                                   }, errorCB);
-                    
-                    
                     }, errorCB);
-    return dfd.promise();
+   // return dfd.promise();
+    console.log("prmis length: "+prmis.length);
+     //return $.when.apply($, prmis);
+        return dfd.promise();
 }
 
 

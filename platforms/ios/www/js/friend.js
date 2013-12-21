@@ -30,12 +30,12 @@ function friend() {
 
 //function makeFriend(rawData, fbId, index) {
 function makeFriend(rawData) {
-    console.log("make friend");
-    console.log("make friend: "+rawData.fbId);
+    //console.log("make friend");
+    //console.log("make friend: "+rawData.fbId);
     var result = new friend();
     var proximity = makeListElement(rawData);
     $.extend(result, rawData);
-    console.log("make friend xtend");
+    //console.log("make friend xtend");
     result.eventIdArray = new Array();
     result.dateIdArray = new Array();
     result.eventList = new Array();

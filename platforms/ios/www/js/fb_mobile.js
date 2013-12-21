@@ -31,7 +31,9 @@ function init() {
                                                                updateEvents().done(function () {
                                                                                    console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
-                                                                                                          popUi();
+                                                                                                          popUi().done(function(){
+                                                                                                                    console.log("popUI done")
+                                                                                                                       });
                                                                                                           });
                                                                                    });
                                                               });
