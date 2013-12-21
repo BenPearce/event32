@@ -22,24 +22,29 @@ function init() {
             });
     //if(window.localStorage.getItem('firstRun')==null){
     FB.getLoginStatus(function (response) {
+                      alert("fb login: "+JSON.stringify(response));
                       if (response.status == "connected") {
+                      
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
                       createTable1().done(function(){
                                           console.log("create table");
                                           updateFriends().done(function () {
+                                                                console.log("update friends");
                                                                updateEvents().done(function () {
                                                                                    console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
+                                                                                              
                                                                                                           popUi().done(function(){
                                                                                                                        console.log("pop ui done");
                                                                                                           
                                                                                                                        when.done(function(){
                                                                                                                                  console.log("pipe done");
-                                                                                                                 });
+                                                                                                                  });
                                                                                                                             
                                                                                                                 
-                                                                                                                       });
+                                                                                                                        });
+                                                                                  
                                                                                                           });
                                                                                    });
                                                               });

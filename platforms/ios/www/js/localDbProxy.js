@@ -55,9 +55,12 @@ function fbStampToDbTime(fbTimeOffSet){
 }
 
 function updateFriends() {
+    console.log("update friends trig");
     var dfd = $.Deferred();
     getFriendsFb().done(function (friendParse) {
+                            console.log("get friends trig");
                         insertFriendsDb(friendParse).done(function () {
+                                                            console.log("insert friends trig");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -94,8 +97,12 @@ var updateEvents = function () {
 }
 
 function getFriendsFb() {
+    console.log("getFriendsFb");
     var dfd = $.Deferred();
+        console.log("getFriendsFb1");
+    console.log("accessToken "+accessToken);
     FB.api('/me/friends?access_token=' + accessToken, function (friendData) {
+           console.log("friendData"+JSON.stringify(friendData));
            var friendParse = friendData.data;
            dfd.resolve(friendParse);
            });
