@@ -32,7 +32,13 @@ function init() {
                                                                                    console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
                                                                                                           popUi().done(function(){
-                                                                                                                    console.log("popUI done")
+                                                                                                                       console.log("pop ui done");
+                                                                                                                      /*
+                                                                                                                       when.done(function(){
+                                                                                                                                 console.log("pipe done");
+                                                                                                            
+                                                                                                                                 });
+                                                                                                                       */
                                                                                                                        });
                                                                                                           });
                                                                                    });
