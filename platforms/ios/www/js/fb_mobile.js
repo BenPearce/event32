@@ -13,7 +13,9 @@ function popCal(){
     for (i=0;i<33;i++){
         console.log("dateHash length"+dateHash.length);
         if(typeof dateHash[i] != 'undefined'){
-              console.log("event zero name: "+dateHash[i].eventList[0]);
+              console.log("dateHas event ID: "+dateHash[i].eventList[0]);
+            console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
+
                 }
     }
 }
