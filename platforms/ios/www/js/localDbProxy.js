@@ -15,7 +15,7 @@ function createTable1(){
                     tx.executeSql('CREATE TABLE FRIENDS_EVENTS(id unique,touched DATETIME,startTime DATETIME,eventFbId, formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME,friendFbId,UNIQUE(eventFbId, friendFbId))');
                     tx.executeSql('CREATE TABLE EVENTS(id INTEGER PRIMARY KEY AUTOINCREMENT,touched DATE,start_time DATE,update_time DATETIME,eventFbId unique, name, description, end_time, formattedDate DATE, formattedTime TIME,formattedDateTime DATETIME,attending_count,pic,pic_big,pic_square,pic_cover,ticket_uri,timezone,unsure_count,venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in,pic_small,all_members_count,can_invite_friends,creator,declined_count,app_id,feed_targeting,has_profile_pic,host,is_date_only,not_replied_count,privacy,dateHash INTEGER)');
                     
-                    },errorCB,function(){
+                    },errorCB9,function(){
                     dfd.resolve("friendIdList1");
                     });
     return dfd.promise();
@@ -117,7 +117,7 @@ function insertFriendsDb(friendParse) {
                    for (i = 1; i <= friendParse.length - 1; i++) {
                    tx.executeSql("INSERT INTO FRIENDS ('name', 'fbId','touched') VALUES (?,?,?)", [friendParse[i].name, friendParse[i].id, todaysStamp]);
                    }
-                   }, errorCB, function () {
+                   }, errorCB10, function () {
                    var friendsUpdateTime = new Date().getTime();
                    window.localStorage.setItem("friendUpdateTime", friendsUpdateTime);
                    dfd.resolve("reesolved");
@@ -136,8 +136,8 @@ function getFriendsDb() {
                                   friendIdList = friendIdList + "," + results.rows.item(i).fbId;
                                   }
                                   dfd.resolve(friendIdList);
-                                  }, errorCB);
-                    }, errorCB);
+                                  }, errorCB5);
+                    }, errorCB11);
     return dfd.promise();
 }
 
@@ -167,7 +167,7 @@ function insertEventIdsDb(friendEventsParse) {
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
-                    }, errorCB, function () {
+                    }, errorCB6, function () {
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
                     dfd.resolve("reesolved");
@@ -212,7 +212,7 @@ function getEventArrtDb() {
                                   var len5 = results.rows.length
                                   for (var i = 0; i < len5; i++) {
                                   }
-                                  }, errorCB);
+                                  }, errorCB13);
                     });
 }
 
@@ -316,7 +316,7 @@ function insertEventArrtDb(eventAttrParse) {
                                    ]
                                   );
                     }
-                    }, errorCB, function () {
+                    }, errorCB8, function () {
                     //console.log("insert Event Attr success");
                     var eventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
@@ -342,13 +342,13 @@ function updateDateIntegerDb(){
                                                                 console.log("hash: "+results.rows.item(i).dateHash);
                                                                 }
                                                                 */
-                                                               }, errorCB);
+                                                               }, errorCB12);
                                                  
                                                  
                                                  dfd.resolve("tx1");
                                                  });
                                    }
-                                   }, errorCB);
+                                   }, errorCB7);
                      });
     return dfd.promise();
 }
@@ -380,6 +380,7 @@ function constructCalObject(fbId,tx,friend){
                   console.log("construct success");
                   
                   for(l=0;l<results.rows.length; l++){
+                  if(parseInt(results.rows.item(l).dateHash)<33){
                   console.log("date hash loop");
                   //console.log("description: "+results.rows.item(l).description);
                   var event = makeEvent(results.rows.item(l));
@@ -389,8 +390,9 @@ function constructCalObject(fbId,tx,friend){
                   }
                   
                   if(typeof dateHash[event.dateHash] == 'undefined'){
-                  console.log("element added to date hash");
+                  console.log("element added to date hash: "+event.dateHash);
                   dateHash[event.dateHash] = makeEvening(event.dateHash);
+                  //console.log("date hash build len: "+dateHash.length);
                   }
                   
                   dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
@@ -398,11 +400,13 @@ function constructCalObject(fbId,tx,friend){
                   
                   }
                   
+              
                   friendList[friend.fbId] = friend;
+                      }
                   console.log("line bef inner res");
                   dfd.resolve("tx1");
                       //dfd.resolve("tx1");
-                  }, errorCB);
+                  }, errorCB2);
             return dfd.promise();
 }
 
@@ -419,16 +423,14 @@ function getFriendsEventsDb(friendRow,tx){
                                                                                     console.log("dfd: "+dfd);
                                                                          dfd.resolve("tx1");
                                                                           });
-                                                                                                      }
-                  
-                  else{
+                                                                                                      }else{
                   console.log("else trig");
                                                                                                                           dfd.resolve("tx1");
                                                                                                       }
                   
                   //console.log("date hash length before resolve: "+dateHash.length);
           
-                  }, errorCB);
+                  }, errorCB1);
         return dfd.promise();
 }
 
@@ -468,8 +470,9 @@ function popUi(){
                                            dfd.resolve("tx1");
                                            });
                                   */
-                                  }, errorCB);
-                    }, errorCB);
+                                  }, errorCB4);
+                    }, errorCB14);
+    //});
     return dfd.promise();
 }
 
@@ -486,7 +489,7 @@ function getEventsDb(){
                                    }
                                    */
                                   dfd.resolve("tx1");
-                                  }, errorCB);
+                                  }, errorCB3);
                     });
         return dfd.promise();
 }
@@ -495,3 +498,62 @@ function getEventsDb(){
 function errorCB(err) {
     console.log("Error processing SQL code: "+err.code+" message: "+err.message);
 }
+
+function errorCB1(err) {
+    console.log("Error in getFriendsEventsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB2(err) {
+    console.log("Error in constructCalObject processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB3(err) {
+    console.log("Error in getEventsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB4(err) {
+    console.log("Error in popUi4 processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB5(err) {
+    console.log("Error in getFriendsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB6(err) {
+    console.log("Error in insertEventIdsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB7(err) {
+    console.log("Error in updateDateIntegerDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB8(err) {
+    console.log("Error in insertEventArrtDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB9(err) {
+    console.log("Error in createTable processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB10(err) {
+    console.log("Error in insertFriendsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB11(err) {
+    console.log("Error in getFriendsDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB12(err) {
+    console.log("Error in updateDateIntegerDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB13(err) {
+    console.log("Error in getEventArrtDb processing SQL code: "+err.code+" message: "+err.message);
+}
+
+function errorCB14(err) {
+    console.log("Error in popUi14 processing SQL code: "+err.code+" message: "+err.message);
+}
+
+
+
