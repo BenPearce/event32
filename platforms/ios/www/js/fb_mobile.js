@@ -37,11 +37,11 @@ function init() {
                                                                                               
                                                                                                           popUi().done(function(){
                                                                                                                        console.log("pop ui done");
-                                                                                                          
+                                                                                                          /*
                                                                                                                        when.done(function(){
                                                                                                                                  console.log("pipe done");
                                                                                                                   });
-                                                                                                                            
+                                                                                                                       */     
                                                                                                                 
                                                                                                                         });
                                                                                   
