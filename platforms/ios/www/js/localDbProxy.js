@@ -1,7 +1,8 @@
 //var eventList = new Array();
 var eventList = {};
 var friendList = {};
-var dateHash = {};
+//var dateHash = {};
+var dateHash = new Array();
 
 function createTable1(){
     var dfd = $.Deferred();
@@ -365,34 +366,54 @@ function getEventsImplementation(){
  }
  */
 
+function constructCalObject(fbId,tx,friend){
+       var dfd = $.Deferred();
+    tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
+                  
+                  
+                  for(l=0;l<results.rows.length; l++){
+                  console.log("date hash loop");
+                  //console.log("description: "+results.rows.item(l).description);
+                  var event = makeEvent(results.rows.item(l));
+                  
+                  if(typeof eventList[event.fbId] == 'undefined'){
+                  eventList[event.fbId] = event;
+                  }
+                  
+                  if(typeof dateHash[event.dateHash] == 'undefined'){
+                  console.log("element added to date hash");
+                  dateHash[event.dateHash] = makeEvening(event.dateHash);
+                  }
+                  
+                  dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                  friend.eventIdArray.push(eventList[event.fbId].fbId);
+                  
+                  }
+                  
+                  friendList[friend.fbId] = friend;
+                  console.log("line bef inner res");
+                  dfd.resolve("tx1");
+                      //dfd.resolve("tx1");
+                  }, errorCB);
+            return dfd.promise();
+}
+
 function getFriendsEventsDb(friendRow,tx){
         var dfd = $.Deferred();
     var friend = makeFriend(friendRow);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
                   console.log("friend length: "+results.rows.length);
                   if(results.rows.length > 0){
-                  tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+results.rows.item(0).eventFbId+"'", [], function (tx, results) {
-                                
-                                
-                                for(l=0;l<results.rows.length; l++){
-                                //console.log("description: "+results.rows.item(l).description);
-                                var event = makeEvent(results.rows.item(l));
-                                
-                                if(typeof eventList[event.fbId] == 'undefined'){
-                                eventList[event.fbId] = event;
-                                }
-                                
-                                if(typeof dateHash[event.dateHash] == 'undefined'){
-                                dateHash[event.dateHash] = makeEvening(event.dateHash);
-                                }
-                                
-                                dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
-                                friend.eventIdArray.push(eventList[event.fbId].fbId);
-                                }
-                                friendList[friend.fbId] = friend;
-                                }, errorCB);
-                  }
-                            dfd.resolve("tx1");
+                  constructCalObject(results.rows.item(0).eventFbId,tx,friend).done(function(){
+                                                                                    console.log("get friends done");
+                                                                                    console.log("dfd: "+dfd);
+                                                                         dfd.resolve("tx1");
+                                                                          });
+                                                                                                      }else{
+                                                                                                                          dfd.resolve("tx1");
+                                                                                                      }
+                  //console.log("date hash length before resolve: "+dateHash.length);
+          
                   }, errorCB);
         return dfd.promise();
 }
@@ -420,11 +441,18 @@ function popUi(){
                                            dfd.resolve("tx1");
                                             });
                                   */
+                                  
                                   fin.then(function(){
                                            console.log("fin done");
                                            dfd.resolve("tx1");
-                                           });
+                                            });
                                   
+                                  /*
+                                  fin.done(function(){
+                                           console.log("fin done");
+                                           dfd.resolve("tx1");
+                                           });
+                                  */
                                   }, errorCB);
                     }, errorCB);
     return dfd.promise();

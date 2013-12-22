@@ -7,6 +7,20 @@ function populateUi(){
     }
 }
 */
+
+function popCal(){
+    
+    for (i=0;i<33;i++){
+        console.log("dateHash "+dateHash.length);
+        if(typeof dateHash[0] != 'undefined'){
+              console.log("event zero name: "+dateHash[i].eventList[0].name);
+        }
+        if(typeof dateHash[1] != 'undefined'){
+            console.log("event one name: "+dateHash[i].eventList[1].name);
+        }
+    }
+}
+
 document.addEventListener('deviceready', function () {
                           window.fbAsyncInit = function () {
                           init();
@@ -36,7 +50,9 @@ function init() {
                                                                                    updateEventAttr().done(function(){
                                                                                               
                                                                                                           popUi().done(function(){
-                                                                                                                       console.log("pop ui done");
+                                                                                                                       console.log("pop UI done");
+                                                                                                                       popCal();
+                                                                                                                       //console.log("pop ui done");
                                                                                                           /*
                                                                                                                        when.done(function(){
                                                                                                                                  console.log("pipe done");
