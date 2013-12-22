@@ -12,12 +12,9 @@ function popCal(){
     
     for (i=0;i<33;i++){
         console.log("dateHash length"+dateHash.length);
-        if(typeof dateHash[0] != 'undefined'){
+        if(typeof dateHash[i] != 'undefined'){
               console.log("event zero name: "+dateHash[i].eventList[0]);
-        }
-        if(typeof dateHash[1] != 'undefined'){
-            console.log("event one name: "+dateHash[i].eventList[1].name);
-        }
+                }
     }
 }
 
