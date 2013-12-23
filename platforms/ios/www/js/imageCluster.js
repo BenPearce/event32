@@ -138,7 +138,7 @@ function getMorebutton(k,text1){
 }
 
 function getDateHeader(evening){
-        //return '<div id="dateDisplayer-'+evening.id+'" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';	
+//return '<div id="dateDisplayer-'+evening.id+'" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';	
         return '<div id="dateDisplayer-'+evening.id+'" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[0]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';	
 
 }
