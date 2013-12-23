@@ -3,7 +3,7 @@
             //We should create list elements with handlers set and create some low cpu expansion for header click event
 //test
             function getEventRow(eventId,eventClass){
-            	    console.log("getEventRow eventID: "+eventId);
+            	    //console.log("getEventRow eventID: "+eventId);
             	    var eventRowHtml;
 
             	    		    var eventImageClusterHtml;

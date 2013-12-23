@@ -49,10 +49,10 @@ function popDate(k,e){
 function popCal(){
  
     for (i=0;i<33;i++){
-        console.log("dateHash length"+dateHash.length);
+        //console.log("dateHash length"+dateHash.length);
         if(typeof dateHash[i] != 'undefined'){
-              console.log("dateHas event ID: "+dateHash[i].eventList[0]);
-            console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
+              //console.log("dateHas event ID: "+dateHash[i].eventList[0]);
+            //console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
             $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'></div></li>");
             
             $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
@@ -123,14 +123,14 @@ function init() {
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
                       createTable1().done(function(){
-                                          console.log("create table");
+                                          //console.log("create table");
                                           updateFriends().done(function () {
-                                                                console.log("update friends");
+                                                            //console.log("update friends");
                                                                updateEvents().done(function () {
-                                                                                   console.log("line before update attr");
+                                                                                   //console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
                                                                                                           popUi().done(function(){
-                                                                                                                       console.log("pop UI done");
+                                                                                                                       //console.log("pop UI done");
                                                                                                                        popCal();
                                                                                                                        //console.log("pop ui done");
                                                                                                           /*

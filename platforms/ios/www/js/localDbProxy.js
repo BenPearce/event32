@@ -415,8 +415,8 @@ function getFriendsEventsDb(friendRow,tx){
     var friend = makeFriend(friendRow);
     //console.log("FRIENDS_EVENTS input "+friendRow.fbId);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
-                   console.log("friend event success");
-                  console.log("friend length: "+results.rows.length);
+                   //console.log("friend event success");
+                  //console.log("friend length: "+results.rows.length);
                   if(results.rows.length > 0){
                   constructCalObject(results.rows.item(0).eventFbId,tx,friend).done(function(){
                                                                                     //console.log("get friends done");
