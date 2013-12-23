@@ -39,6 +39,8 @@
 function populateDate(k,e){
           var exHeight = ((74*34)+50);            
           var moreText = " More Events";
+    
+    
 
 			if(expandedDate != null){
 
@@ -54,7 +56,7 @@ function populateDate(k,e){
 		         	    $("#event-list-wrap-trans-"+k).css("height",exHeight);
     				 }
     				 expandedDate = k;
-    				         enable_scroll();	
+    				         enable_scroll();
 }
 
 function populateCalendar(calendar){
