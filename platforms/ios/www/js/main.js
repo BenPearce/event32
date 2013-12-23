@@ -37,26 +37,6 @@
     var storage = window.localStorage;
 
 function populateDate(k,e){
-
-             /*
-            	if(expandedDate==null){
-	}else if(k>expandedDate){
-			var scrollDiff = (74*((eveningHash[expandedDate].eventIdArray.length)-3));
-			var y = $(window).scrollTop();  //your current y position on the page      
-                    	$(window).scrollTop(y-testGap);  
-	}else if(k == expandedDate){		   
-	}else{		
-	}
-           */ 
-           
-            
-		         	 
-		    
-		//var exHeight = (74*((displayCalendar[k].eventIdArray.length)));
-             //$("#event-list-wrap-"+k).css("height",exHeight);
-             //e.preventDefault();
-            // $("#event-list-wrap-"+k).animate({height: exHeight}, 500)
-             //console.log($("#event-list-wrap-"+k).height());
           var exHeight = ((74*34)+50);            
           var moreText = " More Events";
 
@@ -74,39 +54,7 @@ function populateDate(k,e){
 		         	    $("#event-list-wrap-trans-"+k).css("height",exHeight);
     				 }
     				 expandedDate = k;
-    				         enable_scroll();
-    				 
-    				 /*
-    				            var html = "";   
-     
-	for (var i = 3; i < displayCalendar[k].eventIdArray.length; i++) {
-		//html = html +getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent");
-		//html = html +"<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>";
-		$("#event-list-wrap-trans-" +k).append(getEventRow(fbArray[displayCalendar[k].eventIdArray[i]].fbId,"exEvent"));	
-	}
-    		*/		 
-    				 /*
-			     	
-
-			if(expandedDate != null){
-		         	    var moreText = "More Events";
-		         	      $("#event-list-wrap-trans-"+k).html("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>"+ getMorebutton(k,moreText));
-		         	   $("#event-list-wrap-trans-"+expandedDate).stop().animate({height: 272}, 500,function() {   
-		         	    $("#event-list-wrap-trans-"+k).animate({height: exHeight}, 500,function() {
-		         	    enable_scroll();  
-		         	    		      });   
-		         	    });    
-		         	   $("#event-list-wrap-trans-"+expandedDate).find(".exEvent").remove();
-		         	 }else{
-		         	 	     var moreText = " More Events";
-		         	 	 $("#event-list-wrap-trans-"+k).html("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>"+ getMorebutton(k,moreText));
-		         	 	 $("#event-list-wrap-trans-"+k).stop().animate({height: exHeight}, 500,function() {
-    });    
-    				 }
-    				         enable_scroll();
-		expandedDate = k;
-		*/
-		
+    				         enable_scroll();	
 }
 
 function populateCalendar(calendar){
