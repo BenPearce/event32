@@ -56,12 +56,12 @@ function fbStampToDbTime(fbTimeOffSet){
 }
 
 function updateFriends() {
-    console.log("update friends trig");
+    //console.log("update friends trig");
     var dfd = $.Deferred();
     getFriendsFb().done(function (friendParse) {
-                            console.log("get friends trig");
+                            //console.log("get friends trig");
                         insertFriendsDb(friendParse).done(function () {
-                                                            console.log("insert friends trig");
+                                                            //console.log("insert friends trig");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -98,10 +98,10 @@ var updateEvents = function () {
 }
 
 function getFriendsFb() {
-    console.log("getFriendsFb");
+    //console.log("getFriendsFb");
     var dfd = $.Deferred();
-        console.log("getFriendsFb1");
-    console.log("accessToken "+accessToken);
+        //console.log("getFriendsFb1");
+    //console.log("accessToken "+accessToken);
     FB.api('/me/friends?access_token=' + accessToken, function (friendData) {
            //console.log("friendData"+JSON.stringify(friendData));
            var friendParse = friendData.data;
@@ -233,7 +233,7 @@ function deleteExpiredEvents(){
 }
 
 var updateEventAttr = function () {
-    console.log("updateEventAttr");
+    //console.log("updateEventAttr");
     var dfd = $.Deferred();
     getEventIDsDb().done(function (friendIdList1) {
                          //console.log("mark 1");
@@ -355,7 +355,7 @@ function updateDateIntegerDb(){
 
 function getEventsImplementation(){
       var dfd = $.Deferred();
-    console.log("get events imp");
+    //console.log("get events imp");
     updateDateIntegerDb().done(function(){
                                getEventsDb().done(function(){
                                                                        dfd.resolve("tx1");
@@ -374,14 +374,14 @@ function getEventsImplementation(){
 
 function constructCalObject(fbId,tx,friend){
        var dfd = $.Deferred();
-         console.log("EVENTS input "+fbId);
-    console.log("EVENTS friend "+friend);
+         //console.log("EVENTS input "+fbId);
+    //console.log("EVENTS friend "+friend);
     tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
-                  console.log("construct success");
+                  //console.log("construct success");
                   
                   for(l=0;l<results.rows.length; l++){
                   if(parseInt(results.rows.item(l).dateHash)<33){
-                  console.log("date hash loop");
+                  //console.log("date hash loop");
                   //console.log("description: "+results.rows.item(l).description);
                   var event = makeEvent(results.rows.item(l));
                   event.friendIdArray.push(friend.fbId);
@@ -390,11 +390,11 @@ function constructCalObject(fbId,tx,friend){
                   }
                   
                   if(typeof dateHash[event.dateHash] == 'undefined'){
-                  console.log("element added to date hash: "+event.dateHash);
+                  //console.log("element added to date hash: "+event.dateHash);
                   dateHash[event.dateHash] = makeEvening(event.dateHash);
                   //console.log("date hash build len: "+dateHash.length);
                   }
-                  
+                  //console.log("pushed event name: "+event.name);
                   dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
                   friend.eventIdArray.push(eventList[event.fbId].fbId);
                   
@@ -403,7 +403,7 @@ function constructCalObject(fbId,tx,friend){
                   //This is misnamed as it contains friend id's as well
                   eventList[friend.fbId] = friend;
                       }
-                  console.log("line bef inner res");
+                  //console.log("line bef inner res");
                   dfd.resolve("tx1");
                       //dfd.resolve("tx1");
                   }, errorCB2);
@@ -413,18 +413,18 @@ function constructCalObject(fbId,tx,friend){
 function getFriendsEventsDb(friendRow,tx){
         var dfd = $.Deferred();
     var friend = makeFriend(friendRow);
-    console.log("FRIENDS_EVENTS input "+friendRow.fbId);
+    //console.log("FRIENDS_EVENTS input "+friendRow.fbId);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
                    console.log("friend event success");
                   console.log("friend length: "+results.rows.length);
                   if(results.rows.length > 0){
                   constructCalObject(results.rows.item(0).eventFbId,tx,friend).done(function(){
-                                                                                    console.log("get friends done");
-                                                                                    console.log("dfd: "+dfd);
+                                                                                    //console.log("get friends done");
+                                                                                    //console.log("dfd: "+dfd);
                                                                          dfd.resolve("tx1");
                                                                           });
                                                                                                       }else{
-                  console.log("else trig");
+                  //console.log("else trig");
                                                                                                                           dfd.resolve("tx1");
                                                                                                       }
                   
@@ -436,21 +436,21 @@ function getFriendsEventsDb(friendRow,tx){
 
 function popUi(){
     var prmis = [];
-    console.log("popui triggered");
+    //console.log("popui triggered");
     var dfd = $.Deferred();
     var db3 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db3.transaction(function (tx) {
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
-                                  console.log("friend select success");
+                                  //console.log("friend select success");
                                   for (var j = 1; j < results.rows.length; j++) {
-                                  console.log("loop");
+                                  //console.log("loop");
                                   //var fbIder = results.rows.item(j).fbId;
                                   prmis.push(getFriendsEventsDb(results.rows.item(j),tx));
                                   
                               
                                   //dfd.resolve("tx1");
                                   }
-                                  console.log("before fin");
+                                  //console.log("before fin");
                                   var fin = $.when.apply($, prmis);
                                   /*
                                   fin.done(function(){
@@ -460,7 +460,7 @@ function popUi(){
                                   */
                                   
                                   fin.then(function(){
-                                           console.log("fin done");
+                                           //console.log("fin done");
                                            dfd.resolve("tx1");
                                             });
                                   
@@ -478,11 +478,11 @@ function popUi(){
 
 function getEventsDb(){
         var dfd = $.Deferred();
-    console.log("getEventsDb");
+    //console.log("getEventsDb");
     var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db9.transaction(function (tx) {
                     tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
-                                  console.log("big select success");
+                                  //console.log("big select success");
                                   /*
                                    for(i=0;i<results.rows.length;i++){
                                    console.log("event intersect result: "+results.rows.item(i).eventFbId);

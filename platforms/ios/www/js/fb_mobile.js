@@ -4,8 +4,29 @@ function popDate(k,e){
     var exHeight = ((74*34)+50);
     var moreText = " More Events";
     
+    for(i=0;i<=dateHash[k].eventList.length - 1;i++){
+        console.log(dateHash[k].eventList[i]);
+        console.log("name: "+eventList[dateHash[k].eventList[i]].name);
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
+    }
     
+    if(expandedDate != null){
+        
+        $("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
+        
+        $("#event-list-wrap-trans-"+expandedDate).css("height","272px");
+        
+        $("#event-list-wrap-trans-"+k).css("height",exHeight);
+        
+    }else{
+        $("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
+        
+        $("#event-list-wrap-trans-"+k).css("height",exHeight);
+    }
     
+    //getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent")
+    
+    /*
     if(expandedDate != null){
         
         $("#event-list-wrap-trans-"+k).html("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>"+ getMorebutton(k,moreText));
@@ -19,6 +40,7 @@ function popDate(k,e){
         
         $("#event-list-wrap-trans-"+k).css("height",exHeight);
     }
+     */
     expandedDate = k;
     enable_scroll();
 }
