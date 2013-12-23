@@ -59,6 +59,7 @@ function makeEvening(integer) {
     result.id = integer;
     //result.convertedData = integerToDate(integer);
     result.convertedData = integer;
+    result.convertedData = integerToDate(integer);
     result.formattedDate = result.convertedData.toString().substr(0, result.convertedData.toString().indexOf(":") - 3);
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
     result.dateStringArray = result.formattedDate.split(" ");
