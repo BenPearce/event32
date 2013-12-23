@@ -261,7 +261,7 @@ function insertEventArrtDb(eventAttrParse) {
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
-                    //console.log("eid insert: "+eventAttrParse[i].eid);
+                    console.log("event name insert: "+eventAttrParse[i].name);
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -377,9 +377,10 @@ function constructCalObject(fbId,tx,friend){
          //console.log("EVENTS input "+fbId);
     //console.log("EVENTS friend "+friend);
     tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
-                  //console.log("construct success");
+                  console.log("Friends events length: "+results.rows.length);
                   
                   for(l=0;l<results.rows.length; l++){
+                  
                   if(parseInt(results.rows.item(l).dateHash)<33){
                   //console.log("date hash loop");
                   //console.log("description: "+results.rows.item(l).description);
