@@ -52,7 +52,7 @@ function makeFriend(rawData) {
     result.tonight = false;
     result.local = false;
     result.type = "friend";
-    console.log("friend date: "+JSON.stringify(rawData));
+    //console.log("friend date: "+JSON.stringify(rawData));
      if (typeof rawData != "undefined"){
      	   result.data =  rawData;
      }else{

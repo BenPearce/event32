@@ -405,11 +405,12 @@ function constructCalObject(fbId,tx,friend){
 }
 
 function constructCalObject1(fbId,tx,friend){
-    console.log("constructCalObject1 trig fbId "+fbId);
+    //console.log("constructCalObject1 trig fbId "+fbId);
     var dfd = $.Deferred();
     /*
     tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
      */
+    //console.log("line before");
         tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                   console.log("select call back");
                   //for(l=0;l<results.rows.length; l++){
@@ -439,16 +440,17 @@ function constructCalObject1(fbId,tx,friend){
 }
 
 function getFriendsEventsDb(friendRow,tx,friend){
+       console.log("getFriendsEventsDb");
         var dfd = $.Deferred();
     var prmis = [];
 
     //console.log("FRIENDS_EVENTS input "+friendRow.fbId);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
-                  console.log("select friends callback");
+                  //console.log("select friends callback");
                   if(results.rows.length > 0){
                   for(i=0;i=results.rows.length - 1;i++){
-                   console.log("select friends loop");
-                  prmis.push(getFriendsEventsDb(constructCalObject1(results.rows.item(i).eventFbId,tx,friend),tx));
+                   //console.log("select friends loop");
+                  prmis.push(constructCalObject1(results.rows.item(i).eventFbId,tx,friend));
                   var fin = $.when.apply($, prmis);
                   fin.then(function(){
                            dfd.resolve("tx1");
@@ -461,6 +463,7 @@ function getFriendsEventsDb(friendRow,tx,friend){
                   }
                   
                   }else{
+                  console.log("else");
                                                                                                                           dfd.resolve("tx1");
                                                                                                       }
                   
@@ -477,7 +480,7 @@ function popUi(){
                     tx.executeSql('SELECT * FROM FRIENDS', [], function (tx, results) {
                                   //console.log("friend select success");
                                   for (var j = 0; j < results.rows.length - 1; j++) {
-                                  //console.log("loop");
+                                  console.log(" friend loop");
                                   //var fbIder = results.rows.item(j).fbId;
                                           var friend = makeFriend(results.rows.item(j));
                                   prmis.push(getFriendsEventsDb(results.rows.item(j),tx,friend));
