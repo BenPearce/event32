@@ -105,11 +105,7 @@ function makeEvening(integer) {
     dateStringArray[0] = "Feb" ? "12" :
         */
       //result.monthNumber =  result.dateStringArray[0] = "Jan" ? "1" : result.dateStringArray[0] = "Feb" ? "2" : result.dateStringArray[0] = "Feb" ? "3" : result.dateStringArray[0] = "Feb" ? "4" : result.dateStringArray[0] = "Feb" ? "5" : result.dateStringArray[0] = "Feb" ? "6" : result.dateStringArray[0] = "Feb" ? "7" : result.dateStringArray[0] = "Feb" ? "8" : result.dateStringArray[0] = "Feb" ? "9" : result.dateStringArray[0] = "Feb" ? "10" : result.dateStringArray[0] = "Feb" ? "11" : result.dateStringArray[0] = "Feb" ? "12" : "";
-    
-    
 
-
-    
     //result.dateCode = dateToInteger(result.convertedData);
     result.dateCode = integer;
     result.domClone = $("<div><li class='evening' id='date-elem-"+result.id+"-list'><div class='date-list-elem' id='date-elem-"+result.id+"'><div class='date-wrap'><div class='day-name-wrap'></div><div class='day-num-wrap'></div><div class='month-wrap'></div></div><div class='date-img-cluster'><div class='date-img-cluster-inner'><div class='img-cluster-top'></div><div class='img-cluster-bot'></div></div></div></div><div class='eventExpand'></div></li></div>");
