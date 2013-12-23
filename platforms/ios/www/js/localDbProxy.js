@@ -384,7 +384,7 @@ function constructCalObject(fbId,tx,friend){
                   console.log("date hash loop");
                   //console.log("description: "+results.rows.item(l).description);
                   var event = makeEvent(results.rows.item(l));
-                  
+                  event.friendIdArray.push(friend.fbId);
                   if(typeof eventList[event.fbId] == 'undefined'){
                   eventList[event.fbId] = event;
                   }
@@ -400,8 +400,8 @@ function constructCalObject(fbId,tx,friend){
                   
                   }
                   
-              
-                  friendList[friend.fbId] = friend;
+                  //This is misnamed as it contains friend id's as well
+                  eventList[friend.fbId] = friend;
                       }
                   console.log("line bef inner res");
                   dfd.resolve("tx1");
