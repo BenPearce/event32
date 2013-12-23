@@ -1,48 +1,4 @@
 var dateHashMap = new Array();
-/*
-function populateUi(){
-    for (i=0;i=32){
-        dateHashMap[i] = makeEvening(i,);
-        dateHashMap[i].eventIdArray.push(value.id);
-    }
-}
-*/
-
-/*
- function populateCalendar(calendar){
- displayCalendar = calendar;
- for (var i = 0; i < 28; i++) {
- if(typeof calendar[i].eventIdArray[0] != "undefined"){
- 
- //$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(calendar[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
- $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(calendar[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'></div></li>");
- 
- $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[0]].fbId,"topEvent"));
- 
- }else{
- continue;
- continue;
- }
- if(typeof calendar[i].eventIdArray[1] != "undefined"){
- $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[1]].fbId,"topEvent"));
- }else{
- $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
- continue;
- }
- if(typeof calendar[i].eventIdArray[2] != "undefined"){
- $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[2]].fbId,"topEvent"));
- }else{
- $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
- continue;
- }
- var moreText = (calendar[i].eventIdArray.length - 4) +" More Events";
- $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
- $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
- //$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
- }
- setFriendTap()
- }
- */
 
 function popDate(k,e){
     var exHeight = ((74*34)+50);
