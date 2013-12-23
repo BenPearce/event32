@@ -93,7 +93,7 @@ function popCal(){
         
     }
     
-     //setFriendTap()
+    setFriendTap();
 }
 
 document.addEventListener('deviceready', function () {
@@ -123,7 +123,6 @@ function init() {
                                                                updateEvents().done(function () {
                                                                                    console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
-                                                                                              
                                                                                                           popUi().done(function(){
                                                                                                                        console.log("pop UI done");
                                                                                                                        popCal();
@@ -132,10 +131,8 @@ function init() {
                                                                                                                        when.done(function(){
                                                                                                                                  console.log("pipe done");
                                                                                                                   });
-                                                                                                                       */     
-                                                                                                                
+                                                                                                                       */
                                                                                                                         });
-                                                                                  
                                                                                                           });
                                                                                    });
                                                               });

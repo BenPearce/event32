@@ -103,16 +103,22 @@ function enable_scroll() {
                          				populateDate($(this).attr('data-dateId'),e);
                          		});
                          		*/
-                         		
-                         		
+        
+        //$(".more-events-text-wrap").append("hi");
+        
+        
                          		$(".more-events-text-wrap").tap(function(e){
+                                                                
                          				disable_scroll();
                          				$(this).addClass('more-events-button-touched');
                          				populateDate($(this).attr('data-dateId'),e);
                          				$(this).removeClass('more-events-button-touched');
+                                                                
                                                         //expandedDate = $(this).attr('data-dateId');
                          		});
-                         		
+         
+         
+         
                          		/*
                          		$(".more-events-text-inner-wrap").tap(function(){
                          			//$(this).removeClass('more-events-button-touched');
