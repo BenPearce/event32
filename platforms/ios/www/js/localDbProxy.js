@@ -161,13 +161,18 @@ function getTodaysDate(){
 }
 
 function insertEventIdsDb(friendEventsParse) {
+    var count = 0;
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
+                    //console.log("insert Event ID: "+friendEventsParse[i].eid);
+                    count = count +1;
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
                     }, errorCB6, function () {
+                    
+                    console.log("insert Event ID Success Count: "+count);
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
                     dfd.resolve("reesolved");
@@ -256,12 +261,14 @@ var updateEventAttr = function () {
 
 function insertEventArrtDb(eventAttrParse) {
     //console.log("insert Event Attr trig");
+    var count = 0;
     var dfd = $.Deferred();
     var test = 99;
     var db7 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
-                    console.log("event name insert: "+eventAttrParse[i].name);
+                    count = count +1;
+                    //console.log("event name insert: "+eventAttrParse[i].name);
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -317,7 +324,7 @@ function insertEventArrtDb(eventAttrParse) {
                                   );
                     }
                     }, errorCB8, function () {
-                    //console.log("insert Event Attr success");
+                    console.log("insert Event Attr success count: "+count);
                     var eventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
                     //console.log("insert Event Attr res");
@@ -327,14 +334,16 @@ function insertEventArrtDb(eventAttrParse) {
 }
 
 function updateDateIntegerDb(){
+    count = 0;
     var dfd = $.Deferred();
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
                      tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
                                    for (var i = 0; i < results.rows.length; i++) {
+                                   count = count +1;
                                    //console.log("line before update");
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
-                                                 
+                                                 console.log("update dateHash count: "+count);
                                                  
                                                  tx.executeSql('SELECT dateHash, id, dateHash FROM EVENTS', [], function (tx, results) {
                                                                /*
@@ -371,16 +380,17 @@ function getEventsImplementation(){
  }
  }
  */
-
+/*
 function constructCalObject(fbId,tx,friend){
     var dfd = $.Deferred();
+    var count = 0;
     //console.log("EVENTS input "+fbId);
     //console.log("EVENTS friend "+friend);
     tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
-                  //console.log("Friends events length: "+results.rows.length);
+                  console.log("Friends events length: "+results.rows.length);
                   
                   for(l=0;l<results.rows.length; l++){
-                  
+                  count = count +1;
                   if(parseInt(results.rows.item(l).dateHash)<33){
                   //console.log("date hash loop");
                   //console.log("description: "+results.rows.item(l).description);
@@ -404,16 +414,18 @@ function constructCalObject(fbId,tx,friend){
                   //This is misnamed as it contains friend id's as well
                   eventList[friend.fbId] = friend;
                   }
+                  console.log("final get count:"+count);
                   //console.log("line bef inner res");
                   dfd.resolve("tx1");
                   //dfd.resolve("tx1");
                   }, errorCB2);
     return dfd.promise();
 }
-
+*/
 function constructCalObject1(fbId,tx,friend){
-    console.log("construc");
+    //console.log("construc");
     var dfd = $.Deferred();
+    //var count = 0;
     //console.log("EVENTS input "+fbId);
     //console.log("EVENTS friend "+friend);
     
@@ -422,13 +434,15 @@ function constructCalObject1(fbId,tx,friend){
             */
     
         tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
-                      console.log("Sel event success");
+                      
+                      
+                      //console.log("Sel event success");
                   //console.log("Friends events length: "+results.rows.length);
                   
                   //for(l=0;l<results.rows.length; l++){
                   
                   if(parseInt(results.rows.item(0).dateHash)<33){
-
+masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
 
                       if(typeof dateHash[event.dateHash] == 'undefined'){
@@ -450,7 +464,7 @@ function constructCalObject1(fbId,tx,friend){
                       friend.eventIdArray.push(event.fbId);
                   
                   }
-                    console.log("mark 3");
+                    //console.log("mark 3");
                   //This is misnamed as it contains friend id's as well
                   eventList[friend.fbId] = friend;
                  // }
@@ -461,6 +475,8 @@ function constructCalObject1(fbId,tx,friend){
     return dfd.promise();
 }
 
+var masterEventCount;
+
 function getFriendsEventsDb(friendRow,tx){
     var prmis1 = [];
     var dfd = $.Deferred();
@@ -468,13 +484,13 @@ function getFriendsEventsDb(friendRow,tx){
     //console.log("FRIENDS_EVENTS input "+friendRow.fbId);
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
                   //console.log("friend event success");
-                  console.log("friend length: "+results.rows.length);
+                  //console.log("friend length: "+results.rows.length);
                   var num = results.rows.length;
                   //if(results.rows.length > 0){
                   
                   for(m=0;m<=results.rows.length - 1;m++){
-                  console.log("loop");
-                  console.log("event ID: "+results.rows.item(m).eventFbId);
+                  //console.log("loop");
+                  //console.log("event ID: "+results.rows.item(m).eventFbId);
                   //constructCalObject(fbId,tx,friend);
                   prmis1.push(constructCalObject1(results.rows.item(m).eventFbId,tx,friend));
                   }
@@ -512,6 +528,7 @@ function getFriendsEventsDb(friendRow,tx){
 }
 
 function popUi(){
+    masterEventCount = 0;
     var prmis = [];
     //console.log("popui triggered");
     var dfd = $.Deferred();
@@ -538,6 +555,7 @@ function popUi(){
                                   
                                   fin.then(function(){
                                            //console.log("fin done");
+                                           console.log("masterEventCount: "+masterEventCount);
                                            dfd.resolve("tx1");
                                            });
                                   
@@ -554,12 +572,13 @@ function popUi(){
 }
 
 function getEventsDb(){
+    //var count = 0;
     var dfd = $.Deferred();
     //console.log("getEventsDb");
     var db9 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db9.transaction(function (tx) {
                     tx.executeSql('SELECT dateHash as dateHash, EVENTS.eventFbId as eventFbId, EVENTS.formattedDate as formattedStartDate, EVENTS.formattedTime as formattedStartTime, EVENTS.formattedDateTime as formattedStartDateTime, EVENTS.start_time as start_time, FRIENDS_EVENTS.formattedDate as feFormattedDate, FRIENDS_EVENTS.friendFbId, FRIENDS_EVENTS.friendFbId, EVENTS.name as eventName, FRIENDS.name FROM FRIENDS_EVENTS INNER JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId INNER JOIN FRIENDS ON FRIENDS_EVENTS.friendFbId = FRIENDS.fbId  ORDER BY EVENTS.formattedDate DESC;', [], function (tx, results) {
-                                  //console.log("big select success");
+                                  //console.log("big select count: "+count);
                                   /*
                                    for(i=0;i<results.rows.length;i++){
                                    console.log("event intersect result: "+results.rows.item(i).eventFbId);

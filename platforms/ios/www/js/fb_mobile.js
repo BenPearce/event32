@@ -11,8 +11,8 @@ function popDate(k,e){
     var moreText = " More Events";
     
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
-        console.log(dateHash[k].eventList[i]);
-        console.log("name: "+eventList[dateHash[k].eventList[i]].name);
+        //console.log(dateHash[k].eventList[i]);
+        //console.log("name: "+eventList[dateHash[k].eventList[i]].name);
         //var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
@@ -66,12 +66,16 @@ function popDate(k,e){
     //enable_scroll();
 }
 
+var uiEventCount = 0;
 
 function popCal(){
  
     for (i=0;i<33;i++){
+        
+        
         //console.log("dateHash length"+dateHash.length);
         if(typeof dateHash[i] != 'undefined'){
+            uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
               //console.log("dateHas event ID: "+dateHash[i].eventList[0]);
             //console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
             $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
@@ -124,7 +128,7 @@ function popCal(){
         $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
         
     }
-    
+    console.log("uiEventCount: "+uiEventCount);
     setFriendTap();
 }
 

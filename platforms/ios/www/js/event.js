@@ -68,7 +68,7 @@ function makeEvent(data) {
     */
                  if (typeof  data.eventFbId != "undefined"){
      	      result.fbId = data.eventFbId;
-                     console.log("event id written");
+                     //console.log("event id written");
      }else{
      	  throw "eventFbIdUndefined1"   
      }

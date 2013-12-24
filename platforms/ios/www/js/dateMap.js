@@ -33,7 +33,7 @@ function dateToInteger(date){
      //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
-    var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
+    var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) +1;
     //console.log("date to int date output: "+ dateHash);
 	return  dateHash;
 }
