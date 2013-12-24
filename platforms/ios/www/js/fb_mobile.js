@@ -1,4 +1,5 @@
 var dateHashMap = new Array();
+var exListHeight;
 
 function popDate(k,e){
     //var exHeight = ((74*34)+50);
@@ -8,6 +9,14 @@ function popDate(k,e){
     var exHtml = "";
     
     var moreText = " More Events";
+    
+
+    
+    if(k>expandedDate){
+        //$("#top-elem").css("height",(74*(exListHeight - dateHash[k].eventList.length)));
+        $("#top-elem").css("height",(74*(exListHeight - 3)));
+          //(74*(exListHeight - 3)) 
+    }
     
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         console.log(dateHash[k].eventList[i]);
@@ -60,6 +69,10 @@ function popDate(k,e){
         $("#event-list-wrap-trans-"+k).css("height",exHeight);
     }
      */
+    
+    //$(this).scrollTop(10);
+    
+    exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
     enable_scroll();
 }

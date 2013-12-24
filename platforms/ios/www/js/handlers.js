@@ -37,12 +37,13 @@ function enable_scroll() {
 
                          		$(".more-events-text-wrap").tap(function(e){
                                                                 //alert("tap");
-                         				disable_scroll();
+                         				//disable_scroll();
                          				$(this).addClass('more-events-button-touched');
                          				//populateDate($(this).attr('data-dateId'),e);
                                         popDate($(this).attr('data-dateId'),e);
                          				$(this).removeClass('more-events-button-touched');
-                                                                
+                                                                alert("stop");
+                                              $(this).scrollTop(0);
                                                         //expandedDate = $(this).attr('data-dateId');
                          		});
 
