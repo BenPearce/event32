@@ -1,13 +1,20 @@
 var dateHashMap = new Array();
 
 function popDate(k,e){
-    var exHeight = ((74*34)+50);
+    //var exHeight = ((74*34)+50);
+    
+    var exHeight = ((74*(dateHash[k].eventList.length))+50);
+    
+    var exHtml = "";
+    
     var moreText = " More Events";
     
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         console.log(dateHash[k].eventList[i]);
         console.log("name: "+eventList[dateHash[k].eventList[i]].name);
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
+        //var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
+        
     }
     
     if(expandedDate != null){
