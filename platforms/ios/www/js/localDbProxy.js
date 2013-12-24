@@ -438,14 +438,16 @@ function constructCalObject1(fbId,tx,friend){
                       if(typeof eventList[event.fbId] == 'undefined'){
                        event.friendIdArray.push(friend.fbId);
                   eventList[event.fbId] = event;
-                      dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                      //dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                      dateHash[event.dateHash].eventList.push(event.fbId);
                       }else{
                        eventList[event.fbId].friendIdArray.push(friend.fbId);
                       }
 
   
                   
-                  friend.eventIdArray.push(eventList[event.fbId].fbId);
+                  //friend.eventIdArray.push(eventList[event.fbId].fbId);
+                      friend.eventIdArray.push(event.fbId);
                   
                   }
                     console.log("mark 3");
