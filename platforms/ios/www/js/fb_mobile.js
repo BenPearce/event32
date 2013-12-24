@@ -25,7 +25,8 @@ function popDate(k,e){
     if(expandedDate != null){
         if(k<expandedDate){
         var y = $(window).scrollTop();  //your current y position on the page
-        $(window).scrollTop(y-(74*(exListHeight - 3)));
+        //$(window).scrollTop(y-(74*(exListHeight - 3)));
+            $('html, body').animate({scrollTop:(y-(74*(exListHeight - 3)))}, 'slow');
         }
         
         //id='event-wrap-in-"+i"' class='event-wrap-in
