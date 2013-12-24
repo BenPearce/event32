@@ -19,16 +19,28 @@ function popDate(k,e){
     
     if(expandedDate != null){
         
-        $("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
+        //id='event-wrap-in-"+i"' class='event-wrap-in
         
-        $("#event-list-wrap-trans-"+expandedDate).css("height","272px");
+        //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         
-        $("#event-list-wrap-trans-"+k).css("height",exHeight);
+        $("#event-wrap-in-"+k).html(exHtml+ getMorebutton(k,moreText));
+        
+        //$("#event-list-wrap-trans-"+expandedDate).css("height","272px");
+        
+        $("#event-wrap-in-"+expandedDate).css("height","272px");
+        
+        //$("#event-list-wrap-trans-"+k).css("height",exHeight);
+        
+        $("#event-wrap-in-"+k).css("height",exHeight);
         
     }else{
-        $("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
+        //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         
-        $("#event-list-wrap-trans-"+k).css("height",exHeight);
+        $("#event-wrap-in-"+k).html(exHtml+ getMorebutton(k,moreText));
+        
+        //$("#event-list-wrap-trans-"+k).css("height",exHeight);
+        
+        $("#event-wrap-in-"+k).css("height",exHeight);
     }
     
     //getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent")
@@ -60,28 +72,33 @@ function popCal(){
         if(typeof dateHash[i] != 'undefined'){
               //console.log("dateHas event ID: "+dateHash[i].eventList[0]);
             //console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
-            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'></div></li>");
+            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
             
-            $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
 
         }else{
             continue;
         }
         
         if(typeof dateHash[i].eventList[1] != "undefined"){
-            $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
+            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
+            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
-            $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            //$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+             $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             continue;
         }
         
         if(typeof dateHash[i].eventList[2] != "undefined"){
-            $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
-            $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            //$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             continue;
         }
