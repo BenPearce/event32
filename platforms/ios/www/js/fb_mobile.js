@@ -3,7 +3,7 @@ var dateHashMap = new Array();
 function popDate(k,e){
     //var exHeight = ((74*34)+50);
     
-    var exHeight = ((74*(dateHash[k].eventList.length))+50);
+    var exHeight = ((74*(dateHash[k].eventList.length)));
     
     var exHtml = "";
     
@@ -23,7 +23,7 @@ function popDate(k,e){
         
         //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         
-        $("#event-wrap-in-"+k).html(exHtml+ getMorebutton(k,moreText));
+        $("#event-wrap-in-"+k).html(exHtml);
         
         //$("#event-list-wrap-trans-"+expandedDate).css("height","272px");
         
@@ -36,7 +36,7 @@ function popDate(k,e){
     }else{
         //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         
-        $("#event-wrap-in-"+k).html(exHtml+ getMorebutton(k,moreText));
+        $("#event-wrap-in-"+k).html(exHtml);
         
         //$("#event-list-wrap-trans-"+k).css("height",exHeight);
         
