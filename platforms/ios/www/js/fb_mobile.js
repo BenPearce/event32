@@ -12,11 +12,7 @@ function popDate(k,e){
     
 
     
-    if(k>expandedDate){
-        //$("#top-elem").css("height",(74*(exListHeight - dateHash[k].eventList.length)));
-        $("#top-elem").css("height",(74*(exListHeight - 3)));
-          //(74*(exListHeight - 3)) 
-    }
+
     
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         console.log(dateHash[k].eventList[i]);
@@ -27,6 +23,9 @@ function popDate(k,e){
     }
     
     if(expandedDate != null){
+        
+        var y = $(window).scrollTop();  //your current y position on the page
+        $(window).scrollTop(y-(74*(exListHeight - 3)));
         
         //id='event-wrap-in-"+i"' class='event-wrap-in
         
@@ -42,6 +41,16 @@ function popDate(k,e){
         
         $("#event-wrap-in-"+k).css("height",exHeight);
         
+        //alert("stop");
+        /*
+        if(k>expandedDate){
+            //$("#top-elem").css("height",(74*(exListHeight - dateHash[k].eventList.length)));
+            //$("#top-elem").css("height",(74*(exListHeight - 3)));
+            var y = $(window).scrollTop();  //your current y position on the page
+            $(window).scrollTop(y-(74*(exListHeight - 3)));
+        }
+        */
+        
     }else{
         //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         
@@ -52,29 +61,10 @@ function popDate(k,e){
         $("#event-wrap-in-"+k).css("height",exHeight);
     }
     
-    //getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent")
-    
-    /*
-    if(expandedDate != null){
-        
-        $("#event-list-wrap-trans-"+k).html("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>"+ getMorebutton(k,moreText));
-        
-        $("#event-list-wrap-trans-"+expandedDate).css("height","272px");
-        
-        $("#event-list-wrap-trans-"+k).css("height",exHeight);
-        
-    }else{
-        $("#event-list-wrap-trans-"+k).html("<div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div><div class='exEvent' style='height:74px;width;100px;background:green'>hi</div>"+ getMorebutton(k,moreText));
-        
-        $("#event-list-wrap-trans-"+k).css("height",exHeight);
-    }
-     */
-    
-    //$(this).scrollTop(10);
     
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
-    enable_scroll();
+    //enable_scroll();
 }
 
 

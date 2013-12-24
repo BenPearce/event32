@@ -7,9 +7,29 @@ overflow-x: hidden;
 /*background:gray;*/
 }
 
+#footer1{
+    bottom: 0px;
+    left: 0px;
+    z-index: 10000;
+    width: 100%;
+    /*height: 2.5em;*/
+    height: 50px;
+    position: fixed;
+    margin-bottom: 0px;
+    background:black;
+    color:white;
+}
+
 #date-page{
 padding:0px!important;
 
+}
+
+#test-button{
+    position:fixed;
+    top:0px;
+    right:0px;
+    background:green;
 }
 
 li{

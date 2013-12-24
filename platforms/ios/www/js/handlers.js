@@ -41,16 +41,19 @@ function enable_scroll() {
                          				$(this).addClass('more-events-button-touched');
                          				//populateDate($(this).attr('data-dateId'),e);
                                         popDate($(this).attr('data-dateId'),e);
-                         				$(this).removeClass('more-events-button-touched');
-                                                                alert("stop");
-                                              $(this).scrollTop(0);
-                                                        //expandedDate = $(this).attr('data-dateId');
+                         				$(this).removeClass('more-events-button-touched');    
                          		});
 
                     	}
 
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
     $(document).ready(function () {
+                      
+                      $("#all").click(function(){
+                                      alert("exListHeight: "+exListHeight);
+                                      var y = $(window).scrollTop();  //your current y position on the page
+                                      $(window).scrollTop(y-(74*(exListHeight - 3)));
+                                      });
     		       });//Doc Ready End
 
 
