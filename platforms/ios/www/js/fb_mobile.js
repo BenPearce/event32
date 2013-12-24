@@ -3,41 +3,38 @@ var exListHeight;
 
 function popDate(k,e){
     //var exHeight = ((74*34)+50);
-    
+    $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     
     var exHtml = "";
     
     var moreText = " More Events";
     
-
-    
-
-    
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         console.log(dateHash[k].eventList[i]);
         console.log("name: "+eventList[dateHash[k].eventList[i]].name);
         //var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
-        
     }
     
     if(expandedDate != null){
         if(k<expandedDate){
         var y = $(window).scrollTop();  //your current y position on the page
-        //$(window).scrollTop(y-(74*(exListHeight - 3)));
-            $('html, body').animate({scrollTop:(y-(74*(exListHeight - 3)))}, 'slow');
+        $(window).scrollTop(y-(74*(exListHeight - 3)));
+            //$('html, body').animate({scrollTop:(y-(74*(exListHeight - 3)))}, '400');
         }
+        
+                $("#event-wrap-in-"+expandedDate).css("height","222px");
         
         //id='event-wrap-in-"+i"' class='event-wrap-in
         
         //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
-        
+        $("#event-wrap-in-"+k).addClass("ami-ex");
         $("#event-wrap-in-"+k).html(exHtml);
         
         //$("#event-list-wrap-trans-"+expandedDate).css("height","272px");
         
-        $("#event-wrap-in-"+expandedDate).css("height","222px");
+
         
         //$("#event-list-wrap-trans-"+k).css("height",exHeight);
         
@@ -55,7 +52,7 @@ function popDate(k,e){
         
     }else{
         //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
-        
+        $("#event-wrap-in-"+k).addClass("ami-ex");
         $("#event-wrap-in-"+k).html(exHtml);
         
         //$("#event-list-wrap-trans-"+k).css("height",exHeight);
@@ -63,7 +60,7 @@ function popDate(k,e){
         $("#event-wrap-in-"+k).css("height",exHeight);
     }
     
-    
+    //$("#event-wrap-in-"+k).removeClass("ami-ex");
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
     //enable_scroll();
