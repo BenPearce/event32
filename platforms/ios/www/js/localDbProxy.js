@@ -444,28 +444,43 @@ function getFriendsEventsDb(friendRow,tx,friend){
         var dfd = $.Deferred();
     var prmis = [];
 
-    //console.log("FRIENDS_EVENTS input "+friendRow.fbId);
+    console.log("FRIENDS_EVENTS input "+friendRow.fbId);
+    console.log("getFriendsEventsDb before");
     tx.executeSql("SELECT * FROM FRIENDS_EVENTS WHERE friendFbId = '"+friendRow.fbId+"'", [], function (tx, results) {
-                  //console.log("select friends callback");
+                  console.log("FRIENDS_EVENTS select call back");
+                  console.log("FRIENDS_EVENTS len: "+results.rows.length);
+                  //console.log("FRIENDS_EVENTS len: "+results.rows.length);
+                  //console.log("str "+JSON.stringify(results.rows));
                   if(results.rows.length > 0){
+                  //console.log("if trig: "+results.rows.item(0).eventFbId);
+                  
+                  $.each(results.rows,function(m,val){
+                         console.log("hi");
+                         console.log(val);
+                         //prmis.push(constructCalObject1(val.item(m).eventFbId,tx,friend));
+                         });
+                  
+                  /*
                   for(i=0;i=results.rows.length - 1;i++){
-                   //console.log("select friends loop");
-                  prmis.push(constructCalObject1(results.rows.item(i).eventFbId,tx,friend));
+                   console.log("event ID: "+results.rows.item(i).eventFbId);
+                 // prmis.push(constructCalObject1(results.rows.item(i).eventFbId,tx,friend));
+                  }
+                   */
                   var fin = $.when.apply($, prmis);
+                  
                   fin.then(function(){
                            dfd.resolve("tx1");
                            });
-                  /*
-                  constructCalObject1(results.rows.item(i).eventFbId,tx,friend).done(function(){
-                                                                         dfd.resolve("tx1");
-                                                                          });
-                  */
                   }
                   
+                
+                  
+                  /*
                   }else{
                   console.log("else");
-                                                                                                                          dfd.resolve("tx1");
-                                                                                                      }
+                  //dfd.resolve("tx1");
+                    }
+                  */
                   
                   }, errorCB1);
         return dfd.promise();
