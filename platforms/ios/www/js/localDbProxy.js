@@ -428,22 +428,21 @@ function constructCalObject1(fbId,tx,friend){
                   //for(l=0;l<results.rows.length; l++){
                   
                   if(parseInt(results.rows.item(0).dateHash)<33){
-                         console.log("mark 1");
-                  //console.log("date hash loop");
-                  //console.log("description: "+results.rows.item(l).description);
+
                   var event = makeEvent(results.rows.item(0));
-                      console.log("event made");
-                  event.friendIdArray.push(friend.fbId);
-                  if(typeof eventList[event.fbId] == 'undefined'){
+
+                 
+                  
+                      if(typeof eventList[event.fbId] == 'undefined'){
+                       event.friendIdArray.push(friend.fbId);
                   eventList[event.fbId] = event;
-                  }
-                                 console.log("mark 2");
+                      }else{
+                       eventList[event.fbId].friendIdArray.push(friend.fbId);
+                      }
+
                   if(typeof dateHash[event.dateHash] == 'undefined'){
-                  //console.log("element added to date hash: "+event.dateHash);
                   dateHash[event.dateHash] = makeEvening(event.dateHash);
-                  //console.log("date hash build len: "+dateHash.length);
                   }
-                  //console.log("pushed event name: "+event.name);
                   dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
                   friend.eventIdArray.push(eventList[event.fbId].fbId);
                   
