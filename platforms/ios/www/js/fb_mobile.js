@@ -27,7 +27,7 @@ function popDate(k,e){
         
         //$("#event-list-wrap-trans-"+expandedDate).css("height","272px");
         
-        $("#event-wrap-in-"+expandedDate).css("height","272px");
+        $("#event-wrap-in-"+expandedDate).css("height","222px");
         
         //$("#event-list-wrap-trans-"+k).css("height",exHeight);
         
