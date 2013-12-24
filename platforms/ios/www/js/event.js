@@ -66,15 +66,16 @@ function makeEvent(data) {
      	  throw "eventTimeZoneUndefined";   
      }
     */
-                 if (typeof  data.frEvId != "undefined"){
-     	      result.fbId = data.frEvId;
+                 if (typeof  data.eventFbId != "undefined"){
+     	      result.fbId = data.eventFbId;
+                     console.log("event id written");
      }else{
-     	  throw "eventFbIdUndefined"   
+     	  throw "eventFbIdUndefined1"   
      }
 
      if (typeof data.name != "undefined"){
          result.name = data.name;
-         console.log("make event name: "+result.name);
+         //console.log("make event name: "+result.name);
      }else{
      	  throw "eventNameUndefined";   
      }
