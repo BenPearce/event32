@@ -1,4 +1,6 @@
-    function wheel(e) {
+var moreEventsLocked = false;
+
+function wheel(e) {
   preventDefault(e);
 }
 
@@ -38,10 +40,16 @@ function enable_scroll() {
                          		$(".more-events-text-wrap").tap(function(e){
                                                                 //alert("tap");
                          				//disable_scroll();
+                                                                if(!moreEventsLocked){
+                                                                moreEventsLocked = true;
                          				$(this).addClass('more-events-button-touched');
                          				//populateDate($(this).attr('data-dateId'),e);
                                         popDate($(this).attr('data-dateId'),e);
-                         				$(this).removeClass('more-events-button-touched');    
+                         				$(this).removeClass('more-events-button-touched');
+                                                                setInterval(function(){
+                                                                moreEventsLocked = false;
+                                                                            },1000);
+                                                                }
                          		});
 
                     	}
