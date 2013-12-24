@@ -36,7 +36,7 @@ function enable_scroll() {
     function setFriendTap(){  
 
                          		$(".more-events-text-wrap").tap(function(e){
-                                                                alert("tap");
+                                                                //alert("tap");
                          				disable_scroll();
                          				$(this).addClass('more-events-button-touched');
                          				//populateDate($(this).attr('data-dateId'),e);
