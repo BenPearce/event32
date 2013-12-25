@@ -48,7 +48,7 @@ function enable_scroll() {
                          				$(this).removeClass('more-events-button-touched');
                                                                 setInterval(function(){
                                                                 moreEventsLocked = false;
-                                                                            },1000);
+                                                                            },500);
                                                                 }
                          		});
 

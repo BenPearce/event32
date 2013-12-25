@@ -21,18 +21,27 @@ function contract(shortRow,expandedDate,elem){
 }
 
 function expand(k,elem){
+    
+    var exHtml = "";
+    for(i=0;i<=dateHash[k].eventList.length - 1;i++){
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
+    }
+    
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[k].eventList.length)));
+    $("#event-wrap-in-"+k).html(exHtml);
+    $("#event-wrap-in-"+k).css("height",exHeight);
+    /*
     if(expandedDate != null){
         //$("#event-wrap-in-"+k).addClass("ami-ex");
-        //$("#event-wrap-in-"+k).html(exHtml);
         //$(elem).css("height",exHeight);
+        $("#event-wrap-in-"+k).html(exHtml);
         $("#event-wrap-in-"+k).css("height",exHeight);
-    alert("expand");
     }else{
     //   $(elem).css("height",exHeight);
     $("#event-wrap-in-"+k).css("height",exHeight);
     }
+     */
 }
 
 function popDate(e,elem){
@@ -55,25 +64,24 @@ function popDate(e,elem){
 
     
     if(shortRow & expanded){
-        alert("shortRow & expanded");
+        //alert("shortRow & expanded");
         contract (shortRow,k,elem);
     } else if (shortRow & !expanded){
-        alert("shortRow & !expanded");
+        //alert("shortRow & !expanded");
         expand(k,elem);
-        /*
+
         if(expandedDate != k){
         contract(shortRow,expandedDate,elem);
         }
-         */
+
     }else if(!shortRow & expanded){
         contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
         expand(k,elem);
-        /*
+
         if(expandedDate != k){
         contract (shortRow,expandedDate,elem);
         }
-         */
     }
     
     /*
