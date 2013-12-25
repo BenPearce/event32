@@ -2,18 +2,12 @@ var dateHashMap = new Array();
 var exListHeight;
 
 function popDate(k,e){
-    //var exHeight = ((74*34)+50);
     $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
     var exHeight = ((74*(dateHash[k].eventList.length)));
-    
     var exHtml = "";
-    
     var moreText = " More Events";
     
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
-        //console.log(dateHash[k].eventList[i]);
-        //console.log("name: "+eventList[dateHash[k].eventList[i]].name);
-        //var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"topEvent");
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
@@ -21,114 +15,53 @@ function popDate(k,e){
         if(k<expandedDate){
         var y = $(window).scrollTop();  //your current y position on the page
         $(window).scrollTop(y-(74*(exListHeight - 3)));
-            //$('html, body').animate({scrollTop:(y-(74*(exListHeight - 3)))}, '400');
         }
         
-                $("#event-wrap-in-"+expandedDate).css("height","222px");
-        
-        //id='event-wrap-in-"+i"' class='event-wrap-in
-        
-        //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
+        $("#event-wrap-in-"+expandedDate).css("height","222px");
         $("#event-wrap-in-"+k).addClass("ami-ex");
         $("#event-wrap-in-"+k).html(exHtml);
-        
-        //$("#event-list-wrap-trans-"+expandedDate).css("height","272px");
-        
-
-        
-        //$("#event-list-wrap-trans-"+k).css("height",exHeight);
-        
         $("#event-wrap-in-"+k).css("height",exHeight);
-        
-        //alert("stop");
-        /*
-        if(k>expandedDate){
-            //$("#top-elem").css("height",(74*(exListHeight - dateHash[k].eventList.length)));
-            //$("#top-elem").css("height",(74*(exListHeight - 3)));
-            var y = $(window).scrollTop();  //your current y position on the page
-            $(window).scrollTop(y-(74*(exListHeight - 3)));
-        }
-        */
-        
     }else{
-        //$("#event-list-wrap-trans-"+k).html(exHtml+ getMorebutton(k,moreText));
         $("#event-wrap-in-"+k).addClass("ami-ex");
         $("#event-wrap-in-"+k).html(exHtml);
-        
-        //$("#event-list-wrap-trans-"+k).css("height",exHeight);
-        
         $("#event-wrap-in-"+k).css("height",exHeight);
     }
-    
-    //$("#event-wrap-in-"+k).removeClass("ami-ex");
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
-    //enable_scroll();
 }
 
 var uiEventCount = 0;
 
 function popCal(){
- 
     for (i=0;i<33;i++){
-        
-        
-        //console.log("dateHash length"+dateHash.length);
         if(typeof dateHash[i] != 'undefined'){
             uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
-              //console.log("dateHas event ID: "+dateHash[i].eventList[0]);
-            //console.log("Event List Name: "+eventList[dateHash[i].eventList[0]].name);
             $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
-            
-            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
-
         }else{
             continue;
         }
-        
         if(typeof dateHash[i].eventList[1] != "undefined"){
-            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
-            //$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
              $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             continue;
         }
         
         if(typeof dateHash[i].eventList[2] != "undefined"){
-            //$("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
-            //$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             continue;
         }
-                /*
-        if(typeof dateHash[i].eventList[3] != "undefined"){
-            $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
-        }else{
-            $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
-            continue;
-        }
-
-        if(typeof dateHash[i].eventList[4] != "undefined"){
-            $("#event-list-wrap-trans-" + i).append(getEventRow(eventList[dateHash[i].eventList[4]].fbId,"topEvent"));
-        }else{
-            $("#event-list-wrap-trans-"+ i).append('<div class="spacer"></div>');
-            continue;
-        }
-        */
         var moreText = (dateHash[i].eventList.length - 4) +" More Events";
         $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
         $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
-        
     }
-    console.log("uiEventCount: "+uiEventCount);
     setFriendTap();
 }
 

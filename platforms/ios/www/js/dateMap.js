@@ -52,12 +52,6 @@ function dateToInteger(date){
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
     console.log("today: "+today);
-    //console.log("today TS: "+today.getTime());
-    //console.log("today Get Date: "+today.getDate());
-    //console.log("today Get Month: "+today.getMonth());
-    //console.log("today Get year: "+today.getFullYear());
-    //console.log("diff: "+(temp.getTime() - today.getTime()));
-    //console.log("between: "+daysBetween(today, temp));
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
     console.log("date to int date output: "+ dateHash);
 	//return  dateHash;
