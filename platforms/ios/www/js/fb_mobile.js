@@ -63,7 +63,7 @@ function popDate(e,elem){
     } else if (shortRow & !expanded){
         expand(k,elem);
 
-        if(expandedDate != k){
+        if((expandedDate != k) & !firstExpand){
         contract(shortRow,expandedDate,elem);
         }
 
@@ -72,7 +72,7 @@ function popDate(e,elem){
     }else if(!shortRow & !expanded){
         expand(k,elem);
 
-        if(expandedDate != k){
+        if((expandedDate != k) & !firstExpand){
         contract (shortRow,expandedDate,elem);
         }
     }
