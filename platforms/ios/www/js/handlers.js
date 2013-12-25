@@ -44,7 +44,7 @@ function enable_scroll() {
                                                                 moreEventsLocked = true;
                          				$(this).addClass('more-events-button-touched');
                          				//populateDate($(this).attr('data-dateId'),e);
-                                        popDate($(this).attr('data-dateId'),e);
+                                        popDate(e,this);
                          				$(this).removeClass('more-events-button-touched');
                                                                 setInterval(function(){
                                                                 moreEventsLocked = false;

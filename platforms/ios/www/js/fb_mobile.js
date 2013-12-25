@@ -1,8 +1,64 @@
 var dateHashMap = new Array();
 var exListHeight;
 
-function popDate(k,e){
+var firstExpand;
+var shortRow;
+var selected;
+var below;
+var expanded;
+
+function contract(shortRow,k){
+    if(shortRow){
+        alert("short row contract");
+    }else{
+        alert("reg contract");
+    }
+}
+
+function expand(k){
+    if(expandedDate != null){
+    alert("expand");
+    }else{
+        
+    }
+}
+
+function popDate(e,elem){
+
+    k = $(elem).attr('data-dateId');
+    //set booleans
+    //$(elem).toggleClass("expanded");
     
+     firstExpand = (expandedDate == null);
+     shortRow = (dateHash[k].eventList.length <=3);
+     selected = (expandedDate == k);
+     below = (k<expandedDate);
+     expanded = $(elem).is(".expanded");
+     $(".expanded").removeClass("expanded");
+    /*
+    if(shortRow){
+        contract (shortRow,k);
+    } else{
+        
+    }
+    */
+    if(shortRow & expanded){
+        alert("shortRow & expanded");
+        contract (shortRow,k);
+    } else if (shortRow & !expanded){
+        alert("shortRow & !expanded");
+        expand(k);
+        $(elem).addClass("expanded");
+    }else if(!shortRow & expanded){
+        alert("!shortRow & expanded");
+        contract(shortRow,k);
+    }else if(!shortRow & !expanded){
+        alert("!shortRow & !expanded");
+        expand(k);
+        $(elem).addClass("expanded");
+    }
+    
+    /*
     if(expandedDate == k){
         alert("same");
     }
@@ -10,7 +66,7 @@ function popDate(k,e){
     if(dateHash[k].eventList.length <=3){
         alert("small");
     }
-    
+    */
     $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     var exHtml = "";
@@ -21,13 +77,12 @@ function popDate(k,e){
     }
     
     if(expandedDate != null){
+        /*
         if(k<expandedDate){
         var y = $(window).scrollTop();  //your current y position on the page
         $(window).scrollTop(y-(74*(exListHeight - 3)));
         }
-        
-        
-
+*/
         $("#event-wrap-in-"+expandedDate).css("height","222px");
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[k].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[2]].fbId,""));
 
