@@ -21,9 +21,11 @@ function evening() {
     this.topEventsHtml;
     this.eventExHtml;
     this.generateHtml;
-}
+    this.weekday;
+    this.dayNameLong;
 
 function makeEvening(integer) {
+    console.log("Mark1");
     var result = new evening();
     var proximity = makeListElement();
     $.extend(result, proximity);
@@ -35,6 +37,7 @@ function makeEvening(integer) {
     result.dateArray = new Array(); 
     result.topEventsHtml = "";
     result.eventExHtml = "";
+    console.log("Mark3");
     result.generateHtml = function(){
     	    /*
     	    $.each(){
@@ -54,14 +57,20 @@ function makeEvening(integer) {
     }
     
     result.friendListEventCalendarState = setBit(0,0);
-
+ console.log("Mark4");
     //result.friendListEventCalendarState & setBit (0,3)
     result.id = integer;
     //result.convertedData = integerToDate(integer);
+    //result.weekday = new Array(7);
+    //console.log("test day:"+result.weekday[3]);
+     console.log("Mark5");
     result.convertedData = integer;
     result.convertedData = integerToDate(integer);
+    //result.dayNameLong = result.weekday[result.convertedData.getDay()];
+    //console.log("result.dayNameLong "+result.dayNameLong);
     result.formattedDate = result.convertedData.toString().substr(0, result.convertedData.toString().indexOf(":") - 3);
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
+    //comsole.log("result.dateStringArray: "+result.dateStringArray);
     result.dateStringArray = result.formattedDate.split(" ");
     //if(){ 
   
