@@ -440,8 +440,9 @@ function constructCalObject1(fbId,tx,friend){
                   //console.log("Friends events length: "+results.rows.length);
                   
                   //for(l=0;l<results.rows.length; l++){
-                  
+                      console.log("queried dateHash: "+results.rows.item(0).dateHash);
                   if(parseInt(results.rows.item(0).dateHash)<33){
+                      console.log("filtered dateHash: "+results.rows.item(0).dateHash);
 masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
 

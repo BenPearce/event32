@@ -33,12 +33,13 @@ function dateToInteger(date){
      //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
-    var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) +1;
+    var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
     //console.log("date to int date output: "+ dateHash);
 	return  dateHash;
 }
 
 function dateToInt(fbDate){
+    console.log("fbDate: "+fbDate);
     var tempDate;
     if(fbTimeOffSet.indexOf('T') > 0){
     tempDate = new Date(fbDate.substring(0, fbDate.indexOf('T')));
@@ -50,11 +51,14 @@ function dateToInt(fbDate){
     temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
-	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24));
+	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) +1;
 }
 
 function integerToDate(integer){
+    console.log("input dateHash: "+integer)
+    integer = integer;
 	var today = new Date();
 	var temp = new Date(today.getFullYear(),today.getMonth(), today.getDate() +integer);
+    console.log("Output date: "+temp)
 	return temp;
 }
