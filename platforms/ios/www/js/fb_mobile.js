@@ -53,21 +53,14 @@ function popDate(e,elem){
      selected = (expandedDate == k);
      below = (k<expandedDate);
      expanded = $(elem).is(".expanded");
-     //expanded = $("#event-wrap-in-"+k).is(".expanded");
-    //alert("expanded k: "+$("#event-wrap-in-"+k).is(".expanded"));
-    //alert("expanded this: "+$(elem).is(".expanded"));
     
     if(expandedDate != null){
     contract(shortRow,k,exSelector);
     }
-    //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
-
     
     if(shortRow & expanded){
-        //alert("shortRow & expanded");
         contract (shortRow,k,elem);
     } else if (shortRow & !expanded){
-        //alert("shortRow & !expanded");
         expand(k,elem);
 
         if(expandedDate != k){
@@ -84,30 +77,6 @@ function popDate(e,elem){
         }
     }
     
-    /*
-    $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
-
-    var exHtml = "";
-    var moreText = " More Events";
-    
-    for(i=0;i<=dateHash[k].eventList.length - 1;i++){
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
-    }
-    
-    if(expandedDate != null){
-
-        $("#event-wrap-in-"+expandedDate).css("height","222px");
-        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[k].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[2]].fbId,""));
-
-        $("#event-wrap-in-"+k).addClass("ami-ex");
-        $("#event-wrap-in-"+k).html(exHtml);
-        $("#event-wrap-in-"+k).css("height",exHeight);
-    }else{
-        $("#event-wrap-in-"+k).addClass("ami-ex");
-        $("#event-wrap-in-"+k).html(exHtml);
-        $("#event-wrap-in-"+k).css("height",exHeight);
-    }
-     */
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
     exSelector = elem;
