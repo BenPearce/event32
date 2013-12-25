@@ -24,20 +24,32 @@ function makeDateMap(){
 }
 
 function dateToInteger(date){
-    //console.log("date to int date input: "+date);
+    console.log("date to int date input: "+date);
     //var d = new Date(fbTimeOffSet.replace(' ', 'T'));
 	var temp = new Date(date.replace(' ', 'T'));
     var temp = new Date(date.split("T")[0]);
-    //console.log("temp1: "+temp);
+    //var temp = date.split("T")[0];
+    console.log("temp1: "+temp);
+    console.log("temp1 Get Date: "+temp.getDate());
+    console.log("temp1 Get Month: "+temp.getMonth());
+    console.log("temp1 Get f year: "+temp.getFullYear());
+    //console.log("temp1 Get year: "+temp.getYear());
+    console.log("temp1 TS: "+temp.getTime());
         temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
      //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
+    console.log("today: "+today);
+    console.log("today TS: "+today.getTime());
+    console.log("today Get Date: "+today.getDate());
+    console.log("today Get Month: "+today.getMonth());
+    console.log("today Get year: "+today.getFullYear());
+    console.log("diff: "+(temp.getTime() - today.getTime()));
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
-    //console.log("date to int date output: "+ dateHash);
+    console.log("date to int date output: "+ dateHash);
 	return  dateHash;
 }
-
+/*
 function dateToInt(fbDate){
     console.log("fbDate: "+fbDate);
     var tempDate;
@@ -53,7 +65,7 @@ function dateToInt(fbDate){
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
 	return Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) +1;
 }
-
+*/
 function integerToDate(integer){
     console.log("input dateHash: "+integer)
     integer = integer;
