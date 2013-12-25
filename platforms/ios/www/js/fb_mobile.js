@@ -2,6 +2,15 @@ var dateHashMap = new Array();
 var exListHeight;
 
 function popDate(k,e){
+    
+    if(expandedDate == k){
+        alert("same");
+    }
+    
+    if(dateHash[k].eventList.length <=3){
+        alert("small");
+    }
+    
     $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     var exHtml = "";
@@ -17,7 +26,11 @@ function popDate(k,e){
         $(window).scrollTop(y-(74*(exListHeight - 3)));
         }
         
+        
+
         $("#event-wrap-in-"+expandedDate).css("height","222px");
+        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[k].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[2]].fbId,""));
+
         $("#event-wrap-in-"+k).addClass("ami-ex");
         $("#event-wrap-in-"+k).html(exHtml);
         $("#event-wrap-in-"+k).css("height",exHeight);
