@@ -23,6 +23,17 @@ function makeDateMap(){
 	return result;
 }
 
+function treatAsUTC(date) {
+    var result = new Date(date);
+    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+    return result;
+}
+
+function daysBetween(startDate, endDate) {
+    var millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return (treatAsUTC(endDate) - treatAsUTC(startDate)) / millisecondsPerDay;
+}
+
 function dateToInteger(date){
     console.log("date to int date input: "+date);
     //var d = new Date(fbTimeOffSet.replace(' ', 'T'));
@@ -30,6 +41,7 @@ function dateToInteger(date){
     var temp = new Date(date.split("T")[0]);
     //var temp = date.split("T")[0];
     console.log("temp1: "+temp);
+     //console.log("temp DP: "+date.parse(temp));
     console.log("temp1 Get Date: "+temp.getDate());
     console.log("temp1 Get Month: "+temp.getMonth());
     console.log("temp1 Get f year: "+temp.getFullYear());
@@ -45,6 +57,7 @@ function dateToInteger(date){
     console.log("today Get Month: "+today.getMonth());
     console.log("today Get year: "+today.getFullYear());
     console.log("diff: "+(temp.getTime() - today.getTime()));
+    console.log("between: "+daysBetween(today, temp));
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
     console.log("date to int date output: "+ dateHash);
 	return  dateHash;
