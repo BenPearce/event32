@@ -40,27 +40,28 @@ function dateToInteger(date){
 	var temp = new Date(date.replace(' ', 'T'));
     var temp = new Date(date.split("T")[0]);
     //var temp = date.split("T")[0];
-    console.log("temp1: "+temp);
+    //console.log("temp1: "+temp);
      //console.log("temp DP: "+date.parse(temp));
-    console.log("temp1 Get Date: "+temp.getDate());
-    console.log("temp1 Get Month: "+temp.getMonth());
-    console.log("temp1 Get f year: "+temp.getFullYear());
+    //console.log("temp1 Get Date: "+temp.getDate());
+    //console.log("temp1 Get Month: "+temp.getMonth());
+    //console.log("temp1 Get f year: "+temp.getFullYear());
     //console.log("temp1 Get year: "+temp.getYear());
-    console.log("temp1 TS: "+temp.getTime());
+    //console.log("temp1 TS: "+temp.getTime());
         temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
      //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
     console.log("today: "+today);
-    console.log("today TS: "+today.getTime());
-    console.log("today Get Date: "+today.getDate());
-    console.log("today Get Month: "+today.getMonth());
-    console.log("today Get year: "+today.getFullYear());
-    console.log("diff: "+(temp.getTime() - today.getTime()));
-    console.log("between: "+daysBetween(today, temp));
+    //console.log("today TS: "+today.getTime());
+    //console.log("today Get Date: "+today.getDate());
+    //console.log("today Get Month: "+today.getMonth());
+    //console.log("today Get year: "+today.getFullYear());
+    //console.log("diff: "+(temp.getTime() - today.getTime()));
+    //console.log("between: "+daysBetween(today, temp));
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
     console.log("date to int date output: "+ dateHash);
-	return  dateHash;
+	//return  dateHash;
+    return  daysBetween(today, temp);
 }
 /*
 function dateToInt(fbDate){
@@ -81,7 +82,7 @@ function dateToInt(fbDate){
 */
 function integerToDate(integer){
     console.log("input dateHash: "+integer)
-    integer = integer;
+    integer = integer +1;
 	var today = new Date();
 	var temp = new Date(today.getFullYear(),today.getMonth(), today.getDate() +integer);
     console.log("Output date: "+temp)
