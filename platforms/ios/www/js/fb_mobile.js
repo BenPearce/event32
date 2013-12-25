@@ -87,16 +87,28 @@ var uiEventCount = 0;
 function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
+                        $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
+            /*
             uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
-            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
         }else{
             continue;
+             */
+       
+        
+        if(typeof dateHash[i].eventList[0] != "undefined"){
+            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+        }else{
+            var moreText = (dateHash[i].eventList.length - 4);
+            $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText +"ex","expanded"));
+            continue;
         }
+        
         if(typeof dateHash[i].eventList[1] != "undefined"){
             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
         }else{
-            var moreText = (dateHash[i].eventList.length - 4) +" More Events";
+            var moreText = (dateHash[i].eventList.length - 4);
              $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText +"ex","expanded"));
             continue;
@@ -115,6 +127,7 @@ function popCal(){
         $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
     }
     setFriendTap();
+         }
 }
 
 document.addEventListener('deviceready', function () {
