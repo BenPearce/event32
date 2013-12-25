@@ -7,6 +7,10 @@ overflow-x: hidden;
 /*background:gray;*/
 }
 
+li{
+    margin-bottom:-45px;
+}
+
 #footer1{
     bottom: 0px;
     left: 0px;
@@ -236,7 +240,7 @@ margin-left: 5px;
 }
 */
 .cut-away-wrap{
-	width:79%;
+	width:81%;
 	height:50px;
 display:block;
 position:absolute;
@@ -433,7 +437,7 @@ bottom:2px;
         font-family:"Arial";
         float:left;
         margin-top:0px;
-        width:50px;
+        width:77%;
         height:50px;
         position:relative;
         background:black;
