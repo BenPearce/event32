@@ -6,69 +6,79 @@ var shortRow;
 var selected;
 var below;
 var expanded;
+var exSelector;
 
-function contract(shortRow,k){
+function contract(shortRow,expandedDate,elem){
+    $(elem).removeClass("expanded");
     if(shortRow){
-        alert("short row contract");
+        //$(elem).css("height","0px");
+        $("#event-wrap-in-"+expandedDate).css("height","0px");
     }else{
-        alert("reg contract");
+        //$(elem).css("height","222px");
+        $("#event-wrap-in-"+expandedDate).css("height","0px");
     }
+    //alert("contracted");
 }
 
-function expand(k){
+function expand(k,elem){
+    $(elem).addClass("expanded");
+    var exHeight = ((74*(dateHash[k].eventList.length)));
     if(expandedDate != null){
+        //$("#event-wrap-in-"+k).addClass("ami-ex");
+        //$("#event-wrap-in-"+k).html(exHtml);
+        //$(elem).css("height",exHeight);
+        $("#event-wrap-in-"+k).css("height",exHeight);
     alert("expand");
     }else{
-        
+    //   $(elem).css("height",exHeight);
+    $("#event-wrap-in-"+k).css("height",exHeight);
     }
 }
 
 function popDate(e,elem){
 
     k = $(elem).attr('data-dateId');
-    //set booleans
-    //$(elem).toggleClass("expanded");
     
      firstExpand = (expandedDate == null);
      shortRow = (dateHash[k].eventList.length <=3);
      selected = (expandedDate == k);
      below = (k<expandedDate);
      expanded = $(elem).is(".expanded");
-     $(".expanded").removeClass("expanded");
-    /*
-    if(shortRow){
-        contract (shortRow,k);
-    } else{
-        
+     //expanded = $("#event-wrap-in-"+k).is(".expanded");
+    //alert("expanded k: "+$("#event-wrap-in-"+k).is(".expanded"));
+    //alert("expanded this: "+$(elem).is(".expanded"));
+    
+    if(expandedDate != null){
+    contract(shortRow,k,exSelector);
     }
-    */
+    //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
+
+    
     if(shortRow & expanded){
         alert("shortRow & expanded");
-        contract (shortRow,k);
+        contract (shortRow,k,elem);
     } else if (shortRow & !expanded){
         alert("shortRow & !expanded");
-        expand(k);
-        $(elem).addClass("expanded");
+        expand(k,elem);
+        /*
+        if(expandedDate != k){
+        contract(shortRow,expandedDate,elem);
+        }
+         */
     }else if(!shortRow & expanded){
-        alert("!shortRow & expanded");
-        contract(shortRow,k);
+        contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
-        alert("!shortRow & !expanded");
-        expand(k);
-        $(elem).addClass("expanded");
+        expand(k,elem);
+        /*
+        if(expandedDate != k){
+        contract (shortRow,expandedDate,elem);
+        }
+         */
     }
     
     /*
-    if(expandedDate == k){
-        alert("same");
-    }
-    
-    if(dateHash[k].eventList.length <=3){
-        alert("small");
-    }
-    */
     $("#event-wrap-in-"+expandedDate).removeClass("ami-ex");
-    var exHeight = ((74*(dateHash[k].eventList.length)));
+
     var exHtml = "";
     var moreText = " More Events";
     
@@ -77,12 +87,7 @@ function popDate(e,elem){
     }
     
     if(expandedDate != null){
-        /*
-        if(k<expandedDate){
-        var y = $(window).scrollTop();  //your current y position on the page
-        $(window).scrollTop(y-(74*(exListHeight - 3)));
-        }
-*/
+
         $("#event-wrap-in-"+expandedDate).css("height","222px");
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[k].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[k].eventList[2]].fbId,""));
 
@@ -94,8 +99,10 @@ function popDate(e,elem){
         $("#event-wrap-in-"+k).html(exHtml);
         $("#event-wrap-in-"+k).css("height",exHeight);
     }
+     */
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
+    exSelector = elem;
 }
 
 var uiEventCount = 0;
@@ -114,7 +121,7 @@ function popCal(){
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
              $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText +"ex","expanded"));
             continue;
         }
         
@@ -123,7 +130,7 @@ function popCal(){
         }else{
             var moreText = (dateHash[i].eventList.length - 4) +" More Events";
             $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText +"ex","expanded"));
             continue;
         }
         var moreText = (dateHash[i].eventList.length - 4) +" More Events";
