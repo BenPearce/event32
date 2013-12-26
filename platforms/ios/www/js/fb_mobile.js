@@ -7,16 +7,19 @@ var selected;
 var below;
 var expanded;
 var exSelector;
+var formerShortRow;
 
 function contract(shortRow,expandedDate,elem){
-    console.log("contract");
+     console.log("contract");
      $(elem).removeClass("expanded");
      //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
         $("#event-wrap-in-"+expandedDate).html();
     }else{
-        $("#event-wrap-in-"+expandedDate).css("height","0px");
+        $("#event-wrap-in-"+expandedDate).css("height","222px");
+        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
+        //$("#event-wrap-in-"+expandedDate).html("hello");
     }
 }
 
@@ -61,7 +64,7 @@ function popDate(e,elem){
 
         if((expandedDate != k) & !firstExpand){
         console.log("(expandedDate != k) & !firstExpand");
-        contract(shortRow,expandedDate,exSelector);
+        contract(formerShortRow,expandedDate,exSelector);
         }
 
     }else if(!shortRow & expanded){
@@ -74,10 +77,11 @@ function popDate(e,elem){
         if((expandedDate != k) & !firstExpand){
             console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
-            contract (shortRow,expandedDate,exSelector);
+            contract (formerShortRow,expandedDate,exSelector);
         }
     }
     
+    formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
     exSelector = elem;
