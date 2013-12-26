@@ -14,6 +14,7 @@ function contract(shortRow,expandedDate,elem){
      //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
+        $("#event-wrap-in-"+expandedDate).html();
     }else{
         $("#event-wrap-in-"+expandedDate).css("height","0px");
     }
