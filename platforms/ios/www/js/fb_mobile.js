@@ -60,7 +60,7 @@ function popDate(e,elem){
 
         if((expandedDate != k) & !firstExpand){
         console.log("(expandedDate != k) & !firstExpand");
-        contract(shortRow,expandedDate,elem);
+        contract(shortRow,expandedDate,exSelector);
         }
 
     }else if(!shortRow & expanded){
