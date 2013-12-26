@@ -42,7 +42,7 @@ function enable_scroll() {
                                                
                                                setInterval(function(){
                                                            moreEventsLocked = false;
-                                                           },500);
+                                                           },600);
                                  });
         
         $(".more-events-text-wrap").touchend(function(e){

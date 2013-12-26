@@ -9,67 +9,65 @@ var expanded;
 var exSelector;
 
 function contract(shortRow,expandedDate,elem){
-    $(elem).removeClass("expanded");
+    console.log("contract");
+    //$(elem).removeClass("expanded");
+     $("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
-        //$(elem).css("height","0px");
         $("#event-wrap-in-"+expandedDate).css("height","0px");
     }else{
-        //$(elem).css("height","222px");
         $("#event-wrap-in-"+expandedDate).css("height","0px");
     }
-    //alert("contracted");
 }
 
 function expand(k,elem){
-    
+    console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
-    $(elem).addClass("expanded");
+    //$(elem).addClass("expanded");
+    $("#event-wrap-in-"+k).addClass("expanded");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
-    /*
-    if(expandedDate != null){
-        //$("#event-wrap-in-"+k).addClass("ami-ex");
-        //$(elem).css("height",exHeight);
-        $("#event-wrap-in-"+k).html(exHtml);
-        $("#event-wrap-in-"+k).css("height",exHeight);
-    }else{
-    //   $(elem).css("height",exHeight);
-    $("#event-wrap-in-"+k).css("height",exHeight);
-    }
-     */
 }
 
 function popDate(e,elem){
-
+    console.log("popDate");
     k = $(elem).attr('data-dateId');
     
      firstExpand = (expandedDate == null);
      shortRow = (dateHash[k].eventList.length <=3);
      selected = (expandedDate == k);
      below = (k<expandedDate);
-     expanded = $(elem).is(".expanded");
+     //expanded = $(elem).is(".expanded");
+     expanded = $("#event-wrap-in-"+k).is(".expanded");
+    console.log("expanded1: "+$("#event-wrap-in-"+k).is(".expanded"));
+    console.log("expanded1: "+$(elem).is(".expanded"));
     
     if(expandedDate != null){
     contract(shortRow,k,exSelector);
     }
     
     if(shortRow & expanded){
+        console.log("shortRow & expanded");
         contract (shortRow,k,elem);
+        
     } else if (shortRow & !expanded){
+        console.log("shortRow & !expanded");
         expand(k,elem);
 
         if((expandedDate != k) & !firstExpand){
+        console.log("(expandedDate != k) & !firstExpand");
         contract(shortRow,expandedDate,elem);
         }
 
     }else if(!shortRow & expanded){
+        console.log("!shortRow & expanded");
         contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
+        console.log("!shortRow & !expanded");
         expand(k,elem);
 
         if((expandedDate != k) & !firstExpand){
