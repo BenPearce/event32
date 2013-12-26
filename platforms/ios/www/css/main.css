@@ -255,6 +255,10 @@ border-top:solid black 1px;
 	 background:white;
 }
 
+.expanded{
+    background-image:url('../images/upArrow.png')!important;
+    background-repeat:no-repeat;
+}
 
 .more-events-text-wrap{
 	text-align: center;
@@ -267,6 +271,8 @@ border-top:solid black 1px;
         border-right:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
+        background-image:url('../images/downArrowSmall.png');
+        background-repeat:no-repeat;
         /*
         		background: rgb(255,255,255); 
 background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 55%, rgba(255,255,255,1) 100%);
