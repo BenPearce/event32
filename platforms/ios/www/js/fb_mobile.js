@@ -72,7 +72,8 @@ function popDate(e,elem){
 
         if((expandedDate != k) & !firstExpand){
             console.log("contract fire");
-        contract (shortRow,expandedDate,elem);
+            //contract (shortRow,expandedDate,elem);
+            contract (shortRow,expandedDate,exSelector);
         }
     }
     
