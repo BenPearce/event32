@@ -122,10 +122,11 @@ function popCal(){
         }
         var moreText = (dateHash[i].eventList.length - 4);
         $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-        $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
+        $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+            
     }
-    setFriendTap();
          }
+                    setFriendTap();
 }
 
 document.addEventListener('deviceready', function () {
