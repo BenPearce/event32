@@ -10,8 +10,8 @@ var exSelector;
 
 function contract(shortRow,expandedDate,elem){
     console.log("contract");
-    //$(elem).removeClass("expanded");
-     $("#event-wrap-in-"+expandedDate).removeClass("expanded");
+     $(elem).removeClass("expanded");
+     //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
     }else{
@@ -20,14 +20,13 @@ function contract(shortRow,expandedDate,elem){
 }
 
 function expand(k,elem){
-    console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
-    //$(elem).addClass("expanded");
-    $("#event-wrap-in-"+k).addClass("expanded");
+    $(elem).addClass("expanded");
+    //$("#event-wrap-in-"+k).addClass("expanded");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
@@ -35,15 +34,16 @@ function expand(k,elem){
 
 function popDate(e,elem){
     console.log("popDate");
+    console.log("elem html: "+$(elem).html());
     k = $(elem).attr('data-dateId');
     
      firstExpand = (expandedDate == null);
      shortRow = (dateHash[k].eventList.length <=3);
      selected = (expandedDate == k);
      below = (k<expandedDate);
-     //expanded = $(elem).is(".expanded");
-     expanded = $("#event-wrap-in-"+k).is(".expanded");
-    console.log("expanded1: "+$("#event-wrap-in-"+k).is(".expanded"));
+     expanded = $(elem).is(".expanded");
+     //expanded = $("#event-wrap-in-"+k).is(".expanded");
+    //console.log("expanded1: "+$("#event-wrap-in-"+k).is(".expanded"));
     console.log("expanded1: "+$(elem).is(".expanded"));
     
     if(expandedDate != null){
@@ -71,6 +71,7 @@ function popDate(e,elem){
         expand(k,elem);
 
         if((expandedDate != k) & !firstExpand){
+            console.log("contract fire");
         contract (shortRow,expandedDate,elem);
         }
     }
@@ -122,7 +123,7 @@ function popCal(){
         }
         var moreText = (dateHash[i].eventList.length - 4);
         $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-        $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+        $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
     }
          }
