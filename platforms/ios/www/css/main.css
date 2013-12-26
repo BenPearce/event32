@@ -257,6 +257,7 @@ border-top:solid black 1px;
 
 .expanded{
     background-image:url('../images/upArrow.png')!important;
+    background-position:center; 
     background-repeat:no-repeat;
 }
 
@@ -272,6 +273,7 @@ border-top:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
         background-image:url('../images/downArrowSmall.png');
+        background-position:center;
         background-repeat:no-repeat;
         /*
         		background: rgb(255,255,255); 
