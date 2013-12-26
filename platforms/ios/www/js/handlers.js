@@ -39,27 +39,25 @@ function enable_scroll() {
         
         $(".more-events-text-wrap").touchstart(function(){
                                  $(this).addClass('more-events-button-touched');
+                                               
+                                               setInterval(function(){
+                                                           moreEventsLocked = false;
+                                                           },500);
                                  });
         
-        $(".more-events-text-wrap").touchend(function(){
+        $(".more-events-text-wrap").touchend(function(e){
+                                             if(!moreEventsLocked){
+                                             moreEventsLocked = true;
+                                             popDate(e,this);
+                                             }
                                  $(this).removeClass('more-events-button-touched');
                                  });
-
+/*
                          		$(".more-events-text-wrap").tap(function(e){
-                                                                //alert("tap");
-                         				//disable_scroll();
-                                                                if(!moreEventsLocked){
-                                                                moreEventsLocked = true;
-                         				
-                         				//populateDate($(this).attr('data-dateId'),e);
-                                        popDate(e,this);
-                         				
-                                                                setInterval(function(){
-                                                                moreEventsLocked = false;
-                                                                            },500);
-                                                                }
-                         		});
 
+     
+                         		});
+*/
                     	}
 
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
