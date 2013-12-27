@@ -10,11 +10,16 @@ var exSelector;
 var formerShortRow;
 var pos;
 var $doc;
+var expandedDate1;
+
 
 function contract(shortRow,expandedDate,elem){
     //var dfd = $.Deferred();
     console.log("contract");
     $(elem).removeClass("expanded");
+            //exSelector.removeClass("contracted");
+     $("#event-wrap-in-"+expandedDate1).removeClass("contracted");
+    
     
     //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
@@ -63,7 +68,6 @@ function expand(k,elem){
     }
     
     $(elem).addClass("expanded");
-    $("#event-wrap-in-"+expandedDate).removeClass("contracted");
     //$("#event-wrap-in-"+k).addClass("expanded");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
@@ -164,7 +168,7 @@ function popDate(e,elem){
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
-    expandedDate = k;
+    expandedDate1 = k;
     exSelector = elem;
                 console.log("pos3: "+$("#date-elem-"+k+"-list").offset().top);
 }
@@ -174,7 +178,7 @@ var uiEventCount = 0;
 function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
-            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
+            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in contracted'></div></div></li>");
             /*
              uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
              $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
@@ -211,7 +215,7 @@ function popCal(){
             }
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"contracted"));
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
         }
     }
