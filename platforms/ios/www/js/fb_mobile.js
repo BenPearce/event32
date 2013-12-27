@@ -8,23 +8,50 @@ var below;
 var expanded;
 var exSelector;
 var formerShortRow;
+var pos;
+var $doc;
 
 function contract(shortRow,expandedDate,elem){
-    var dfd = $.Deferred();
+    //var dfd = $.Deferred();
     console.log("contract");
     $(elem).removeClass("expanded");
+    
     //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
+       
+        //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - pos);
+        console.log("timer");
         $("#event-wrap-in-"+expandedDate).css("height","0px");
         $("#event-wrap-in-"+expandedDate).html();
-                dfd.resolve("tx1");
+                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        /*
+        setTimeout(function(){
+                   //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - pos);
+
+                   //dfd.resolve("tx1");
+                   },3000);
+         */
     }else{
+
         $("#event-wrap-in-"+expandedDate).css("height","222px");
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-        dfd.resolve("tx1");
+                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        //$(document).scrollTop($(document).scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - pos);
+        /*
+        $("#event-wrap-in-"+expandedDate).css("height","222px");
+        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
+         */
+/*
+        setTimeout(function(){
+                   console.log("timer");
+                   $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+    },3000);
+ */
         //$("#event-wrap-in-"+expandedDate).html("hello");
     }
-    return dfd.promise();
+    
+    $("#event-wrap-in-"+expandedDate).addClass("contracted");
+    //return dfd.promise();
     
 }
 
@@ -36,6 +63,7 @@ function expand(k,elem){
     }
     
     $(elem).addClass("expanded");
+    $("#event-wrap-in-"+expandedDate).removeClass("contracted");
     //$("#event-wrap-in-"+k).addClass("expanded");
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
@@ -46,11 +74,12 @@ function expand(k,elem){
 
 function popDate(e,elem){
     k = $(elem).attr('data-dateId');
-    //var $this = $("date-elem-"+k+"-list");
-    var $this = $(this);
+    var $this = $("date-elem-"+k+"-list");
+    //var $this = $(this);
     //alert($("#date-elem-"+k+"-list").html());
-    var pos = $("#date-elem-"+k+"-list").offset().top;
-    var $doc = $(document);
+    pos = $("#date-elem-"+k+"-list").offset().top;
+    console.log("pos1: "+pos);
+    $doc = $(document);
     
     console.log("popDate");
     console.log("elem html: "+$(elem).html());
@@ -79,12 +108,17 @@ function popDate(e,elem){
             console.log("(expandedDate != k) & !firstExpand");
             expand(k,elem).done(function(){
                                 //contract(formerShortRow,expandedDate,exSelector);
-                                
+                                console.log("ex done");
+                                contract(formerShortRow,expandedDate,exSelector);
+                                //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - pos);
+                                console.log("contract after");
+                                /*
                                 contract(formerShortRow,expandedDate,exSelector).done(function(){
                                                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
                                                                                       });
-                                 
+                                          */
                                 });
+                        
         }else{
              expand(k,elem);
         }
@@ -99,6 +133,17 @@ function popDate(e,elem){
         if((expandedDate != k) & !firstExpand){
             console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
+            contract(formerShortRow,expandedDate,exSelector);
+            console.log("contract after");
+                                /*
+            contract(formerShortRow,expandedDate,exSelector).done(function(){
+                                                                  console.log("done");
+                                                                  });
+                                 */
+            console.log("pos2: "+$("#date-elem-"+k+"-list").offset().top);
+            //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            expand(k,elem);
+            /*
             contract(formerShortRow,expandedDate,exSelector).done(function(){
                                                                   
                                                                   $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
@@ -107,6 +152,7 @@ function popDate(e,elem){
                                                                               expand(k,elem);
                                                                   
                                                                     });
+             */
         }else{
              expand(k,elem);
         }
@@ -120,6 +166,7 @@ function popDate(e,elem){
     exListHeight = dateHash[k].eventList.length;
     expandedDate = k;
     exSelector = elem;
+                console.log("pos3: "+$("#date-elem-"+k+"-list").offset().top);
 }
 
 var uiEventCount = 0;
@@ -164,7 +211,7 @@ function popCal(){
             }
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"contracted"));
             
         }
     }
