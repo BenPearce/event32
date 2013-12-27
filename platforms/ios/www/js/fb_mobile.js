@@ -8,45 +8,24 @@ var below;
 var expanded;
 var exSelector;
 var formerShortRow;
-var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 
 function contract(shortRow,expandedDate,elem){
-    //var dfd = $.Deferred();
-     console.log("contract");
-     $(elem).removeClass("expanded");
-     //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
+    console.log("contract");
+    $(elem).removeClass("expanded");
+    //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
-        
-        //setInterval(function(){
-                    $("#event-wrap-in-"+expandedDate).html("");
-                    //dfd.resolve("tx1");
-            //        },3000);
-        
+        $("#event-wrap-in-"+expandedDate).html();
     }else{
-
         $("#event-wrap-in-"+expandedDate).css("height","222px");
-        
-        
-        //   setInterval(function(){
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-             //dfd.resolve("tx1");
- //},2000);
-        
-       // $(document).scrollTop($(document).scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - $("#date-elem-"+k+"-list").offset().top);
-
-         //$("#event-wrap-in-"+expandedDate).one('crossBrowserEvent',function(e) {
-                   //dfd.resolve("tx1");
-                                             //  });
+        //$("#event-wrap-in-"+expandedDate).html("hello");
     }
-            //return dfd.promise();
 }
 
 function expand(k,elem){
-    //var dfd = $.Deferred();
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
-        console.log("for");
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
@@ -55,13 +34,10 @@ function expand(k,elem){
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
-    //alert("end exp");
-    //dfd.resolve("tx1");
-    //return dfd.promise();
 }
 
 function popDate(e,elem){
-        k = $(elem).attr('data-dateId');
+    k = $(elem).attr('data-dateId');
     //var $this = $("date-elem-"+k+"-list");
     //var $this = $(this),
     //alert($("#date-elem-"+k+"-list").html());
@@ -70,115 +46,49 @@ function popDate(e,elem){
     
     console.log("popDate");
     console.log("elem html: "+$(elem).html());
-
     
-     firstExpand = (expandedDate == null);
-     shortRow = (dateHash[k].eventList.length <=3);
-     selected = (expandedDate == k);
-     below = (k<expandedDate);
-     expanded = $(elem).is(".expanded");
-     //expanded = $("#event-wrap-in-"+k).is(".expanded");
+    
+    firstExpand = (expandedDate == null);
+    shortRow = (dateHash[k].eventList.length <=3);
+    selected = (expandedDate == k);
+    below = (k<expandedDate);
+    expanded = $(elem).is(".expanded");
+    //expanded = $("#event-wrap-in-"+k).is(".expanded");
     //console.log("expanded1: "+$("#event-wrap-in-"+k).is(".expanded"));
     console.log("expanded1: "+$(elem).is(".expanded"));
-    /*
+    
     if(expandedDate != null){
-        contract(shortRow,k,exSelector).done(function(){
-                                         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                                             });
+        contract(shortRow,k,exSelector);
     }
-    */
+    
     if(shortRow & expanded){
         console.log("shortRow & expanded");
         contract (shortRow,k,elem);
-                                                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-        /*
-        contract (shortRow,k,elem).done(function(){
-
-                                        });
-    */
         
     } else if (shortRow & !expanded){
         console.log("shortRow & !expanded");
-      
-
+        expand(k,elem);
+        
         if((expandedDate != k) & !firstExpand){
-        console.log("(expandedDate != k) & !firstExpand");
-            
-            contract (formerShortRow,expandedDate,exSelector);
-            expand(k,elem);
-            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-
-            /*
-            var fin1 = $.when.apply(expand(k,elem), contract (formerShortRow,expandedDate,exSelector));
-            
-            fin1.then(function(){
-                      //if(k > expandedDate){
-                      $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                      //}
-                      });
-             */
-            /*
-              expand(k,elem);
-            contract(formerShortRow,expandedDate,exSelector).done(function(){
-                                           $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                                                                  });
-             */
-        }else{
-             expand(k,elem);
+            console.log("(expandedDate != k) & !firstExpand");
+            contract(formerShortRow,expandedDate,exSelector);
         }
-
+        
     }else if(!shortRow & expanded){
         console.log("!shortRow & expanded");
         contract(shortRow,k,elem);
-         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-        /*
-        contract(shortRow,k,elem).done(function(){
-                                           $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                                       });
-         */
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
-        if((expandedDate != k) & !firstExpand){
-        //expand(k,elem);
-            /*
-            expand(k,elem).done(function(){
-                                contract (formerShortRow,expandedDate,exSelector);
-                                });
-            */
-            contract (formerShortRow,expandedDate,exSelector);
-            expand(k,elem);
-                                                                           /*
-            contract (formerShortRow,expandedDate,exSelector).done(function(){
-                                                                    $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-                                                                
-                                                                   expand(k,elem);
-                                                                   });
-                                                                            */
-          /*
-            var fin1 = $.when.apply(expand(k,elem), contract (formerShortRow,expandedDate,exSelector));
-            
-            fin1.then(function(){
-                      if(k < expandedDate){
-                                        $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                      }
-                      });
-           */
+        expand(k,elem);
         
-            //console.log("contract fire");
+        if((expandedDate != k) & !firstExpand){
+            console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
-                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-            /*
-            contract (formerShortRow,expandedDate,exSelector).done(function(){
-                                                           $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                                                                   });
-         */
-        }else{
-            console.log("elseee");
-            expand(k,elem);
+            contract (formerShortRow,expandedDate,exSelector);
         }
     }
     
-     $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+    $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
@@ -191,48 +101,48 @@ var uiEventCount = 0;
 function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
-                        $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
+            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in'></div></div></li>");
             /*
-            uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
-            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
-        }else{
-            continue;
+             uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
+             $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+             }else{
+             continue;
              */
-       
-        
-        if(typeof dateHash[i].eventList[0] != "undefined"){
-            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
-        }else{
-            var moreText = (dateHash[i].eventList.length - 4);
-            $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
-            continue;
-        }
-        
-        if(typeof dateHash[i].eventList[1] != "undefined"){
-            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
-        }else{
-            var moreText = (dateHash[i].eventList.length - 4);
-             $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
-            continue;
-        }
-        
-        if(typeof dateHash[i].eventList[2] != "undefined"){
-            $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
-        }else{
-            var moreText = (dateHash[i].eventList.length - 4);
-            $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
-            continue;
-        }
-        var moreText = (dateHash[i].eventList.length - 4);
-        $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-        $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
+            
+            if(typeof dateHash[i].eventList[0] != "undefined"){
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+            }else{
+                var moreText = (dateHash[i].eventList.length - 4);
+                $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+                continue;
+            }
+            
+            if(typeof dateHash[i].eventList[1] != "undefined"){
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
+            }else{
+                var moreText = (dateHash[i].eventList.length - 4);
+                $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+                continue;
+            }
+            
+            if(typeof dateHash[i].eventList[2] != "undefined"){
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+            }else{
+                var moreText = (dateHash[i].eventList.length - 4);
+                $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+                continue;
+            }
+            var moreText = (dateHash[i].eventList.length - 4);
+            $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
+            
+        }
     }
-         }
-                    setFriendTap();
+    setFriendTap();
 }
 
 document.addEventListener('deviceready', function () {
@@ -258,7 +168,7 @@ function init() {
                       createTable1().done(function(){
                                           //console.log("create table");
                                           updateFriends().done(function () {
-                                                            //console.log("update friends");
+                                                               //console.log("update friends");
                                                                updateEvents().done(function () {
                                                                                    //console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
@@ -266,15 +176,15 @@ function init() {
                                                                                                                        //console.log("pop UI done");
                                                                                                                        popCal();
                                                                                                                        //console.log("pop ui done");
-                                                                                                          /*
-                                                                                                                       when.done(function(){
-                                                                                                                                 console.log("pipe done");
-                                                                                                                  });
-                                                                                                                       */
+                                                                                                                       /*
+                                                                                                                        when.done(function(){
+                                                                                                                        console.log("pipe done");
                                                                                                                         });
+                                                                                                                        */
+                                                                                                                       });
                                                                                                           });
                                                                                    });
-                                                              });
+                                                               });
                                           });
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
