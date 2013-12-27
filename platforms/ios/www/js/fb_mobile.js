@@ -11,7 +11,7 @@ var formerShortRow;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 
 function contract(shortRow,expandedDate,elem){
-    var dfd = $.Deferred();
+    //var dfd = $.Deferred();
      console.log("contract");
      $(elem).removeClass("expanded");
      //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
@@ -20,29 +20,30 @@ function contract(shortRow,expandedDate,elem){
         
         //setInterval(function(){
                     $("#event-wrap-in-"+expandedDate).html("");
-                    dfd.resolve("tx1");
+                    //dfd.resolve("tx1");
             //        },3000);
         
     }else{
 
         $("#event-wrap-in-"+expandedDate).css("height","222px");
-                /*
-           setInterval(function(){
+        
+        
+        //   setInterval(function(){
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-             dfd.resolve("tx1");
- },2000);
-        */
+             //dfd.resolve("tx1");
+ //},2000);
+        
        // $(document).scrollTop($(document).scrollTop() + $("#date-elem-"+expandedDate+"-list").offset().top - $("#date-elem-"+k+"-list").offset().top);
 
          //$("#event-wrap-in-"+expandedDate).one('crossBrowserEvent',function(e) {
-                   dfd.resolve("tx1");
+                   //dfd.resolve("tx1");
                                              //  });
     }
-            return dfd.promise();
+            //return dfd.promise();
 }
 
 function expand(k,elem){
-    var dfd = $.Deferred();
+    //var dfd = $.Deferred();
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         console.log("for");
@@ -55,8 +56,8 @@ function expand(k,elem){
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
     //alert("end exp");
-    dfd.resolve("tx1");
-    return dfd.promise();
+    //dfd.resolve("tx1");
+    //return dfd.promise();
 }
 
 function popDate(e,elem){
@@ -88,12 +89,13 @@ function popDate(e,elem){
     */
     if(shortRow & expanded){
         console.log("shortRow & expanded");
+        contract (shortRow,k,elem);
+                                                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        /*
         contract (shortRow,k,elem).done(function(){
-                                        
-                                           $("#event-wrap-in-"+k).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-                                        
-                                         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+
                                         });
+    */
         
     } else if (shortRow & !expanded){
         console.log("shortRow & !expanded");
@@ -102,15 +104,19 @@ function popDate(e,elem){
         if((expandedDate != k) & !firstExpand){
         console.log("(expandedDate != k) & !firstExpand");
             
-            
-            
+            contract (formerShortRow,expandedDate,exSelector);
+            expand(k,elem);
+            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+
+            /*
             var fin1 = $.when.apply(expand(k,elem), contract (formerShortRow,expandedDate,exSelector));
             
             fin1.then(function(){
-                      if(k < expandedDate){
+                      //if(k > expandedDate){
                       $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-                      }
+                      //}
                       });
+             */
             /*
               expand(k,elem);
             contract(formerShortRow,expandedDate,exSelector).done(function(){
@@ -123,14 +129,13 @@ function popDate(e,elem){
 
     }else if(!shortRow & expanded){
         console.log("!shortRow & expanded");
+        contract(shortRow,k,elem);
+         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        /*
         contract(shortRow,k,elem).done(function(){
-                                       
-                                       
-                                        $("#event-wrap-in-"+k).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
-                                       
-                                       
-                                           //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+                                           $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
                                        });
+         */
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
         if((expandedDate != k) & !firstExpand){
@@ -140,12 +145,15 @@ function popDate(e,elem){
                                 contract (formerShortRow,expandedDate,exSelector);
                                 });
             */
+            contract (formerShortRow,expandedDate,exSelector);
+            expand(k,elem);
+                                                                           /*
             contract (formerShortRow,expandedDate,exSelector).done(function(){
-                                                                   
                                                                     $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
                                                                 
                                                                    expand(k,elem);
                                                                    });
+                                                                            */
           /*
             var fin1 = $.when.apply(expand(k,elem), contract (formerShortRow,expandedDate,exSelector));
             
@@ -155,9 +163,11 @@ function popDate(e,elem){
                       }
                       });
            */
-        /*
-            console.log("contract fire");
+        
+            //console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
+                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            /*
             contract (formerShortRow,expandedDate,exSelector).done(function(){
                                                            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
                                                                    });
@@ -167,6 +177,8 @@ function popDate(e,elem){
             expand(k,elem);
         }
     }
+    
+     $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
