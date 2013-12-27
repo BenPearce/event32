@@ -10,7 +10,7 @@ var exSelector;
 var formerShortRow;
 var pos;
 var $doc;
-var expandedDate1;
+var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 
@@ -63,7 +63,7 @@ function popDate(e,elem){
     //var $this = $(this);
     pos = $("#date-elem-"+k+"-list").offset().top;
     $doc = $(document);
-    firstExpand = (expandedDate1 == null);
+    firstExpand = (lastIndex == null);
     shortRow = (dateHash[k].eventList.length <=3);
     selected = (expandedDate == k);
     below = (k<expandedDate);
@@ -86,9 +86,9 @@ function popDate(e,elem){
         contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
-        if((expandedDate1 != k) & !firstExpand){
+        if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,expandedDate1,exSelector);
+            contract(formerShortRow,lastIndex,exSelector);
             expand(k,elem);
         }else{
              expand(k,elem);
@@ -97,7 +97,7 @@ function popDate(e,elem){
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
-    expandedDate1 = k;
+    lastIndex = k;
     exSelector = elem;
 }
 
