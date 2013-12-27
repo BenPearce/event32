@@ -15,25 +15,25 @@ var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animati
 var k;
 
 
-function contract(shortRow,exIndex,elem,transition){
+function contract(shortRow,exIndex,elem){
     console.log("contract");
     $(elem).removeClass("expanded");
     if(shortRow){
         console.log("short row triggered");
         $("#event-wrap-in-"+exIndex).css("height","0px");
         $("#event-wrap-in-"+exIndex).html();
-                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }else{
-
+        
         $("#event-wrap-in-"+exIndex).css("height","222px");
         
         $("#event-wrap-in-"+exIndex).one('crossBrowserEvent',function(e) {
-                                              alert("cross");
-                              });
+                                         alert("cross");
+                                         });
         
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         
-                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }
 }
 
@@ -52,8 +52,8 @@ function expand(cntIndex,elem){
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     
     $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
-                                       alert("cross 2");
-                                          });
+                                      alert("cross 2");
+                                      });
     //dfd.resolve("tx1");
     //return dfd.promise();
 }
@@ -74,30 +74,30 @@ function popDate(e,elem){
         console.log("shortRow & expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector,false);
-            contract (shortRow,k,elem,true);
+            contract(formerShortRow,lastIndex,exSelector);
+            contract (shortRow,k,elem);
         }else{
-            contract (shortRow,k,elem,true);
+            contract (shortRow,k,elem);
         }
         
     } else if (shortRow & !expanded){
-       console.log("shortRow & !expanded");
+        console.log("shortRow & !expanded");
         if((expandedDate != k) & !firstExpand){
             expand(k,elem);
-            contract(formerShortRow,expandedDate,exSelector,false);
+            contract(formerShortRow,expandedDate,exSelector);
         }else{
-             expand(k,elem);
+            expand(k,elem);
         }
         
     }else if(!shortRow & expanded){
         console.log("!shortRow & expanded");
-
+        
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector,false);
-            contract(shortRow,k,elem,true);
+            contract(formerShortRow,lastIndex,exSelector);
+            contract(shortRow,k,elem);
         }else{
-            contract(shortRow,k,elem,true);
+            contract(shortRow,k,elem);
         }
         
         
@@ -105,10 +105,10 @@ function popDate(e,elem){
         console.log("!shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector,false);
+            contract(formerShortRow,lastIndex,exSelector);
             expand(k,elem);
         }else{
-             expand(k,elem);
+            expand(k,elem);
         }
     }
     
