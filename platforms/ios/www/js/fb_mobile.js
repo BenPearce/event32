@@ -24,9 +24,9 @@ function contract(shortRow,expandedDate,elem){
             //        },3000);
         
     }else{
-        /*
+
         $("#event-wrap-in-"+expandedDate).css("height","222px");
-        
+                /*
            setInterval(function(){
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
              dfd.resolve("tx1");
@@ -101,6 +101,9 @@ function popDate(e,elem){
 
         if((expandedDate != k) & !firstExpand){
         console.log("(expandedDate != k) & !firstExpand");
+            
+            
+            
             var fin1 = $.when.apply(expand(k,elem), contract (formerShortRow,expandedDate,exSelector));
             
             fin1.then(function(){
