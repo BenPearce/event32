@@ -74,8 +74,8 @@ function popDate(e,elem){
         console.log("shortRow & expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector);
             contract (shortRow,k,elem);
+                        contract(formerShortRow,lastIndex,exSelector);
         }else{
             contract (shortRow,k,elem);
         }
