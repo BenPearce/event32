@@ -19,8 +19,9 @@ function contract(shortRow,exIndex,elem){
     console.log("contract");
     $(elem).removeClass("expanded");
     if(shortRow){
-        $("#event-wrap-in-"+expandedDate).css("height","0px");
-        $("#event-wrap-in-"+expandedDate).html();
+        console.log("short row triggered");
+        $("#event-wrap-in-"+exIndex).css("height","0px");
+        $("#event-wrap-in-"+exIndex).html();
                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }else{
 
@@ -30,7 +31,7 @@ function contract(shortRow,exIndex,elem){
                                               alert("cross");
                               });
         
-        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         
                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }
