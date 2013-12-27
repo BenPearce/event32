@@ -69,12 +69,19 @@ function popDate(e,elem){
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
+    
     if(shortRow & expanded){
         console.log("shortRow & expanded");
-        contract (shortRow,k,elem);
+        if((lastIndex != k) & !firstExpand){
+            console.log("money spot");
+            contract(formerShortRow,lastIndex,exSelector);
+            contract (shortRow,k,elem);
+        }else{
+            contract (shortRow,k,elem);
+        }
         
     } else if (shortRow & !expanded){
-       
+       console.log("shortRow & !expanded");
         if((expandedDate != k) & !firstExpand){
             expand(k,elem);
             contract(formerShortRow,expandedDate,exSelector);
@@ -84,7 +91,16 @@ function popDate(e,elem){
         
     }else if(!shortRow & expanded){
         console.log("!shortRow & expanded");
-        contract(shortRow,k,elem);
+
+        if((lastIndex != k) & !firstExpand){
+            console.log("money spot");
+            contract(formerShortRow,lastIndex,exSelector);
+            contract(shortRow,k,elem);
+        }else{
+            contract(shortRow,k,elem);
+        }
+        
+        
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
@@ -142,6 +158,16 @@ function popCal(){
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
             }
+            
+            if(typeof dateHash[i].eventList[3] != "undefined"){
+                //$("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+            }else{
+                var moreText = (dateHash[i].eventList.length - 4);
+                $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
+                continue;
+            }
+            
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
