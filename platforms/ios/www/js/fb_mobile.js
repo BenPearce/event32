@@ -10,20 +10,26 @@ var exSelector;
 var formerShortRow;
 
 function contract(shortRow,expandedDate,elem){
+    var dfd = $.Deferred();
     console.log("contract");
     $(elem).removeClass("expanded");
     //$("#event-wrap-in-"+expandedDate).removeClass("expanded");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
         $("#event-wrap-in-"+expandedDate).html();
+                dfd.resolve("tx1");
     }else{
         $("#event-wrap-in-"+expandedDate).css("height","222px");
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
+        dfd.resolve("tx1");
         //$("#event-wrap-in-"+expandedDate).html("hello");
     }
+    return dfd.promise();
+    
 }
 
 function expand(k,elem){
+    var dfd = $.Deferred();
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
@@ -34,6 +40,8 @@ function expand(k,elem){
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
+    dfd.resolve("tx1");
+    return dfd.promise();
 }
 
 function popDate(e,elem){
@@ -66,12 +74,19 @@ function popDate(e,elem){
         contract (shortRow,k,elem);
         
     } else if (shortRow & !expanded){
-        console.log("shortRow & !expanded");
-        expand(k,elem);
-        
+       
         if((expandedDate != k) & !firstExpand){
             console.log("(expandedDate != k) & !firstExpand");
-            contract(formerShortRow,expandedDate,exSelector);
+            expand(k,elem).done(function(){
+                                //contract(formerShortRow,expandedDate,exSelector);
+                                
+                                contract(formerShortRow,expandedDate,exSelector).done(function(){
+                                                $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+                                                                                      });
+                                 
+                                });
+        }else{
+             expand(k,elem);
         }
         
     }else if(!shortRow & expanded){
@@ -84,15 +99,21 @@ function popDate(e,elem){
         if((expandedDate != k) & !firstExpand){
             console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
-            contract (formerShortRow,expandedDate,exSelector);
-             expand(k,elem);
+            contract(formerShortRow,expandedDate,exSelector).done(function(){
+                                                                  
+                                                                  $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+                                                                  });
+                                                                   expand(k,elem).done(function(){
+                                                                              expand(k,elem);
+                                                                  
+                                                                    });
         }else{
              expand(k,elem);
         }
     }
     
     //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-    $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+    //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     //$doc.scrollTop($doc.scrollTop() + $this.offset().top - pos);
     
     formerShortRow = shortRow;
