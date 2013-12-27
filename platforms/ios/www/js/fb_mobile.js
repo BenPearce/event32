@@ -37,9 +37,16 @@ function expand(k,elem){
 }
 
 function popDate(e,elem){
+        k = $(elem).attr('data-dateId');
+    //var $this = $("date-elem-"+k+"-list");
+    //var $this = $(this),
+    //alert($("#date-elem-"+k+"-list").html());
+    var pos = $("#date-elem-"+k+"-list").offset().top;
+    var $doc = $(document);
+    
     console.log("popDate");
     console.log("elem html: "+$(elem).html());
-    k = $(elem).attr('data-dateId');
+
     
      firstExpand = (expandedDate == null);
      shortRow = (dateHash[k].eventList.length <=3);
@@ -80,6 +87,8 @@ function popDate(e,elem){
             contract (formerShortRow,expandedDate,exSelector);
         }
     }
+    
+    $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;

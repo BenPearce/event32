@@ -298,6 +298,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .ami-ex{
+    /*
     -webkit-transform-style: preserve-3d;
     
 	-webkit-transform: translate3d(0px,0px,0px);
@@ -305,19 +306,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     -webkit-transition: height 1.5s;
 	-webkit-perspective: 1500;
 	-webkit-backface-visibility: hidden;
+     */
 }
 
 
 .event-wrap-in{
 	position:relative;
 	overflow-y:hidden;
-    
+    /*
     -webkit-transform-style: preserve-3d;
 	-webkit-transform: translate3d(0px,0px,0px);
     transition: height 1.5s;
     -webkit-transition: height 1.5s;
 	-webkit-perspective: 1500;
 	-webkit-backface-visibility: hidden;
+     */
 }
 
 .event-list-wrap-trans{
