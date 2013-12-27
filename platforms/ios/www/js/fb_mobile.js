@@ -12,10 +12,10 @@ var pos;
 var $doc;
 var expandedDate1;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+var k;
 
 
-
-function contract(shortRow,expandedDate,elem){
+function contract(shortRow,exIndex,elem){
     console.log("contract");
     $(elem).removeClass("expanded");
     if(shortRow){
@@ -24,34 +24,34 @@ function contract(shortRow,expandedDate,elem){
                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }else{
 
-        $("#event-wrap-in-"+expandedDate).css("height","222px");
+        $("#event-wrap-in-"+exIndex).css("height","222px");
         
-        $("#event-wrap-in-"+expandedDate).one('crossBrowserEvent',function(e) {
-                              
+        $("#event-wrap-in-"+exIndex).one('crossBrowserEvent',function(e) {
+                                              alert("cross");
                               });
         
-        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
+        $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         
                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }
 }
 
-function expand(k,elem){
+function expand(cntIndex,elem){
     //var dfd = $.Deferred();
     //$("#event-wrap-in-"+k).removeClass("animateHeight");
     console.log("expand");
     var exHtml = "";
-    for(i=0;i<=dateHash[k].eventList.length - 1;i++){
+    for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
     $(elem).addClass("expanded");
-    var exHeight = ((74*(dateHash[k].eventList.length)));
-    $("#event-wrap-in-"+k).html(exHtml);
-    $("#event-wrap-in-"+k).css("height",exHeight);
+    var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
+    $("#event-wrap-in-"+cntIndex).html(exHtml);
+    $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     
-    $("#event-wrap-in-"+k).one('crossBrowserEvent',function(e) {
-                               console.log("animaion done");
+    $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
+                                       alert("cross 2");
                                           });
     //dfd.resolve("tx1");
     //return dfd.promise();
