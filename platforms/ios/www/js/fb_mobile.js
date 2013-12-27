@@ -20,20 +20,27 @@ function contract(shortRow,exIndex,elem,transition){
     $(elem).removeClass("expanded");
     if(shortRow){
         console.log("short row triggered");
+        
+        if(transition){
         $("#event-wrap-in-"+exIndex).css("height","0px");
         $("#event-wrap-in-"+exIndex).html();
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        }else{
+            $("#event-wrap-in-"+exIndex).css("height","0px");
+            $("#event-wrap-in-"+exIndex).html();
+            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        }
+        
+        
+        
     }else{
-        
+         if(transition){
         $("#event-wrap-in-"+exIndex).css("height","222px");
-        /*
-        $("#event-wrap-in-"+exIndex).one('crossBrowserEvent',function(e) {
-                                         alert("cross");
-                                         });
-        */
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
-        
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+         }else{
+             
+         }
     }
 }
 
