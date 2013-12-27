@@ -11,12 +11,13 @@ var formerShortRow;
 var pos;
 var $doc;
 var expandedDate1;
+var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+
 
 
 function contract(shortRow,expandedDate,elem){
     console.log("contract");
     $(elem).removeClass("expanded");
-     $("#event-wrap-in-"+expandedDate1).removeClass("contracted");
     if(shortRow){
         $("#event-wrap-in-"+expandedDate).css("height","0px");
         $("#event-wrap-in-"+expandedDate).html();
@@ -24,15 +25,21 @@ function contract(shortRow,expandedDate,elem){
     }else{
 
         $("#event-wrap-in-"+expandedDate).css("height","222px");
+        
+        $("#event-wrap-in-"+expandedDate).one('crossBrowserEvent',function(e) {
+                              
+                              });
+        
         $("#event-wrap-in-"+expandedDate).html(getEventRow(eventList[dateHash[expandedDate].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[expandedDate].eventList[2]].fbId,""));
+        
                 $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     }
-    
-    $("#event-wrap-in-"+expandedDate).addClass("contracted");
 }
 
 function expand(k,elem){
-    var dfd = $.Deferred();
+    //var dfd = $.Deferred();
+    //$("#event-wrap-in-"+k).removeClass("animateHeight");
+    console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[k].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
@@ -42,8 +49,12 @@ function expand(k,elem){
     var exHeight = ((74*(dateHash[k].eventList.length)));
     $("#event-wrap-in-"+k).html(exHtml);
     $("#event-wrap-in-"+k).css("height",exHeight);
-    dfd.resolve("tx1");
-    return dfd.promise();
+    
+    $("#event-wrap-in-"+k).one('crossBrowserEvent',function(e) {
+                               console.log("animaion done");
+                                          });
+    //dfd.resolve("tx1");
+    //return dfd.promise();
 }
 
 function popDate(e,elem){
@@ -52,7 +63,7 @@ function popDate(e,elem){
     //var $this = $(this);
     pos = $("#date-elem-"+k+"-list").offset().top;
     $doc = $(document);
-    firstExpand = (expandedDate == null);
+    firstExpand = (expandedDate1 == null);
     shortRow = (dateHash[k].eventList.length <=3);
     selected = (expandedDate == k);
     below = (k<expandedDate);
@@ -64,10 +75,8 @@ function popDate(e,elem){
     } else if (shortRow & !expanded){
        
         if((expandedDate != k) & !firstExpand){
-            expand(k,elem).done(function(){
-                                contract(formerShortRow,expandedDate,exSelector);
-                                });
-                        
+            expand(k,elem);
+            contract(formerShortRow,expandedDate,exSelector);
         }else{
              expand(k,elem);
         }
@@ -77,10 +86,9 @@ function popDate(e,elem){
         contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
-       
-        
-        if((expandedDate != k) & !firstExpand){
-            contract(formerShortRow,expandedDate,exSelector);
+        if((expandedDate1 != k) & !firstExpand){
+            console.log("money spot");
+            contract(formerShortRow,expandedDate1,exSelector);
             expand(k,elem);
         }else{
              expand(k,elem);
@@ -98,7 +106,7 @@ var uiEventCount = 0;
 function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
-            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in contracted'></div></div></li>");
+            $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
             /*
              uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
              $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
