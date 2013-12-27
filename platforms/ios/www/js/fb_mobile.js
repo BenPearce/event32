@@ -15,7 +15,7 @@ var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animati
 var k;
 
 
-function contract(shortRow,exIndex,elem){
+function contract(shortRow,exIndex,elem,transition){
     console.log("contract");
     $(elem).removeClass("expanded");
     if(shortRow){
@@ -74,17 +74,17 @@ function popDate(e,elem){
         console.log("shortRow & expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector);
-            contract (shortRow,k,elem);
+            contract(formerShortRow,lastIndex,exSelector,false);
+            contract (shortRow,k,elem,true);
         }else{
-            contract (shortRow,k,elem);
+            contract (shortRow,k,elem,true);
         }
         
     } else if (shortRow & !expanded){
        console.log("shortRow & !expanded");
         if((expandedDate != k) & !firstExpand){
             expand(k,elem);
-            contract(formerShortRow,expandedDate,exSelector);
+            contract(formerShortRow,expandedDate,exSelector,false);
         }else{
              expand(k,elem);
         }
@@ -94,10 +94,10 @@ function popDate(e,elem){
 
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector);
-            contract(shortRow,k,elem);
+            contract(formerShortRow,lastIndex,exSelector,false);
+            contract(shortRow,k,elem,true);
         }else{
-            contract(shortRow,k,elem);
+            contract(shortRow,k,elem,true);
         }
         
         
@@ -105,7 +105,7 @@ function popDate(e,elem){
         console.log("!shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
-            contract(formerShortRow,lastIndex,exSelector);
+            contract(formerShortRow,lastIndex,exSelector,false);
             expand(k,elem);
         }else{
              expand(k,elem);
