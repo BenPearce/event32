@@ -89,7 +89,7 @@ function popDate(e,elem){
         
     } else if (shortRow & !expanded){
         console.log("shortRow & !expanded");
-        if((expandedDate != k) & !firstExpand){
+        if((lastIndex != k) & !firstExpand){
             expand(k,elem);
             contract(formerShortRow,expandedDate,exSelector,false);
         }else{
