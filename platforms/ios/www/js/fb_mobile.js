@@ -39,7 +39,7 @@ function expand(k,elem){
 function popDate(e,elem){
     k = $(elem).attr('data-dateId');
     //var $this = $("date-elem-"+k+"-list");
-    //var $this = $(this),
+    var $this = $(this);
     //alert($("#date-elem-"+k+"-list").html());
     var pos = $("#date-elem-"+k+"-list").offset().top;
     var $doc = $(document);
@@ -56,11 +56,11 @@ function popDate(e,elem){
     //expanded = $("#event-wrap-in-"+k).is(".expanded");
     //console.log("expanded1: "+$("#event-wrap-in-"+k).is(".expanded"));
     console.log("expanded1: "+$(elem).is(".expanded"));
-    
+    /*
     if(expandedDate != null){
         contract(shortRow,k,exSelector);
     }
-    
+    */
     if(shortRow & expanded){
         console.log("shortRow & expanded");
         contract (shortRow,k,elem);
@@ -79,16 +79,21 @@ function popDate(e,elem){
         contract(shortRow,k,elem);
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
-        expand(k,elem);
+       
         
         if((expandedDate != k) & !firstExpand){
             console.log("contract fire");
             //contract (shortRow,expandedDate,elem);
             contract (formerShortRow,expandedDate,exSelector);
+             expand(k,elem);
+        }else{
+             expand(k,elem);
         }
     }
     
+    //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
     $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+    //$doc.scrollTop($doc.scrollTop() + $this.offset().top - pos);
     
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
