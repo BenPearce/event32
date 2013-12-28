@@ -24,7 +24,7 @@ function contract(shortRow,exIndex,elem,transition){
             console.log("short row transition block");
         $("#event-wrap-in-"+exIndex).css("height","0px");
         $("#event-wrap-in-"+exIndex).html();
-        $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
             console.log("short row non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
@@ -40,7 +40,7 @@ function contract(shortRow,exIndex,elem,transition){
              console.log("long row transition block");
         $("#event-wrap-in-"+exIndex).css("height","222px");
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
-        $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
          }else{
              console.log("long row non-transition block");
              $("#event-wrap-in-"+exIndex).addClass("notransition");
