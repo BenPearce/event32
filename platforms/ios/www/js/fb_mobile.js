@@ -38,7 +38,10 @@ function contract(shortRow,exIndex,elem,transition){
         if(transition){
             console.log("long row transition block");
             $("#event-wrap-in-"+exIndex).css("height","222px");
+            if(exIndex != lastIndex){
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+            }
+            
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
             console.log("long row non-transition block");
