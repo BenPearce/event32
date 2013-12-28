@@ -65,10 +65,11 @@ function expand(cntIndex,elem){
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
-    
+    /*
     $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
                                       alert("cross 2");
                                       });
+     */
     //dfd.resolve("tx1");
     //return dfd.promise();
 }
