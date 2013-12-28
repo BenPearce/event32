@@ -37,15 +37,30 @@ function contract(shortRow,exIndex,elem,transition){
          if(transition){
              console.log("long row transition block");
         $("#event-wrap-in-"+exIndex).css("height","222px");
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
-        //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+             $("#event-list-ex-"+exIndex).html("");
+             /*
+             $("#event-wrap-in-"+exIndex).one(function(){
+             $("#event-list-ex-"+cntIndex).html("");
+                                              });
+              */
+       // $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+        
+             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
          }else{
              console.log("long row non-transition block");
              $("#event-wrap-in-"+exIndex).addClass("notransition");
              $("#event-wrap-in-"+exIndex).css("height","222px");
+             /*
              $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
              $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-             $("#event-wrap-in-"+exIndex).height();
+              */
+             $("#event-list-ex-"+exIndex).html("");
+                          $("#event-wrap-in-"+exIndex).height();
+             /*
+             $("#event-wrap-in-"+exIndex).one(function(){
+                                              $("#event-list-ex-"+cntIndex).html("");
+                                              });
+              */
              $("#event-wrap-in-"+exIndex).removeClass("notransition");
          }
     }
