@@ -195,6 +195,7 @@ function popCal(){
             
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            $("#event-wrap-in-"+i).css("height","218px");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
         }
