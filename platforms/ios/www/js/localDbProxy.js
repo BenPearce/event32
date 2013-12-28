@@ -200,7 +200,7 @@ function getEventAttrFb(friendIdList1) {
     var dfd = $.Deferred();
     FB.api({
            method: 'fql.query',
-           query: "SELECT name,eid,start_time FROM event WHERE eid IN (" + friendIdList1 + ")",
+           query: "SELECT name,eid,start_time,description,venue FROM event WHERE eid IN (" + friendIdList1 + ")",
            access_token: accessToken
            },
            function (eventAttrParse) {
@@ -268,7 +268,7 @@ function insertEventArrtDb(eventAttrParse) {
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
                     count = count +1;
-                    //console.log("event name insert: "+eventAttrParse[i].name);
+                    console.log("venue insert: "+JSON.stringify(eventAttrParse[i].venue));
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -436,13 +436,13 @@ function constructCalObject1(fbId,tx,friend){
         tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                       
                       
-                      //console.log("Sel event success");
+                      console.log("description: "+results.rows.item(0).description);
                   //console.log("Friends events length: "+results.rows.length);
                   
                   //for(l=0;l<results.rows.length; l++){
-                      console.log("queried dateHash: "+results.rows.item(0).dateHash);
+                      //console.log("queried dateHash: "+results.rows.item(0).dateHash);
                   if(parseInt(results.rows.item(0).dateHash)<33){
-                      console.log("filtered dateHash: "+results.rows.item(0).dateHash);
+                      //console.log("filtered dateHash: "+results.rows.item(0).dateHash);
 masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
 
