@@ -21,8 +21,9 @@ function venue() {
 }
 
 function makeVenue(data) {
-
+    console.log("make venue triggered");
     var result = new venue();
+    /*
     var proximity = makeListElement(data);
     result.test = "test";
     $.extend(result, proximity);
@@ -58,6 +59,14 @@ function makeVenue(data) {
     } else {
         result.exists = false;
     }
+     */
+    
+    result.venue_latitude = data.venue_latitude;
+    result.venue_longitude = data.venue_longitude;
+    result.name = data.venue_name;
+    console.log("mk venue lat: "+result.venue_latitude);
+    console.log("mk venue long: "+result.venue_longitude);
+    console.log("mk venue name: "+result.name);
     result.data;
     result.test = "test";
     result.eventDomClone = $("<div class='venueEvent' data-role='collapsible' data-collapsed='true'><h3></h3><p></p></div>");

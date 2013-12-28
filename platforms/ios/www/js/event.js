@@ -35,7 +35,7 @@ function makeEvent(data) {
     var result = new event();
     var proximity = makeListElement(data);
     $.extend(result, proximity);
-    result.venue = makeVenue(data.venue);
+    result.venue = makeVenue(data);
     result.data = data;
     result.type = "event";
     result.localDisplay ="";

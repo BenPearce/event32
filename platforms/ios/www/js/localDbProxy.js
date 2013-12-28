@@ -466,9 +466,9 @@ function constructCalObject1(fbId,tx,friend){
                       
                       
                       //console.log("description: "+results.rows.item(0).description);
-                      console.log("venue_name: "+results.rows.item(0).venue_name);
-                      console.log("venue_lat: "+results.rows.item(0).venue_latitude);
-                      console.log("venue_long: "+results.rows.item(0).venue_longitude);
+                      //console.log("venue_name: "+results.rows.item(0).venue_name);
+                      //console.log("venue_lat: "+results.rows.item(0).venue_latitude);
+                      //console.log("venue_long: "+results.rows.item(0).venue_longitude);
 
                   //console.log("Friends events length: "+results.rows.length);
                   
