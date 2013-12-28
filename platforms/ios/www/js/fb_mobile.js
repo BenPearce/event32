@@ -13,6 +13,7 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 
+
 function contract(shortRow,exIndex,elem,transition){
     console.log("contract");
     $(elem).removeClass("expanded");
@@ -20,66 +21,34 @@ function contract(shortRow,exIndex,elem,transition){
         console.log("short row triggered");
         if(transition){
             console.log("short row transition block");
-        $("#event-wrap-in-"+exIndex).css("height","0px");
-        $("#event-wrap-in-"+exIndex).html("");
-        //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            $("#event-wrap-in-"+exIndex).css("height","0px");
+            $("#event-wrap-in-"+exIndex).html("");
+            //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
             console.log("short row non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","0px");
-            //$("#event-wrap-in-"+exIndex).html("");
+            $("#event-wrap-in-"+exIndex).html("");
             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
-   
-    }else{
-         if(transition){
-             console.log("long row transition block");
-        $("#event-wrap-in-"+exIndex).css("height","222px");
-                $("#event-list-ex-"+exIndex).html("");
-             
-             /*
-             if(exIndex != lastIndex){
-              
-             }
-              */
-             
-             /*
-             $("#event-wrap-in-"+exIndex).one('crossBrowserEvent',function(e) {
-                                                      $("#event-list-ex-"+exIndex).html("");
-                                              });
-*/
-             /*
-             $("#event-wrap-in-"+exIndex).one(function(){
-             $("#event-list-ex-"+cntIndex).html("");
-                                              });
-              */
-       // $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         
-             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-         }else{
-             console.log("long row non-transition block");
-             $("#event-wrap-in-"+exIndex).addClass("notransition");
-             $("#event-wrap-in-"+exIndex).css("height","222px");
-             /*
-             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
-             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-              */
-             $("#event-list-ex-"+exIndex).html("");
-             /*
-             $("#event-wrap-in-"+exIndex).one('crossBrowserEvent',function(e) {
-                                                       $("#event-list-ex-"+exIndex).html("");
-                                              });
-*/
-                          $("#event-wrap-in-"+exIndex).height();
-             /*
-             $("#event-wrap-in-"+exIndex).one(function(){
-                                              $("#event-list-ex-"+cntIndex).html("");
-                                              });
-              */
-             $("#event-wrap-in-"+exIndex).removeClass("notransition");
-         }
+    }else{
+        if(transition){
+            console.log("long row transition block");
+            $("#event-wrap-in-"+exIndex).css("height","222px");
+            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+            //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+        }else{
+            console.log("long row non-transition block");
+            $("#event-wrap-in-"+exIndex).addClass("notransition");
+            $("#event-wrap-in-"+exIndex).css("height","222px");
+            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            $("#event-wrap-in-"+exIndex).height();
+            $("#event-wrap-in-"+exIndex).removeClass("notransition");
+        }
     }
 }
 
@@ -88,19 +57,18 @@ function expand(cntIndex,elem){
     //$("#event-wrap-in-"+k).removeClass("animateHeight");
     console.log("expand");
     var exHtml = "";
-    for(i=3;i<=dateHash[cntIndex].eventList.length - 1;i++){
+    for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
-    $("#event-list-ex-"+cntIndex).html(exHtml);
-    //$("#event-wrap-in-"+cntIndex).html(exHtml);
+    $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     /*
-    $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
-                                      alert("cross 2");
-                                      });
+     $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
+     alert("cross 2");
+     });
      */
     //dfd.resolve("tx1");
     //return dfd.promise();
@@ -124,9 +92,9 @@ function popDate(e,elem){
             console.log("money spot");
             
             if(formerShortRow){
-            contract(formerShortRow,lastIndex,exSelector,true);
+                contract(formerShortRow,lastIndex,exSelector,true);
             }else{
-             contract(formerShortRow,lastIndex,exSelector,false);
+                contract(formerShortRow,lastIndex,exSelector,false);
             }
             console.log(" before primary short row contract");
             contract (shortRow,k,elem,true);
@@ -153,7 +121,7 @@ function popDate(e,elem){
         }else{
             contract(shortRow,k,elem,true);
         }
- 
+        
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
@@ -177,7 +145,6 @@ function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
             $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
-            //"<div class='event-list-ex' id='event-list-ex-'+i></div>"
             /*
              uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
              $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
@@ -191,7 +158,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
+                
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
             }
@@ -201,7 +168,6 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                 $("#event-wrap-in-"+i).css("height","74px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
@@ -212,8 +178,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
-                 $("#event-wrap-in-"+i).css("height","128px");
+                $("#event-wrap-in-"+i).css("height","128px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
             }
@@ -223,7 +188,6 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                 $("#event-wrap-in-"+i).css("height","144px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
@@ -231,8 +195,6 @@ function popCal(){
             
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
-            $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
-            $("#event-wrap-in-"+i).css("height","218px");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
         }
@@ -272,8 +234,8 @@ function init() {
                                                                                                                        popCal();
                                                                                                                        //console.log("pop ui done");
                                                                                                                        /*
-                                                         when.done(function(){
-                                                         console.log("pipe done");
+                                                                                                                        when.done(function(){
+                                                                                                                        console.log("pipe done");
                                                                                                                         });
                                                                                                                         */
                                                                                                                        });
