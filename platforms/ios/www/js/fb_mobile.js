@@ -22,7 +22,7 @@ function contract(shortRow,exIndex,elem,transition){
         if(transition){
             console.log("short row transition block");
             $("#event-wrap-in-"+exIndex).css("height","0px");
-            $("#event-wrap-in-"+exIndex).html("");
+            //$("#event-wrap-in-"+exIndex).html("");
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
             console.log("short row non-transition block");
