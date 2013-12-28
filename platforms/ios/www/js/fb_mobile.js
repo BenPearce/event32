@@ -1,6 +1,5 @@
 var dateHashMap = new Array();
 var exListHeight;
-
 var firstExpand;
 var shortRow;
 var selected;
@@ -23,13 +22,13 @@ function contract(shortRow,exIndex,elem,transition){
         if(transition){
             console.log("short row transition block");
         $("#event-wrap-in-"+exIndex).css("height","0px");
-        $("#event-wrap-in-"+exIndex).html();
+        $("#event-wrap-in-"+exIndex).html("");
         //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
             console.log("short row non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","0px");
-            $("#event-wrap-in-"+exIndex).html();
+            $("#event-wrap-in-"+exIndex).html("");
             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
@@ -96,7 +95,7 @@ function popDate(e,elem){
             }else{
              contract(formerShortRow,lastIndex,exSelector,false);
             }
-
+            console.log(" before primary short row contract");
             contract (shortRow,k,elem,true);
         }else{
             contract (shortRow,k,elem,true);
