@@ -21,23 +21,28 @@ function contract(shortRow,exIndex,elem,transition){
     if(shortRow){
         console.log("short row triggered");
         if(transition){
+            console.log("short row transition block");
         $("#event-wrap-in-"+exIndex).css("height","0px");
         $("#event-wrap-in-"+exIndex).html();
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
+            console.log("short row non-transition block");
+            $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","0px");
             $("#event-wrap-in-"+exIndex).html();
             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            $("#event-wrap-in-"+exIndex).height();
+            $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
-        
-        
-        
+   
     }else{
          if(transition){
+             console.log("long row transition block");
         $("#event-wrap-in-"+exIndex).css("height","222px");
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
          }else{
+             console.log("long row non-transition block");
              $("#event-wrap-in-"+exIndex).addClass("notransition");
              $("#event-wrap-in-"+exIndex).css("height","222px");
              $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
@@ -85,10 +90,16 @@ function popDate(e,elem){
         console.log("shortRow & expanded");
         if((lastIndex != k) & !firstExpand){
             console.log("money spot");
+            
+            if(formerShortRow){
+            contract(formerShortRow,lastIndex,exSelector,true);
+            }else{
+             contract(formerShortRow,lastIndex,exSelector,false);
+            }
+
             contract (shortRow,k,elem,true);
-                        contract(formerShortRow,lastIndex,exSelector,false);
         }else{
-            contract (shortRow,k,elem);
+            contract (shortRow,k,elem,true);
         }
         
     } else if (shortRow & !expanded){
@@ -110,8 +121,7 @@ function popDate(e,elem){
         }else{
             contract(shortRow,k,elem,true);
         }
-        
-        
+ 
     }else if(!shortRow & !expanded){
         console.log("!shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
