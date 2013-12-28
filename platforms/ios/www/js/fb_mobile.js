@@ -109,7 +109,7 @@ function popDate(e,elem){
         console.log("shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
             if(formerShortRow){
-            contract(formerShortRow,lastIndex,exSelector,truer);
+            contract(formerShortRow,lastIndex,exSelector,true);
             }else{
             contract(formerShortRow,lastIndex,exSelector,false);
             }
