@@ -268,7 +268,16 @@ function insertEventArrtDb(eventAttrParse) {
     db7.transaction(function (tx) {
                     for (i = 0; i <= eventAttrParse.length - 1; i++) {
                     count = count +1;
-                    console.log("venue insert: "+JSON.stringify(eventAttrParse[i].venue));
+                    //console.log("venue insert: "+JSON.stringify(eventAttrParse[i].venue));
+                    
+                    //venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
+                    
+                    
+                    
+                    
+
+                    
+                    
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
                                   +'formattedDateTime'+"," //2
@@ -293,8 +302,18 @@ function insertEventArrtDb(eventAttrParse) {
                                   +'pic_cover'+"," //21
                                   +'can_invite_friends'+"," //22
                                   +'dateHash'+"," //23
+                                  +'venue_street'+","
+                                  +'venue_city'+","
+                                  +'venue_state'+","
+                                  +'venue_country'+","
+                                  +'venue_zip'+","
+                                  +'venue_latitude'+","
+                                  +'venue_longitude'+","
+                                  +'venue_id'+","
+                                  +'venue_name'+","
+                                  +'venue_located_in'+","
                                   +'creator'+ //24
-                                  ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                                  ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                                   
                                   [fbStampToDbDateTime(eventAttrParse[i].start_time),//1
                                    fbStampToDbDateTime(eventAttrParse[i].start_time),//2
@@ -319,6 +338,16 @@ function insertEventArrtDb(eventAttrParse) {
                                    eventAttrParse[i].pic_cover,//21
                                    eventAttrParse[i].can_invite_friends,//22
                                    test,//23
+                                   eventAttrParse[i].venue.street,
+                                   eventAttrParse[i].venue.city,
+                                   eventAttrParse[i].venue.state,
+                                   eventAttrParse[i].venue.country,
+                                   eventAttrParse[i].venue.zip,
+                                   eventAttrParse[i].venue.latitude,
+                                   eventAttrParse[i].venue.longitude,
+                                   eventAttrParse[i].venue.id,
+                                   eventAttrParse[i].venue.name,
+                                   eventAttrParse[i].venue.located_in,
                                    eventAttrParse[i].creator//24
                                    ]
                                   );
@@ -436,7 +465,11 @@ function constructCalObject1(fbId,tx,friend){
         tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                       
                       
-                      console.log("description: "+results.rows.item(0).description);
+                      //console.log("description: "+results.rows.item(0).description);
+                      console.log("venue_name: "+results.rows.item(0).venue_name);
+                      console.log("venue_lat: "+results.rows.item(0).venue_latitude);
+                      console.log("venue_long: "+results.rows.item(0).venue_longitude);
+
                   //console.log("Friends events length: "+results.rows.length);
                   
                   //for(l=0;l<results.rows.length; l++){
