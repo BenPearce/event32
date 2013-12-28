@@ -13,7 +13,6 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 
-
 function contract(shortRow,exIndex,elem,transition){
     console.log("contract");
     $(elem).removeClass("expanded");
@@ -57,13 +56,14 @@ function expand(cntIndex,elem){
     //$("#event-wrap-in-"+k).removeClass("animateHeight");
     console.log("expand");
     var exHtml = "";
-    for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
+    for(i=3;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
     }
     
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
-    $("#event-wrap-in-"+cntIndex).html(exHtml);
+    $("#event-list-ex-"+cntIndex).html(exHtml);
+    //$("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     /*
     $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
@@ -145,6 +145,7 @@ function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
             $("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
+            //"<div class='event-list-ex' id='event-list-ex-'+i></div>"
             /*
              uiEventCount = uiEventCount +parseInt(dateHash[i].eventList.length);
              $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
@@ -158,7 +159,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
-                
+                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
             }
@@ -168,6 +169,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                 $("#event-wrap-in-"+i).css("height","74px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
@@ -178,6 +180,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                  $("#event-wrap-in-"+i).css("height","128px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
@@ -188,6 +191,7 @@ function popCal(){
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
+                $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
                                  $("#event-wrap-in-"+i).css("height","144px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
@@ -195,6 +199,7 @@ function popCal(){
             
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
+            $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
         }
@@ -234,8 +239,8 @@ function init() {
                                                                                                                        popCal();
                                                                                                                        //console.log("pop ui done");
                                                                                                                        /*
-                                                                                                                        when.done(function(){
-                                                                                                                        console.log("pipe done");
+                                                         when.done(function(){
+                                                         console.log("pipe done");
                                                                                                                         });
                                                                                                                         */
                                                                                                                        });
