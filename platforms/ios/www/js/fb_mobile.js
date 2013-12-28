@@ -20,12 +20,12 @@ function contract(shortRow,exIndex,elem,transition){
     if(shortRow){
         console.log("short row triggered");
         if(transition){
-            console.log("short row transition block");
+            console.log("short cnt row transition block");
             $("#event-wrap-in-"+exIndex).css("height","0px");
             //$("#event-wrap-in-"+exIndex).html("");
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
-            console.log("short row non-transition block");
+            console.log("short cnt row non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","0px");
             $("#event-wrap-in-"+exIndex).html("");
@@ -36,7 +36,7 @@ function contract(shortRow,exIndex,elem,transition){
         
     }else{
         if(transition){
-            console.log("long row transition block");
+            console.log("long row cnt transition block");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
@@ -44,7 +44,7 @@ function contract(shortRow,exIndex,elem,transition){
             
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         }else{
-            console.log("long row non-transition block");
+            console.log("long row cnt non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
@@ -108,7 +108,11 @@ function popDate(e,elem){
     } else if (shortRow & !expanded){
         console.log("shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
+            if(formerShortRow){
+            contract(formerShortRow,lastIndex,exSelector,true);
+            }else{
             contract(formerShortRow,lastIndex,exSelector,false);
+            }
             expand(k,elem);
         }else{
             expand(k,elem);
