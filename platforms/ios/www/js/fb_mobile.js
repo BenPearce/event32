@@ -192,7 +192,7 @@ function popCal(){
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
                 $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
-                                 $("#event-wrap-in-"+i).css("height","144px");
+                $("#event-wrap-in-"+i).css("height","144px");
                 $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
                 continue;
             }
@@ -200,6 +200,7 @@ function popCal(){
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");
             $("#event-wrap-in-"+i).append("<div class='event-list-ex' id='event-list-ex-"+i+"'></div>");
+            $("#event-wrap-in-"+i).css("height","218px");
             $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));
             
         }
