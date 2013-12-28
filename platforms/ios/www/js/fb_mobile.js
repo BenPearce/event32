@@ -38,9 +38,12 @@ function contract(shortRow,exIndex,elem,transition){
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
          }else{
+             $("#event-wrap-in-"+exIndex).addClass("notransition");
              $("#event-wrap-in-"+exIndex).css("height","222px");
              $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
              $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+             $("#event-wrap-in-"+exIndex).height();
+             $("#event-wrap-in-"+exIndex).removeClass("notransition");
          }
     }
 }
