@@ -17,6 +17,8 @@ function eventExpand(element){
     console.log($(element).html());
     //var evId = $(element).data("id");
     var evId = $(element).attr("id");
+    evId = parseInt(evId);
+    console.log("description: "+eventList[evId].description);
        //k = $(elem).attr('data-dateId');
     console.log("id: "+evId);
 }
