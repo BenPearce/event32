@@ -436,6 +436,10 @@ bottom:2px;
 */
 }
 
+.events-touched{
+    background:yellow;
+}
+
 .more-events-button-touched{
 	background:orange;
 }

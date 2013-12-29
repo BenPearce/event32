@@ -144,6 +144,8 @@ function popDate(e,elem){
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
+    
+    setEventTap();
 }
 
 var uiEventCount = 0;
@@ -208,6 +210,8 @@ function popCal(){
         }
     }
     setFriendTap();
+    
+    setEventTap();
 }
 
 document.addEventListener('deviceready', function () {

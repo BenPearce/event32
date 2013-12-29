@@ -1,4 +1,5 @@
 var moreEventsLocked = false;
+var moreEventExLock = false;
 
 function wheel(e) {
   preventDefault(e);
@@ -34,7 +35,35 @@ function enable_scroll() {
     }
     window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
 }
-    
+
+function setEventTap(){
+  
+    $(".event-wrap").touchstart(function(){
+                                
+                                $(this).addClass('events-touched');
+                           
+                                setInterval(function(){
+                                            moreEventExLock = false;
+                                            },600);
+                                     /*
+                                });
+  */
+                                });
+
+    $(".event-wrap").touchend(function(){
+                                         
+                                           if(!moreEventsLocked){
+                                           moreEventExLock = true;
+                                           //popDate(e,this);
+                                           }
+                                           $(this).removeClass('events-touched');
+                                
+                                });
+
+}
+
+
+
     function setFriendTap(){
         
         $(".more-events-text-wrap").touchstart(function(){
