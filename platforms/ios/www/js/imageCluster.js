@@ -2,7 +2,7 @@
 //Since we've already filtered through friendGroup and created eveningHashSubset we can probably parse through eveningHashSubset[i].eventIdArray
 //We should create list elements with handlers set and create some low cpu expansion for header click event
 //test
-function getEventRow(eventId,eventClass){
+function getEventRow(eventId,eventClass,datIndex){
     var eventRowHtml;
     
     var eventImageClusterHtml;

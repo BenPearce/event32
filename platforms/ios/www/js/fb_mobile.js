@@ -1,4 +1,5 @@
 var dateHashMap = new Array();
+var dateLength = new Array();
 var exListHeight;
 var firstExpand;
 var shortRow;
@@ -14,6 +15,10 @@ var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animati
 var k;
 
 function eventExpand(element){
+    /*
+    $("#event-wrap-in-"+cntIndex).height();
+    $("#event-wrap-in-"+cntIndex).css("height", "");
+    */
     console.log($(element).html());
     //var evId = $(element).data("id");
     var evId = $(element).attr("id");
@@ -51,7 +56,7 @@ function contract(shortRow,exIndex,elem,transition){
             console.log("long row cnt transition block");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
-            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
             }
             
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
@@ -59,8 +64,8 @@ function contract(shortRow,exIndex,elem,transition){
             console.log("long row cnt non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","222px");
-            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
-            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
+            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"")+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,""));
+            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list",exIndex).offset().top - pos);
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
@@ -73,13 +78,17 @@ function expand(cntIndex,elem){
     console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"");
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
     }
     
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
+    dateLength[cntIndex] = exHeight;
+    
+
+    
     /*
      $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
      alert("cross 2");
@@ -175,7 +184,7 @@ function popCal(){
             
             
             if(typeof dateHash[i].eventList[0] != "undefined"){
-                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent"));
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
@@ -185,7 +194,7 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[1] != "undefined"){
-                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent"));
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
@@ -195,7 +204,7 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[2] != "undefined"){
-                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");
