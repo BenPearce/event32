@@ -14,8 +14,8 @@ function getEventRow(eventId,eventClass,datIndex){
     
     var friendPre = '<img class="event-friend-img friend-wrap"   id="friend-'+eventId+'" style="pointer-events:none" width=50 height=50 src="';
     
-    var eventPre = '<img class="event-img" style="pointer-events:none" src="';
-    var post1 = '">';
+    var eventPre = '<div class="event-img-wrap"><img class="event-img" style="pointer-events:none" src="';
+    var post1 = '"></div>';
     var post = '"></div>';
     var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
     var titlePost = '"></div>';

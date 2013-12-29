@@ -38,6 +38,14 @@ function enable_scroll() {
 
 function setEventTap(){
     console.log("set event tap");
+    /*
+    $(".event-img-wrap").css('border','solid red 2px');
+    
+    $(".event-img-wrap").tap(function(){
+                        $(".event-img").css('border','solid green 2px');
+                        });
+     */
+
     $(".event-img-wrap").touchstart(function(){
                                 console.log("event touch");
                                 $(this).addClass('events-touched');
@@ -45,9 +53,7 @@ function setEventTap(){
                                 setInterval(function(){
                                             moreEventExLock = false;
                                             },600);
-                                     /*
-                                });
-  */
+
                                 });
 
     $(".event-img-wrap").touchend(function(){
@@ -60,6 +66,7 @@ function setEventTap(){
                                            $(this).removeClass('events-touched');
                                 
                                 });
+
 
 }
 
