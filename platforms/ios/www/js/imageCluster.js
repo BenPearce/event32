@@ -28,7 +28,7 @@
             	 
             	 } else if (eventList[eventId].friendIdArray.length == 1){
             	 
-                    return '<div class="row-wrap '+eventClass+'"><div id="'+eventId+'" class="event-wrap">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>'+friendImg+'</div>';
+                    return '<div class="row-wrap '+eventClass+'"><div id="'+eventId+'" class="event-wrap">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div>'+friendImg+'</div>';
 
             	 } else {
             	 var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';      

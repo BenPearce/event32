@@ -453,6 +453,10 @@ bottom:2px;
           background:hsla(0, 0%, 0%, 0.1);
 }
 
+.event-ex{
+    font-size:10pt;
+}
+
 .date-abrev-top{
 	/*text-align:center;*/
     display:inline-block;
