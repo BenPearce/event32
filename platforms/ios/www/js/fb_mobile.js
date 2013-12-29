@@ -13,6 +13,13 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 
+function eventExpand(element){
+    console.log($(element).html());
+    //var evId = $(element).data("id");
+    var evId = $(element).attr("id");
+       //k = $(elem).attr('data-dateId');
+    console.log("id: "+evId);
+}
 
 function contract(shortRow,exIndex,elem,transition){
     console.log("contract");

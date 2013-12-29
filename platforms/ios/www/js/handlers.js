@@ -54,6 +54,7 @@ function setEventTap(){
                                          
                                            if(!moreEventsLocked){
                                            moreEventExLock = true;
+                              eventExpand(this);
                                            //popDate(e,this);
                                            }
                                            $(this).removeClass('events-touched');
