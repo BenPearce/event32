@@ -19,8 +19,11 @@ function eventExpand(element){
     var evId = $(element).attr("id");
     evId = parseInt(evId);
     console.log("description: "+eventList[evId].description);
+    var description = eventList[evId].description;
        //k = $(elem).attr('data-dateId');
     console.log("id: "+evId);
+    
+    $("#event-ex-"+evId).html(description);
 }
 
 function contract(shortRow,exIndex,elem,transition){
