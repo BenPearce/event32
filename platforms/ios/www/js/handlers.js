@@ -37,9 +37,9 @@ function enable_scroll() {
 }
 
 function setEventTap(){
-  
-    $(".event-wrap").touchstart(function(){
-                                
+    console.log("set event tap");
+    $(".event-img-wrap").touchstart(function(){
+                                console.log("event touch");
                                 $(this).addClass('events-touched');
                            
                                 setInterval(function(){
@@ -50,7 +50,7 @@ function setEventTap(){
   */
                                 });
 
-    $(".event-wrap").touchend(function(){
+    $(".event-img-wrap").touchend(function(){
                                          
                                            if(!moreEventsLocked){
                                            moreEventExLock = true;

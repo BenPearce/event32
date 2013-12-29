@@ -28,6 +28,10 @@ padding:0px!important;
 
 }
 
+.event-img-wrap{
+    width:50px;
+}
+
 #test-button{
     position:fixed;
     top:0px;
@@ -369,8 +373,9 @@ transition: height 1s;
 }
 
 .row-wrap{
-	height:64px;
 	padding:5px 0px;
+    
+    height:64px;
 	border-right:solid black 1px;
 	border-left:solid black 1px;
 	/*
