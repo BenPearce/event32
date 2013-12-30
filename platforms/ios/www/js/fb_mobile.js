@@ -30,9 +30,10 @@ function eventExpand(element){
         $("#event-wrap-in-"+dateId).css("height","");
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
+    $("#event-wrap-in-"+dateId).height();
+         $("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     /*
        //k = $(elem).attr('data-dateId');
-     $("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height());
      */
     //$("#event-wrap-in-"+dateId).
     
