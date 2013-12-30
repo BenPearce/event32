@@ -471,6 +471,16 @@ bottom:2px;
 
 .event-ex{
     font-size:10pt;
+    height:0px;
+    /*display:none;
+    visibility: hidden;
+    */
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: height 1s;
+    -webkit-transition: height 1s;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
 }
 
 .date-abrev-top{

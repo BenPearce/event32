@@ -30,7 +30,13 @@ function eventExpand(element){
     //if(evId>lastEvIndex){
        descPos = $("#event-ex-"+evId).offset().top;
      //}
+    
+    $("#event-ex-"+lastEvIndex).addClass("notransition");
         $("#event-ex-"+lastEvIndex).html("");
+     $("#event-ex-"+lastEvIndex).css("height","");
+    $("#event-ex-"+lastEvIndex).height();
+    $("#event-ex-"+lastEvIndex).removeClass("notransition");
+    //$(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);//
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
     
@@ -38,10 +44,18 @@ function eventExpand(element){
         $("#event-wrap-in-"+dateId).css("height","");
     $("#event-wrap-in-"+dateId).height();
     $("#event-wrap-in-"+dateId).removeClass("notransition");
-    
+
+    $("#bot-elem").html(eventList[evId].description);
+
+    var txHeight = $("#bot-elem").height();
+
+    $("#bot-elem").html("");
+
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
-    
+    //$("#event-ex-"+evId).css(txHeight);
+    //$("#event-ex-"+evId).css("display","block");
+    $("#event-ex-"+evId).css("height",txHeight);
     $("#event-wrap-in-"+dateId).height();
          //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
