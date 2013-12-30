@@ -21,9 +21,11 @@ function eventExpand(element){
     */
     console.log($(element).html());
     //var evId = $(element).data("id");
+    var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
     evId = parseInt(evId);
-    console.log("description: "+eventList[evId].description);
+    //console.log("description: "+eventList[evId].description);
+    console.log("hash: "+dateId);
     var description = eventList[evId].description;
        //k = $(elem).attr('data-dateId');
     console.log("id: "+evId);
