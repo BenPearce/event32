@@ -464,6 +464,10 @@ bottom:2px;
 	background:yellow;
 }
 
+#bot-elem{
+    visibility:hidden;
+}
+
 .friend-pic-wrap-touched{
           border:solid black 1px;
           background:hsla(0, 0%, 0%, 0.1);

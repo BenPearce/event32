@@ -31,6 +31,13 @@ function eventExpand(element){
        descPos = $("#event-ex-"+evId).offset().top;
      //}
     
+
+     $("#event-wrap-in-"+dateId).addClass("notransition");
+     $("#event-wrap-in-"+dateId).css("height","");
+     $("#event-wrap-in-"+dateId).height();
+     $("#event-wrap-in-"+dateId).removeClass("notransition");
+
+    
     $("#event-ex-"+lastEvIndex).addClass("notransition");
         $("#event-ex-"+lastEvIndex).html("");
      $("#event-ex-"+lastEvIndex).css("height","");
@@ -39,23 +46,21 @@ function eventExpand(element){
     //$(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);//
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
-    
-    $("#event-wrap-in-"+dateId).addClass("notransition");
-        $("#event-wrap-in-"+dateId).css("height","");
-    $("#event-wrap-in-"+dateId).height();
-    $("#event-wrap-in-"+dateId).removeClass("notransition");
 
+    
+    
+/*
     $("#bot-elem").html(eventList[evId].description);
 
     var txHeight = $("#bot-elem").height();
 
     $("#bot-elem").html("");
-
+*/
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
     //$("#event-ex-"+evId).css("display","block");
-    $("#event-ex-"+evId).css("height",txHeight);
+    $("#event-ex-"+evId).css("height","500px");
     $("#event-wrap-in-"+dateId).height();
          //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
