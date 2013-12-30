@@ -465,7 +465,9 @@ bottom:2px;
 }
 
 #bot-elem{
-    visibility:hidden;
+    /*visibility:hidden;*/
+    font-size:10pt;
+    width:96%;
 }
 
 .friend-pic-wrap-touched{

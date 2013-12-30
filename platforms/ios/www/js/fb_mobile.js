@@ -14,6 +14,8 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 var lastEvIndex;
+ var prevHeight;
+var prevEx;
 
 function eventExpand(element){
     /*
@@ -30,32 +32,56 @@ function eventExpand(element){
     //if(evId>lastEvIndex){
        descPos = $("#event-ex-"+evId).offset().top;
      //}
-    
 
-     $("#event-wrap-in-"+dateId).addClass("notransition");
-     $("#event-wrap-in-"+dateId).css("height","");
-     $("#event-wrap-in-"+dateId).height();
-     $("#event-wrap-in-"+dateId).removeClass("notransition");
+     $("#bot-elem").html(eventList[evId].description);
+     
+     var txHeight = $("#bot-elem").height();
 
+    if(typeof lastEvIndex != 'undefined'){
+
+    }
+    console.log("prev height: "+prevHeight);
+    console.log("txHeight: "+txHeight);
     
+     $("#bot-elem").html("");
+    
+   
+    var diffHeight;
+    console.log("lastEvIndex: "+lastEvIndex);
     $("#event-ex-"+lastEvIndex).addClass("notransition");
-        $("#event-ex-"+lastEvIndex).html("");
-     $("#event-ex-"+lastEvIndex).css("height","");
+    $("#event-ex-"+lastEvIndex).html("");
+    $("#event-ex-"+lastEvIndex).css("height","");
     $("#event-ex-"+lastEvIndex).height();
     $("#event-ex-"+lastEvIndex).removeClass("notransition");
+   
     //$(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);//
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
+    console.log("prevEx: "+prevEx);
+    if(prevHeight!=null){
+    diffHeight = (parseInt(txHeight) - parseInt(prevEx));
+      //diffHeight = (parseInt(prevHeight) - parseInt(txHeight));
+        console.log("dif height trig: "+diffHeight);
+    }else{
+        diffHeight = parseInt(txHeight);
+    }
+
+     $("#event-wrap-in-"+dateId).addClass("notransition");
+     var parentHeight = $("#event-wrap-in-"+dateId).height();
+    console.log("parent Height "+parentHeight);
+    var summ = (parentHeight+diffHeight);
+        prevEx = txHeight;
+    console.log("summ: "+summ);
+     $("#event-wrap-in-"+dateId).css("height",summ);
+    prevHeight = summ;
+    console.log("prevHeight set: "+ prevHeight);
+     //$("#event-wrap-in-"+dateId).height();
+     $("#event-wrap-in-"+dateId).removeClass("notransition");
 
     
-    
-/*
-    $("#bot-elem").html(eventList[evId].description);
 
-    var txHeight = $("#bot-elem").height();
 
-    $("#bot-elem").html("");
-*/
+
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
@@ -66,6 +92,9 @@ function eventExpand(element){
     lastEvIndex = evId;
     // if(evId>lastEvIndex){
     $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
+    $("#event-ex-"+lastEvIndex).height();
+
+         //prevHeight = $("#event-wrap-in-"+dateId).height();
      //}
     /*
        //k = $(elem).attr('data-dateId');
