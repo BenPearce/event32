@@ -13,13 +13,15 @@ var $doc;
 var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
+var lastEvIndex;
 
 function eventExpand(element){
     /*
     $("#event-wrap-in-"+cntIndex).height();
     $("#event-wrap-in-"+cntIndex).css("height", "");
     */
-    
+    $("#event-ex-"+lastEvIndex).html("");
+    //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() - $("#event-ex-"+lastEvIndex).height());
     console.log($(element).html());
     //var evId = $(element).data("id");
     var dateId = $(element).attr('data-dateHash');
@@ -31,7 +33,8 @@ function eventExpand(element){
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
     $("#event-wrap-in-"+dateId).height();
-         $("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
+         //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
+    lastEvIndex = evId;
     /*
        //k = $(elem).attr('data-dateId');
      */
