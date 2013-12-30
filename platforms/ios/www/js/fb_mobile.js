@@ -20,6 +20,7 @@ function eventExpand(element){
     $("#event-wrap-in-"+cntIndex).height();
     $("#event-wrap-in-"+cntIndex).css("height", "");
     */
+    var descPos;
     $("#event-ex-"+lastEvIndex).html("");
     //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() - $("#event-ex-"+lastEvIndex).height());
     console.log($(element).html());
@@ -27,6 +28,11 @@ function eventExpand(element){
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
     evId = parseInt(evId);
+    /*
+    if(evId>lastEvIndex){
+       descPos = $("#event-wrap-in-"+(evId - 1)+"-list").offset().top;
+    }
+     */
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
         $("#event-wrap-in-"+dateId).css("height","");
@@ -35,6 +41,7 @@ function eventExpand(element){
     $("#event-wrap-in-"+dateId).height();
          //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
+    //$doc.scrollTop($doc.scrollTop() + $("#event-wrap-in-"+(evId - 1)+"-list").offset().top - descPos);
     /*
        //k = $(elem).attr('data-dateId');
      */
