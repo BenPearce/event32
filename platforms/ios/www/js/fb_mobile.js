@@ -86,7 +86,7 @@ function eventExpand(element){
             $("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
     //$("#event-ex-"+evId).css("display","block");
-    $("#event-ex-"+evId).css("height","500px");
+    $("#event-ex-"+evId).css("height",txHeight);
     $("#event-wrap-in-"+dateId).height();
          //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
