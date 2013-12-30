@@ -21,18 +21,16 @@ function eventExpand(element){
     $("#event-wrap-in-"+cntIndex).css("height", "");
     */
     var descPos;
-    $("#event-ex-"+lastEvIndex).html("");
     //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() - $("#event-ex-"+lastEvIndex).height());
-    console.log($(element).html());
     //var evId = $(element).data("id");
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
     evId = parseInt(evId);
-    /*
-    if(evId>lastEvIndex){
-       descPos = $("#event-wrap-in-"+(evId - 1)+"-list").offset().top;
-    }
-     */
+    
+    //if(evId>lastEvIndex){
+       descPos = $("#event-ex-"+evId).offset().top;
+     //}
+        $("#event-ex-"+lastEvIndex).html("");
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
     
@@ -47,7 +45,9 @@ function eventExpand(element){
     $("#event-wrap-in-"+dateId).height();
          //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
-    //$doc.scrollTop($doc.scrollTop() + $("#event-wrap-in-"+(evId - 1)+"-list").offset().top - descPos);
+    // if(evId>lastEvIndex){
+    $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
+     //}
     /*
        //k = $(elem).attr('data-dateId');
      */
