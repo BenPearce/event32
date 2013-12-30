@@ -19,6 +19,7 @@ function eventExpand(element){
     $("#event-wrap-in-"+cntIndex).height();
     $("#event-wrap-in-"+cntIndex).css("height", "");
     */
+    
     console.log($(element).html());
     //var evId = $(element).data("id");
     var dateId = $(element).attr('data-dateHash');
@@ -26,11 +27,16 @@ function eventExpand(element){
     evId = parseInt(evId);
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
-    var description = eventList[evId].description;
+        $("#event-wrap-in-"+dateId).css("height","");
+        var description = eventList[evId].description;
+            $("#event-ex-"+evId).html(description);
+    /*
        //k = $(elem).attr('data-dateId');
-    console.log("id: "+evId);
+     $("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height());
+     */
+    //$("#event-wrap-in-"+dateId).
     
-    $("#event-ex-"+evId).html(description);
+    
 }
 
 function contract(shortRow,exIndex,elem,transition){
