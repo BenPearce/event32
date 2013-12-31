@@ -52,12 +52,22 @@ function setButtons(){
                      });
     
     $(".map-button").tap(function(){
-                    alert("map");
-                         /*
+                        console.log("ev id "+$(this).attr('data-evId'));
+                         //eventList[
+                         var evId = $(this).attr('data-evId');
+                         console.log("event: "+eventList[evId]);
+                         console.log("venue: "+eventList[evId].venue);
+                         console.log("latitude: "+eventList[evId].venue.venue_latitude);
+                         console.log("longitude: "+eventList[evId].venue.venue_longitude);
+
+                         
+                         //sdata-evId
+                    //alert("map");
+         /*
                           var iframe = document.createElement('iframe');
                           iframe.src = "map.html?coordinate=" + event.venue.coordinate;
                           $(".mapWrap").html(iframe);
-                          */
+*/
                     });
 }
 

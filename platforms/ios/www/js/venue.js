@@ -5,6 +5,8 @@ function venue() {
     this.latitude;
     this.longitude;
     this.coordinate;
+    this.venue_latitude;
+    this.venue_longitude;
     this.zip;
     this.city;
     this.state;
