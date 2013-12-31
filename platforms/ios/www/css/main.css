@@ -481,8 +481,9 @@ bottom:2px;
 
 .rsvp-button{
     float:right;
-     height:50px;
-      width:50px;
+    margin-right:50px;
+    height:50px;
+    width:50px;
     background-image:url('../images/check-mark-bw.png')!important;
     background-position:center;
     background-repeat:no-repeat;
@@ -492,6 +493,7 @@ bottom:2px;
 .map-button{
     /*display:inline-block;*/
     float:left;
+    margin-left:50px;
     height:50px;
     width:50px;
     background-image:url('../images/map-marker-bw.png')!important;
@@ -502,7 +504,7 @@ bottom:2px;
 .button-wrap{
     display:block;
     height:50px;
-    width:150px;
+    width:100%;
     margin:auto;
 }
 

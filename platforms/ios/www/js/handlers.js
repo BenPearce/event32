@@ -46,6 +46,16 @@ function setSwipe(evSel){
              });
 }
 
+function setButtons(){
+    $(".rsvp-button").tap(function(){
+                     alert("rsvp");
+                     });
+    
+    $(".map-button").tap(function(){
+                    alert("map");
+                    });
+}
+
 function setEventTap(){
     console.log("set event tap");
     /*

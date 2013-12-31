@@ -65,6 +65,7 @@ function eventExpand(element){
     lastEvIndex = evId;
     // if(evId>lastEvIndex){
     $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
+    setButtons();
     //}
     /*
      //k = $(elem).attr('data-dateId');
