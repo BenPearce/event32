@@ -75,7 +75,7 @@ function getDescriptionHtml(description){
 }
 
 function generateButtons(evId){
-    return '<div class="button-wrap" id="button-wrap-'+evId+'"><div class = "map-button" id="map-button">map</div><div class = "rsvp-button" id="rsvp-button-'+evId+'">rsvp</div></div>';
+    return '<div class="button-wrap" id="button-wrap-'+evId+'"><div class = "map-button" id="map-button"></div><div class = "rsvp-button" id="rsvp-button-'+evId+'"></div></div>';
 }
 
 function getDateHeaderHtml(i,evening){
