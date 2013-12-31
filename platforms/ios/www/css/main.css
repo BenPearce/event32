@@ -492,7 +492,9 @@ bottom:2px;
     float:left;
     height:50px;
     width:50px;
-    background:blue;
+    background-image:url('../images/map-marker-bw.png')!important;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
 .button-wrap{
