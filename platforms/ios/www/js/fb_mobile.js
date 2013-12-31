@@ -85,10 +85,6 @@ function eventExpand(element){
      //$("#event-wrap-in-"+dateId).height();
      $("#event-wrap-in-"+dateId).removeClass("notransition");
 
-    
-
-
-
         var description = eventList[evId].description;
             $("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
@@ -166,13 +162,19 @@ function expand(cntIndex,elem){
     
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         
-        if(eventList[dateHash[k].eventList[i]] == descriptionExpandedevId){
-                     
+        if(dateHash[k].eventList[i] == descriptionExpandedevId){
+            
+            console.log("if trigggg");
+           var test = $(getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex)).find("#event-ex-"+dateHash[k].eventList[i]).html(eventList[dateHash[k].eventList[i]].description);
+            
+            exHtml = exHtml + test;
+            
                      }else{
         
         exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
                      }
     }
+
                      }else{
                        for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
                      exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
