@@ -53,6 +53,11 @@ function setButtons(){
     
     $(".map-button").tap(function(){
                     alert("map");
+                         /*
+                          var iframe = document.createElement('iframe');
+                          iframe.src = "map.html?coordinate=" + event.venue.coordinate;
+                          $(".mapWrap").html(iframe);
+                          */
                     });
 }
 
