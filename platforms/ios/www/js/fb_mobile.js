@@ -14,97 +14,60 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 var lastEvIndex;
-var prevHeight;
-var prevEx;
-var expanded = false;
-var descriptionDateHash;
-var descriptionExpanded = false;
-var descriptionExpandedevId;
 
 function eventExpand(element){
     /*
-    $("#event-wrap-in-"+cntIndex).height();
-    $("#event-wrap-in-"+cntIndex).css("height", "");
-    */
+     $("#event-wrap-in-"+cntIndex).height();
+     $("#event-wrap-in-"+cntIndex).css("height", "");
+     */
     var descPos;
     //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() - $("#event-ex-"+lastEvIndex).height());
     //var evId = $(element).data("id");
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
-    descriptionExpandedevId = evId;
     evId = parseInt(evId);
     
     //if(evId>lastEvIndex){
-       descPos = $("#event-ex-"+evId).offset().top;
-     //}
-
-     $("#bot-elem").html(eventList[evId].description);
-     
-    var txHeight = $("#bot-elem").height();
-
-    if(typeof lastEvIndex != 'undefined'){
-
-    }
-    console.log("prev height: "+prevHeight);
-    console.log("txHeight: "+txHeight);
+    descPos = $("#event-ex-"+evId).offset().top;
+    //}
     
-     $("#bot-elem").html("");
-    
-   
-    var diffHeight;
-    console.log("lastEvIndex: "+lastEvIndex);
     $("#event-ex-"+lastEvIndex).addClass("notransition");
     $("#event-ex-"+lastEvIndex).html("");
     $("#event-ex-"+lastEvIndex).css("height","");
     $("#event-ex-"+lastEvIndex).height();
     $("#event-ex-"+lastEvIndex).removeClass("notransition");
-   
     //$(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);//
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
-    descriptionDateHash = dateId;
-    var descriptionExpanded;
-    console.log("prevEx: "+prevEx);
-    if(prevHeight!=null){
-    diffHeight = (parseInt(txHeight) - parseInt(prevEx));
-      //diffHeight = (parseInt(prevHeight) - parseInt(txHeight));
-        console.log("dif height trig: "+diffHeight);
-    }else{
-        diffHeight = parseInt(txHeight);
-    }
-
-     $("#event-wrap-in-"+dateId).addClass("notransition");
-     var parentHeight = $("#event-wrap-in-"+dateId).height();
-    console.log("parent Height "+parentHeight);
-    var summ = (parentHeight+diffHeight);
-        prevEx = txHeight;
-    console.log("summ: "+summ);
-     $("#event-wrap-in-"+dateId).css("height",summ);
-    prevHeight = summ;
-    console.log("prevHeight set: "+ prevHeight);
-     //$("#event-wrap-in-"+dateId).height();
-     $("#event-wrap-in-"+dateId).removeClass("notransition");
-
-        var description = eventList[evId].description;
-            $("#event-ex-"+evId).html(description);
+    
+    $("#event-wrap-in-"+dateId).addClass("notransition");
+    $("#event-wrap-in-"+dateId).css("height","");
+    $("#event-wrap-in-"+dateId).height();
+    $("#event-wrap-in-"+dateId).removeClass("notransition");
+    
+    $("#bot-elem").html(eventList[evId].description);
+    
+    var txHeight = $("#bot-elem").height();
+    
+    $("#bot-elem").html("");
+    
+    var description = eventList[evId].description;
+    $("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
     //$("#event-ex-"+evId).css("display","block");
     $("#event-ex-"+evId).css("height",txHeight);
     $("#event-wrap-in-"+dateId).height();
-         //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
+    //$("#event-wrap-in-"+dateId).css("height",$("#event-wrap-in-"+dateId).height() + $("#event-ex-"+evId).height());
     lastEvIndex = evId;
     // if(evId>lastEvIndex){
     $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
-    $("#event-ex-"+lastEvIndex).height();
-
-         //prevHeight = $("#event-wrap-in-"+dateId).height();
-     //}
+    //}
     /*
-       //k = $(elem).attr('data-dateId');
+     //k = $(elem).attr('data-dateId');
      */
     //$("#event-wrap-in-"+dateId).
     
-    descriptionExpanded = true;
+    
 }
 
 function contract(shortRow,exIndex,elem,transition){
@@ -113,7 +76,6 @@ function contract(shortRow,exIndex,elem,transition){
     if(shortRow){
         console.log("short row triggered");
         if(transition){
-            expanded = false;
             console.log("short cnt row transition block");
             $("#event-wrap-in-"+exIndex).css("height","0px");
             //$("#event-wrap-in-"+exIndex).html("");
@@ -130,11 +92,10 @@ function contract(shortRow,exIndex,elem,transition){
         
     }else{
         if(transition){
-            expanded = false;
             console.log("long row cnt transition block");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
-            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
+                $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
             }
             
             //$doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
@@ -151,35 +112,13 @@ function contract(shortRow,exIndex,elem,transition){
 }
 
 function expand(cntIndex,elem){
-    expanded = true;
     //var dfd = $.Deferred();
     //$("#event-wrap-in-"+k).removeClass("animateHeight");
     console.log("expand");
-    var exHtml;
     var exHtml = "";
-    
-    if(descriptionDateHash == cntIndex){
-    
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-        
-        if(dateHash[k].eventList[i] == descriptionExpandedevId){
-            
-            console.log("if trigggg");
-           var test = $(getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex)).find("#event-ex-"+dateHash[k].eventList[i]).html(eventList[dateHash[k].eventList[i]].description);
-            
-            exHtml = exHtml + test;
-            
-                     }else{
-        
-        exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
-                     }
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
     }
-
-                     }else{
-                       for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-                     exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
-                     }
-                     }
     
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
@@ -187,7 +126,7 @@ function expand(cntIndex,elem){
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     dateLength[cntIndex] = exHeight;
     
-
+    
     
     /*
      $("#event-wrap-in-"+cntIndex).one('crossBrowserEvent',function(e) {
@@ -230,9 +169,9 @@ function popDate(e,elem){
         console.log("shortRow & !expanded");
         if((lastIndex != k) & !firstExpand){
             if(formerShortRow){
-            contract(formerShortRow,lastIndex,exSelector,true);
+                contract(formerShortRow,lastIndex,exSelector,true);
             }else{
-            contract(formerShortRow,lastIndex,exSelector,false);
+                contract(formerShortRow,lastIndex,exSelector,false);
             }
             expand(k,elem);
         }else{
