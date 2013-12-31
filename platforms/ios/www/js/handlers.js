@@ -63,11 +63,14 @@ function setButtons(){
                          
                          //sdata-evId
                     //alert("map");
-         /*
+
                           var iframe = document.createElement('iframe');
-                          iframe.src = "map.html?coordinate=" + event.venue.coordinate;
+                          iframe.src = "map.html?coordinate=" + "("+eventList[evId].venue.venue_longitude+","+eventList[evId].venue.venue_latitude+")";
                           $(".mapWrap").html(iframe);
-*/
+                         $(".mapWrap").append("chomp");
+                         console.log("map click done");
+                         //$(".popupMap1").html(iframe);
+
                     });
 }
 
