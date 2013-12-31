@@ -70,6 +70,10 @@ function getDateHeader(evening){
     
 }
 
+function generateButtons(evId){
+    return '<div id="button-wrap-'+evId+'"><div class = "map-button" id="map-button"></div><div class = "rsvp-button" id="rsvp-button-'+evId+'"></div></div>';
+}
+
 function getDateHeaderHtml(i,evening){
     var friendName = typeof eventList[evening.friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+eventList[evening.friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + eventList[evening.friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
     var eventName = typeof evening !=   "undefined"  ? evening.name : "eventNameUndefined";

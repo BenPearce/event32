@@ -36,6 +36,16 @@ function enable_scroll() {
     window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
 }
 
+function setSwipe(evSel){
+    evSel.on("swipeleft", function(event) {
+                   alert("swipe left");
+                   });
+    
+    evSel.on("swiperight", function(event) {
+             alert("swipe right");
+             });
+}
+
 function setEventTap(){
     console.log("set event tap");
     /*

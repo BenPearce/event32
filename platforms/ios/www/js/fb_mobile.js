@@ -52,7 +52,8 @@ function eventExpand(element){
     $("#bot-elem").html("");
     
     var description = eventList[evId].description;
-    $("#event-ex-"+evId).html(description);
+    $("#event-ex-"+evId).html(generateButtons(evId) + description);
+    //$("#event-ex-"+evId).html(description);
     //$("#event-ex-"+evId).css(txHeight);
     //$("#event-ex-"+evId).css("display","block");
     $("#event-ex-"+evId).css("height",txHeight);
@@ -67,6 +68,7 @@ function eventExpand(element){
      */
     //$("#event-wrap-in-"+dateId).
     
+    //setSwipe($("#event-ex-"+evId));
     
 }
 
