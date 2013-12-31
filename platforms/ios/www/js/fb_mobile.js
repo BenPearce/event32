@@ -14,8 +14,12 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 var lastEvIndex;
- var prevHeight;
+var prevHeight;
 var prevEx;
+var expanded = false;
+var descriptionDateHash;
+var descriptionExpanded = false;
+var descriptionExpandedevId;
 
 function eventExpand(element){
     /*
@@ -27,6 +31,7 @@ function eventExpand(element){
     //var evId = $(element).data("id");
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
+    descriptionExpandedevId = evId;
     evId = parseInt(evId);
     
     //if(evId>lastEvIndex){
@@ -35,7 +40,7 @@ function eventExpand(element){
 
      $("#bot-elem").html(eventList[evId].description);
      
-     var txHeight = $("#bot-elem").height();
+    var txHeight = $("#bot-elem").height();
 
     if(typeof lastEvIndex != 'undefined'){
 
@@ -57,6 +62,8 @@ function eventExpand(element){
     //$(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);//
     //console.log("description: "+eventList[evId].description);
     console.log("hash: "+dateId);
+    descriptionDateHash = dateId;
+    var descriptionExpanded;
     console.log("prevEx: "+prevEx);
     if(prevHeight!=null){
     diffHeight = (parseInt(txHeight) - parseInt(prevEx));
@@ -101,7 +108,7 @@ function eventExpand(element){
      */
     //$("#event-wrap-in-"+dateId).
     
-    
+    descriptionExpanded = true;
 }
 
 function contract(shortRow,exIndex,elem,transition){
@@ -110,6 +117,7 @@ function contract(shortRow,exIndex,elem,transition){
     if(shortRow){
         console.log("short row triggered");
         if(transition){
+            expanded = false;
             console.log("short cnt row transition block");
             $("#event-wrap-in-"+exIndex).css("height","0px");
             //$("#event-wrap-in-"+exIndex).html("");
@@ -126,6 +134,7 @@ function contract(shortRow,exIndex,elem,transition){
         
     }else{
         if(transition){
+            expanded = false;
             console.log("long row cnt transition block");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
@@ -146,13 +155,29 @@ function contract(shortRow,exIndex,elem,transition){
 }
 
 function expand(cntIndex,elem){
+    expanded = true;
     //var dfd = $.Deferred();
     //$("#event-wrap-in-"+k).removeClass("animateHeight");
     console.log("expand");
+    var exHtml;
     var exHtml = "";
+    
+    if(descriptionDateHash == cntIndex){
+    
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
+        
+        if(eventList[dateHash[k].eventList[i]] == descriptionExpandedevId){
+                     
+                     }else{
+        
+        exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
+                     }
     }
+                     }else{
+                       for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
+                     exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
+                     }
+                     }
     
     $(elem).addClass("expanded");
     var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
