@@ -475,6 +475,34 @@ bottom:2px;
           background:hsla(0, 0%, 0%, 0.1);
 }
 
+.description-wrap{
+    
+}
+
+.rsvp-button{
+    float:right;
+     height:50px;
+      width:50px;
+    background:orange;
+}
+
+
+.map-button{
+    /*display:inline-block;*/
+    float:left;
+    height:50px;
+    width:50px;
+    background:blue;
+}
+
+.button-wrap{
+    display:block;
+    height:50px;
+    width:150px;
+    background:red;
+    margin:auto;
+}
+
 .event-ex{
     font-size:10pt;
     height:0px;
