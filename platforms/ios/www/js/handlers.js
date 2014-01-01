@@ -65,7 +65,7 @@ function setButtons(){
                     //alert("map");
 
                           var iframe = document.createElement('iframe');
-                          iframe.src = "map.html?coordinate=" + "("+eventList[evId].venue.venue_longitude+","+eventList[evId].venue.venue_latitude+")";
+                          iframe.src = "map.html?coordinate="+eventList[evId].venue.venue_longitude+","+eventList[evId].venue.venue_latitude;
                           $(".mapWrap").html(iframe);
                          $(".mapWrap").append("chomp");
                          console.log("map click done");
