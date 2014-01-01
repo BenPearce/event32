@@ -37,4 +37,5 @@
     </feature>
      <access origin="*" />
      <access origin="http://connect.facebook.net" />
+     
 </widget>

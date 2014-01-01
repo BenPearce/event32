@@ -1,1 +1,1 @@
-{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{},"installed_plugins":{},"dependent_plugins":{}}
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"framework":{"MapKit.framework":{"false":1}},"config.xml":{"/widget":{"<feature name=\"MapKit\"><param name=\"ios-package\" value=\"MapKitView\" /></feature>":1}}},"installed_plugins":{"com.phonegap.plugins.mapkit":{"PACKAGE_NAME":"com.appforward.event32"}},"dependent_plugins":{}}
