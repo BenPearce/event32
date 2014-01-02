@@ -11,6 +11,10 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
 		1F766FE213BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDF13BBADB100FB74C0 /* Localizable.strings */; };
+		227CA64C1875054300A4F92A /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA6491875054300A4F92A /* AsyncImageView.m */; };
+		227CA64D1875054300A4F92A /* CDVAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA64B1875054300A4F92A /* CDVAnnotation.m */; };
+		227CA6501875054D00A4F92A /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227CA64F1875054D00A4F92A /* MapKit.m */; };
+		227CA6521875055C00A4F92A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227CA6511875055C00A4F92A /* MapKit.framework */; };
 		2286A2B618455980004175CF /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2286A2B518455980004175CF /* FacebookConnectPlugin.m */; };
 		2286A3F718455FC7004175CF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2286A3F518455E90004175CF /* FacebookSDK.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -59,6 +63,13 @@
 		1D6058910D05DD3D006BFB54 /* event32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = event32.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		227CA6481875054300A4F92A /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/AsyncImageView.h; sourceTree = "<group>"; };
+		227CA6491875054300A4F92A /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/AsyncImageView.m; sourceTree = "<group>"; };
+		227CA64A1875054300A4F92A /* CDVAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVAnnotation.h; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/CDVAnnotation.h; sourceTree = "<group>"; };
+		227CA64B1875054300A4F92A /* CDVAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAnnotation.m; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/CDVAnnotation.m; sourceTree = "<group>"; };
+		227CA64E1875054D00A4F92A /* MapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapKit.h; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/MapKit.h; sourceTree = "<group>"; };
+		227CA64F1875054D00A4F92A /* MapKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapKit.m; path = ../../../../plugins/com.phonegap.plugins.mapkit/src/ios/MapKit.m; sourceTree = "<group>"; };
+		227CA6511875055C00A4F92A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2286A2B418455980004175CF /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = "../../../../../../../../Users/benpearce/Downloads/FacebookConnect-master 2/src/ios/FacebookConnectPlugin.h"; sourceTree = "<group>"; };
 		2286A2B518455980004175CF /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = "../../../../../../../../Users/benpearce/Downloads/FacebookConnect-master 2/src/ios/FacebookConnectPlugin.m"; sourceTree = "<group>"; };
 		2286A3F518455E90004175CF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Users/benpearce/Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -137,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227CA6521875055C00A4F92A /* MapKit.framework in Frameworks */,
 				2286A3F718455FC7004175CF /* FacebookSDK.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
@@ -189,6 +201,12 @@
 		2286A2B318455950004175CF /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				227CA64E1875054D00A4F92A /* MapKit.h */,
+				227CA64F1875054D00A4F92A /* MapKit.m */,
+				227CA6481875054300A4F92A /* AsyncImageView.h */,
+				227CA6491875054300A4F92A /* AsyncImageView.m */,
+				227CA64A1875054300A4F92A /* CDVAnnotation.h */,
+				227CA64B1875054300A4F92A /* CDVAnnotation.m */,
 				2286A2B418455980004175CF /* FacebookConnectPlugin.h */,
 				2286A2B518455980004175CF /* FacebookConnectPlugin.m */,
 			);
@@ -289,6 +307,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227CA6511875055C00A4F92A /* MapKit.framework */,
 				2286A3F818456016004175CF /* DeprecatedHeaders */,
 				2286A3F518455E90004175CF /* FacebookSDK.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
@@ -482,8 +501,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				227CA64C1875054300A4F92A /* AsyncImageView.m in Sources */,
 				2286A2B618455980004175CF /* FacebookConnectPlugin.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				227CA64D1875054300A4F92A /* CDVAnnotation.m in Sources */,
+				227CA6501875054D00A4F92A /* MapKit.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,3 +39,36 @@
      <access origin="http://connect.facebook.net" />
      
 </widget>
+
+<!-- <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.phonegap.plugins.mapkit"
+    version="0.9.2">
+    
+   <name>MapKit</name>
+    <author>Anis Kadri</author>
+    <license>Apache</license>
+    
+    <asset src="www/MapKit.js" target="js/MapKit.js" />
+    <asset src="www/map-close-button.png" target="img/map-close-button.png" />
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="MapKit">
+                <param name="ios-package"
+                value="MapKitView"/>
+            </feature>
+        </config-file>
+        
+        <framework src="MapKit.framework" />
+       <resource-file src="src/ios/icon.png" />
+        <header-file src="src/ios/AsyncImageView.h" />
+        <header-file src="src/ios/CDVAnnotation.h" />
+        <header-file src="src/ios/MapKit.h" />
+        
+        <source-file src="src/ios/AsyncImageView.m" />
+        <source-file src="src/ios/CDVAnnotation.m" />
+        <source-file src="src/ios/MapKit.m" />
+    </platform>
+
+ </plugin>-->
