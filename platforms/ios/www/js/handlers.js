@@ -137,12 +137,13 @@ function setEventTap(){
 
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
     $(document).ready(function () {
-                      
+                     /*
                       $("#all").click(function(){
                                       alert("exListHeight: "+exListHeight);
                                       var y = $(window).scrollTop();  //your current y position on the page
                                       $(window).scrollTop(y-(74*(exListHeight - 3)));
                                       });
+                      */
     		       });//Doc Ready End
 
 

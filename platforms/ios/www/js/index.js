@@ -17,10 +17,11 @@
  * under the License.
  */
 
-
+console.log("index.js");
 var app = {
     // Application Constructor
 initialize: function() {
+    console.log("init trig");
     this.bindEvents();
 },
     // Bind Event Listeners
@@ -35,12 +36,16 @@ bindEvents: function() {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
 onDeviceReady: function() {
+    console.log("device ready");
     app.receivedEvent('deviceready');
 },
     // Update DOM on a Received Event
 receivedEvent: function(id) {
+    console.log("received event");
     var parentElement = document.getElementById(id);
+    console.log("parentElement: "+parentElement);
     var listeningElement = parentElement.querySelector('.listening');
+    console.log("listeningElement: "+listeningElement);
     var receivedElement = parentElement.querySelector('.received');
     
     listeningElement.setAttribute('style', 'display:none;');

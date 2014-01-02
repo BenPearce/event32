@@ -12,7 +12,13 @@
 
    </head>
    <body>     
-
+       <div class="app">
+           <h1>Apache Cordova</h1>
+           <div id="deviceready" class="blink">
+               <p class="event listening">Connecting to Device</p>
+               <p class="event received">Device is Ready</p>
+           </div>
+       </div>
            <div data-role="page" id="date-page" class="type-interior" style="width:100%">
                     <div data-role="header" id="header" data-position="fixed">
 <div id="header-pic"></div><div id="header-text"></div>
@@ -33,7 +39,11 @@
          <div data-role="footer" data-position="fixed" id="footer1" class="footer-docs" style="display:inline!important;position:fixed!important">
             <div data-role="navbar" id="footer-nav1" data-tap-toggle="false" data-visible-on-page-show="false">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                <ul data-tap-toggle="false">
-                            <li><a class="ui-btn-active"  id="all" data-prefetch>All1</a></li>
+                          <!-- <li><a class="ui-btn-active"  id="all" data-prefetch>All1</a></li>-->
+                            <button id="show_map" onclick="app.showMap();">showMap</button>
+                            <button id="show_map" onclick="app.changeMapType();">changeMapType</button>
+                            <button id="hide_map" onclick="app.hideMap();" style="display:none;">hideMap</button>
+                            <button id="clear_map_pins" onclick="app.clearMapPins();" style="display:none;">clearMapPins</button>
                             <!--<li><a class="ui-btn-active"  id="testButton" data-prefetch>Test</a></li>-->
                </ul>
             </div>
@@ -75,12 +85,16 @@
        <!--External Libraries-->
 
        <script type="text/javascript" src="cordova.js"></script>
+       
+       <script src="js/MapKit.js"></script>
+       
+       <!--<script src="js/mapTest.js"></script>-->
+       <script src="js/index.js"></script>
+       <script>
+           app.initialize();
+           </script>
 
      <script src="cdv-plugin-fb-connect.js"></script>
-  <script src="js/MapKit.js"></script>
-  
-<script src="js/mapTest.js"></script>
-<script src="js/index.js"></script>
 
 
       <script>
