@@ -55,6 +55,7 @@ receivedEvent: function(id) {
     
 },
 showMap: function() {
+    console.log("show map");
     var pins = [
                 {
                 lat: 49.28115,
@@ -86,6 +87,7 @@ showMap: function() {
         console.log('error');
     };
     var success = function() {
+        console.log("success");
         document.getElementById('hide_map').style.display = 'block';
         document.getElementById('show_map').style.display = 'none';
         mapKit.addMapPins(pins, function() {
@@ -94,6 +96,7 @@ showMap: function() {
                           },
                           function() { console.log('error'); });
     };
+    console.log("line before showmap()");
     mapKit.showMap(success, error);
 },
 hideMap: function() {

@@ -1,6 +1,23 @@
 /*attempt at diabling horizontal scrolling*/
+/*
+div[data-role="page"]{
+    background-image:url('../images/upArrow.png');
+    background-repeat:repeat;
+    background-attachment: fixed;
+}
+*/
 
-body { 
+#be-pat{
+    position:fixed;
+    display:block;
+    z-index:0;
+}
+
+.be-text{
+    font-size:20pt;
+}
+
+body {
 overflow-x: hidden; 
 
 
@@ -341,6 +358,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .event-wrap-in{
+    background:white;
 	position:relative;
 	overflow-y:hidden;
     
