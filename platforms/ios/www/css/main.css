@@ -6,15 +6,29 @@ div[data-role="page"]{
     background-attachment: fixed;
 }
 */
+.be-text-1{
+    font-size:60pt;
+    margin:-40px 16px;
+}
 
-#be-pat{
+.be-pat{
     position:fixed;
     display:block;
     z-index:0;
 }
 
+#be-pat-1{
+    background:pink;
+}
+/*
+#be-pat-2{
+    margin-top:3px;
+        background:pink;
+}
+*/
 .be-text{
-    font-size:20pt;
+    font-size:60pt;
+    margin:-40px 0px;
 }
 
 body {
