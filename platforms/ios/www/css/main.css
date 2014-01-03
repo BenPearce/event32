@@ -71,7 +71,7 @@ background:gray;
 }
 
 li{
-    margin-bottom:3px;
+    margin-bottom:5px;
     margin-top:3px;
 }
 
@@ -491,7 +491,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         width:100%;
 		border-bottom:solid black 1px;
         background:black;
-            /*border-bottom:solid white 1px;*/
+        border-bottom:solid white 1px;
 }
 
 .hidden{
