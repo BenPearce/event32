@@ -322,6 +322,7 @@ overflow-x:hidden;
 	position:relative;
 	height:50px;
 	width:50px;
+    box-shadow: 2px 2px 2px #888888;
 }
 
 .friend-wrap-touched{
@@ -341,15 +342,9 @@ overflow-x:hidden;
 .event-wrap{
 	float:left;
 	width: 79%;
-/*	
-background: -moz-linear-gradient(top, rgba(183,182,186,0) 0%, rgba(183,182,186,0.07) 44%, rgba(183,182,186,0.07) 46%, rgba(183,182,186,0.07) 49%, rgba(183,182,186,0) 100%); 
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,182,186,0)), color-stop(44%,rgba(183,182,186,0.07)), color-stop(46%,rgba(183,182,186,0.07)), color-stop(49%,rgba(183,182,186,0.07)), color-stop(100%,rgba(183,182,186,0))); 
-background: -webkit-linear-gradient(top, rgba(183,182,186,0) 0%,rgba(183,182,186,0.07) 44%,rgba(183,182,186,0.07) 46%,rgba(183,182,186,0.07) 49%,rgba(183,182,186,0) 100%); 
-background: -o-linear-gradient(top, rgba(183,182,186,0) 0%,rgba(183,182,186,0.07) 44%,rgba(183,182,186,0.07) 46%,rgba(183,182,186,0.07) 49%,rgba(183,182,186,0) 100%); 
-background: -ms-linear-gradient(top, rgba(183,182,186,0) 0%,rgba(183,182,186,0.07) 44%,rgba(183,182,186,0.07) 46%,rgba(183,182,186,0.07) 49%,rgba(183,182,186,0) 100%); 
-background: linear-gradient(to bottom, rgba(183,182,186,0) 0%,rgba(183,182,186,0.07) 44%,rgba(183,182,186,0.07) 46%,rgba(183,182,186,0.07) 49%,rgba(183,182,186,0) 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7b6ba', endColorstr='#00b7b6ba',GradientType=0 ); 
-*/
+box-shadow: 2px 2px 2px #888888;
+
+
 }
 
 .event-img{
@@ -398,15 +393,19 @@ border-top:solid black 1px;
 }
 
 .expanded{
+    /*
     background-image:url('../images/upArrow.png')!important;
     background-position:center; 
     background-repeat:no-repeat;
+     */
 }
 
 .more-events-text-wrap{
 	text-align: center;
         height:50px;
         width:15%;
+        color:yellow;
+        font-size:26pt;
         /*background:white;*/
         float:left;
         /*
@@ -414,11 +413,11 @@ border-top:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
          */
-        
+        /*
         background-image:url('../images/minus_yel.png');
         background-position:center;
         background-repeat:no-repeat;
-
+*/
 }
 
 #top-elem{
@@ -514,16 +513,13 @@ transition: height 1s;
 	border-right:solid black 1px;
 	border-left:solid black 1px;
      */
-	/*
-		background: rgb(255,255,255); 
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 55%, rgba(255,255,255,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(55%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1)));
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%);
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%);
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%); 
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); 
-*/
+    background: -moz-linear-gradient(top, rgba(214,214,214,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(214,214,214,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(214,214,214,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(214,214,214,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(214,214,214,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(214,214,214,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6d6d6d6', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 .date-row{
@@ -533,6 +529,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		/*border-bottom:solid black 1px;*/
         /*background:black;*/
         border-bottom:solid white 1px;
+        background: rgb(35,35,35); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(35,35,35,1) 0%, rgba(48,48,48,1) 17%, rgba(66,66,66,1) 46%, rgba(33,33,33,1) 70%, rgba(19,19,19,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(35,35,35,1)), color-stop(17%,rgba(48,48,48,1)), color-stop(46%,rgba(66,66,66,1)), color-stop(70%,rgba(33,33,33,1)), color-stop(100%,rgba(19,19,19,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(35,35,35,1) 0%,rgba(48,48,48,1) 17%,rgba(66,66,66,1) 46%,rgba(33,33,33,1) 70%,rgba(19,19,19,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(35,35,35,1) 0%,rgba(48,48,48,1) 17%,rgba(66,66,66,1) 46%,rgba(33,33,33,1) 70%,rgba(19,19,19,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(35,35,35,1) 0%,rgba(48,48,48,1) 17%,rgba(66,66,66,1) 46%,rgba(33,33,33,1) 70%,rgba(19,19,19,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(35,35,35,1) 0%,rgba(48,48,48,1) 17%,rgba(66,66,66,1) 46%,rgba(33,33,33,1) 70%,rgba(19,19,19,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232323', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
 }
 
 .hidden{
@@ -671,11 +675,15 @@ bottom:2px;
 .left-ex-button{
     height:50px;
     width:15%;
-    background-image:url('../images/plus_yel.png');
     /* for some reason I need this to get rid of a gap*/
     border-right:solid 1px black;
+    color:yellow;
+    font-size:26pt;
+    /*
+    background-image:url('../images/arrow_up.png');
     background-position:center;
     background-repeat:no-repeat;
+     */
     /*background-attachment: fixed;*/
     float:right;
 }
@@ -699,7 +707,7 @@ bottom:2px;
         text-align:center;
         height:50px;
         position:relative;
-        background:black;
+        /*background:black;*/
         font-weight:bold;  
 }
 
