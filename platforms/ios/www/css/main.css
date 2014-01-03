@@ -366,6 +366,7 @@ border-top:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
          */
+        
         background-image:url('../images/minus_yel.png');
         background-position:center;
         background-repeat:no-repeat;
@@ -645,7 +646,7 @@ bottom:2px;
         font-family:"Arial";
         float:left;
         margin-top:0px;
-        width:70%;
+        width:100%;
         text-align:center;
         height:50px;
         position:relative;

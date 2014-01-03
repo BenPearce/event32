@@ -80,7 +80,7 @@ function getDateHeader(evening,k){
     return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
         
     }else{
-            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'"></div></div>';
+            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div><div class="left-ex-button"  data-dateId="'+k+'"></div></div></div>';
     }
     
     
