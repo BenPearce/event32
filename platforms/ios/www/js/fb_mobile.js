@@ -234,18 +234,13 @@ function popCal(){
              continue;
              */
             
+
+            
             
             if(typeof dateHash[i].eventList[0] != "undefined"){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                /*$("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");*/
-                
-                
-               // $("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));
-                           //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
-                 //$("#dateDisplayer-"+i).append("hello");
-                           //$("#dateDisplayer-"+i).append(getLeftExButton(k,text1,className)
                 continue;
             }
             
@@ -253,11 +248,7 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                /*$("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");*/
                 $("#event-wrap-in-"+i).css("height","74px");
-                /*$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));*/
-                           //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
-                 //$("#dateDisplayer-"+i).append("hello");
                 continue;
             }
             
@@ -265,33 +256,20 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                /*$("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");*/
                 $("#event-wrap-in-"+i).css("height","148px");
-                /*$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));*/
-                           //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
-                 //$("#dateDisplayer-"+i).append("hello");
                 continue;
             }
             
             if(typeof dateHash[i].eventList[3] != "undefined"){
-                //$("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent"));
+                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                /*$("#event-wrap-in-"+i).append("<div id='more-events-marker-"+i+"'></div>");*/
                 $("#event-wrap-in-"+i).css("height","222px");
-                /*$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText,"expanded"));*/
-                           //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
-                 //$("#dateDisplayer-"+i).append("hello");
                 continue;
             }
             
             var moreText = (dateHash[i].eventList.length - 4);
-            /*$("#event-list-wrap-trans-"+ i).append("<div id='more-events-marker-"+i+"'></div>");*/
             $("#event-wrap-in-"+i).css("height","222px");
-             //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
-             //$("#dateDisplayer-"+i).append("hello");
-             //$("#dateDisplayer-"+i).append(getLeftExButton(i,moreText,"contracted"));
-            /*$("#event-list-wrap-trans-"+ i).append(getMorebutton(i,moreText));*/
             
         }
     }
@@ -300,6 +278,8 @@ function popCal(){
     setFriendTap();
     
     setEventTap();
+    
+    
 }
 
 document.addEventListener('deviceready', function () {
