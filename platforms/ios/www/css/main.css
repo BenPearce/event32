@@ -7,6 +7,29 @@ div[data-role="page"]{
 }
 */
 
+body {
+    width: 100%;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+};
+
+html, body {
+    overflow-x: hidden !important;
+    /*position: relative !important;*/
+}
+
+html{
+    position: relative !important;
+}
+
+/*
+body{
+position: relative !important;
+}
+ */
+
 #tags{
     margin:auto!important;
     width:97%!important;
@@ -14,7 +37,7 @@ div[data-role="page"]{
 
 #top-elem{
     position:absolute;
-    width:100%;
+    width:97%;
     height:50px;
     background:black;
     padding:5px 5px;
