@@ -15,6 +15,11 @@ div[data-role="page"]{
     margin:-5px 16px;
 }
 
+.hello{
+    position:absolute;
+    font-size:20pt;
+}
+
 .be-pat{
     position:fixed;
     display:block;
@@ -290,6 +295,11 @@ overflow-x:hidden;
 	width:48px!important;
 }
 
+.divider-wrap{
+    
+    position:relative;
+}
+
 .event-wrap{
 	float:left;
 	width: 79%;
@@ -481,7 +491,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .date-row{
 		height:50px;
         width:100%;
-		border-bottom:solid black 1px;
+        position:absolute;
+		/*border-bottom:solid black 1px;*/
         /*background:black;*/
         border-bottom:solid white 1px;
 }

@@ -77,10 +77,12 @@ function getDateHeader(evening,k){
     //console.log();
     if(evening.eventList.length < 3){
     
-    return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
+    //return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
+        
+            return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div><div class="hello">hello</div></div>';
         
     }else{
-            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div><div class="left-ex-button"  data-dateId="'+k+'"></div></div></div>';
+            return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div><div class="left-ex-button"  data-dateId="'+k+'"></div></div></div><div class="hello">hello</div></div>';
     }
     
     
