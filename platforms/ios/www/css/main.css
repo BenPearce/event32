@@ -71,7 +71,8 @@ background:gray;
 }
 
 li{
-    margin-bottom:-45px;
+    margin-bottom:3px;
+    margin-top:3px;
 }
 
 #footer1{
@@ -487,7 +488,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .date-row{
 		height:50px;
+        width:100%;
 		border-bottom:solid black 1px;
+        background:black;
+            border-bottom:solid white 1px;
 }
 
 .hidden{
