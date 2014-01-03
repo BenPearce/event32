@@ -135,8 +135,17 @@ function setEventTap(){
 */
                     	}
 
+function stickyList(){
+    console.log("stick list trig");
+    $(".date-row").sticky({ topSpacing: 0 });
+    console.log("stick list end");
+}
+
     //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
     $(document).ready(function () {
+                      
+                      
+                      $("#header").sticky({ topSpacing: 0 });
                      /*
                       $("#all").click(function(){
                                       alert("exListHeight: "+exListHeight);
