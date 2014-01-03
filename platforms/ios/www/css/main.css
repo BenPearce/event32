@@ -626,11 +626,18 @@ bottom:2px;
 	        /*width: 100%;*/
 }
 
+.left-ex-button{
+    height:50px;
+    width:50px;
+    background:white;
+    float:right;
+}
+
 .date-abrev-wrap{
         font-family:"Arial";
         float:left;
         margin-top:0px;
-        width:79%;
+        width:59%;
         height:50px;
         position:relative;
         background:black;

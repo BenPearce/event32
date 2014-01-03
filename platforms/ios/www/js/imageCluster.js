@@ -67,8 +67,28 @@ function getMorebutton(k,text1,className){
     return '<div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div>';
 }
 
+function getLeftExButton(k,text1,className){
+    //return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div></div></div>';
+    
+    return '<div class="left-ex-button '+className+'"  data-dateId="'+k+'">Hi</div>';
+}
+
 function getDateHeader(evening){
-    return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';
+    
+    console.log();
+    if(evening.eventList.length < 3){
+    
+    return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';
+        
+    }else{
+            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'">Hi</div></div>';
+    }
+    
+    
+    //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
+    //$("#dateDisplayer-"+i).append("hello");
+    //$("#dateDisplayer-"+i).append(getLeftExButton(i,moreText,"contracted"));
+    
     
 }
 
