@@ -44,7 +44,6 @@ function getEventRow(eventId,eventClass,datIndex){
         var three = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : preBR + "images/pinkX.png"+ post;
         
         return '<div class="row-wrap '+eventClass+'"><div class="event-wrap">'+eventImg+'<div class="row-title-wrap event-title-wrap">'+eventName+'</div></div><div class="friend-wrap" id="friend-'+eventId+'">'+zero+one+two+three+'</div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
-        
     }
 }
 
@@ -81,7 +80,7 @@ function getDateHeader(evening){
     return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';
         
     }else{
-            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'">Hi</div></div>';
+            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'"></div></div>';
     }
     
     

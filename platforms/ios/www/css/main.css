@@ -358,28 +358,18 @@ border-top:solid black 1px;
 .more-events-text-wrap{
 	text-align: center;
         height:50px;
-        width:19%;
-        background:white;
+        width:15%;
+        /*background:white;*/
         float:left;
-        /*position:absolute;
-        bottom:0px;
-        right:0px;*/
+        /*
         border-right:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
-        background-image:url('../images/downArrowSmall.png');
+         */
+        background-image:url('../images/minus_neg.png');
         background-position:center;
         background-repeat:no-repeat;
-        /*
-        		background: rgb(255,255,255); 
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 55%, rgba(255,255,255,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(55%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1)));
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%); 
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%); 
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%); 
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 55%,rgba(255,255,255,1) 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
-*/
+
 }
 
 #top-elem{
@@ -491,7 +481,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		height:50px;
         width:100%;
 		border-bottom:solid black 1px;
-        background:black;
+        /*background:black;*/
         border-bottom:solid white 1px;
 }
 
@@ -626,10 +616,28 @@ bottom:2px;
 	        /*width: 100%;*/
 }
 
+
+
 .left-ex-button{
     height:50px;
+    width:15%;
+    background-image:url('../images/plus_neg.png');
+    /* for some reason I need this to get rid of a gap*/
+    border-right:solid 1px black;
+    background-position:center;
+    background-repeat:no-repeat;
+    /*background-attachment: fixed;*/
+    float:right;
+}
+
+.right-ex-button{
+    height:50px;
     width:50px;
-    background:white;
+    background-image:url('../images/plus_neg.png');
+    
+    background-position:center;
+    background-repeat:no-repeat;
+    /*background-attachment: fixed;*/
     float:right;
 }
 
@@ -637,7 +645,7 @@ bottom:2px;
         font-family:"Arial";
         float:left;
         margin-top:0px;
-        width:59%;
+        width:70%;
         height:50px;
         position:relative;
         background:black;
