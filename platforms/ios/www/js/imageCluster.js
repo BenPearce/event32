@@ -72,7 +72,7 @@ function getLeftExButton(k,text1,className){
     return '<div class="left-ex-button '+className+'"  data-dateId="'+k+'">Hi</div>';
 }
 
-function getDateHeader(evening){
+function getDateHeader(evening,k){
     
     //console.log();
     if(evening.eventList.length < 3){

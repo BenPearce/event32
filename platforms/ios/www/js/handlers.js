@@ -111,8 +111,9 @@ function setEventTap(){
 
 
     function setFriendTap(){
-        
+        console.log("set friend tap");
         $(".more-events-text-wrap").touchstart(function(){
+                                               console.log("more events");
                                  $(this).addClass('more-events-button-touched');
                                                
                                                setInterval(function(){

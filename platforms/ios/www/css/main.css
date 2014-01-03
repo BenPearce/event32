@@ -417,10 +417,10 @@ border-top:solid black 1px;
     background:white;
 	position:relative;
 	overflow-y:hidden;
-    
+    /*
     border-left:solid black 1px;
     border-right:solid black 1px;
-
+*/
 -webkit-transform-style: preserve-3d;
 -webkit-transform: translate3d(0px,0px,0px);
 transition: height 1s;
