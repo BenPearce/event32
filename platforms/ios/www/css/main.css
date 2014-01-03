@@ -118,10 +118,29 @@ list-style-type: none;
 }
 
 .background{
-	 z-index: -1;
+	 z-index: 0;
     position: fixed;
+}
+
+
+#bg-img-ul{
+    top: 0;
+    left: 0;
+}
+
+#bg-img-ur{
+    top: 0;
+    right: 0;
+}
+
+#bg-img-bl{
     bottom: 0;
     left: 0;
+}
+
+#bg-img-br{
+    bottom: 0;
+    right: 0;
 }
 
 .fixed{
