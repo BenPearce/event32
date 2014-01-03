@@ -36,6 +36,15 @@ function makeEvening(integer) {
     result.botArray = new Array();
     result.dateArray = new Array();
     result.weekDay = new Array(7);
+    
+    result.weekDay[0]="Sun";
+    result.weekDay[1]="Mon";
+    result.weekDay[2]="Tue";
+    result.weekDay[3]="Wed";
+    result.weekDay[4]="Thur";
+    result.weekDay[5]="Fri";
+    result.weekDay[6]="Sat";
+    /*
     result.weekDay[0]="Sunday";
     result.weekDay[1]="Monday";
     result.weekDay[2]="Tuesday";
@@ -43,6 +52,7 @@ function makeEvening(integer) {
     result.weekDay[4]="Thursday";
     result.weekDay[5]="Friday";
     result.weekDay[6]="Saturday";
+     */
     result.topEventsHtml = "";
     result.eventExHtml = "";
     result.generateHtml = function(){

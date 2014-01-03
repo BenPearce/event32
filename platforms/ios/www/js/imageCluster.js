@@ -74,13 +74,13 @@ function getLeftExButton(k,text1,className){
 
 function getDateHeader(evening){
     
-    console.log();
+    //console.log();
     if(evening.eventList.length < 3){
     
-    return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div></div>';
+    return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
         
     }else{
-            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.dateStringArray[1]+"</div><div class='date-abrev-bot'>"+evening.monthNumber+"."+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'"></div></div>';
+            return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div><div class="left-ex-button"  data-dateId="'+k+'"></div></div>';
     }
     
     

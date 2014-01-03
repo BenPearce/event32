@@ -219,6 +219,7 @@ var uiEventCount = 0;
 function popCal(){
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
+            
             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(dateHash[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
             
             //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
