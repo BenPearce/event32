@@ -62,7 +62,9 @@ function getEventHtml(evening){
 }
 
 function getMorebutton(k,text1,className){
-    return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div></div></div>';
+    //return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div></div></div>';
+    
+    return '<div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div>';
 }
 
 function getDateHeader(evening){

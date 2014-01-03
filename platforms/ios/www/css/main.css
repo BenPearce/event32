@@ -360,9 +360,10 @@ border-top:solid black 1px;
         height:50px;
         width:19%;
         background:white;
-        position:absolute;
+        float:left;
+        /*position:absolute;
         bottom:0px;
-        right:0px;
+        right:0px;*/
         border-right:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
