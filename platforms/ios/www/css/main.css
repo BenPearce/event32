@@ -366,7 +366,7 @@ border-top:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
          */
-        background-image:url('../images/minus_neg.png');
+        background-image:url('../images/minus_yel.png');
         background-position:center;
         background-repeat:no-repeat;
 
@@ -621,7 +621,7 @@ bottom:2px;
 .left-ex-button{
     height:50px;
     width:15%;
-    background-image:url('../images/plus_neg.png');
+    background-image:url('../images/plus_yel.png');
     /* for some reason I need this to get rid of a gap*/
     border-right:solid 1px black;
     background-position:center;
