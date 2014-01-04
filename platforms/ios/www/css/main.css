@@ -468,7 +468,7 @@ border-top:solid black 1px;
 }
 */
 .is-sticky .date-row{
-    /*background:red;*/
+    background:pink;
     z-index:105;
 }
 
