@@ -228,7 +228,7 @@ padding-left:0px!important;
 #sticky-block{
     position:fixed;
     top:0px;
-    z-index:1;
+    z-index:102;
     width:97%;
     height:50px;
     background:white;
@@ -346,9 +346,9 @@ overflow-x:hidden;
 }
 
 .divider-wrap{
-    background:yellow;
+    /*background:yellow;*/
     position:relative;
-    z-index:2;
+    /*z-index:2;*/
 }
 
 .event-wrap{
@@ -416,7 +416,7 @@ border-top:solid black 1px;
 	text-align: center;
         height:50px;
         width:15%;
-        color:yellow;
+        /*color:yellow;*/
         font-size:26pt;
         border-right:solid black 1px;
         /*background:white;*/
@@ -462,9 +462,14 @@ border-top:solid black 1px;
 	-webkit-backface-visibility: hidden;
      */
 }
-
+/*
 .is-sticky{
-    background:red;
+    z-index:105;
+}
+*/
+.is-sticky .date-row{
+    /*background:red;*/
+    z-index:105;
 }
 
 .animateHeight{
@@ -549,8 +554,10 @@ transition: height 1s;
 
 }
 
+
+
 .sticky-wrapper{
-    background:red!important;
+    /*background:red!important;*/
 }
 
 .hidden{
@@ -601,7 +608,7 @@ bottom:2px;
 }
 
 .events-touched{
-    background:yellow;
+    /*background:yellow;*/
 }
 
 .more-events-button-touched{
@@ -609,7 +616,7 @@ bottom:2px;
 }
 
 .event-wrap-touched{
-	background:yellow;
+	/*background:yellow;*/
 }
 
 #bot-elem{
