@@ -416,11 +416,11 @@ border-top:solid black 1px;
         border-bottom:solid black 1px;
         border-left:solid black 1px;
          */
-        /*
-        background-image:url('../images/minus_yel.png');
+   
+        background-image:url('../images/arrowUp.png');
         background-position:center;
         background-repeat:no-repeat;
-*/
+
 }
 
 #top-elem{
@@ -682,8 +682,13 @@ bottom:2px;
     width:15%;
     /* for some reason I need this to get rid of a gap*/
     border-left:solid 1px black;
-    color:yellow;
-    font-size:26pt;
+    /*color:yellow;
+    font-size:26pt;*/
+    
+    background-image:url('../images/arrowDwn.png');
+    
+    background-position:center;
+    background-repeat:no-repeat;
     /*
     background-image:url('../images/arrow_up.png');
     background-position:center;
@@ -696,7 +701,7 @@ bottom:2px;
 .right-ex-button{
     height:50px;
     width:50px;
-    background-image:url('../images/plus_neg.png');
+    background-image:url('../images/arrowDwn.png');
     
     background-position:center;
     background-repeat:no-repeat;
