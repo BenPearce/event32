@@ -688,6 +688,7 @@ bottom:2px;
     height:50px;
     width:50px;
     background-image:url('../images/check-trans.png')!important;
+    box-shadow: 2px 2px 2px #888888;
     background-position:center;
     background-repeat:no-repeat;
 }
@@ -700,7 +701,7 @@ bottom:2px;
     height:50px;
     width:50px;
     box-shadow: 2px 2px 2px #888888;
-    background-image:url('../images/map-marker-trans.png')!important;
+    background-image:url('../images/mrk-trans-1.png')!important;
     background-position:center;
     background-repeat:no-repeat;
 }
