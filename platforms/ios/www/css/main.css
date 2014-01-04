@@ -143,7 +143,7 @@ padding:0px!important;
     width: 50px;
     height: 50px;
     background: hsl(120, 100%, 25%);
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 #test-button{
@@ -329,7 +329,7 @@ overflow-x:hidden;
 .friend-wrap{
 	margin-top:3px;
 	margin-left:8px;
-	float:left;
+	float:right;
 	position:relative;
 	height:50px;
 	width:50px;
@@ -475,7 +475,7 @@ border-top:solid black 1px;
 
 .background-div{
     position:fixed;
-    height:50%;
+    height:51%;
     width:50%;
     
     background: rgb(205,226,247); /* Old browsers */
@@ -778,6 +778,8 @@ bottom:2px;
 .date-abrev-wrap{
     font-family:helvetica neue;
     font-weight:normal;
+    font-size:24pt;
+    /*padding-top:20px;*/
         float:left;
         /*margin-top:10px;*/
         width:100%;
