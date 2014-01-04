@@ -408,6 +408,7 @@ border-top:solid black 1px;
         width:15%;
         color:yellow;
         font-size:26pt;
+        border-right:solid black 1px;
         /*background:white;*/
         float:left;
         /*
@@ -580,6 +581,7 @@ font-size:10pt;
 	        font-size:22pt;
 	        line-height: 12pt;
 	        color:white;
+            margin-top:10px;
 /*width:100%;*/
 /*position:absolute;
 bottom:2px;
@@ -648,6 +650,8 @@ bottom:2px;
     /*display:none;
     visibility: hidden;
     */
+    /*border:solid black 1px;
+    padding:5px 5px;*/
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: height 1s;
@@ -677,7 +681,7 @@ bottom:2px;
     height:50px;
     width:15%;
     /* for some reason I need this to get rid of a gap*/
-    border-right:solid 1px black;
+    border-left:solid 1px black;
     color:yellow;
     font-size:26pt;
     /*
@@ -703,7 +707,7 @@ bottom:2px;
 .date-abrev-wrap{
         font-family:"Arial";
         float:left;
-        margin-top:0px;
+        /*margin-top:10px;*/
         width:100%;
         text-align:center;
         height:50px;
