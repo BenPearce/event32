@@ -587,6 +587,7 @@ transition: height 1s;
 }
 
 .date-row{
+    font-family:helvetica neue;
 		height:50px;
         width:100%;
         position:absolute;
@@ -643,6 +644,8 @@ font-size:10pt;
 	        line-height: 12pt;
 	        color:white;
             margin-top:10px;
+            font-family:helvetica neue;
+            font-weight:normal;
 /*width:100%;*/
 /*position:absolute;
 bottom:2px;
@@ -724,9 +727,10 @@ bottom:2px;
 .date-abrev-top{
 	/*text-align:center;*/
     display:inline-block;
-	font-family:"Arial";
+    font-family:helvetica neue;
+    font-weight:normal;
 	        font-size:22pt;
-	        font-weight:bold;
+	        /*font-weight:regular;*/
             margin-right:10px;
             /*
 	       position:absolute;
@@ -772,7 +776,8 @@ bottom:2px;
 }
 
 .date-abrev-wrap{
-        font-family:"Arial";
+    font-family:helvetica neue;
+    font-weight:normal;
         float:left;
         /*margin-top:10px;*/
         width:100%;
