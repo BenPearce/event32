@@ -348,6 +348,7 @@ overflow-x:hidden;
 .divider-wrap{
     /*background:yellow;*/
     position:relative;
+    margin-bottom:15px;
     /*z-index:2;*/
 }
 
@@ -587,10 +588,12 @@ transition: height 1s;
 }
 
 .date-row{
-    font-family:helvetica neue;
+    /*font-family:helvetica neue;*/
+    
 		height:50px;
         width:100%;
         position:absolute;
+        /*margin-bottom:30px;*/
 		/*border-bottom:solid black 1px;*/
         /*background:black;*/
         /*border-bottom:solid white 1px;*/
@@ -777,7 +780,7 @@ bottom:2px;
 
 .date-abrev-wrap{
     font-family:helvetica neue;
-    font-weight:normal;
+    font-weight: normal;
     font-size:24pt;
     /*padding-top:20px;*/
         float:left;
@@ -786,8 +789,7 @@ bottom:2px;
         text-align:center;
         height:50px;
         position:relative;
-        /*background:black;*/
-        font-weight:bold;  
+        /*background:black;*/ 
 }
 
 .event-title{
