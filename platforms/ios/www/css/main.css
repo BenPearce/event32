@@ -225,6 +225,15 @@ background:none!important;
 padding-left:0px!important;
 }
 
+#sticky-block{
+    position:fixed;
+    top:0px;
+    z-index:1;
+    width:97%;
+    height:50px;
+    background:white;
+}
+
 .more-events-text-inner-wrap{
 	width:95%;
 	height:90%;
@@ -337,8 +346,9 @@ overflow-x:hidden;
 }
 
 .divider-wrap{
-    
+    background:yellow;
     position:relative;
+    z-index:2;
 }
 
 .event-wrap{
@@ -453,6 +463,10 @@ border-top:solid black 1px;
      */
 }
 
+.is-sticky{
+    background:red;
+}
+
 .animateHeight{
     /*
     -webkit-transform-style: preserve-3d;
@@ -465,7 +479,7 @@ border-top:solid black 1px;
 }
 
 .event-wrap-in{
-    background:white;
+    /*background:white;*/
 	position:relative;
 	overflow-y:hidden;
     /*
@@ -532,13 +546,11 @@ transition: height 1s;
 		/*border-bottom:solid black 1px;*/
         /*background:black;*/
         border-bottom:solid white 1px;
-        background: -moz-linear-gradient(top, rgba(2,0,0,0.99) 0%, rgba(28,27,27,0.9) 28%, rgba(38,38,38,0.92) 39%, rgba(32,31,31,0.91) 50%, rgba(21,20,20,0.96) 68%, rgba(2,0,0,1) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,0,0,0.99)), color-stop(28%,rgba(28,27,27,0.9)), color-stop(39%,rgba(38,38,38,0.92)), color-stop(50%,rgba(32,31,31,0.91)), color-stop(68%,rgba(21,20,20,0.96)), color-stop(100%,rgba(2,0,0,1))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, rgba(2,0,0,0.99) 0%,rgba(28,27,27,0.9) 28%,rgba(38,38,38,0.92) 39%,rgba(32,31,31,0.91) 50%,rgba(21,20,20,0.96) 68%,rgba(2,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, rgba(2,0,0,0.99) 0%,rgba(28,27,27,0.9) 28%,rgba(38,38,38,0.92) 39%,rgba(32,31,31,0.91) 50%,rgba(21,20,20,0.96) 68%,rgba(2,0,0,1) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top, rgba(2,0,0,0.99) 0%,rgba(28,27,27,0.9) 28%,rgba(38,38,38,0.92) 39%,rgba(32,31,31,0.91) 50%,rgba(21,20,20,0.96) 68%,rgba(2,0,0,1) 100%); /* IE10+ */
-        background: linear-gradient(to bottom, rgba(2,0,0,0.99) 0%,rgba(28,27,27,0.9) 28%,rgba(38,38,38,0.92) 39%,rgba(32,31,31,0.91) 50%,rgba(21,20,20,0.96) 68%,rgba(2,0,0,1) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc020000', endColorstr='#020000',GradientType=0 ); /* IE6-9 */
+
+}
+
+.sticky-wrapper{
+    background:red!important;
 }
 
 .hidden{
