@@ -218,7 +218,7 @@ height:222px;
 }
 
 #dateMainList {
-	width: 97%;
+	width: 95%;
 margin: auto;
 margin-top:65px!important;
 background:none!important;
@@ -789,7 +789,7 @@ bottom:2px;
         text-align:center;
         height:50px;
         position:relative;
-        /*background:black;*/ 
+        /*background:black;*/
 }
 
 .event-title{
