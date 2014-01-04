@@ -418,7 +418,10 @@ border-top:solid black 1px;
         width:15%;
         /*color:yellow;*/
         font-size:26pt;
-        border-right:solid black 1px;
+        
+            box-shadow: 2px 2px 2px #888888;
+        
+        /*border-right:solid black 1px;*/
         /*background:white;*/
         float:left;
         /*
@@ -467,6 +470,45 @@ border-top:solid black 1px;
     z-index:105;
 }
 */
+
+
+
+.background-div{
+    position:fixed;
+    height:50%;
+    width:50%;
+    
+    background: rgb(205,226,247); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(205,226,247,1) 0%, rgba(218,220,237,1) 13%, rgba(230,238,247,1) 32%, rgba(242,242,252,1) 50%, rgba(222,234,247,1) 68%, rgba(213,218,239,1) 86%, rgba(205,226,247,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(205,226,247,1)), color-stop(13%,rgba(218,220,237,1)), color-stop(32%,rgba(230,238,247,1)), color-stop(50%,rgba(242,242,252,1)), color-stop(68%,rgba(222,234,247,1)), color-stop(86%,rgba(213,218,239,1)), color-stop(100%,rgba(205,226,247,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%,rgba(230,238,247,1) 32%,rgba(242,242,252,1) 50%,rgba(222,234,247,1) 68%,rgba(213,218,239,1) 86%,rgba(205,226,247,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%,rgba(230,238,247,1) 32%,rgba(242,242,252,1) 50%,rgba(222,234,247,1) 68%,rgba(213,218,239,1) 86%,rgba(205,226,247,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%,rgba(230,238,247,1) 32%,rgba(242,242,252,1) 50%,rgba(222,234,247,1) 68%,rgba(213,218,239,1) 86%,rgba(205,226,247,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%,rgba(230,238,247,1) 32%,rgba(242,242,252,1) 50%,rgba(222,234,247,1) 68%,rgba(213,218,239,1) 86%,rgba(205,226,247,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde2f7', endColorstr='#cde2f7',GradientType=0 ); /* IE6-9 */
+}
+#bg-img-ul-div{
+    top:0px;
+    left:0px;
+    /*background:green;*/
+    
+}
+#bg-img-ur-div{
+    top:0px;
+    right:0px;
+    /*background:blue;*/
+}
+#bg-img-bl-div{
+    bottom:0px;
+    left:0px;
+    /*background:red;*/
+}
+#bg-img-br-div{
+    bottom:0px;
+    right:0px;
+    /*background:black;*/
+}
+
 .is-sticky .date-row{
     background:pink;
     z-index:105;
@@ -550,7 +592,7 @@ transition: height 1s;
         position:absolute;
 		/*border-bottom:solid black 1px;*/
         /*background:black;*/
-        border-bottom:solid white 1px;
+        /*border-bottom:solid white 1px;*/
 
 }
 
@@ -700,7 +742,8 @@ bottom:2px;
     height:50px;
     width:15%;
     /* for some reason I need this to get rid of a gap*/
-    border-left:solid 1px black;
+    /*border-left:solid 1px black;*/
+    box-shadow: 2px 2px 2px #888888;
     /*color:yellow;
     font-size:26pt;*/
     
