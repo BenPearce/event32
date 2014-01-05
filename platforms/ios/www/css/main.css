@@ -431,7 +431,8 @@ border-top:solid black 1px;
 }
 
 .more-events-text-wrap-touched{
-    background-image:url('../images/downArrowTouched.png')!important;
+    /*background-image:url('../images/downArrowTouched.png')!important;*/
+    background-image:url('../images/downArrowOrange.png')!important;
     background-position:center!important;
     background-repeat:no-repeat!important;
     /*background:green!important;*/
@@ -788,7 +789,8 @@ bottom:2px;
     font-size:26pt;*/
     
     
-    background-image:url('../images/upArrowTouched.png')!important;
+    background-image:url('../images/UpArrowOrange.png')!important;
+    /*background-image:url('../images/upArrowTouched.png')!important;*/
     background-position:center!important;
     background-repeat:no-repeat!important;
     /*
