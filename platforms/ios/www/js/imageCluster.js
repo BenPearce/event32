@@ -87,7 +87,7 @@ function getDateHeader(evening,k,cnt,ex){
         
     //}else{
         
-            return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="left-ex-button"  data-dateId="'+k+'"></div></div></div></div>';
+            return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div></div></div>';
    // }
     
     
