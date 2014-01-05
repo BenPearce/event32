@@ -109,7 +109,7 @@ function popDate(e,elem){
     expanded = $(elem).is(".expanded");
     
     
-if(!shortRow & expanded){
+if(expanded){
     if((lastIndex != k) & !firstExpand){
         contract(formerShortRow,lastIndex,exSelector,false);
         contract(shortRow,k,elem,true);
@@ -117,7 +117,7 @@ if(!shortRow & expanded){
         contract(shortRow,k,elem,true);
     }
     
-}else if(!shortRow & !expanded){
+}else if(!expanded){
     if((lastIndex != k) & !firstExpand){
         contract(formerShortRow,lastIndex,exSelector,false);
         expand(k,elem);
