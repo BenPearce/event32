@@ -72,10 +72,10 @@ function getLeftExButton(k,text1,className){
     return '<div class="left-ex-button '+className+'"  data-dateId="'+k+'">Hi</div>';
 }
 
-function getDateHeader(evening,k){
+function getDateHeader(evening,k,cnt,ex){
     
     //console.log();
-    if(evening.eventList.length < 3){
+    //if(evening.eventList.length < 3){
     
     //return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
         
@@ -83,12 +83,12 @@ function getDateHeader(evening,k){
         
                  //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
         
-        return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
+        //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
         
-    }else{
+    //}else{
         
-            return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="left-ex-button"  data-dateId="'+k+'"></div></div></div></div>';
-    }
+            return '<div class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="left-ex-button"  data-dateId="'+k+'"></div></div></div></div>';
+   // }
     
     
     //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
