@@ -52,15 +52,18 @@ function eventExpand(element){
 }
 
 function contract(exIndex,elem,transition){
+    console.log("contract start");
     $(elem).removeClass("expanded");
 
         if(transition){
+            console.log("contract trans");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
                 $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
             }
 
         }else{
+            console.log("contract non-trans");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
@@ -71,6 +74,7 @@ function contract(exIndex,elem,transition){
     
     $("#divider-wrap-"+exIndex).removeClass("cnt");
      $("#divider-wrap-"+exIndex).addClass("ex");
+    console.log("contract end");
 }
 
 function expand(cntIndex,elem){
@@ -90,6 +94,7 @@ function expand(cntIndex,elem){
 }
 
 function popDate1(e,elem){
+    console.log("pop date 1");
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
@@ -98,6 +103,14 @@ function popDate1(e,elem){
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
+    
+    if((lastIndex != k) & !firstExpand){
+        contract(lastIndex,exSelector,false);
+        contract(k,elem,true);
+    }else{
+        contract(k,elem,true);
+    }
+    /*
     
     if(expanded){
         if((lastIndex != k) & !firstExpand){
@@ -115,11 +128,12 @@ function popDate1(e,elem){
             expand(k,elem);
         }
     }
+     */
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
-    
-    setEventTap();
+    console.log("pop date 1 end");
+    //setEventTap();
 }
 
 function popDate(e,elem){
@@ -131,6 +145,14 @@ function popDate(e,elem){
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
+    
+    if((lastIndex != k) & !firstExpand){
+        contract(lastIndex,exSelector,false);
+        expand(k,elem);
+    }else{
+        expand(k,elem);
+    }
+    /*
     
 if(expanded){
     if((lastIndex != k) & !firstExpand){
@@ -148,11 +170,12 @@ if(expanded){
         expand(k,elem);
     }
 }
+     */
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
     
-    setEventTap();
+    //setEventTap();
 }
 
 var uiEventCount = 0;
