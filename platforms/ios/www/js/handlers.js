@@ -108,14 +108,9 @@ function setEventTap(){
 
 }
 
-
-
     function setFriendTap(){
         console.log("set friend tap");
         $(".more-events-text-wrap").touchstart(function(){
-                                               console.log("more events");
-                                 //$(this).addClass('more-events-button-touched');
-                                               
                                                setInterval(function(){
                                                            moreEventsLocked = false;
                                                            },600);
@@ -126,14 +121,7 @@ function setEventTap(){
                                              moreEventsLocked = true;
                                              popDate(e,this);
                                              }
-                                 //$(this).removeClass('more-events-button-touched');
                                  });
-/*
-                         		$(".more-events-text-wrap").tap(function(e){
-
-     
-                         		});
-*/
                     	}
 
 function stickyList(){
