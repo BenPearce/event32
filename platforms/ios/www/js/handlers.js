@@ -111,12 +111,14 @@ function setEventTap(){
     function setFriendTap(){
         console.log("set friend tap");
         $(".more-events-text-wrap").touchstart(function(){
+                                               $(this).addClass('more-events-text-wrap-touched');
                                                setInterval(function(){
                                                            moreEventsLocked = false;
                                                            },600);
                                  });
         
         $(".more-events-text-wrap").touchend(function(e){
+                                             $(this).removeClass('more-events-text-wrap-touched');
                                              if(!moreEventsLocked){
                                              moreEventsLocked = true;
                                              popDate(e,this);
