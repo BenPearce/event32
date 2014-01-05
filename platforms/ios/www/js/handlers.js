@@ -122,7 +122,17 @@ function setEventTap(){
                                              popDate(e,this);
                                              }
                                  });
-                    	}
+        
+        $(".left-ex-button").touchstart(function(){
+                                        console.log("ts");
+                                               });
+        
+        $(".left-ex-button").touchend(function(e){
+                                       console.log("te");
+                                                popDate1(e,this);
+                                               });
+        
+    }
 
 function stickyList(){
     console.log("stick list trig");

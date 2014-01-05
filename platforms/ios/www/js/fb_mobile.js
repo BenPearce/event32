@@ -89,6 +89,39 @@ function expand(cntIndex,elem){
     $("#divider-wrap-"+cntIndex).addClass("cnt");
 }
 
+function popDate1(e,elem){
+    k = $(elem).attr('data-dateId');
+    var $this = $("date-elem-"+k+"-list");
+    pos = $("#date-elem-"+k+"-list").offset().top;
+    $doc = $(document);
+    firstExpand = (lastIndex == null);
+    selected = (expandedDate == k);
+    below = (k<expandedDate);
+    expanded = $(elem).is(".expanded");
+    
+    if(expanded){
+        if((lastIndex != k) & !firstExpand){
+            contract(lastIndex,exSelector,false);
+            contract(k,elem,true);
+        }else{
+            contract(k,elem,true);
+        }
+        
+    }else if(!expanded){
+        if((lastIndex != k) & !firstExpand){
+            contract(lastIndex,exSelector,false);
+            expand(k,elem);
+        }else{
+            expand(k,elem);
+        }
+    }
+    exListHeight = dateHash[k].eventList.length;
+    lastIndex = k;
+    exSelector = elem;
+    
+    setEventTap();
+}
+
 function popDate(e,elem){
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
