@@ -47,10 +47,20 @@ function setSwipe(evSel){
 }
 
 function setButtons(){
+    
+    /*
     $(".rsvp-button").tap(function(){
                      alert("rsvp");
                      });
+     */
+    /*
     
+    .checkTouched
+    
+    .mapTouched
+     */
+    
+    /*
     $(".map-button").tap(function(){
                         console.log("ev id "+$(this).attr('data-evId'));
                          //eventList[
@@ -59,11 +69,6 @@ function setButtons(){
                          console.log("venue: "+eventList[evId].venue);
                          console.log("latitude: "+eventList[evId].venue.venue_latitude);
                          console.log("longitude: "+eventList[evId].venue.venue_longitude);
-
-                         
-                         //sdata-evId
-                    //alert("map");
-
                           var iframe = document.createElement('iframe');
                           iframe.src = "map.html?coordinate="+eventList[evId].venue.venue_longitude+","+eventList[evId].venue.venue_latitude;
                           $(".mapWrap").html(iframe);
@@ -72,6 +77,24 @@ function setButtons(){
                          //$(".popupMap1").html(iframe);
 
                     });
+    */
+    $(".map-button").touchstart(function(){
+                                $(this).addClass('mapTouched');
+                                
+                                });
+    
+    $(".map-button").touchend(function(){
+                              $(this).removeClass('mapTouched');
+                              });
+    
+    $(".rsvp-button").touchstart(function(){
+                                 $(this).addClass('checkTouched');
+                                 
+                                 });
+    
+    $(".rsvp-button").touchend(function(){
+                               $(this).removeClass('checkTouched');
+                               });
 }
 
 function setEventTap(){
