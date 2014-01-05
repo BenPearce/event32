@@ -53,22 +53,7 @@ function eventExpand(element){
 
 function contract(exIndex,elem,transition){
     $(elem).removeClass("expanded");
-    
-    /*
-    if(shortRow){
-        if(transition){
-            $("#event-wrap-in-"+exIndex).css("height","0px");
-        }else{
-            $("#event-wrap-in-"+exIndex).addClass("notransition");
-            $("#event-wrap-in-"+exIndex).css("height","0px");
-            $("#event-wrap-in-"+exIndex).html("");
-            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-            $("#event-wrap-in-"+exIndex).height();
-            $("#event-wrap-in-"+exIndex).removeClass("notransition");
-        }
-        
-    }else{
-     */
+
         if(transition){
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
@@ -83,7 +68,6 @@ function contract(exIndex,elem,transition){
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
-   // }
 }
 
 function expand(cntIndex,elem){
@@ -105,11 +89,9 @@ function popDate(e,elem){
     pos = $("#date-elem-"+k+"-list").offset().top;
     $doc = $(document);
     firstExpand = (lastIndex == null);
-    //shortRow = (dateHash[k].eventList.length <=3);
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
-    
     
 if(expanded){
     if((lastIndex != k) & !firstExpand){
@@ -127,52 +109,6 @@ if(expanded){
         expand(k,elem);
     }
 }
-    
-    
-    /*
-    if(shortRow & expanded){
-        if((lastIndex != k) & !firstExpand){
-
-            if(formerShortRow){
-                contract(formerShortRow,lastIndex,exSelector,true);
-            }else{
-                contract(formerShortRow,lastIndex,exSelector,false);
-            }
-            contract (shortRow,k,elem,true);
-        }else{
-            contract (shortRow,k,elem,true);
-        }
-        
-    } else if (shortRow & !expanded){
-        if((lastIndex != k) & !firstExpand){
-            if(formerShortRow){
-                contract(formerShortRow,lastIndex,exSelector,true);
-            }else{
-                contract(formerShortRow,lastIndex,exSelector,false);
-            }
-            expand(k,elem);
-        }else{
-            expand(k,elem);
-        }
-        
-    }else if(!shortRow & expanded){
-        if((lastIndex != k) & !firstExpand){
-            contract(formerShortRow,lastIndex,exSelector,false);
-            contract(shortRow,k,elem,true);
-        }else{
-            contract(shortRow,k,elem,true);
-        }
-        
-    }else if(!shortRow & !expanded){
-        if((lastIndex != k) & !firstExpand){
-            contract(formerShortRow,lastIndex,exSelector,false);
-            expand(k,elem);
-        }else{
-            expand(k,elem);
-        }
-    }
-    */
-    //formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
