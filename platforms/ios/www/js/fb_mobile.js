@@ -68,6 +68,9 @@ function contract(exIndex,elem,transition){
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
+    
+    $("#divider-wrap-"+exIndex).removeClass("cnt");
+     $("#divider-wrap-"+exIndex).addClass("ex");
 }
 
 function expand(cntIndex,elem){
@@ -81,6 +84,9 @@ function expand(cntIndex,elem){
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     dateLength[cntIndex] = exHeight;
+    
+    $("#divider-wrap-"+cntIndex).removeClass("ex");
+    $("#divider-wrap-"+cntIndex).addClass("cnt");
 }
 
 function popDate(e,elem){
@@ -127,7 +133,7 @@ function popCal(){
             if(dateHash[i].eventList.length < 3){
                 dateHeader = getDateHeader(dateHash[i],i,"","");
             }else{
-                dateHeader = getDateHeader(dateHash[i],i,"cnt","ex");
+                dateHeader = getDateHeader(dateHash[i],i,"","ex");
             }
             
             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' >"+dateHeader+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
