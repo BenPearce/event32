@@ -51,7 +51,7 @@ function eventExpand(element){
     //}
 }
 
-function contract(shortRow,exIndex,elem,transition){
+function contract(exIndex,elem,transition){
     $(elem).removeClass("expanded");
     
     /*
@@ -76,7 +76,6 @@ function contract(shortRow,exIndex,elem,transition){
             }
 
         }else{
-            console.log("long row cnt non-transition block");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","222px");
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
@@ -106,7 +105,7 @@ function popDate(e,elem){
     pos = $("#date-elem-"+k+"-list").offset().top;
     $doc = $(document);
     firstExpand = (lastIndex == null);
-    shortRow = (dateHash[k].eventList.length <=3);
+    //shortRow = (dateHash[k].eventList.length <=3);
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
@@ -114,15 +113,15 @@ function popDate(e,elem){
     
 if(expanded){
     if((lastIndex != k) & !firstExpand){
-        contract(formerShortRow,lastIndex,exSelector,false);
-        contract(shortRow,k,elem,true);
+        contract(lastIndex,exSelector,false);
+        contract(k,elem,true);
     }else{
-        contract(shortRow,k,elem,true);
+        contract(k,elem,true);
     }
     
 }else if(!expanded){
     if((lastIndex != k) & !firstExpand){
-        contract(formerShortRow,lastIndex,exSelector,false);
+        contract(lastIndex,exSelector,false);
         expand(k,elem);
     }else{
         expand(k,elem);
@@ -173,7 +172,7 @@ if(expanded){
         }
     }
     */
-    formerShortRow = shortRow;
+    //formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
