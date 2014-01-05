@@ -53,6 +53,8 @@ function eventExpand(element){
 
 function contract(shortRow,exIndex,elem,transition){
     $(elem).removeClass("expanded");
+    
+    /*
     if(shortRow){
         if(transition){
             $("#event-wrap-in-"+exIndex).css("height","0px");
@@ -66,6 +68,7 @@ function contract(shortRow,exIndex,elem,transition){
         }
         
     }else{
+     */
         if(transition){
             $("#event-wrap-in-"+exIndex).css("height","222px");
             if(exIndex != lastIndex){
@@ -81,7 +84,7 @@ function contract(shortRow,exIndex,elem,transition){
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
         }
-    }
+   // }
 }
 
 function expand(cntIndex,elem){
