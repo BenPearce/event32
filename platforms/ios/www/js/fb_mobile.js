@@ -16,7 +16,7 @@ var k;
 var lastEvIndex;
 
 function eventExpand(element){
-
+    console.log("event expand");
     var descPos;
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
@@ -133,7 +133,7 @@ function popDate1(e,elem){
     lastIndex = k;
     exSelector = elem;
     console.log("pop date 1 end");
-    //setEventTap();
+    setEventTap();
 }
 
 function popDate(e,elem){
@@ -175,7 +175,7 @@ if(expanded){
     lastIndex = k;
     exSelector = elem;
     
-    //setEventTap();
+    setEventTap();
 }
 
 var uiEventCount = 0;

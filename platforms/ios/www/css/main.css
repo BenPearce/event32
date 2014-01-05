@@ -404,14 +404,14 @@ border-top:solid black 1px;
     background-image:url('../images/ArrowUpTrans.png')!important;
     background-position:center!important;
     background-repeat:no-repeat!important;
-    -webkit-transition: opacity 1s ease-in;
+    -webkit-transition: opacity .5s ease-in;
     opacity: 1;
 }
 
 .ex .more-events-text-wrap{
     /*display:block;*/
 
-    -webkit-transition: opacity 1s ease-in;
+    -webkit-transition: opacity .5s ease-in;
     opacity: 1;
 }
 
