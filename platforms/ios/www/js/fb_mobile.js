@@ -108,6 +108,26 @@ function popDate(e,elem){
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
     
+    
+if(!shortRow & expanded){
+    if((lastIndex != k) & !firstExpand){
+        contract(formerShortRow,lastIndex,exSelector,false);
+        contract(shortRow,k,elem,true);
+    }else{
+        contract(shortRow,k,elem,true);
+    }
+    
+}else if(!shortRow & !expanded){
+    if((lastIndex != k) & !firstExpand){
+        contract(formerShortRow,lastIndex,exSelector,false);
+        expand(k,elem);
+    }else{
+        expand(k,elem);
+    }
+}
+    
+    
+    /*
     if(shortRow & expanded){
         if((lastIndex != k) & !firstExpand){
 
@@ -149,7 +169,7 @@ function popDate(e,elem){
             expand(k,elem);
         }
     }
-    
+    */
     formerShortRow = shortRow;
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
