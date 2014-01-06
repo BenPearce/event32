@@ -106,6 +106,11 @@ function setEventTap(){
                         $(".event-img").css('border','solid green 2px');
                         });
      */
+    
+    $(".friend-wrap").tap(function(){
+                          alert("friend tap");
+                          
+                          });
 
     $(".event-img-wrap").touchstart(function(){
                                 console.log("event touch");
@@ -127,6 +132,8 @@ function setEventTap(){
                                            $(this).removeClass('events-touched');
                                 
                                 });
+    
+    
 
 
 }
