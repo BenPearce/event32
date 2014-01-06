@@ -139,7 +139,8 @@ li{
 }
 
 .event-img-wrap{
-    display: inline-block;
+    /*display: inline-block;*/
+    float:left;
     width: 50px;
     height: 50px;
     background: hsl(120, 100%, 25%);
@@ -329,7 +330,7 @@ ul{
 .friend-wrap{
 	margin-top:3px;
 	margin-left:8px;
-	float:right;
+	float:left;
 	position:relative;
 	height:50px;
 	width:50px;
@@ -354,7 +355,7 @@ ul{
 
 .event-wrap{
 	float:left;
-	width: 79%;
+	width: 50%;
     box-shadow: 2px 2px 2px #888888;
     
     
