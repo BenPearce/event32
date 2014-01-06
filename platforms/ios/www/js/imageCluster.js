@@ -24,10 +24,7 @@ function getEventRow(eventId,eventClass,datIndex){
     
     if(eventList[eventId].friendIdArray.length == 0){
         
-        return '<div>error imgCluster.js</div>';
-        /*
         return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
-         */
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
@@ -81,17 +78,17 @@ function getDateHeader(evening,k,cnt,ex){
     //if(evening.eventList.length < 3){
     
     //return '<div id="dateDisplayer-'+evening.id+'" style="z-index: 100;" class="date-row opaque"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><div class = "date-abrev-wrap"><div class = "date-abrev-top">'+evening.weekDayLong+'</div><div class="date-abrev-bot">'+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
-        
-         //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="left-ex-button"  data-dateId="'+k+'"></div></div></div></div>';
-        
-                 //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
-        
-        //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
-        
+    
+    //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div><'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="left-ex-button"  data-dateId="'+k+'"></div></div></div></div>';
+    
+    //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
+    
+    //return '<div class="divider-wrap"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div>';
+    
     //}else{
-        
-            return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div></div></div>';
-   // }
+    
+    return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div>'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'<div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div></div></div>';
+    // }
     
     
     //$("#dateDisplayer-"+i).append(getMorebutton(i,moreText,"expanded"));
