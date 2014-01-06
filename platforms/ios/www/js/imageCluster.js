@@ -16,7 +16,7 @@ function getEventRow(eventId,eventClass,datIndex){
     
     var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap"><img class="event-img" style="pointer-events:none" src="';
     var post1 = '"></div>';
-    var post = '"></div>';
+    var post = '">';
     var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
     var titlePost = '"></div>';
     var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
@@ -24,7 +24,7 @@ function getEventRow(eventId,eventClass,datIndex){
     
     if(eventList[eventId].friendIdArray.length == 0){
         
-        return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
+        return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="row-title event-title">'+eventName+'</div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
@@ -43,7 +43,7 @@ function getEventRow(eventId,eventClass,datIndex){
         var two = typeof eventList[eventId].friendIdArray[2] != "undefined" ? preBL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : preBL + "images/pinkX.png"+ post;
         var three = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : preBR + "images/pinkX.png"+ post;
         
-        return '<div class="row-wrap '+eventClass+'">'+eventImg+'<div class="friend-wrap" id="friend-'+eventId+'">'+zero+one+two+three+'</div><div class="event-wrap"><div class="row-title-wrap event-title-wrap">'+eventName+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
+        return '<div class="row-wrap '+eventClass+'">'+eventImg+'<div class="friend-wrap" id="friend-'+eventId+'">'+zero+one+two+three+'</div><div class="event-wrap"><div class="row-title-wrap event-title-wrap">'+eventName+'</div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
     }
 }
 
