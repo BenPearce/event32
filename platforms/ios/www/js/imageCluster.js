@@ -28,7 +28,7 @@ function getEventRow(eventId,eventClass,datIndex){
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
-        return '<div class="row-wrap '+eventClass+'">'+eventImg+'<div class="event-wrap row-title-wrap event-title-wrap">'+eventName+'</div>'+friendImg+'<div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
+        return '<div class="row-wrap '+eventClass+'">'+eventImg+'<div class="event-wrap row-title-wrap event-title-wrap">'+eventName+'</div>'+friendImg+'</div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
