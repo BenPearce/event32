@@ -334,7 +334,8 @@ overflow-x:hidden;
 	position:relative;
 	height:50px;
 	width:50px;
-    box-shadow: 2px 2px 2px #888888;
+    border: solid 3px rgba(3, 3, 3, 0.18);
+    /*box-shadow: 2px 2px 2px #888888;*/
 }
 
 .friend-wrap-touched{
