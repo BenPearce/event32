@@ -286,8 +286,9 @@ ul{
 }
 
 .event-title-wrap{
-	display:inline-block;
-	width:65%;
+    float:center;
+	/*display:inline-block;*/
+	/*width:65%;*/
 	font-size:8pt;
 	margin-left:5px;
 	vertical-align:top;
@@ -330,7 +331,7 @@ ul{
 .friend-wrap{
 	margin-top:3px;
 	margin-left:8px;
-	float:left;
+	float:right;
 	position:relative;
 	height:50px;
 	width:50px;
@@ -354,10 +355,10 @@ ul{
 }
 
 .event-wrap{
-	float:left;
+	/*float:left;
 	width: 50%;
     box-shadow: 2px 2px 2px #888888;
-    
+    */
     
 }
 
