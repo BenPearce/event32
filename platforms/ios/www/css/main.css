@@ -278,19 +278,41 @@ ul{
 	margin:0px 3px;
 }
 
-.event-outter{
-    position:absolute;
-    margin-left:50px;
-    margin-right:50px;
+.event-name-inner{
+    height:64px;
+}
+
+.friend-name-inner{
+    height:564px;
 }
 
 .friend-outter{
     /*width:100%;*/
     /*height:50px;*/
+    margin-top: -64px;
+    height:64px;
     margin-left:50px;
     margin-right:50px;
 }
 
+.event-outter{
+    /*position:absolute;*/
+    height:64px;
+    margin-left:50px;
+    margin-right:50px;
+}
+
+.event-exp{
+    width:100%;
+    height:30px;
+    background:red;
+}
+
+.friend-exp{
+    width:100%;
+    height:90px;
+    background:blue;
+}
 
 .friend-name{
     /*position:absolute;*/
@@ -300,6 +322,7 @@ ul{
     float:right;
     width:0%;
     border:solid blue 1px;
+    /*height:64px;*/
 }
 
 .event-name{
@@ -307,7 +330,8 @@ ul{
     overflow-x:hidden;
     float:left;
     width:0%;
-        border:solid 1px yellow;
+    border:solid 1px yellow;
+    /*height:64px;*/
 }
 
 .friend-touched .friend-name{
@@ -345,6 +369,7 @@ ul{
 	margin-left:50px;
     margin-right:50px;
 	vertical-align:top;
+    
 }
 
 .friend-title-wrap{
@@ -669,7 +694,7 @@ ul{
      margin:auto!important;
      */
     width:100%;
-    height:64px;
+   /* height:64px;*/
     /*
      border-right:solid black 1px;
      border-left:solid black 1px;
