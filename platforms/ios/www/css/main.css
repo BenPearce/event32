@@ -312,14 +312,15 @@ ul{
 
 .event-exp{
     width:100%;
-    height:0px;
+    height:50px;
     /*background:red;*/
 }
 
 .friend-exp{
     width:100%;
     height:0px;
-    background:blue;
+    /*background:blue;*/
+    height:50px;
 }
 
 
@@ -329,7 +330,7 @@ ul{
     /* margin-right:50px;*/
     /*margin-left:50px;*/
        overflow-x:hidden;
-    /*float:right;*/
+    float:right;
     width:0%;
     border-top:solid blue 1px;
     border-bottom:solid blue 1px;
@@ -342,7 +343,7 @@ ul{
 .event-name{
     /*position:absolute;*/
     overflow-x:hidden;
-    /*float:left;*/
+    float:left;
     width:0%;
     border-top:solid red 1px;
     border-bottom:solid red 1px;
