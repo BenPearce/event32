@@ -138,6 +138,15 @@ li{
     
 }
 
+.event-img-wrap{
+    /*display: inline-block;*/
+    float:left;
+    width: 50px;
+    height: 50px;
+    background: hsl(120, 100%, 25%);
+    display:block;
+    /*margin-left: 5px;*/
+}
 
 #test-button{
     position:fixed;
@@ -284,34 +293,9 @@ ul{
     margin-right:50px;
 }
 
-.event-outter{
-    /*width:100%;*/
-    height:50px;
-    margin-left:50px;
-    margin-right:50px;
-}
-
-.event-name{
-    position:absolute;
-    float:left;
-    width:95%;
-    border:solid red 1px;
-}
-
-.event-img-wrap{
-    /*display: inline-block;*/
-    float:left;
-    margin-left:-50px;
-    width: 50px;
-    height: 50px;
-    background: hsl(120, 100%, 25%);
-    display:block;
-    /*margin-left: 5px;*/
-}
-
 .friend-name{
     /*position:absolute;
-    margin-right:50px;*/
+     margin-right:50px;*/
     /*margin-left:50px;*/
     float:right;
     width:95%;
@@ -322,6 +306,9 @@ ul{
     width:45%!important;
 }
 
+.event-name{
+    position:absolute;
+}
 
 .show-friend-name .event-name{
     display:none;
@@ -656,7 +643,7 @@ ul{
 .row-wrap{
 	padding:5px 0px;
     /*
-    margin:auto!important;
+     margin:auto!important;
      */
     width:100%;
     height:64px;
@@ -896,6 +883,6 @@ ul{
 
 .event-title{
     line-height: 1.5em;
-    height: 4.5em; 
+    height: 4.5em;
     overflow: hidden;
 }
