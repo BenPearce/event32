@@ -296,24 +296,26 @@ ul{
     /*position:absolute;*/
     /* margin-right:50px;*/
     /*margin-left:50px;*/
+       overflow-x:hidden;
     float:right;
-    width:100%;
+    width:0%;
     border:solid blue 1px;
 }
 
 .event-name{
     /*position:absolute;*/
+    overflow-x:hidden;
     float:left;
-    width:100%;
+    width:0%;
         border:solid 1px yellow;
 }
 
 .friend-touched .friend-name{
-    width:45%!important;
+    width:100%!important;
 }
 
 .event-touched .event-name{
-    width:45%!important;
+    width:100%!important;
 }
 
 .show-friend-name .event-name{
