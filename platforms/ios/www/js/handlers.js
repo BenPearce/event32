@@ -107,10 +107,23 @@ function setEventTap(){
                         });
      */
     
+    /*
+     
+     
+     */
+    
     $(".friend-wrap").tap(function(){
                           alert("friend tap");
-                          
+                          $(this).addClass('events-touched');
                           });
+    
+       $(".friend-wrap").touchstart(function(){
+                             
+                               });
+    
+    $(".friend-wrap").touchend(function(){
+                                 
+                                 });
 
     $(".event-img-wrap").touchstart(function(){
                                 console.log("event touch");

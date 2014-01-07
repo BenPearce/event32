@@ -294,6 +294,24 @@ ul{
     position:absolute;
 }
 
+.show-friend-name .event-name{
+    display:none;
+}
+
+.show-friend-name .friend-name{
+    display:block;
+}
+
+.show-event-name .event-name{
+    display:block;
+}
+
+.show-event-name .friend-name{
+    display:none;
+}
+
+event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name
+
 .event-title-wrap{
     float:center;
     position:relative;

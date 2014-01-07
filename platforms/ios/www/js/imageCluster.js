@@ -28,15 +28,17 @@ function getEventRow(eventId,eventClass,datIndex){
     
     if(eventList[eventId].friendIdArray.length == 0){
         
-        return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+eventImg+'</div><div class="row-title-wrap event-title-wrap"><div class="friend-name">'+friendName1+'</div><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+friendImg+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
+        return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+'<div class="event-outter">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="friend-name">'+friendName1+'</div><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+'<div class="friend-outter">'+friendImg+'</div></div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
         //return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap">'+eventName+'</div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
-                //return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
+        //return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
-                        return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
+                        //return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
+        
+          return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
