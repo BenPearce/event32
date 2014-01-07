@@ -122,9 +122,19 @@ function setEventTap(){
                                });
     
     $(".friend-wrap").touchend(function(){
+                                $(this).parent().removeClass('friend-touched');
                                   /*$(this).parent().addClass('friend-touched');*/
                                  });
-
+    
+    $(".event-img-wrap").touchstart(function(){
+                                 $(this).parent().addClass('event-touched');
+                                 });
+    
+    $(".event-img-wrap").touchend(function(){
+                               $(this).parent().removeClass('event-touched');
+                               /*$(this).parent().addClass('friend-touched');*/
+                               });
+/*
     $(".event-img-wrap").touchstart(function(){
                                 console.log("event touch");
                                 $(this).addClass('events-touched');
@@ -146,7 +156,7 @@ function setEventTap(){
                                 
                                 });
     
-    
+    */
 
 
 }

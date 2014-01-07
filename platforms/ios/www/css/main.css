@@ -138,15 +138,7 @@ li{
     
 }
 
-.event-img-wrap{
-    /*display: inline-block;*/
-    float:left;
-    width: 50px;
-    height: 50px;
-    background: hsl(120, 100%, 25%);
-    display:block;
-    /*margin-left: 5px;*/
-}
+
 
 #test-button{
     position:fixed;
@@ -305,14 +297,14 @@ ul{
     /* margin-right:50px;*/
     /*margin-left:50px;*/
     float:right;
-    width:95%;
+    width:100%;
     border:solid blue 1px;
 }
 
 .event-name{
     /*position:absolute;*/
     float:left;
-    width:95%;
+    width:100%;
         border:solid 1px yellow;
 }
 
@@ -320,6 +312,9 @@ ul{
     width:45%!important;
 }
 
+event-touched .event-name{
+    width:45%!important;
+}
 
 .show-friend-name .event-name{
     display:none;
@@ -391,13 +386,19 @@ ul{
 	position:relative;
 	height:50px;
 	width:50px;
-    box-shadow: 2px 2px 2px #888888;
+    /*box-shadow: 2px 2px 2px #888888;*/
 }
 
 .event-img-wrap{
+    display:block;
     margin-left:-50px;
-	float:left;
+    float:left;
+    position:relative;
+    width: 50px;
+    height: 50px;
+
 }
+
 
 .friend-wrap-touched{
 	margin-top:4px;
