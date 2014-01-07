@@ -286,6 +286,10 @@ ul{
 	margin:0px 3px;
 }
 
+.friend-name{
+    position:absolute;
+}
+
 .event-name{
     position:absolute;
 }
