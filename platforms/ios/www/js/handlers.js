@@ -118,18 +118,27 @@ function setEventTap(){
                           });
     
        $(".friend-wrap").touchstart(function(){
-                                    $(this).parents().eq(2).removeClass('event-selected');
-                                    $(this).parents().eq(2).removeClass('event-touched');
+                                    /*
+                                    $(this).parents().eq(1).removeClass('event-selected');
+                                    $(this).parents().eq(1).removeClass('event-touched');
+                                    */
+                                  
                                     
-                                    var touched = $(this).parents().eq(2).hasClass('friend-touched');
-                                    var selected = $(this).parents().eq(2).hasClass('friend-selected');
+                                    var touched = $(this).parents().eq(1).hasClass('friend-touched');
+                                    var selected = $(this).parents().eq(1).hasClass('friend-selected');
+                                    
+                                    $('.friend-selected').removeClass('friend-selected');
+                                    $('.friend-touched').removeClass('friend-touched');
+                                  
+                                    $('.event-selected').removeClass('event-selected');
+                                    $('.event-touched').removeClass('event-touched');
                                     
                                     if(touched & selected){
-                                     $(this).parents().eq(2).removeClass('friend-selected')
+                                     $(this).parents().eq(1).removeClass('friend-selected')
                                     } else if(touched & !selected){
-                                    $(this).parents().eq(2).addClass('friend-selected');
+                                    $(this).parents().eq(1).addClass('friend-selected');
                                     }else if(!touched & !selected){
-                                     $(this).parents().eq(2).addClass('friend-touched');
+                                     $(this).parents().eq(1).addClass('friend-touched');
                                     }else if(!touched & selected){
                                     console.log("selected but not touched")
                                     }else{
@@ -151,20 +160,30 @@ function setEventTap(){
                                  });
     
     $(".event-img-wrap").touchstart(function(){
-                                    console.log("touch start");
+                                
+                                    /*
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).removeClass('friend-touched');
+                                    */
+                                    var touched = $(this).parents().eq(1).hasClass('event-touched');
+                                    var selected = $(this).parents().eq(1).hasClass('event-selected');
                                     
-                                    $(this).parents().eq(2).removeClass('friend-selected');
-                                    $(this).parents().eq(2).removeClass('friend-touched');
                                     
-                                    var touched = $(this).parents().eq(2).hasClass('event-touched');
-                                    var selected = $(this).parents().eq(2).hasClass('event-selected');
+                                    
+                                     console.log("touch start");
+                                     $('.friend-selected').removeClass('friend-selected');
+                                     $('.friend-touched').removeClass('friend-touched');
+                                    
+                                    $('.event-selected').removeClass('event-selected');
+                                    $('.event-touched').removeClass('event-touched');
+                                    
                                     
                                     if(touched & selected){
-                                    $(this).parents().eq(2).removeClass('event-selected');
+                                    $(this).parents().eq(1).removeClass('event-selected');
                                     }if(touched & !selected){
-                                    $(this).parents().eq(2).addClass('event-selected');
+                                    $(this).parents().eq(1).addClass('event-selected');
                                     }if(!touched & !selected){
-                                    $(this).parents().eq(2).addClass('event-touched');
+                                    $(this).parents().eq(1).addClass('event-touched');
                                     }else{
                                     console.log("friend state other case");
                                     }
