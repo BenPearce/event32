@@ -125,17 +125,20 @@ function setEventTap(){
                                   
                                     
                                     var touched = $(this).parents().eq(1).hasClass('friend-touched');
+                                    
+                                    
                                     var selected = $(this).parents().eq(1).hasClass('friend-selected');
                                     
                                     $('.friend-selected').removeClass('friend-selected');
                                     $('.friend-touched').removeClass('friend-touched');
-                                  
                                     $('.event-selected').removeClass('event-selected');
                                     $('.event-touched').removeClass('event-touched');
                                     
                                     if(touched & selected){
                                      $(this).parents().eq(1).removeClass('friend-selected')
+                                    $(this).parents().eq(1).addClass('friend-touched')
                                     } else if(touched & !selected){
+                                    $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
                                     }else if(!touched & !selected){
                                      $(this).parents().eq(1).addClass('friend-touched');
@@ -180,7 +183,9 @@ function setEventTap(){
                                     
                                     if(touched & selected){
                                     $(this).parents().eq(1).removeClass('event-selected');
+                                    $(this).parents().eq(1).addClass('event-touched')
                                     }if(touched & !selected){
+                                    $(this).parents().eq(1).addClass('event-touched');
                                     $(this).parents().eq(1).addClass('event-selected');
                                     }if(!touched & !selected){
                                     $(this).parents().eq(1).addClass('event-touched');
