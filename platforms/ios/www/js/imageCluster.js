@@ -38,7 +38,7 @@ function getEventRow(eventId,eventClass,datIndex){
         
                         //return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
-          return '<div class="row-wrap '+eventClass+'">'+eventImg+''+friendImg+'<div class="event-wrap row-title-wrap event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
+          return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name">'+eventName+'</div></div><div class="friend-outter">'+friendImg+'<div class="friend-name">'+friendName1+'</div></div><div class="event-wrap row-title-wrap event-title-wrap"></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div>';
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
