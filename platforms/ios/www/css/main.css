@@ -280,10 +280,12 @@ ul{
 
 .event-name-inner{
     height:64px;
+    /*position:absolute;*/
 }
 
 .friend-name-inner{
-    height:564px;
+    height:64px;
+    /*position:absolute;*/
 }
 
 .friend-outter{
@@ -310,7 +312,7 @@ ul{
 
 .friend-exp{
     width:100%;
-    height:90px;
+    height:30px;
     background:blue;
 }
 
