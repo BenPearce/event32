@@ -287,11 +287,9 @@ ul{
 }
 
 .event-outter{
-    
-}
-
-.event-name{
-    
+    position:absolute;
+    margin-left:50px;
+    margin-right:50px;
 }
 
 .friend-outter{
@@ -301,22 +299,27 @@ ul{
     margin-right:50px;
 }
 
+
 .friend-name{
-    /*position:absolute;
-     margin-right:50px;*/
+    /*position:absolute;*/
+    /* margin-right:50px;*/
     /*margin-left:50px;*/
     float:right;
     width:95%;
     border:solid blue 1px;
 }
 
+.event-name{
+    /*position:absolute;*/
+    float:left;
+    width:95%;
+        border:solid 1px yellow;
+}
+
 .friend-touched .friend-name{
     width:45%!important;
 }
 
-.event-name{
-    position:absolute;
-}
 
 .show-friend-name .event-name{
     display:none;
@@ -383,12 +386,17 @@ ul{
 
 .friend-wrap{
     display:block;
-    margin-right:-44px;
+    margin-right:-50px;
 	float:right;
 	position:relative;
 	height:50px;
 	width:50px;
     box-shadow: 2px 2px 2px #888888;
+}
+
+.event-img-wrap{
+    margin-left:-50px;
+	float:left;
 }
 
 .friend-wrap-touched{
