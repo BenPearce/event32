@@ -326,6 +326,10 @@ ul{
        overflow-x:hidden;
     float:right;
     width:0%;
+    border-top:solid blue 1px;
+    border-bottom:solid blue 1px;
+    border-left:solid blue 1px;
+
     /*border:solid blue 1px;*/
     /*height:64px;*/
 }
@@ -335,12 +339,19 @@ ul{
     overflow-x:hidden;
     float:left;
     width:0%;
+    border-top:solid red 1px;
+    border-bottom:solid red 1px;
+    border-right:solid red 1px;
     /*border:solid 1px yellow;*/
     /*height:64px;*/
 }
 
 .friend-touched .friend-name{
-    width:100%;
+    width:99%;
+}
+
+.event-touched .event-name{
+    width:99%;
 }
 
 .event-selected .event-exp{
@@ -352,9 +363,6 @@ ul{
 }
 
 
-.event-touched .event-name{
-    width:100%;
-}
 
 .show-friend-name .event-name{
     display:none;
