@@ -312,9 +312,10 @@ ul{
 
 .friend-exp{
     width:100%;
-    height:30px;
     background:blue;
 }
+
+
 
 .friend-name{
     /*position:absolute;*/
@@ -337,11 +338,20 @@ ul{
 }
 
 .friend-touched .friend-name{
-    width:100%!important;
+    width:100%;
 }
 
+.event-selected .event-exp{
+    height:40px;
+}
+
+.friend-selected .friend-exp{
+    height:40px;
+}
+
+
 .event-touched .event-name{
-    width:100%!important;
+    width:100%;
 }
 
 .show-friend-name .event-name{

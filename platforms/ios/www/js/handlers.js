@@ -118,22 +118,66 @@ function setEventTap(){
                           });
     
        $(".friend-wrap").touchstart(function(){
+                                    $(this).parents().eq(2).removeClass('event-selected');
+                                    $(this).parents().eq(2).removeClass('event-touched');
+                                    
+                                    var touched = $(this).parents().eq(2).hasClass('friend-touched');
+                                    var selected = $(this).parents().eq(2).hasClass('friend-selected');
+                                    
+                                    if(touched & selected){
+                                     $(this).parents().eq(2).removeClass('friend-selected')
+                                    } else if(touched & !selected){
+                                    $(this).parents().eq(2).addClass('friend-selected');
+                                    }else if(!touched & !selected){
+                                     $(this).parents().eq(2).addClass('friend-touched');
+                                    }else if(!touched & selected){
+                                    console.log("selected but not touched")
+                                    }else{
+                                    console.log("Logical Error")
+                                    }
+                                    /*
+                                    if($(this).parent().hasClass('friend-touched')){
+                                    $(this).parent().addClass('friend-selected');
+                                    
+                                    }else{
+                             $(this).parent().removeClass('event-touched');
                              $(this).parent().addClass('friend-touched');
+                                    }
+                                     */
                                });
     
     $(".friend-wrap").touchend(function(){
-                                $(this).parent().removeClass('friend-touched');
-                                  /*$(this).parent().addClass('friend-touched');*/
+
                                  });
     
     $(".event-img-wrap").touchstart(function(){
-                                    console.log("img wrap touch");
+                                    console.log("touch start");
+                                    
+                                    $(this).parents().eq(2).removeClass('friend-selected');
+                                    $(this).parents().eq(2).removeClass('friend-touched');
+                                    
+                                    var touched = $(this).parents().eq(2).hasClass('event-touched');
+                                    var selected = $(this).parents().eq(2).hasClass('event-selected');
+                                    
+                                    if(touched & selected){
+                                    $(this).parents().eq(2).removeClass('event-selected');
+                                    }if(touched & !selected){
+                                    $(this).parents().eq(2).addClass('event-selected');
+                                    }if(!touched & !selected){
+                                    $(this).parents().eq(2).addClass('event-touched');
+                                    }else{
+                                    console.log("friend state other case");
+                                    }
+                                    /*
+                                 $(this).parent().removeClass('friend-touched');
                                  $(this).parent().addClass('event-touched');
+                                             */
                                  });
+                             
     
     $(".event-img-wrap").touchend(function(){
-                               $(this).parent().removeClass('event-touched');
-                               /*$(this).parent().addClass('friend-touched');*/
+                            /*$(this).parent().removeClass('event-touched');
+                              $(this).parent().addClass('friend-touched');*/
                                });
 /*
     $(".event-img-wrap").touchstart(function(){
