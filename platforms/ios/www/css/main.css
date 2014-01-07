@@ -286,12 +286,18 @@ ul{
 	margin:0px 3px;
 }
 
+.event-name{
+    position:absolute;
+}
+
 .event-title-wrap{
     float:center;
+    position:relative;
 	/*display:inline-block;*/
 	/*width:65%;*/
 	font-size:8pt;
-	margin-left:5px;
+	margin-left:50px;
+    margin-right:50px;
 	vertical-align:top;
 }
 
@@ -356,13 +362,6 @@ ul{
     /*z-index:2;*/
 }
 
-.event-wrap{
-	/*float:left;
-	width: 50%;
-    box-shadow: 2px 2px 2px #888888;
-    */
-    
-}
 
 .event-img{
     
