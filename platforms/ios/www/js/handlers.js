@@ -113,16 +113,16 @@ function setEventTap(){
      */
     
     $(".friend-wrap").tap(function(){
-                          alert("friend tap");
-                          $(this).addClass('events-touched');
+                       
+                          /*$(this).parent().addClass('events-touched');*/
                           });
     
        $(".friend-wrap").touchstart(function(){
-                             
+                             $(this).parent().addClass('friend-touched');
                                });
     
     $(".friend-wrap").touchend(function(){
-                                 
+                                  /*$(this).parent().addClass('friend-touched');*/
                                  });
 
     $(".event-img-wrap").touchstart(function(){

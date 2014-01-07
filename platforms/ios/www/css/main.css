@@ -286,8 +286,24 @@ ul{
 	margin:0px 3px;
 }
 
+.friend-outter{
+    /*width:100%;*/
+    height:50px;
+    margin-left:50px;
+    margin-right:50px;
+}
+
 .friend-name{
-    position:absolute;
+    /*position:absolute;
+    margin-right:50px;*/
+    /*margin-left:50px;*/
+    float:right;
+    width:95%;
+    border:solid blue 1px;
+}
+
+.friend-touched .friend-name{
+    width:45%!important;
 }
 
 .event-name{
@@ -310,7 +326,7 @@ ul{
     display:none;
 }
 
-event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name
+/*event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name*/
 
 .event-title-wrap{
     float:center;
@@ -359,8 +375,7 @@ event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-
 
 .friend-wrap{
     display:block;
-	margin-top:3px;
-	margin-left:8px;
+    margin-right:-44px;
 	float:right;
 	position:relative;
 	height:50px;
