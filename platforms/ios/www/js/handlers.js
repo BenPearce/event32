@@ -127,6 +127,7 @@ function setEventTap(){
                                  });
     
     $(".event-img-wrap").touchstart(function(){
+                                    console.log("img wrap touch");
                                  $(this).parent().addClass('event-touched');
                                  });
     
