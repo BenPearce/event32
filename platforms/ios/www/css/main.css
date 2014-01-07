@@ -347,11 +347,11 @@ ul{
 }
 
 .friend-touched .friend-name{
-    width:99%;
+    width:98%;
 }
 
 .event-touched .event-name{
-    width:99%;
+    width:98%;
 }
 
 .event-selected .event-exp{
@@ -429,6 +429,9 @@ ul{
 }
 
 .friend-wrap{
+    border-right:solid 1px blue;
+    border-top:solid 1px blue;
+    border-bottom:solid 1px blue;
     display:block;
     margin-right:-50px;
 	float:right;
@@ -443,6 +446,9 @@ ul{
 .event-img-wrap{
     display:block;
     margin-left:-50px;
+    border-left:solid 1px red;
+    border-top:solid 1px red;
+    border-bottom:solid 1px red;
     float:left;
     position:relative;
     width: 50px;
