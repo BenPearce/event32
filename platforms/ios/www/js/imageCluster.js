@@ -12,11 +12,11 @@ function getEventRow(eventId,eventClass,datIndex){
     var friendName = typeof eventList[eventList[eventId].friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+eventList[eventList[eventId].friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + eventList[eventList[eventId].friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
     var eventName = typeof eventList[eventId] !=   "undefined"  ? eventList[eventId].name : "eventNameUndefined";
     
-    var friendPre = '<img class="event-friend-img friend-wrap"   id="friend-'+eventId+'" style="pointer-events:none" width=50 height=50 src="';
+    var friendPre = '<div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap"><img class="" style="pointer-events:none" width=50 height=50 src="';
     
     var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap"><img class="event-img-wrap event-img" style="pointer-events:none" src="';
     var post1 = '"></div>';
-    var post = '">';
+    var post = '"></div>';
     var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
     var titlePost = '"></div>';
     var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
