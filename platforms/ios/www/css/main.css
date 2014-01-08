@@ -376,7 +376,7 @@ ul{
 
 .event-name{
     /*position:absolute;*/
-    position:relative;
+    /*position:relative;*/
     overflow-x:hidden;
     float:left;
     width:0%;
