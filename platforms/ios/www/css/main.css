@@ -286,13 +286,11 @@ ul{
 .event-name-inner{
     height:50px;
     overflow-y:hidden;
-    position:absolute;
 }
 
 .friend-name-inner{
     height:50px;
     overflow-y:hidden;
-    position:absolute;
     /*position:absolute;*/
 }
 
@@ -308,10 +306,10 @@ ul{
 .event-outter{
     /*position:absolute;*/
     /*height:64px;*/
-
+    
     margin-left:50px;
     margin-right:50px;
-
+    
 }
 
 .event-exp{
@@ -327,7 +325,7 @@ ul{
 }
 
 .friend-buttons{
-     height:50px;
+    height:50px;
     border:solid blue 1px;
 }
 
@@ -340,43 +338,25 @@ ul{
     height:50px;
 }
 
-.friend-button-ex{
-    position:absolute;
-    overflow-x:hidden;
-    float:right;
-    width:0%;
-    margin-top:50px;
-    background:pink;
-    height:50px;
-}
 
-.event-button-ex{
-    position:absolute;
-    overflow-x:hidden;
-    float:left;
-    width:0%;
-    margin-top:50px;
-    background:yellow;
-    height:50px;
-}
 
 .friend-name{
-    position:relative;
+    /*position:absolute;*/
     /* margin-right:50px;*/
     /*margin-left:50px;*/
-       overflow-x:hidden;
+    overflow-x:hidden;
     float:right;
     width:0%;
     border-top:solid blue 1px;
+    border-bottom:solid blue 1px;
     border-left:solid blue 1px;
-
+    
     /*border:solid blue 1px;*/
-    height:50px;
+    /*height:64px;*/
 }
 
 .event-name{
     /*position:absolute;*/
-    /*position:relative;*/
     overflow-x:hidden;
     float:left;
     width:0%;
@@ -394,15 +374,23 @@ ul{
 .event-touched .event-name{
     width:98%;
 }
-/*
-.event-selected .event-name{
-    height:80px;
+
+.friend-touched .fr-button-exp-wrap{
+    width:98%;
 }
 
-.friend-selected .friend-name{
-    height:80px;
+.event-touched .ev-button-exp-wrap{
+    width:98%;
 }
-*/
+/*
+ .event-selected .event-name{
+ height:80px;
+ }
+ 
+ .friend-selected .friend-name{
+ height:80px;
+ }
+ */
 .event-selected .friend-exp{
     height:80px;
 }
@@ -488,7 +476,7 @@ ul{
 .friend-wrap{
     border-right:solid 1px blue;
     border-top:solid 1px blue;
-    /*border-bottom:solid 1px blue;*/
+    border-bottom:solid 1px blue;
     display:block;
     margin-right:-50px;
 	float:right;
@@ -921,7 +909,7 @@ ul{
 
 .event-ex{
     font-size:10pt;
-    height:0px;
+    height:25px;
     /*display:none;
      visibility: hidden;
      */
@@ -998,6 +986,28 @@ ul{
     background-repeat:no-repeat;
     /*background-attachment: fixed;*/
     float:right;
+}
+/*
+.button-exp-wrap{
+    width:100%;
+    height:5px;
+    background:green;
+}
+*/
+
+
+.fr-button-exp-wrap{
+    float:right;
+    width:0%;
+    height:5px;
+    background:green;
+}
+
+.ev-button-exp-wrap{
+    float:left;
+    width:0%;
+    height:5px;
+    background:yellow;
 }
 
 .date-abrev-wrap{
