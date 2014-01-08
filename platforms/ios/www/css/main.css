@@ -391,6 +391,15 @@ ul{
  height:80px;
  }
  */
+
+.event-selected{
+    height:80px!important;
+}
+
+.friend-selected{
+    height:80px!important;
+}
+
 .event-selected .friend-exp{
     height:80px;
 }
