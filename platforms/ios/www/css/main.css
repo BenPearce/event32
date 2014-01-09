@@ -412,19 +412,33 @@ ul{
  }
  */
 
-.event-selected{
-    height:80px!important;
-}
 
+.friend-selected .fr-button-exp-out{
+    height:50px;
+}
+/*
 .friend-selected{
     height:80px!important;
 }
 
-.event-selected .friend-exp{
+.friend-selected .friend-exp{
     height:80px;
 }
 
-.friend-selected .friend-exp{
+.friend-selected .friend-buttons{
+    border:solid blue 1px;
+    height:100px;
+}
+
+*/
+
+
+.event-selected{
+    height:80px!important;
+}
+
+
+.event-selected .friend-exp{
     height:80px;
 }
 
@@ -433,10 +447,7 @@ ul{
     height:100px;
 }
 
-.friend-selected .friend-buttons{
-    border:solid blue 1px;
-    height:100px;
-}
+
 
 .show-friend-name .event-name{
     display:none;
@@ -796,7 +807,7 @@ ul{
      margin:auto!important;
      */
     width:100%;
-    height:64px;
+    /*height:64px;*/
     /*
      border-right:solid black 1px;
      border-left:solid black 1px;
@@ -1027,9 +1038,10 @@ ul{
 
 
 .fr-button-exp-wrap{
+    margin-top:-1px;
     float:right;
     width:0%;
-    /*height:0px;*/
+    height:97%;
     border-right:solid blue 1px;
     border-left:solid blue 1px;
     border-bottom:solid blue 1px;
@@ -1037,6 +1049,7 @@ ul{
 }
 
 .ev-button-exp-wrap{
+    margin-top:-1px;
     float:left;
     width:0%;
     /*height:0px;*/
