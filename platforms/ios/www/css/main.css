@@ -415,28 +415,32 @@ ul{
 .event-touched .ev-button-exp-wrap{
     width:100%;
 }
-
+/*
 .friend-touched .fr-button-exp-out{
     width:98%;
 }
-
+*/
 .friend-touched .ev-button-exp-out{
-    width:98%;
+    width:100%;
 }
 
 .event-touched .ev-button-exp-out{
-      width:98%;
+    
+      width:100%;
 }
 
 /*.ev-button-exp-out*/
 
 .fr-button-exp-out{
     width:0%;
-    margin-left:5px;
+    border-right:solid blue 5px;
+    /*margin-left:5px;*/
 }
 
 .ev-button-exp-out{
     width:0%;
+    /*margin-left:-5px;*/
+    border-right:solid red 5px;
     /*margin-right:5px;*/
 }
 
@@ -1110,7 +1114,7 @@ ul{
     /*float:right;*/
     width:0%;
     height:97%;
-    border-right:solid blue 5px;
+    /*border-right:solid blue 5px;*/
     border-left:solid blue 5px;
     /*border-bottom:solid blue 1px;*/
 }
@@ -1130,8 +1134,8 @@ ul{
     height:97%;
     /*height:0px;*/
     /*background:yellow;*/
-    border-right:solid red 5px;
     border-left:solid red 5px;
+    /*border-left:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
 }
 
