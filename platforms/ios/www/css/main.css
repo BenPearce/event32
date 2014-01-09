@@ -286,11 +286,13 @@ ul{
 .event-name-inner{
     height:50px;
     overflow-y:hidden;
+    border-right:solid red 5px;
 }
 
 .friend-name-inner{
     height:50px;
     overflow-y:hidden;
+    border-left:solid blue 5px;
     /*position:absolute;*/
 }
 
@@ -348,10 +350,13 @@ ul{
     overflow-x:hidden;
     float:right;
     width:0%;
-    border-top:solid blue 1px;
+
    /* border-bottom:solid blue 1px;*/
+   /*
+    border-top:solid blue 1px;
     border-left:solid blue 1px;
-    
+    */
+    border-top:solid blue 5px;
     /*border:solid blue 1px;*/
     /*height:64px;*/
 }
@@ -371,15 +376,16 @@ ul{
     overflow-x:hidden;
     float:left;
     width:0%;
-    border-top:solid red 1px;
+    /*border-top:solid red 1px;*/
+    border-top:solid red 5px;
     /*border-bottom:solid red 1px;*/
-    border-right:solid red 1px;
+    
     /*border:solid 1px yellow;*/
     /*height:50px;*/
 }
 
 .friend-touched .friend-name{
-    width:94%;
+    width:93%;
     /*
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -391,7 +397,7 @@ ul{
 }
 
 .event-touched .event-name{
-    width:94%;
+    width:95%;
     /*
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -431,7 +437,7 @@ ul{
 
 .ev-button-exp-out{
     width:0%;
-    margin-right:5px;
+    /*margin-right:5px;*/
 }
 
 /*
@@ -1106,7 +1112,7 @@ ul{
     height:97%;
     border-right:solid blue 1px;
     border-left:solid blue 1px;
-    border-bottom:solid blue 1px;
+    /*border-bottom:solid blue 1px;*/
 }
 
 .ev-button-exp-wrap{
@@ -1124,9 +1130,9 @@ ul{
     height:97%;
     /*height:0px;*/
     /*background:yellow;*/
-    border-right:solid red 1px;
-    border-left:solid red 1px;
-    border-bottom:solid red 1px;
+    border-right:solid red 5px;
+    border-left:solid red 5px;
+    /*border-bottom:solid red 5px;*/
 }
 
 .date-abrev-wrap{
