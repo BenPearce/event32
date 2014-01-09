@@ -362,7 +362,7 @@ ul{
     float:left;
     width:0%;
     border-top:solid red 1px;
-    border-bottom:solid red 1px;
+    /*border-bottom:solid red 1px;*/
     border-right:solid red 1px;
     /*border:solid 1px yellow;*/
     /*height:50px;*/
