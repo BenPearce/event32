@@ -349,7 +349,7 @@ ul{
     float:right;
     width:0%;
     border-top:solid blue 1px;
-    border-bottom:solid blue 1px;
+   /* border-bottom:solid blue 1px;*/
     border-left:solid blue 1px;
     
     /*border:solid blue 1px;*/
@@ -413,6 +413,7 @@ ul{
  */
 
 
+
 .friend-selected .fr-button-exp-out{
     height:50px;
 }
@@ -429,10 +430,11 @@ ul{
     border:solid blue 1px;
     height:100px;
 }
-
 */
-
-
+.event-selected .ev-button-exp-out{
+    height:50px;
+}
+/*
 .event-selected{
     height:80px!important;
 }
@@ -446,6 +448,9 @@ ul{
     border:solid red 1px;
     height:100px;
 }
+*/
+
+
 
 
 
@@ -1045,7 +1050,6 @@ ul{
     border-right:solid blue 1px;
     border-left:solid blue 1px;
     border-bottom:solid blue 1px;
-    background:green;
 }
 
 .ev-button-exp-wrap{
