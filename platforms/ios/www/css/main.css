@@ -365,7 +365,7 @@ ul{
     border-bottom:solid red 1px;
     border-right:solid red 1px;
     /*border:solid 1px yellow;*/
-    height:50px;
+    /*height:50px;*/
 }
 
 .friend-touched .friend-name{
@@ -393,6 +393,12 @@ ul{
     width:98%;
 }
 
+.event-touched .ev-button-exp-out{
+      width:98%;
+}
+
+/*.ev-button-exp-out*/
+
 .fr-button-exp-out{
     width:0%;
     margin-left:5px;
@@ -400,6 +406,7 @@ ul{
 
 .ev-button-exp-out{
     width:0%;
+    margin-right:5px;
 }
 
 /*
@@ -1056,6 +1063,7 @@ ul{
     margin-top:-1px;
     float:left;
     width:0%;
+    height:97%;
     /*height:0px;*/
     /*background:yellow;*/
     border-right:solid red 1px;
