@@ -444,14 +444,14 @@ ul{
 
 .fr-button-exp-out{
     width:0%;
-    border-right:solid blue 5px;
+    /*border-right:solid blue 5px;*/
     border-bottom:solid blue 5px;
     /*margin-left:5px;*/
 }
 
 .ev-button-exp-out{
     width:0%;
-    border-right:solid red 5px;
+    /*border-right:solid red 5px;*/
     border-bottom:solid red 5px;
     margin-top:-5px;
     margin-left:-5px;
@@ -1072,7 +1072,7 @@ ul{
     /*float:right;*/
     width:0%;
     height:100%;
-    /*border-right:solid blue 5px;*/
+    border-right:solid blue 5px;
     border-left:solid blue 5px;
     /*border-bottom:solid blue 5px;*/
 }
@@ -1093,6 +1093,7 @@ ul{
     /*height:0px;*/
     /*background:yellow;*/
     border-left:solid red 5px;
+    border-right:solid red 5px;
     /*border-left:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
 }
