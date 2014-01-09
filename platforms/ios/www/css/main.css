@@ -301,8 +301,8 @@ ul{
     /*margin-top: -50px;*/
     /*height:64px;*/
     height:50px;
-    margin-left:50px;
-    margin-right:50px;
+   margin-left:45px;
+     margin-right:50px;
 }
 
 .event-outter{
@@ -310,7 +310,7 @@ ul{
     /*height:64px;*/
     /*height:50px;*/
     margin-left:50px;
-    margin-right:50px;
+    margin-right:45px;
     
 }
 
@@ -397,7 +397,7 @@ ul{
 }
 
 .event-touched .event-name{
-    width:95%;
+    width:93%;
     /*
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
