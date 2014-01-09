@@ -420,12 +420,19 @@ ul{
     width:98%;
 }
 */
+
+/*ev-button-exp-out*/
 .friend-touched .ev-button-exp-out{
-    width:100%;
+    width:0%;
 }
 
 .friend-touched .fr-button-exp-out{
     width:100%;
+}
+
+.event-touched .fr-button-exp-out{
+    
+    width:0%;
 }
 
 .event-touched .ev-button-exp-out{
@@ -444,10 +451,10 @@ ul{
 
 .ev-button-exp-out{
     width:0%;
-    /*margin-left:-5px;*/
     border-right:solid red 5px;
     border-bottom:solid red 5px;
-    /*margin-right:5px;*/
+    margin-top:-5px;
+    margin-left:-5px;
 }
 
 
