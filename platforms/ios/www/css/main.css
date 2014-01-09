@@ -378,13 +378,12 @@ ul{
 }
 
 .friend-touched .fr-button-exp-wrap{
-    width:98%;
+    width:100%;
 }
 
 .event-touched .ev-button-exp-wrap{
-    width:98%;
+    width:100%;
 }
-
 
 .friend-touched .fr-button-exp-out{
     width:98%;
@@ -396,6 +395,7 @@ ul{
 
 .fr-button-exp-out{
     width:0%;
+    margin-left:5px;
 }
 
 .ev-button-exp-out{
