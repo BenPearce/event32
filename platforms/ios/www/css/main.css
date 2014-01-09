@@ -949,7 +949,7 @@ ul{
 
 .event-ex{
     font-size:10pt;
-    height:25px;
+    /*height:25px;*/
     margin:0px 50px;
     /*display:none;
      visibility: hidden;

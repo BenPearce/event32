@@ -118,6 +118,7 @@ function setEventTap(){
                           });
     
        $(".friend-wrap").touchstart(function(){
+                                    /*$(this).parents().eq(2).css('height','');*/
                                     /*
                                     $(this).parents().eq(1).removeClass('event-selected');
                                     $(this).parents().eq(1).removeClass('event-touched');
