@@ -301,16 +301,16 @@ ul{
     /*margin-top: -50px;*/
     /*height:64px;*/
     height:50px;
-   margin-left:50px;
-     margin-right:50px;
+   margin-left:55px;
+     margin-right:55px;
 }
 
 .event-outter{
     /*position:absolute;*/
     /*height:64px;*/
     /*height:50px;*/
-    margin-left:50px;
-    margin-right:50px;
+    margin-left:55px;
+    margin-right:55px;
     
 }
 
@@ -963,7 +963,7 @@ ul{
 .event-ex{
     font-size:10pt;
     /*height:25px;*/
-    margin:5px 50px;
+    margin:5px 55px;
     /*display:none;
      visibility: hidden;
      */
