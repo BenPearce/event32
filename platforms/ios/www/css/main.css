@@ -424,6 +424,10 @@ ul{
     width:100%;
 }
 
+.friend-touched .fr-button-exp-out{
+    width:100%;
+}
+
 .event-touched .ev-button-exp-out{
     
       width:100%;
@@ -444,69 +448,14 @@ ul{
     /*margin-right:5px;*/
 }
 
-/*
- .event-selected .event-name{
- height:80px;
- }
- 
- .friend-selected .friend-name{
- height:80px;
- }
- */
-
-
 
 .friend-selected .fr-button-exp-out{
     height:50px;
-    /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: height .25s;
-    -webkit-transition: height .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
-     */
-}
-/*
-.friend-selected{
-    height:80px!important;
 }
 
-.friend-selected .friend-exp{
-    height:80px;
-}
-
-.friend-selected .friend-buttons{
-    border:solid blue 1px;
-    height:100px;
-}
-*/
 .event-selected .ev-button-exp-out{
     height:50px;
-    /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: height .25s;
-    -webkit-transition: height .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
-     */
 }
-/*
-.event-selected{
-    height:80px!important;
-}
-
-
-.event-selected .friend-exp{
-    height:80px;
-}
-
-.event-selected .event-buttons{
-    border:solid red 1px;
-    height:100px;
-}
-*/
 
 
 
