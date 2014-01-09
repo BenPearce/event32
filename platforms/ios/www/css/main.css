@@ -379,7 +379,7 @@ ul{
 }
 
 .friend-touched .friend-name{
-    width:98%;
+    width:94%;
     /*
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -391,7 +391,7 @@ ul{
 }
 
 .event-touched .event-name{
-    width:98%;
+    width:94%;
     /*
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -567,7 +567,7 @@ ul{
 }
 
 .friend-wrap{
-    /*border-right:solid 5px blue;*/
+    border-right:solid 5px blue;
     border-top:solid 5px blue;
     border-bottom:solid 5px blue;
     display:block;
@@ -584,7 +584,7 @@ ul{
 .event-img-wrap{
     display:block;
     margin-left:-50px;
-    /*border-left:solid 5px red;*/
+    border-left:solid 5px red;
     border-top:solid 5px red;
     border-bottom:solid 5px red;
     float:left;
