@@ -122,7 +122,7 @@ function setEventTap(){
                                     $(this).parents().eq(1).removeClass('event-selected');
                                     $(this).parents().eq(1).removeClass('event-touched');
                                     */
-                                  
+                                    console.log("friend wrap touch");
                                     
                                     var touched = $(this).parents().eq(1).hasClass('friend-touched');
                                     
