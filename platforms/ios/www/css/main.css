@@ -565,7 +565,26 @@ ul{
     -webkit-user-select: none;
 }
 
+.ev-i-button{
+    height:100%;
+    width:33%;
+    background:green;
+    float:left;
+}
 
+.ev-rsvp-button{
+    height:100%;
+    width:33%;
+    background:red;
+    float:left;
+}
+
+.ev-map-button{
+    height:100%;
+    width:33%;
+    background:yellow;
+    float:left;
+}
 
 .friend-wrap-touched{
 	margin-top:4px;

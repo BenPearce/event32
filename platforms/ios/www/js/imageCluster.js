@@ -44,9 +44,9 @@ function getEventRow(eventId,eventClass,datIndex){
         
                           //return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div><div class="friend-button-ex"></div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp-wrap"></div><div class="ev-button-exp-wrap"></div></div></div>';
         
-                                  return '<div class="event-touched row-wrap event-touched'+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"></div></div></div></div></div>';
+                                  return '<div class="event-touched row-wrap event-touched'+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div></div>';
        
-        
+        //<div class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div>-->
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
@@ -66,11 +66,8 @@ function getEventRow(eventId,eventClass,datIndex){
         
                    return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"></div></div></div></div>';
         
-        
         //return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div><div class="friend-button-ex"></div></div></div><div id="event-ex-'+eventId+'" class="event-ex"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div> <div class="ev-button-exp-out"><div class="ev-button-exp-wrap"></div></div></div></div>';
-        
 
-        
     }
 }
 
