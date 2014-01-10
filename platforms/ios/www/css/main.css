@@ -446,7 +446,7 @@ ul{
 
 .fr-button-exp-out{
     width:0%;
-    border-left:solid blue 5px;
+    border-left:solid rgba(0, 0, 0, 0.1) 5px;
     /*border-bottom:solid blue 5px;*/
     /*margin-left:5px;*/
 }
@@ -1108,7 +1108,7 @@ ul{
     /*height:0px;*/
     /*background:yellow;*/
     /*border-left:solid red 5px;*/
-    border-right:solid red 5px;
+    border-right:solid rgba(0, 0, 0, 0.1) 5px;
     /*border-left:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
 }
