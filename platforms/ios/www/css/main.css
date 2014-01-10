@@ -284,13 +284,13 @@ ul{
 }
 
 .event-name-inner{
-    height:50px;
+    height:55px;
     overflow-y:hidden;
     border-right:solid red 5px;
 }
 
 .friend-name-inner{
-    height:50px;
+    height:55px;
     overflow-y:hidden;
     border-left:solid blue 5px;
     /*position:absolute;*/
@@ -301,8 +301,8 @@ ul{
     /*margin-top: -50px;*/
     /*height:64px;*/
     height:50px;
-   margin-left:55px;
-     margin-right:55px;
+    margin-left:55px;
+    margin-right:55px;
 }
 
 .event-outter{
@@ -350,12 +350,12 @@ ul{
     overflow-x:hidden;
     float:right;
     width:0%;
-
-   /* border-bottom:solid blue 1px;*/
-   /*
-    border-top:solid blue 1px;
-    border-left:solid blue 1px;
-    */
+    
+    /* border-bottom:solid blue 1px;*/
+    /*
+     border-top:solid blue 1px;
+     border-left:solid blue 1px;
+     */
     border-top:solid blue 5px;
     /*border:solid blue 1px;*/
     /*height:64px;*/
@@ -365,13 +365,13 @@ ul{
 
 .event-name{
     /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: width .25s;
-    -webkit-transition: width .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
-    */
+     -webkit-transform-style: preserve-3d;
+     -webkit-transform: translate3d(0px,0px,0px);
+     transition: width .25s;
+     -webkit-transition: width .2s;
+     -webkit-perspective: 250;
+     -webkit-backface-visibility: hidden;
+     */
     /*position:absolute;*/
     overflow-x:hidden;
     float:left;
@@ -387,45 +387,25 @@ ul{
 .friend-touched .friend-name{
     width:100%;
     /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: width .25s;
-    -webkit-transition: width .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
+     -webkit-transform-style: preserve-3d;
+     -webkit-transform: translate3d(0px,0px,0px);
+     transition: width .25s;
+     -webkit-transition: width .2s;
+     -webkit-perspective: 250;
+     -webkit-backface-visibility: hidden;
      */
 }
 
 .event-touched .event-name{
     width:100%;
     /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: width .25s;
-    -webkit-transition: width .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
+     -webkit-transform-style: preserve-3d;
+     -webkit-transform: translate3d(0px,0px,0px);
+     transition: width .25s;
+     -webkit-transition: width .2s;
+     -webkit-perspective: 250;
+     -webkit-backface-visibility: hidden;
      */
-}
-
-.fr-button-exp{
-    width:0%;
-    margin-right:5px;
-    /*border-bottom:solid blue 5px;*/
-}
-
-.ev-button-exp{
-    width:0%;
-    margin-left:5px;
-    /*border-bottom:solid red 5px;*/
-}
-
-.friend-touched .fr-button-exp{
-    width:100%;
-}
-
-.event-touched .ev-button-exp{
-    width:100%;
 }
 
 .friend-touched .fr-button-exp-wrap{
@@ -436,10 +416,10 @@ ul{
     width:100%;
 }
 /*
-.friend-touched .fr-button-exp-out{
-    width:98%;
-}
-*/
+ .friend-touched .fr-button-exp-out{
+ width:98%;
+ }
+ */
 
 /*ev-button-exp-out*/
 .friend-touched .ev-button-exp-out{
@@ -457,7 +437,7 @@ ul{
 
 .event-touched .ev-button-exp-out{
     
-      width:100%;
+    width:100%;
 }
 
 /*.ev-button-exp-out*/
@@ -473,8 +453,8 @@ ul{
     width:0%;
     border-right:solid red 5px;
     /*border-bottom:solid red 5px;*/
-   /* margin-top:-5px;
-    margin-left:-5px;*/
+    margin-top:-5px;
+    margin-left:-5px;
 }
 
 
@@ -485,10 +465,6 @@ ul{
 .event-selected .ev-button-exp-out{
     height:50px;
 }
-
-
-
-
 
 .show-friend-name .event-name{
     display:none;
@@ -843,7 +819,7 @@ ul{
 }
 
 .row-wrap{
-	padding:5px 0px;
+	padding:10px 0px;
     /*border:solid rgba(0, 0, 0, 0.11) 5px;*/
     /*
      margin:auto!important;
@@ -992,7 +968,7 @@ ul{
 .event-ex{
     font-size:10pt;
     /*height:25px;*/
-    margin:5px 50px;
+    margin:10px 55px;
     /*display:none;
      visibility: hidden;
      */
@@ -1071,23 +1047,30 @@ ul{
     float:right;
 }
 /*
-.button-exp-wrap{
-    width:100%;
-    height:5px;
-    background:green;
-}
-*/
+ .button-exp-wrap{
+ width:100%;
+ height:5px;
+ background:green;
+ }
+ */
 
+.fr-button-exp{
+    /*border-bottom:solid blue 5px;*/
+}
+
+.ev-button-exp{
+     /*border-bottom:solid red 5px;*/
+}
 
 .fr-button-exp-wrap{
     /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: height .25s;
-    -webkit-transition: height .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
-    */
+     -webkit-transform-style: preserve-3d;
+     -webkit-transform: translate3d(0px,0px,0px);
+     transition: height .25s;
+     -webkit-transition: height .2s;
+     -webkit-perspective: 250;
+     -webkit-backface-visibility: hidden;
+     */
     /*margin-top:5px;*/
     /*float:right;*/
     width:0%;
@@ -1099,13 +1082,13 @@ ul{
 
 .ev-button-exp-wrap{
     /*
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: height .25s;
-    -webkit-transition: height .2s;
-    -webkit-perspective: 250;
-    -webkit-backface-visibility: hidden;
-    */
+     -webkit-transform-style: preserve-3d;
+     -webkit-transform: translate3d(0px,0px,0px);
+     transition: height .25s;
+     -webkit-transition: height .2s;
+     -webkit-perspective: 250;
+     -webkit-backface-visibility: hidden;
+     */
     /*margin-top:5px;*/
     /*float:left;*/
     width:0%;
