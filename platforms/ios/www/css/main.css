@@ -286,13 +286,14 @@ ul{
 .event-name-inner{
     height:50px;
     overflow-y:hidden;
-    border-right:solid rgba(0, 0, 0, 0.3) 5px;
+    border-right:solid rgba(0, 0, 0, 0.1) 5px;
 }
 
 .friend-name-inner{
+    
     height:50px;
     overflow-y:hidden;
-    border-left:solid rgba(0, 0, 0, 0.3) 5px;
+    border-left:solid rgba(0, 0, 0, 0.1) 5px;
     /*position:absolute;*/
 }
 
@@ -350,13 +351,13 @@ ul{
     overflow-x:hidden;
     float:right;
     width:0%;
-    
+    font-size:9pt;
     /* border-bottom:solid blue 1px;*/
     /*
      border-top:solid blue 1px;
      border-left:solid blue 1px;
      */
-    border-top:solid rgba(0, 0, 0, 0.3) 5px;
+    border-top:solid rgba(0, 0, 0, 0.1) 5px;
     /*border:solid blue 1px;*/
     /*height:64px;*/
 }
@@ -373,11 +374,12 @@ ul{
      -webkit-backface-visibility: hidden;
      */
     /*position:absolute;*/
+    font-size:9pt;
     overflow-x:hidden;
     float:left;
     width:0%;
     /*border-top:solid red 1px;*/
-    border-top:solid rgba(0, 0, 0, 0.3) 5px;
+    border-top:solid rgba(0, 0, 0, 0.1) 5px;
     /*border-bottom:solid red 1px;*/
     
     /*border:solid 1px yellow;*/
@@ -531,9 +533,9 @@ ul{
 }
 
 .friend-wrap{
-    border-right:solid 5px rgba(0, 0, 0, 0.3);
-    border-top:solid 5px rgba(0, 0, 0, 0.3);
-    border-bottom:solid 5px rgba(0, 0, 0, 0.3);
+    border-right:solid 5px rgba(0, 0, 0, 0.1);
+    border-top:solid 5px rgba(0, 0, 0, 0.1);
+    border-bottom:solid 5px rgba(0, 0, 0, 0.1);
     display:block;
     margin-right:-55px;
 	float:right;
@@ -548,9 +550,9 @@ ul{
 .event-img-wrap{
     display:block;
     margin-left:-55px;
-    border-left:solid 5px rgba(0, 0, 0, 0.3);
-    border-top:solid 5px rgba(0, 0, 0, 0.3);
-    border-bottom:solid 5px rgba(0, 0, 0, 0.3);
+    border-left:solid 5px rgba(0, 0, 0, 0.1);
+    border-top:solid 5px rgba(0, 0, 0, 0.1);
+    border-bottom:solid 5px rgba(0, 0, 0, 0.1);
     float:left;
     position:relative;
     width: 50px;
@@ -969,9 +971,9 @@ ul{
     font-size:10pt;
     /*height:25px;*/
     /*margin:10px 55px;*/
-    border-bottom:solid rgba(0, 0, 0, 0.3) 5px;
-    border-left:solid rgba(0, 0, 0, 0.3) 5px;
-    border-right:solid rgba(0, 0, 0, 0.3) 5px;
+    border-bottom:solid rgba(0, 0, 0, 0.1) 5px;
+    border-left:solid rgba(0, 0, 0, 0.1) 5px;
+    border-right:solid rgba(0, 0, 0, 0.1) 5px;
     margin-left: 55px;
      margin-right: 55px;
     margin-top: 5px;
