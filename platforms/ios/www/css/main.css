@@ -575,7 +575,9 @@ ul{
 .ev-rsvp-button{
     height:100%;
     width:33%;
-    background:red;
+    background-image:url('../images/check-trans.png')!important;
+    background-position:center;
+    background-repeat:no-repeat;
     float:left;
 }
 
