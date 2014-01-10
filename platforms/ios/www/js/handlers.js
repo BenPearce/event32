@@ -130,11 +130,16 @@ function setEventTap(){
                                     
                                     var selected = $(this).parents().eq(1).hasClass('friend-selected');
                                     
-                                    
+                                    $(this).parents().eq(1).removeClass('friend-touched');
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).removeClass('event-touched');
+                                    $(this).parents().eq(1).removeClass('event-selected');
+                                    /*
                                     $('.friend-selected').removeClass('friend-selected');
                                     $('.friend-touched').removeClass('friend-touched');
                                     $('.event-selected').removeClass('event-selected');
                                     $('.event-touched').removeClass('event-touched');
+                                     */
                                     /*
                                     $(this).removeClass('event-touched');
                                     $(this).removeClass('event-selected');
@@ -177,20 +182,20 @@ function setEventTap(){
                                     var selected = $(this).parents().eq(1).hasClass('event-selected');
                                     
                                     
-                                    
+                                    /*
                                      console.log("touch start");
                                      $('.friend-selected').removeClass('friend-selected');
                                      $('.friend-touched').removeClass('friend-touched');
                                     
                                     $('.event-selected').removeClass('event-selected');
                                     $('.event-touched').removeClass('event-touched');
+                                    */
                                     
-                                    /*
                                     $(this).parents().eq(1).removeClass('friend-touched');
                                     $(this).parents().eq(1).removeClass('friend-selected');
                                     $(this).parents().eq(1).removeClass('event-touched');
                                     $(this).parents().eq(1).removeClass('event-selected');
-                                    */
+                                    
                                     if(touched & selected){
                                     $(this).parents().eq(1).removeClass('event-selected');
                                     $(this).parents().eq(1).addClass('event-touched')

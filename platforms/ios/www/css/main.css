@@ -286,13 +286,13 @@ ul{
 .event-name-inner{
     height:55px;
     overflow-y:hidden;
-    border-right:solid black 5px;
+    border-right:solid rgba(0, 0, 0, 0.6) 5px;
 }
 
 .friend-name-inner{
     height:55px;
     overflow-y:hidden;
-    border-left:solid black 5px;
+    border-left:solid rgba(0, 0, 0, 0.6) 5px;
     /*position:absolute;*/
 }
 
@@ -356,7 +356,7 @@ ul{
      border-top:solid blue 1px;
      border-left:solid blue 1px;
      */
-    border-top:solid black 5px;
+    border-top:solid rgba(0, 0, 0, 0.6) 5px;
     /*border:solid blue 1px;*/
     /*height:64px;*/
 }
@@ -377,7 +377,7 @@ ul{
     float:left;
     width:0%;
     /*border-top:solid red 1px;*/
-    border-top:solid black 5px;
+    border-top:solid rgba(0, 0, 0, 0.6) 5px;
     /*border-bottom:solid red 1px;*/
     
     /*border:solid 1px yellow;*/
@@ -531,9 +531,9 @@ ul{
 }
 
 .friend-wrap{
-    border-right:solid 5px black;
-    border-top:solid 5px black;
-    border-bottom:solid 5px black;
+    border-right:solid 5px rgba(0, 0, 0, 0.6);
+    border-top:solid 5px rgba(0, 0, 0, 0.6);
+    border-bottom:solid 5px rgba(0, 0, 0, 0.6);
     display:block;
     margin-right:-55px;
 	float:right;
@@ -548,9 +548,9 @@ ul{
 .event-img-wrap{
     display:block;
     margin-left:-55px;
-    border-left:solid 5px black;
-    border-top:solid 5px black;
-    border-bottom:solid 5px black;
+    border-left:solid 5px rgba(0, 0, 0, 0.6);
+    border-top:solid 5px rgba(0, 0, 0, 0.6);
+    border-bottom:solid 5px rgba(0, 0, 0, 0.6);
     float:left;
     position:relative;
     width: 50px;
@@ -969,9 +969,9 @@ ul{
     font-size:10pt;
     /*height:25px;*/
     /*margin:10px 55px;*/
-    border-bottom:solid black 5px;
-    border-left:solid black 5px;
-    border-right:solid black 5px;
+    border-bottom:solid rgba(0, 0, 0, 0.6) 5px;
+    border-left:solid rgba(0, 0, 0, 0.6) 5px;
+    border-right:solid rgba(0, 0, 0, 0.6) 5px;
     margin-left: 55px;
      margin-right: 55px;
     margin-top: 5px;
