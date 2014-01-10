@@ -453,7 +453,7 @@ ul{
     width:0%;
     border-right:solid red 5px;
     /*border-bottom:solid red 5px;*/
-    margin-top:-5px;
+    /*margin-top:-5px;*/
     margin-left:-5px;
 }
 
@@ -819,7 +819,7 @@ ul{
 }
 
 .row-wrap{
-	padding:10px 0px;
+	/*padding:10px 0px;*/
     /*border:solid rgba(0, 0, 0, 0.11) 5px;*/
     /*
      margin:auto!important;
@@ -968,7 +968,10 @@ ul{
 .event-ex{
     font-size:10pt;
     /*height:25px;*/
-    margin:10px 55px;
+    /*margin:10px 55px;*/
+    margin-left: 55px;
+     margin-right: 55px;
+    margin-top: 10px;
     /*display:none;
      visibility: hidden;
      */
