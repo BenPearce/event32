@@ -408,6 +408,26 @@ ul{
      */
 }
 
+.fr-button-exp{
+    width:0%;
+    margin-right:5px;
+    /*border-bottom:solid blue 5px;*/
+}
+
+.ev-button-exp{
+    width:0%;
+    margin-left:5px;
+    /*border-bottom:solid red 5px;*/
+}
+
+.friend-touched .fr-button-exp{
+    width:100%;
+}
+
+.event-touched .ev-button-exp{
+    width:100%;
+}
+
 .friend-touched .fr-button-exp-wrap{
     width:100%;
 }
@@ -445,16 +465,16 @@ ul{
 .fr-button-exp-out{
     width:0%;
     border-right:solid blue 5px;
-    border-bottom:solid blue 5px;
+    /*border-bottom:solid blue 5px;*/
     /*margin-left:5px;*/
 }
 
 .ev-button-exp-out{
     width:0%;
     border-right:solid red 5px;
-    border-bottom:solid red 5px;
-    margin-top:-5px;
-    margin-left:-5px;
+    /*border-bottom:solid red 5px;*/
+   /* margin-top:-5px;
+    margin-left:-5px;*/
 }
 
 
@@ -466,13 +486,7 @@ ul{
     height:50px;
 }
 
-.fr-button-exp{
-    
-}
 
-.fr-button-exp{
-    
-}
 
 
 
@@ -978,7 +992,7 @@ ul{
 .event-ex{
     font-size:10pt;
     /*height:25px;*/
-    margin:5px 55px;
+    margin:5px 50px;
     /*display:none;
      visibility: hidden;
      */
