@@ -446,7 +446,7 @@ ul{
 
 .fr-button-exp-out{
     width:0%;
-    /*border-right:solid blue 5px;*/
+    border-left:solid blue 5px;
     /*border-bottom:solid blue 5px;*/
     /*margin-left:5px;*/
 }
@@ -456,7 +456,7 @@ ul{
     /*border-right:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
     /*margin-top:-5px;*/
-    margin-left:-5px;
+    /*margin-left:-5px;*/
 }
 
 
@@ -535,7 +535,7 @@ ul{
 .friend-wrap{
     border-right:solid 5px rgba(0, 0, 0, 0.1);
     border-top:solid 5px rgba(0, 0, 0, 0.1);
-    border-bottom:solid 5px rgba(0, 0, 0, 0.1);
+    border-bottom:solid 55px rgba(0, 0, 0, 0.1);
     display:block;
     margin-right:-55px;
 	float:right;
@@ -552,7 +552,7 @@ ul{
     margin-left:-55px;
     border-left:solid 5px rgba(0, 0, 0, 0.1);
     border-top:solid 5px rgba(0, 0, 0, 0.1);
-    border-bottom:solid 5px rgba(0, 0, 0, 0.1);
+    border-bottom:solid 55px rgba(0, 0, 0, 0.1);
     float:left;
     position:relative;
     width: 50px;
@@ -972,8 +972,10 @@ ul{
     /*height:25px;*/
     /*margin:10px 55px;*/
     border-bottom:solid rgba(0, 0, 0, 0.1) 5px;
+    /*
     border-left:solid rgba(0, 0, 0, 0.1) 5px;
     border-right:solid rgba(0, 0, 0, 0.1) 5px;
+     */
     margin-left: 55px;
      margin-right: 55px;
     margin-top: 5px;
@@ -1063,10 +1065,12 @@ ul{
  */
 
 .fr-button-exp{
+    /*padding-left:5px;*/
     /*border-bottom:solid blue 5px;*/
 }
 
 .ev-button-exp{
+    padding-right:5px;
      /*border-bottom:solid red 5px;*/
 }
 
@@ -1104,7 +1108,7 @@ ul{
     /*height:0px;*/
     /*background:yellow;*/
     /*border-left:solid red 5px;*/
-    /*border-right:solid red 5px;*/
+    border-right:solid red 5px;
     /*border-left:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
 }
