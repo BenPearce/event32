@@ -120,6 +120,7 @@ li{
     margin-bottom:5px;
     margin-top:3px;
      */
+    border:solid rgba(0, 0, 0, 0.25) 5px!important;
 }
 
 #footer1{
@@ -704,7 +705,7 @@ ul{
 
 .right-ex-wrap{
 
-
+/*margin-right:5px;*/
      float:right;
      height:50px;
      width:50px;
@@ -1080,6 +1081,7 @@ width:50px;
     float:left;
     height:50px;
     width:50px;
+    /*margin-left:5px;*/
         background-color:rgba(3, 3, 3, 0.25);
 }
 
