@@ -605,8 +605,15 @@ ul{
 
 .divider-wrap{
     /*background:yellow;*/
+    /*
     position:relative;
     margin-bottom:15px;
+     */
+    background:rgba(0, 0, 0, 0.1);
+    
+    margin-left:55px;
+    margin-right:55px;
+    
     /*z-index:2;*/
 }
 
