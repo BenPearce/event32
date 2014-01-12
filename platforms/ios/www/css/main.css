@@ -586,14 +586,29 @@ ul{
     -webkit-user-select: none;
 }
 
+.fr-i-button{
+    height:100%;
+    width:33%;
+    background-image:url('../images/info.png')!important;
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+}
+
+.fr-mail-button{
+    
+}
+
+.fr-post-button{
+    
+}
+
 .ev-i-button{
     height:100%;
     width:33%;
-    /*
-     background-image:url('../images/check-trans.png')!important;
+     background-image:url('../images/info.png')!important;
      background-position:center;
      background-repeat:no-repeat;
-     */
     float:left;
 }
 
@@ -1007,6 +1022,8 @@ height:50px
 .description-wrap{
     
 }
+
+
 
 .rsvp-button{
     float:right;
