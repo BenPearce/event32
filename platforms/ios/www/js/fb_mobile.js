@@ -57,7 +57,7 @@ function contract(exIndex,elem,transition){
 
         if(transition){
             console.log("contract trans");
-            $("#event-wrap-in-"+exIndex).css("height","235px");
+            $("#event-wrap-in-"+exIndex).css("height","220px");
             if(exIndex != lastIndex){
                 $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
             }
@@ -65,7 +65,7 @@ function contract(exIndex,elem,transition){
         }else{
             console.log("contract non-trans");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
-            $("#event-wrap-in-"+exIndex).css("height","235px");
+            $("#event-wrap-in-"+exIndex).css("height","220px");
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
             $("#event-wrap-in-"+exIndex).height();
@@ -221,12 +221,12 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","235px");
+                $("#event-wrap-in-"+i).css("height","220px");
                 continue;
             }
             
             var moreText = (dateHash[i].eventList.length - 4);
-            $("#event-wrap-in-"+i).css("height","235px");
+            $("#event-wrap-in-"+i).css("height","220px");
             
         }
     }
