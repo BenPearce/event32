@@ -1073,10 +1073,17 @@ width:50px;
     background-repeat:no-repeat!important;
 }
 
+.left-ex-wrap{
+    float:left;
+    height:50px;
+    width:50px;
+        background-color:rgba(3, 3, 3, 0.1);
+}
+
 .left-ex-button{
     height:50px;
     width:50px;
-    background-color:rgba(3, 3, 3, 0.1);
+
     /*border-left:solid black 5px;*/
     /*display:none;*/
     -webkit-transition: opacity .5s ease-out;
