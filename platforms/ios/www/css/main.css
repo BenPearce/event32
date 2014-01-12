@@ -820,8 +820,14 @@ ul{
 }
 
 .is-sticky .date-row{
-    background:#F2F2FC;
+    /*background:#F2F2FC;*/
+    background:#DFDFE9;
     z-index:105;
+}
+
+
+.is-sticky .date-wrap-inner{
+height:50px
 }
 
 .animateHeight{
