@@ -325,7 +325,8 @@ ul{
     height:45px;
     margin:0px 50px;
     background:rgba(0, 0, 0, 0.1);
-    color:white;
+    color:rgba(6, 6, 6, 0.44);
+    /*color:white;*/
 }
 
 .event-exp{
