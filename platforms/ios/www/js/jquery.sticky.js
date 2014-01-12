@@ -61,7 +61,7 @@
 
             if (typeof s.getWidthFrom !== 'undefined') {
  
-              s.stickyElement.css('width', parseInt($(s.getWidthFrom).width()) - 5);
+              s.stickyElement.css('width', $(s.getWidthFrom).width());
               //s.stickyElement.css('margin-right', '50px');
               //s.stickyElement.css('margin-left', '50px');
   
