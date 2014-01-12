@@ -52,12 +52,17 @@
             newTop = s.topSpacing;
           }
           if (s.currentTop != newTop) {
+
             s.stickyElement
               .css('position', 'fixed')
-              .css('top', newTop);
+              .css('top', newTop)
+ ;
+
 
             if (typeof s.getWidthFrom !== 'undefined') {
-              s.stickyElement.css('width', $(s.getWidthFrom).width());
+ 
+              s.stickyElement.css('width', parseInt($(s.getWidthFrom).width()) - 5);
+  
             }
 
             s.stickyElement.parent().addClass(s.className);
@@ -90,7 +95,9 @@
           }
 
           var stickyWrapper = stickyElement.parent();
+                         
           stickyWrapper.css('height', stickyElement.outerHeight());
+                         
           sticked.push({
             topSpacing: o.topSpacing,
             bottomSpacing: o.bottomSpacing,

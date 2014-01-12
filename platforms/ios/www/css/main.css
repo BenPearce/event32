@@ -773,13 +773,6 @@ width:50px;
      -webkit-backface-visibility: hidden;
      */
 }
-/*
- .is-sticky{
- z-index:105;
- }
- */
-
-
 
 .background-div{
     position:fixed;
@@ -818,8 +811,9 @@ width:50px;
 }
 
 .is-sticky .date-row{
-    background:#F2F2FC;
+    /*background:#F2F2FC;*/
     z-index:105;
+    margin-right:5px;
 }
 
 .animateHeight{
@@ -915,6 +909,7 @@ width:50px;
 
 .sticky-wrapper{
     /*background:red!important;*/
+    width:295!important;
 }
 
 .hidden{
