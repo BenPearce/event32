@@ -702,12 +702,13 @@ ul{
     /*display:none;*/
     -webkit-transition: opacity .5s ease-out;
     opacity: 0;
-    height:50px;
-    width:15%;
+    height:45px;
+    width:45px;
+    /*border:solid black 5px;*/
     /*color:yellow;*/
     font-size:26pt;
     
-    box-shadow: 2px 2px 2px #888888;
+    /*box-shadow: 2px 2px 2px #888888;*/
     
     /*border-right:solid black 1px;*/
     /*background:white;*/
@@ -1059,14 +1060,15 @@ ul{
 }
 
 .left-ex-button{
-    height:50px;
-    width:15%;
+    height:45px;
+    width:45px;
+    /*border-left:solid black 5px;*/
     /*display:none;*/
     -webkit-transition: opacity .5s ease-out;
     opacity: 0;
     /* for some reason I need this to get rid of a gap*/
-    /*border-left:solid 1px black;*/
-    box-shadow: 2px 2px 2px #888888;
+   /* border:solid 5px black;*/
+    /*box-shadow: 2px 2px 2px #888888;*/
     /*color:yellow;
      font-size:26pt;*/
     
