@@ -816,6 +816,11 @@ width:50px;
     margin-right:5px;
 }
 
+.sticky-wrapper{
+    /*background:red!important;*/
+    /*width:295!important;*/
+}
+
 .animateHeight{
     /*
      -webkit-transform-style: preserve-3d;
@@ -907,10 +912,7 @@ width:50px;
 
 
 
-.sticky-wrapper{
-    /*background:red!important;*/
-    width:295!important;
-}
+
 
 .hidden{
 	display:none!important;
