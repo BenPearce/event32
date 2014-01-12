@@ -549,7 +549,7 @@ ul{
     -webkit-user-select: none;
     /*box-shadow: 2px 2px 2px #888888;*/
 }
- 
+
 .event-img-wrap{
     margin-top:5px;
     display:block;
@@ -569,9 +569,9 @@ ul{
     height:100%;
     width:33%;
     /*
-    background-image:url('../images/check-trans.png')!important;
-    background-position:center;
-    background-repeat:no-repeat;
+     background-image:url('../images/check-trans.png')!important;
+     background-position:center;
+     background-repeat:no-repeat;
      */
     float:left;
 }
@@ -605,15 +605,8 @@ ul{
 
 .divider-wrap{
     /*background:yellow;*/
-    /*
     position:relative;
     margin-bottom:15px;
-     */
-    background:rgba(0, 0, 0, 0.1);
-    
-    margin-left:55px;
-    margin-right:55px;
-    
     /*z-index:2;*/
 }
 
@@ -1011,11 +1004,11 @@ ul{
     /*margin:10px 55px;*/
     border-bottom:solid rgba(0, 0, 0, 0.1) 5px;
     /*
-    border-left:solid rgba(0, 0, 0, 0.1) 5px;
-    border-right:solid rgba(0, 0, 0, 0.1) 5px;
+     border-left:solid rgba(0, 0, 0, 0.1) 5px;
+     border-right:solid rgba(0, 0, 0, 0.1) 5px;
      */
     margin-left: 55px;
-     margin-right: 55px;
+    margin-right: 55px;
     margin-top: 5px;
     /*display:none;
      visibility: hidden;
@@ -1109,7 +1102,7 @@ ul{
 
 .ev-button-exp{
     padding-right:5px;
-     /*border-bottom:solid red 5px;*/
+    /*border-bottom:solid red 5px;*/
 }
 
 .fr-button-exp-wrap{
