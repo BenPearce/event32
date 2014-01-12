@@ -315,6 +315,11 @@ ul{
     
 }
 
+.date-wrap-inner{
+    margin:0px 50px;
+    background:rgba(0, 0, 0, 0.1);
+    color:white;
+}
 
 .event-exp{
     width:100%;
