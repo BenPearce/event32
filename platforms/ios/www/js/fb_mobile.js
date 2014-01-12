@@ -205,7 +205,7 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","74px");
+                $("#event-wrap-in-"+i).css("height","55px");
                 continue;
             }
             
@@ -213,7 +213,7 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","148px");
+                $("#event-wrap-in-"+i).css("height","110px");
                 continue;
             }
             
@@ -221,7 +221,7 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","220px");
+                $("#event-wrap-in-"+i).css("height","165px");
                 continue;
             }
             
