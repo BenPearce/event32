@@ -302,16 +302,16 @@ ul{
     /*margin-top: -50px;*/
     /*height:64px;*/
     height:50px;
-    margin-left:55px;
-    margin-right:55px;
+    margin-left:50px;
+    margin-right:50px;
 }
 
 .event-outter{
     /*position:absolute;*/
     /*height:64px;*/
     /*height:50px;*/
-    margin-left:55px;
-    margin-right:55px;
+    margin-left:50px;
+    margin-right:50px;
     
 }
 
@@ -536,11 +536,11 @@ ul{
 
 .friend-wrap{
     margin-top:5px;
-    border-right:solid 5px rgba(0, 0, 0, 0.1);
+    /*border-right:solid 5px rgba(0, 0, 0, 0.1);*/
     /*border-top:solid 5px rgba(0, 0, 0, 0.1);*/
     border-bottom:solid 60px rgba(0, 0, 0, 0.1);
     display:block;
-    margin-right:-55px;
+    margin-right:-50px;
 	float:right;
 	position:relative;
 	height:50px;
@@ -553,8 +553,8 @@ ul{
 .event-img-wrap{
     margin-top:5px;
     display:block;
-    margin-left:-55px;
-    border-left:solid 5px rgba(0, 0, 0, 0.1);
+    margin-left:-50px;
+    /*border-left:solid 5px rgba(0, 0, 0, 0.1);*/
     /*border-top:solid 5px rgba(0, 0, 0, 0.1);*/
     border-bottom:solid 60px rgba(0, 0, 0, 0.1);
     float:left;
@@ -1007,8 +1007,8 @@ ul{
      border-left:solid rgba(0, 0, 0, 0.1) 5px;
      border-right:solid rgba(0, 0, 0, 0.1) 5px;
      */
-    margin-left: 55px;
-    margin-right: 55px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-top: 5px;
     /*display:none;
      visibility: hidden;
