@@ -46,13 +46,19 @@ function setSwipe(evSel){
              });
 }
 
+$(document).bind('pageinit', function() {
+                 setButtons();
+                 });
+
 function setButtons(){
-    
-    /*
-    $(".rsvp-button").tap(function(){
-                     alert("rsvp");
+    console.log("set buttons");
+
+    $(".ev-rsvp-button").tap(function(){
+                     //alert("rsvp");
+                          $( "#myPopupDiv" ).popup("open");
+                          console.log("tap");
                      });
-     */
+
     /*
     
     .checkTouched
@@ -124,8 +130,15 @@ function setEventTap(){
     var first = true;
     
        $(".friend-wrap").touchstart(function(){
-                                    //var first = false;
+                                    
+                                    var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
+                                    
+                                    if( ((selectedEvId == evId) & selectedEvId !== null)){
+                                    console.log("same row trig");
+                                    sameRow = true;
+                                    }
+                                    //var first = false;
 
                                     if( (touchedDate == parseInt($(this).attr('data-dateHash')))){
                                     sameDate = true;
@@ -136,11 +149,11 @@ function setEventTap(){
                                     sameRow = false;
                                     
                                     }else{
-                                    sameRow = true;
-                                    
+                                    //sameRow = true;
                                     }
+                                    $(this).parents().eq(2).height();
                                       var height = parseInt($(this).parents().eq(2).height()) + 50;
-                                    
+                                    //var height2 = $(this).parents().eq(2).height() - 50;
                                          $(this).parents().eq(2).addClass("notransition");
                                     
                                     if(selectedEvId !== null){
@@ -194,6 +207,10 @@ function setEventTap(){
                                     console.log("first");
                                     $(this).parents().eq(2).css('height',height);
                                         }
+                                    if(sameRow){
+                                    $(this).parents().eq(2).css('height',height - 50)
+                                    }
+                              
                                     
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
@@ -211,6 +228,18 @@ function setEventTap(){
                                     console.log("Logical Error");
                                     
                                     }
+                                    
+                                    /*
+                                    if(sameRow){
+                                    console.log("other trig");
+                                    
+                                   
+                                     var height2 = height - 100;
+                                    console.log("height2: "+ height2);
+                                    $(this).parents().eq(2).css('height',height2)
+                                    }
+                                     */
+                                    
                                     $(this).parents().eq(3).removeClass("notransition");
                                     /*
                                     if($(this).parent().hasClass('friend-touched')){
@@ -221,7 +250,7 @@ function setEventTap(){
                              $(this).parent().addClass('friend-touched');
                                     }
                                      */
-                                    
+                                    setButtons();
                                });
     
     $(".friend-wrap").touchend(function(){
@@ -230,6 +259,9 @@ function setEventTap(){
     
     $(".event-img-wrap").touchstart(function(){
                                     
+                                    if( ((selectedEvId == $(this).attr('id')) & selectedEvId !== null)){
+                                    sameRow = true;
+                                    }
                                     
                                     if( (!(selectedEvId == $(this).attr('id')) & selectedEvId !== null)){
                                     console.log("different friend 1");
@@ -294,6 +326,11 @@ function setEventTap(){
                                     $(this).parents().eq(2).css('height',height);
                                     }
                                     
+                                    if(sameRow){
+                                    $(this).parents().eq(2).css('height',height - 50)
+                                    }
+                                    
+                                    
                                     $(this).parents().eq(1).addClass('event-touched');
                                     $(this).parents().eq(1).addClass('event-selected');
                                     }if(!touched & !selected){
@@ -307,6 +344,7 @@ function setEventTap(){
                                  $(this).parent().removeClass('friend-touched');
                                  $(this).parent().addClass('event-touched');
                                              */
+                                    setButtons();
                                  });
                              
     
