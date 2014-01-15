@@ -186,6 +186,7 @@ function setEventTap(){
                                     console.log("different friend 2");
                                     //$("#friend-"+touchedEvId).parents().eq(1).removeClass('friend-touched');
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('event-selected');
                                     //$("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-touched');
                                     }
                                     selectedEvId = $(this).attr('data-evId');
@@ -249,7 +250,7 @@ function setEventTap(){
                                  var dateId = $(this).attr('data-dateHash');
                                     touchedDate = parseInt($(this).attr('data-dateHash'));
                                     
-                                  selectedEvId = $(this).attr("id");
+                                  
                                     console.log("touchedEvId: "+selectedEvId);
                                     /*
                                     $(this).parents().eq(1).removeClass('friend-selected');
@@ -283,8 +284,10 @@ function setEventTap(){
                                     console.log("different friend 2");
                                     //$("#friend-"+touchedEvId).parents().eq(1).removeClass('friend-touched');
                                     $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
+                                    $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     //$("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-touched');
                                     }
+                                    selectedEvId = $(this).attr("id");
                                     
                                     if(first){
                                     console.log("first");
