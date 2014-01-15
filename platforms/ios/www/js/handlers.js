@@ -463,10 +463,12 @@ $( document ).on( "pageinit", function() {
     $(document).on("pageinit", "#date-page", function (event) {
                    
                    $('#myPopupDiv').on('popupafteropen', function () {
+                                       $(this).css('position','fixed');
                                       console.log("open");
                                       });
                    
                    $('#myPopupDiv').on('popupafterclose', function () {
+                                       $(this).css('position','static');
                                        console.log("close");
                                        });
                    
