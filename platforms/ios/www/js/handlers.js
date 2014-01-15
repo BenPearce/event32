@@ -117,9 +117,17 @@ function setEventTap(){
                           /*$(this).parent().addClass('events-touched');*/
                           });
     
+    var touchedDate;
+    var touchedEvId;
+    
        $(".friend-wrap").touchstart(function(){
                                     var dateId = $(this).attr('data-dateHash');
                                     console.log(" dateId "+ dateId);
+                                    touchedDate = parseInt($(this).attr('data-dateHash'));
+                                    
+                                   touchedEvId = $(this).attr('data-evId');
+                                    //touchedEvId = $(this).attr("id");
+                                    console.log("touchedEvId: "+touchedEvId);
                                     /*parents().eq(1)*/
                                     
                                     /*$(this).parents().eq(2).css('height','');*/
@@ -129,7 +137,7 @@ function setEventTap(){
                                     
                                     
                                     
-                                    console.log("$(this).parents().eq(2).html() "+$(this).parents().eq(2).html());
+                                    //console.log("$(this).parents().eq(2).html() "+$(this).parents().eq(2).html());
                                     
                                     
                                     /*$(this).parents().eq(2).css('height',height);*/
@@ -200,6 +208,10 @@ function setEventTap(){
     
     $(".event-img-wrap").touchstart(function(){
                                  var dateId = $(this).attr('data-dateHash');
+                                    touchedDate = parseInt($(this).attr('data-dateHash'));
+                                    
+                                  touchedEvId = $(this).attr("id");
+                                    console.log("touchedEvId: "+touchedEvId);
                                     /*
                                     $(this).parents().eq(1).removeClass('friend-selected');
                                     $(this).parents().eq(1).removeClass('friend-touched');
