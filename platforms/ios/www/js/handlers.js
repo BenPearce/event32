@@ -118,7 +118,8 @@ function setEventTap(){
                           });
     
        $(".friend-wrap").touchstart(function(){
-                                    
+                                    var dateId = $(this).attr('data-dateHash');
+                                    console.log(" dateId "+ dateId);
                                     /*parents().eq(1)*/
                                     
                                     /*$(this).parents().eq(2).css('height','');*/
@@ -198,7 +199,7 @@ function setEventTap(){
                                  });
     
     $(".event-img-wrap").touchstart(function(){
-                                
+                                 var dateId = $(this).attr('data-dateHash');
                                     /*
                                     $(this).parents().eq(1).removeClass('friend-selected');
                                     $(this).parents().eq(1).removeClass('friend-touched');
