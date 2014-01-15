@@ -118,16 +118,41 @@ function setEventTap(){
                           });
     
     var touchedDate;
-    var touchedEvId;
+    var selectedEvId = null;
+    var sameRow;
+    var sameDate;
     
        $(".friend-wrap").touchstart(function(){
+                                    console.log("touchedStartFr");
+                                    console.log("touchedEvId1 "+selectedEvId);
                                     var dateId = $(this).attr('data-dateHash');
                                     console.log(" dateId "+ dateId);
+                                    
+                                    
+                                    
+                                    if( (touchedDate == parseInt($(this).attr('data-dateHash')))){
+                                    sameDate = true;
+                                    }
+                                     console.log("touchedEvId2 "+selectedEvId);
+                                   
+                                    if( (!(selectedEvId == $(this).attr('data-evId')) & selectedEvId !== null)){
+                                    console.log("different friend 1");
+                                    sameRow = false;
+                                    /*
+                                    console.log("touchedEvId "+selectedEvId);
+                                    console.log("typeof touchedEvId "+typeof selectedEvId);
+                                     console.log("touchedEvId3 "+selectedEvId);
+                                     */
+                                    }else{
+                                    sameRow = true;
+                                    }
+                                    
                                     touchedDate = parseInt($(this).attr('data-dateHash'));
                                     
-                                   touchedEvId = $(this).attr('data-evId');
+                                     //console.log("touchedEvId4 "+selectedEvId);
+                                   
                                     //touchedEvId = $(this).attr("id");
-                                    console.log("touchedEvId: "+touchedEvId);
+                                    //console.log("touchedEvId: "+selectedEvId);
                                     /*parents().eq(1)*/
                                     
                                     /*$(this).parents().eq(2).css('height','');*/
@@ -146,7 +171,7 @@ function setEventTap(){
                                     $(this).parents().eq(1).removeClass('event-selected');
                                     $(this).parents().eq(1).removeClass('event-touched');
                                     */
-                                    console.log("friend wrap touch");
+                                    //console.log("friend wrap touch");
                                     
                                     var touched = $(this).parents().eq(1).hasClass('friend-touched');
                                     
@@ -172,6 +197,13 @@ function setEventTap(){
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     
                                     } else if(touched & !selected){
+                                    
+                                    if(!sameRow){
+                                    console.log("different friend 2");
+                                    //$("#friend-"+touchedEvId).parents().eq(1).removeClass('friend-touched');
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    }
+                                    selectedEvId = $(this).attr('data-evId');
                                     $(this).parents().eq(2).css('height',height);
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
@@ -210,8 +242,8 @@ function setEventTap(){
                                  var dateId = $(this).attr('data-dateHash');
                                     touchedDate = parseInt($(this).attr('data-dateHash'));
                                     
-                                  touchedEvId = $(this).attr("id");
-                                    console.log("touchedEvId: "+touchedEvId);
+                                  selectedEvId = $(this).attr("id");
+                                    console.log("touchedEvId: "+selectedEvId);
                                     /*
                                     $(this).parents().eq(1).removeClass('friend-selected');
                                     $(this).parents().eq(1).removeClass('friend-touched');
@@ -277,7 +309,6 @@ function setEventTap(){
                                            $(this).removeClass('events-touched');
                                 
                                 });
-    
     */
 
 
