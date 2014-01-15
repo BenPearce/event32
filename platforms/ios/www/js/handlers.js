@@ -55,7 +55,7 @@ function setButtons(){
 
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
-                          $( "#myPopupDiv" ).popup("open");
+                          $("#myPopupDiv" ).popup("open");
                           console.log("tap");
                      });
 
@@ -461,6 +461,15 @@ $( document ).on( "pageinit", function() {
 
 
     $(document).on("pageinit", "#date-page", function (event) {
+                   
+                   $('#myPopupDiv').on('popupafteropen', function () {
+                                      console.log("open");
+                                      });
+                   
+                   $('#myPopupDiv').on('popupafterclose', function () {
+                                       console.log("close");
+                                       });
+                   
         $("#dateMainList").listview();
         $("#dateMainList").listview('refresh');
         $('[data-position=fixed]').fixedtoolbar({
