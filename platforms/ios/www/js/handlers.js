@@ -118,7 +118,21 @@ function setEventTap(){
                           });
     
        $(".friend-wrap").touchstart(function(){
+                                    
+                                    /*parents().eq(1)*/
+                                    
                                     /*$(this).parents().eq(2).css('height','');*/
+                                    var height = parseInt($(this).parents().eq(2).height()) + 50;
+                                    
+                                    $(this).parents().eq(2).addClass("notransition");
+                                    
+                                    
+                                    
+                                    console.log("$(this).parents().eq(2).html() "+$(this).parents().eq(2).html());
+                                    
+                                    
+                                    /*$(this).parents().eq(2).css('height',height);*/
+                                    
                                     /*
                                     $(this).parents().eq(1).removeClass('event-selected');
                                     $(this).parents().eq(1).removeClass('event-touched');
@@ -145,18 +159,28 @@ function setEventTap(){
                                     $(this).removeClass('event-selected');
                                     */
                                     if(touched & selected){
-                                     $(this).parents().eq(1).removeClass('friend-selected')
-                                    $(this).parents().eq(1).addClass('friend-touched')
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).addClass('friend-touched');
+                                    
                                     } else if(touched & !selected){
+                                    $(this).parents().eq(2).css('height',height);
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
+                                    
                                     }else if(!touched & !selected){
+                                    
                                      $(this).parents().eq(1).addClass('friend-touched');
+                                    
                                     }else if(!touched & selected){
-                                    console.log("selected but not touched")
+                                    
+                                    console.log("selected but not touched");
+                                    
                                     }else{
-                                    console.log("Logical Error")
+                                    
+                                    console.log("Logical Error");
+                                    
                                     }
+                                    $(this).parents().eq(3).removeClass("notransition");
                                     /*
                                     if($(this).parent().hasClass('friend-touched')){
                                     $(this).parent().addClass('friend-selected');
@@ -166,6 +190,7 @@ function setEventTap(){
                              $(this).parent().addClass('friend-touched');
                                     }
                                      */
+                                    
                                });
     
     $(".friend-wrap").touchend(function(){
