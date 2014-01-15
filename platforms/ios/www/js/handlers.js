@@ -202,6 +202,7 @@ function setEventTap(){
                                     console.log("different friend 2");
                                     //$("#friend-"+touchedEvId).parents().eq(1).removeClass('friend-touched');
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-touched');
                                     }
                                     selectedEvId = $(this).attr('data-evId');
                                     $(this).parents().eq(2).css('height',height);
