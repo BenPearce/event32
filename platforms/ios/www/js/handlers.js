@@ -154,25 +154,31 @@ function setEventTap(){
                                     */
 
                                     if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
-                                    /*
-                                    if(sameRow){
                                     
+                                    if($(this).parents().eq(1).hasClass('event-selected')){
+                                    console.log("has event-selected");
+                                    $(this).parents().eq(1).removeClass('event-selected');
+                                    $(this).parents().eq(1).addClass('friend-selected');
                                     }else{
-                                    */
+                                    
                                     $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(2).height();
                                     $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
                                     $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
-                                    //}
+                                    }
                                     
                                     }else if($("#"+selectedEvId).hasClass('event-selected')){
-                                    /*
-                                    if(sameRow){
                                     
+                                    
+                                    /*
+                                    if($(this).parents().eq(1).hasClass('event-selected')){
+                                    console.log("has event-selected");
+                                    $(this).parents().eq(1).removeClass('event-selected');
+                                    $(this).parents().eq(1).addClass('friend-selected');
                                     }else{
-                                    */
+                                    
                                     console.log("contract trig");
                                     
                                     $("#"+selectedEvId).parents().eq(3).addClass("notransition");
@@ -182,8 +188,8 @@ function setEventTap(){
                                     $("#"+selectedEvId).parents().eq(2).css('height',tempHeight1 - 100);
                                     $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
-                                    //}
-                                    
+                                    }
+                                    */
                                      }
                                     
                                     if(!touched & !selected){
@@ -233,30 +239,35 @@ function setEventTap(){
                                      }
                                      */
                                     
-                                    console.log("#friend-"+$("#friend-"+selectedEvId).parents().eq(2).html());
-                                    console.log("#-"+$("#"+selectedEvId).parents().eq(2).html());
+                                    //console.log("#friend-"+$("#friend-"+selectedEvId).parents().eq(2).html());
+                                    //console.log("#-"+$("#"+selectedEvId).parents().eq(2).html());
                                     
                                     if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
-                                    console.log("friend cont else");
                                     /*
-                                     if(sameRow){
-                                     
+                                    console.log("friend cont else");
+                                    
+                                     if($(this).parents().eq(1).hasClass('friend-selected')){
+                                    console.log("has friend-selected");
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).addClass('event-selected');
                                      }else{
-                                     */
+                                    
                                     $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(2).height();
                                     $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
                                     $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
-                                    //}
-                                    
+                                    }
+                                    */
                                     }else if($("#"+selectedEvId).parents().eq(1).hasClass('event-selected')){
-                                    /*
-                                     if(sameRow){
-                                     
+                                    
+                                     if($(this).parents().eq(1).hasClass('friend-selected')){
+                                    console.log("has friend-selected");
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).addClass('event-selected');
                                      }else{
-                                     */
+                                    
                                     console.log("event cont else");
                                     
                                     $("#"+selectedEvId).parents().eq(3).addClass("notransition");
@@ -266,7 +277,7 @@ function setEventTap(){
                                     $("#"+selectedEvId).parents().eq(2).css('height',tempHeight1 - 50);
                                     $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
-                                    //}
+                                    }
                                     
                                     }
                                     
