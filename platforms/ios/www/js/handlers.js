@@ -128,11 +128,15 @@ function setEventTap(){
     var sameRow;
     var sameDate;
     var first = true;
+    var dateCnt = false;
     
        $(".friend-wrap").touchstart(function(){
                                     
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
+                                    var isSelected = $(this).hasClass('friend-selected') & $(this).hasClass('event-selected');
+                                    
+                                    console.log("isSelected: "+isSelected);
                                     
                                     if( ((selectedEvId == evId) & selectedEvId !== null)){
                                     console.log("same row trig");
@@ -142,6 +146,30 @@ function setEventTap(){
 
                                     if( (touchedDate == parseInt($(this).attr('data-dateHash')))){
                                     sameDate = true;
+                                    }
+                                    
+                                    console.log($("#friend-"+selectedEvId).html());
+                                    console.log("selected friend bolean: "+$("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected'));
+                                    
+                                    if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
+                                    
+                                    console.log("logic trig");
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('event-selected');
+                                    $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
+                                    var tempHeight = $("#friend-"+selectedEvId).parents().eq(2).height();
+                                    $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
+                                    $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight - 50);
+                                    
+                                    }else if($("#"+selectedEvId).hasClass('event-selected')){
+                                    
+                                    $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
+                                    $("#"+selectedEvId).parents().eq(3).addClass("notransition");
+                                    var tempHeight = $("#"+selectedEvId).parents().eq(2).height();
+                                    $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
+                                    $("#"+selectedEvId).parents().eq(2).css('height',tempHeight - 50);
+                                    
                                     }
 
                                     if( (!(selectedEvId == $(this).attr('data-evId')) & selectedEvId !== null)){
@@ -179,20 +207,24 @@ function setEventTap(){
                                     if(!sameRow){
                                     console.log("different friend 2");
                                     //$("#friend-"+touchedEvId).parents().eq(1).removeClass('friend-touched');
+                                    
+                                  
+                                    /*
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('event-selected');
+                                     */
                                     //$("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-touched');
                                     }
                                     selectedEvId = $(this).attr('data-evId');
                                         if(first){
                                     console.log("first");
                                     $(this).parents().eq(2).css('height',height);
-                                        }
-                                    /*
-                                    if(sameRow){
-                                    $(this).parents().eq(2).css('height',height - 50)
+                                        }else if(sameRow & !selected){
+                                    console.log("same row not selevted");
+                                    $(this).parents().eq(2).css('height',height - 100)
+                                    }else if (!sameRow & !selected){
+                                    
                                     }
-                                    */
                                     
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
