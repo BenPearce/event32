@@ -169,8 +169,10 @@ function setEventTap(){
                                     
                                     }
                                     
-                                    }else if($("#"+selectedEvId).hasClass('event-selected')){
-                                    
+                                    }else if($(this).parents().eq(1).hasClass('event-selected')){
+                                    console.log("has event-selected");
+                                    $(this).parents().eq(1).removeClass('event-selected');
+                                    $(this).parents().eq(1).addClass('friend-selected');
                                     
                                     /*
                                     if($(this).parents().eq(1).hasClass('event-selected')){
@@ -242,7 +244,10 @@ function setEventTap(){
                                     //console.log("#friend-"+$("#friend-"+selectedEvId).parents().eq(2).html());
                                     //console.log("#-"+$("#"+selectedEvId).parents().eq(2).html());
                                     
-                                    if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
+                                    if($(this).parents().eq(1).hasClass('friend-selected')){
+                                    console.log("has friend-selected");
+                                    $(this).parents().eq(1).removeClass('friend-selected');
+                                    $(this).parents().eq(1).addClass('event-selected');
                                     /*
                                     console.log("friend cont else");
                                     
