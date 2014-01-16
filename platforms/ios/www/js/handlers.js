@@ -130,7 +130,9 @@ function setEventTap(){
                           /*$(this).parent().addClass('events-touched');*/
                           });
     
-
+    $(".friend-wrap").touchend(function(){
+                               
+                               });
     
        $(".friend-wrap").touchstart(function(){
                                     
@@ -141,22 +143,38 @@ function setEventTap(){
                                     var touched = $(this).parents().eq(1).hasClass('friend-touched');
                                     var selected = $(this).parents().eq(1).hasClass('friend-selected');
                                     
+                                    /*
+                                    if( ((selectedEvId == $(this).attr('data-evId')) & (selectedEvId !== null))){
+                                    console.log("different friend 1");
+                                    sameRow = true;
+                                    
+                                    }else{
+                                    sameRow = flase;
+                                    }
+                                    */
 
-                                  
                                     if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
+                                    /*
+                                    if(sameRow){
                                     
-                                    
+                                    }else{
+                                    */
                                     $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
                                     $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(2).height();
                                     $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
                                     $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
-                                    
+                                    //}
                                     
                                     }else if($("#"+selectedEvId).hasClass('event-selected')){
+                                    /*
+                                    if(sameRow){
                                     
+                                    }else{
+                                    */
                                     console.log("contract trig");
+                                    
                                     $("#"+selectedEvId).parents().eq(3).addClass("notransition");
                                     $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
@@ -164,10 +182,14 @@ function setEventTap(){
                                     $("#"+selectedEvId).parents().eq(2).css('height',tempHeight1 - 100);
                                     $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
                                     
+                                    //}
+                                    
                                      }
                                     
                                     if(!touched & !selected){
+                                    
                                     console.log("!touched & !selected");
+                                    
                                     $(this).parents().eq(1).removeClass('event-touched');
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     
@@ -176,7 +198,9 @@ function setEventTap(){
                                     console.log("!touched & selected");
                                     
                                     }else if (touched & !selected){
+                                    
                                     console.log("touched & !selected");
+                                    
                                     $(this).parents().eq(2).addClass("notransition");
                                     $(this).parents().eq(1).addClass('friend-selected');
                                     var tempHeight = $(this).parents().eq(2).height();
@@ -185,174 +209,95 @@ function setEventTap(){
                                     
                                     }
                                     
-/*
-                                    if( (!(selectedEvId == $(this).attr('data-evId')) & selectedEvId !== null)){
-                                    console.log("different friend 1");
-                                    sameRow = false;
-                                    
-                                    }else{
-                                    //sameRow = true;
-                                    }
-                                    $(this).parents().eq(2).height();
-                                      var height = parseInt($(this).parents().eq(2).height()) + 50;
-                                    //var height2 = $(this).parents().eq(2).height() - 50;
-                                         $(this).parents().eq(2).addClass("notransition");
-                                    
-                                    if(selectedEvId !== null){
-                                    first = false;
-                                    }
 
-                                    touchedDate = parseInt($(this).attr('data-dateHash'));
-
- 
-                                    
-                                    $(this).parents().eq(1).removeClass('friend-touched');
-                                    $(this).parents().eq(1).removeClass('friend-selected');
-                                    $(this).parents().eq(1).removeClass('event-touched');
-                                    $(this).parents().eq(1).removeClass('event-selected');
-
-                                    if(touched & selected){
-                                    $(this).parents().eq(1).removeClass('friend-selected');
-                                    $(this).parents().eq(1).addClass('friend-touched');
-                                    
-                                    } else if(touched & !selected){
-                                    
-                                    if(!sameRow){
-                                    console.log("different friend 2");
-
-                                    }
-                                    selectedEvId = $(this).attr('data-evId');
-                                        if(first){
-                                    console.log("first");
-                                    $(this).parents().eq(2).css('height',height);
-                                        }else if(sameRow & !selected){
-                                    console.log("same row not selevted");
-                                    $(this).parents().eq(2).css('height',height - 100)
-                                    }else if (!sameRow & !selected){
-                                    
-                                    }
-                                    
-                                    $(this).parents().eq(1).addClass('friend-touched');
-                                    $(this).parents().eq(1).addClass('friend-selected');
-                                    
-                                    }else if(!touched & !selected){
-                                    
-                                     $(this).parents().eq(1).addClass('friend-touched');
-                                    
-                                    }else if(!touched & selected){
-                                    
-                                    console.log("selected but not touched");
-                                    
-                                    }else{
-                                    
-                                    console.log("Logical Error");
-                                    
-                                    }
-                                    
-                                    $(this).parents().eq(3).removeClass("notransition");
-*/
-                                   // setButtons();
                                       selectedEvId = $(this).attr('data-evId');
                                });
-    
-    $(".friend-wrap").touchend(function(){
 
-                                 });
     
     $(".event-img-wrap").touchstart(function(){
+                                    console.log("ing-wrap trig");
+                                    var evId = $(this).attr('data-evId');
+                                    var dateId = $(this).attr('data-dateHash');
+                                    var isSelected = $(this).hasClass('event-selected') & $(this).hasClass('event-selected');
                                     
-                                    if( ((selectedEvId == $(this).attr('id')) & selectedEvId !== null)){
-                                    sameRow = true;
-                                    }
-                                    
-                                    if( (!(selectedEvId == $(this).attr('id')) & selectedEvId !== null)){
-                                    console.log("different friend 1");
-                                    sameRow = false;
-                                    
-                                    }else{
-                                    sameRow = true;
-                                    }
-                                    
-                                    if(selectedEvId !== null){
-                                    first = false;
-                                    }
-                                    
-                                    var height = parseInt($(this).parents().eq(2).height()) + 50;
-                                    
-                                    $(this).parents().eq(2).addClass("notransition");
-                                    
-                                 var dateId = $(this).attr('data-dateHash');
-                                    touchedDate = parseInt($(this).attr('data-dateHash'));
-
                                     var touched = $(this).parents().eq(1).hasClass('event-touched');
                                     var selected = $(this).parents().eq(1).hasClass('event-selected');
                                     
-                                    $(this).parents().eq(1).removeClass('friend-touched');
-                                    $(this).parents().eq(1).removeClass('friend-selected');
-                                    $(this).parents().eq(1).removeClass('event-touched');
-                                    $(this).parents().eq(1).removeClass('event-selected');
-                                    
-                                    if(touched & selected){
-                                    $(this).parents().eq(1).removeClass('event-selected');
-                                    $(this).parents().eq(1).addClass('event-touched')
-                                    }if(touched & !selected){
-                                    
-                                    
-                                    if(!sameRow){
-                                    $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
-                                    $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
-                                    }
-                                    selectedEvId = $(this).attr("id");
-                                    
-                                    if(first){
-                                    $(this).parents().eq(2).css('height',height);
-                                    }
                                     /*
-                                    if(sameRow){
-                                    $(this).parents().eq(2).css('height',height - 50)
-                                    }
-                                    */
+                                     if( ((selectedEvId == $(this).attr('data-evId')) & (selectedEvId !== null))){
+                                     console.log("different friend 1");
+                                     sameRow = true;
+                                     
+                                     }else{
+                                     sameRow = flase;
+                                     }
+                                     */
                                     
+                                    if($("#friend-"+selectedEvId).parents().eq(1).hasClass('friend-selected')){
+                                    console.log("friend cont else");
+                                    /*
+                                     if(sameRow){
+                                     
+                                     }else{
+                                     */
+                                    $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
+                                    $("#friend-"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(2).height();
+                                    $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
+                                    $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
+                                    
+                                    //}
+                                    
+                                    }else if($("#"+selectedEvId).parents().eq(1).hasClass('event-selected')){
+                                    /*
+                                     if(sameRow){
+                                     
+                                     }else{
+                                     */
+                                    console.log("event cont else");
+                                    
+                                    $("#"+selectedEvId).parents().eq(3).addClass("notransition");
+                                    $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
+                                    $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
+                                    var tempHeight1 = $("#"+selectedEvId).parents().eq(2).height();
+                                    $("#"+selectedEvId).parents().eq(2).css('height',tempHeight1 - 100);
+                                    $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
+                                    
+                                    //}
+                                    
+                                    }
+                                    
+                                    if(!touched & !selected){
+                                    
+                                    console.log("!touched & !selected");
+                                    
+                                    $(this).parents().eq(1).removeClass('friend-touched');
                                     $(this).parents().eq(1).addClass('event-touched');
+                                    
+                                    }else if(!touched & selected){
+                                    
+                                    console.log("!touched & selected");
+                                    
+                                    }else if (touched & !selected){
+                                    
+                                    console.log("touched & !selected");
+                                    
+                                    $(this).parents().eq(2).addClass("notransition");
                                     $(this).parents().eq(1).addClass('event-selected');
-                                    }if(!touched & !selected){
-                                    $(this).parents().eq(1).addClass('event-touched');
-                                    }else{
-                                    console.log("friend state other case");
+                                    var tempHeight = $(this).parents().eq(2).height();
+                                    $(this).parents().eq(2).css('height', tempHeight + 50);
+                                    $(this).parents().eq(2).removeClass("notransition");
+                                    
                                     }
                                     
-                                    $(this).parents().eq(3).removeClass("notransition");
-                                    setButtons();
+                                    selectedEvId = $(this).attr('data-evId');
+
                                  });
                              
     
     $(".event-img-wrap").touchend(function(){
-                            /*$(this).parent().removeClass('event-touched');
-                              $(this).parent().addClass('friend-touched');*/
+
                                });
-/*
-    $(".event-img-wrap").touchstart(function(){
-                                console.log("event touch");
-                                $(this).addClass('events-touched');
-                           
-                                setInterval(function(){
-                                            moreEventExLock = false;
-                                            },600);
-
-                                });
-
-    $(".event-img-wrap").touchend(function(){
-                                         
-                                           if(!moreEventsLocked){
-                                           moreEventExLock = true;
-                              eventExpand(this);
-                                           //popDate(e,this);
-                                           }
-                                           $(this).removeClass('events-touched');
-                                
-                                });
-    */
-
 
 }
 
