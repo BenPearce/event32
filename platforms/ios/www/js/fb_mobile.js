@@ -78,13 +78,15 @@ function contract(exIndex,elem,transition){
 }
 
 function expand(cntIndex,elem){
+    console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
     }
     
     $(elem).addClass("expanded");
-    var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
+    //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
+    var exHeight = ((55*(dateHash[cntIndex].eventList.length)));
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     dateLength[cntIndex] = exHeight;
