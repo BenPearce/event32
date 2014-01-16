@@ -207,10 +207,11 @@ function setEventTap(){
                                     console.log("first");
                                     $(this).parents().eq(2).css('height',height);
                                         }
+                                    /*
                                     if(sameRow){
                                     $(this).parents().eq(2).css('height',height - 50)
                                     }
-                              
+                                    */
                                     
                                     $(this).parents().eq(1).addClass('friend-touched');
                                     $(this).parents().eq(1).addClass('friend-selected');
