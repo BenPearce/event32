@@ -325,11 +325,11 @@ function setEventTap(){
                                     console.log("first");
                                     $(this).parents().eq(2).css('height',height);
                                     }
-                                    
+                                    /*
                                     if(sameRow){
                                     $(this).parents().eq(2).css('height',height - 50)
                                     }
-                                    
+                                    */
                                     
                                     $(this).parents().eq(1).addClass('event-touched');
                                     $(this).parents().eq(1).addClass('event-selected');
@@ -464,6 +464,8 @@ $( document ).on( "pageinit", function() {
                    
                    $('#myPopupDiv').on('popupafteropen', function () {
                                        $(this).css('position','fixed');
+                                       $(this).css('top','50px');
+                                       
                                       console.log("open");
                                       });
                    
