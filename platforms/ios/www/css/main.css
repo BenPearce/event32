@@ -241,8 +241,8 @@ ul{
 }
 
 #dateMainList {
-    border-right:solid rgba(0, 0, 0, 0.1) 3px;
-    border-left:solid rgba(0, 0, 0, 0.1) 3px;
+    border-right:solid rgba(0, 0, 0, 0.1) 5px;
+    border-left:solid rgba(0, 0, 0, 0.1) 5px;
 	width: 92%;
     margin: auto;
     margin-top:65px!important;
@@ -434,34 +434,46 @@ ul{
 
 .friend-touched .friend-name{
     width:100%;
-/*
+
      -webkit-transform-style: preserve-3d;
      -webkit-transform: translate3d(0px,0px,0px);
      transition: width .5s;
      -webkit-transition: width .5s;
      -webkit-perspective: 500;
      -webkit-backface-visibility: hidden;
-*/
+
 }
 
 .event-touched .event-name{
     width:100%;
-/*
+
      -webkit-transform-style: preserve-3d;
      -webkit-transform: translate3d(0px,0px,0px);
      transition: width .5s;
      -webkit-transition: width .5s;
      -webkit-perspective: 500;
      -webkit-backface-visibility: hidden;
-*/
+
 }
 
 .friend-touched .fr-button-exp-wrap{
     width:100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
 }
 
 .event-touched .ev-button-exp-wrap{
     width:100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
 }
 /*
  .friend-touched .fr-button-exp-out{
