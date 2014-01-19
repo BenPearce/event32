@@ -1,5 +1,6 @@
 var moreEventsLocked = false;
 var moreEventExLock = false;
+var evILock = false;
 
 function wheel(e) {
   preventDefault(e);
@@ -47,7 +48,7 @@ function setSwipe(evSel){
 }
 
 $(document).bind('pageinit', function() {
-                 setButtons();
+                 //setButtons();
                  });
 
 function setButtons(){
@@ -63,14 +64,16 @@ function setButtons(){
                      });
     
     
-    $(".ev-i-button").tap(function(){
-                          
+    $(".ev-i-button").click(function(){
+                          if(!evILock){
+                          evILock= true;
+                          console.log("ev-i tap");
                           var id = $(this).attr('data-evId');
                          
                           console.log(id);
                           var desc = eventList[id].description;
                           
-                          console.log(desc);
+                          
                            /*
                           $("ev-desc-pop").html("");
                           $("ev-desc-pop").html(desc);
@@ -81,6 +84,12 @@ function setButtons(){
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
                           $("#ev-desc-pop").html(desc);
+                          
+                          setInterval(function(){
+                                      evILock = false;
+                                      },600);
+                          
+                          }
                            /*$('#ev-info-pop').css('overflow-y', 'scroll');*/
                           });
     
