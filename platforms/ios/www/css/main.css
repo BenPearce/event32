@@ -456,7 +456,7 @@ ul{
 
 }
 
-.friend-touched .fr-button-exp-wrap{
+.friend-touched .fr-button-exp{
     width:100%;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -466,7 +466,7 @@ ul{
     -webkit-backface-visibility: hidden;
 }
 
-.event-touched .ev-button-exp-wrap{
+.event-touched .ev-button-exp{
     width:100%;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
@@ -483,34 +483,41 @@ ul{
 
 /*ev-button-exp-out*/
 .friend-touched .ev-button-exp-out{
-    width:0%;
+   /* width:0%;*/
 }
 
 .friend-touched .fr-button-exp-out{
-    width:100%;
+    /*width:100%;*/
 }
 
 .event-touched .fr-button-exp-out{
     
-    width:0%;
+    /*width:0%;*/
 }
 
 .event-touched .ev-button-exp-out{
-    
+    width:100%;
+}
+
+.event-touched .ev-button-exp{
+    width:100%;
+}
+
+.friend-touched .fr-button-exp{
     width:100%;
 }
 
 /*.ev-button-exp-out*/
 
 .fr-button-exp-out{
-    width:0%;
+    /*width:0%;*/
     /*border-left:solid rgba(0, 0, 0, 0.1) 5px;*/
     /*border-bottom:solid blue 5px;*/
     /*margin-left:5px;*/
 }
 
 .ev-button-exp-out{
-    width:0%;
+    /*width:0%;*/
     /*border-right:solid red 5px;*/
     /*border-bottom:solid red 5px;*/
     /*margin-top:-5px;*/
@@ -540,6 +547,14 @@ ul{
 
 .show-event-name .friend-name{
     display:none;
+}
+
+.ev-button-exp{
+    width:0%;
+}
+
+.fr-button-exp{
+    width:0%;
 }
 
 /*event-title-wrap"><div class="event-name">'+eventName+'</div><div class="friend-name*/
@@ -1255,7 +1270,7 @@ height:50px
      */
     /*margin-top:5px;*/
     /*float:right;*/
-    width:0%;
+    /*width:0%;*/
     height:100%;
     /*border-right:solid blue 5px;*/
     /*border-left:solid blue 5px;*/
@@ -1273,7 +1288,7 @@ height:50px
      */
     /*margin-top:5px;*/
     /*float:left;*/
-    width:0%;
+    /*width:0%;*/
     height:100%;
     /*height:0px;*/
     /*background:yellow;*/
