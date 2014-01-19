@@ -55,8 +55,9 @@ function setButtons(){
 
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
+                               console.log("rsvp tap");
                           $("#myPopupDiv" ).popup("open");
-                          console.log("tap");
+                        
                      });
 
     /*

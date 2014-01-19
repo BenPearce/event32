@@ -236,6 +236,7 @@ function popCal(){
     stickyList();
     setFriendTap();
     setEventTap();
+    setButtons();
 }
 
 document.addEventListener('deviceready', function () {
