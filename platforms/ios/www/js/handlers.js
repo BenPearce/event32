@@ -83,7 +83,8 @@ function setButtons(){
                            
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                          $("#ev-desc-pop").html(desc);
+                            var html="<img id='ev-i-pic' src=''><div id ='ev-desc'i'>"+desc+"</div>";
+                          $("#ev-desc-pop").html(html);
                           
                           setInterval(function(){
                                       evILock = false;
