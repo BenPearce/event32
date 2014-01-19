@@ -64,7 +64,7 @@ function setButtons(){
                      });
     
     
-    $(".ev-i-button").click(function(){
+    $(".ev-i-button").tap(function(){
                           if(!evILock){
                           evILock= true;
                           console.log("ev-i tap");
