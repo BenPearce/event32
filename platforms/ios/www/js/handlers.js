@@ -58,6 +58,7 @@ function setButtons(){
                              var id = $(this).attr('data-evId');
                                console.log("rsvp tap");
                           $("#myPopupDiv").popup("open");
+                             
                         
                      });
     
@@ -74,9 +75,13 @@ function setButtons(){
                           $("ev-desc-pop").html("");
                           $("ev-desc-pop").html(desc);
                            */
+                          
+                       
+                           
+                          $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
                           $("#ev-desc-pop").html(desc);
-                          $("#ev-info-pop").popup("open");
+                           /*$('#ev-info-pop').css('overflow-y', 'scroll');*/
                           });
     
     
@@ -438,6 +443,19 @@ $( document ).on( "pageinit", function() {
                                        $(this).css('position','static');
                                        console.log("close");
                                        });
+                
+                   $('#ev-info-pop').on('popupafteropen', function () {
+                                       $(this).css('position','fixed');
+                                       $(this).css('top','50px');
+                                       
+                                       console.log("open");
+                                       });
+                   
+                   $('#ev-info-pop').on('popupafterclose', function () {
+                                       $(this).css('position','static');
+                                       console.log("close");
+                                       });
+                   
                    
         $("#dateMainList").listview();
         $("#dateMainList").listview('refresh');
