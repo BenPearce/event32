@@ -57,7 +57,7 @@ function setButtons(){
                      //alert("rsvp");
                              var id = $(this).attr('data-evId');
                                console.log("rsvp tap");
-                          $("#myPopupDiv" ).popup("open");
+                          $("#myPopupDiv").popup("open");
                         
                      });
     
@@ -65,7 +65,18 @@ function setButtons(){
     $(".ev-i-button").tap(function(){
                           
                           var id = $(this).attr('data-evId');
+                         
                           console.log(id);
+                          var desc = eventList[id].description;
+                          
+                          console.log(desc);
+                           /*
+                          $("ev-desc-pop").html("");
+                          $("ev-desc-pop").html(desc);
+                           */
+                          $("#ev-desc-pop").html("");
+                          $("#ev-desc-pop").html(desc);
+                          $("#ev-info-pop").popup("open");
                           });
     
     
