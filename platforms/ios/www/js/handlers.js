@@ -57,13 +57,14 @@ function setButtons(){
     $('.ev-map-button').tap(function(){
                             //alert("rsvp");
                             var id = $(this).attr('data-evId');
-                            console.log("map tap");
+                            console.log("map fbId: "+id);
                             
                             var iframe = document.createElement('iframe');
                             console.log("coordinate: "+eventList[id].venue.coordinate);
                             iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
-                            $(".mapWrap").html(iframe);
+                            
                             $("#popupMap").popup("open");
+                            $("#popupMap").html(iframe);
                             });
 
     $(".ev-rsvp-button").tap(function(){
@@ -71,8 +72,6 @@ function setButtons(){
                              var id = $(this).attr('data-evId');
                                console.log("rsvp tap");
                           $("#myPopupDiv").popup("open");
-                             
-                        
                      });
     
     
@@ -451,7 +450,7 @@ function scale( width, height, padding, border ) {
 
 
 $( document ).on( "pageinit", function() {
-                 
+                 /*
                  $( "#popupMap iframe" )
                  .attr( "width", 0 )
                  .attr( "height", 0 );
@@ -481,7 +480,7 @@ $( document ).on( "pageinit", function() {
                                      .css( { "width": 0, "height" : 0 } );
                                      }
                                      });
-                 
+                 */
                  });
 
 
@@ -511,7 +510,15 @@ $( document ).on( "pageinit", function() {
                                        console.log("close");
                                        });
                   
+                   $("#popupMap").on('popupafteropen', function () {
+                                     $(this).css('position','static');
+                                     console.log("map open");
+                                     });
                    
+                   $("#popupMap").on('popupafterclose', function () {
+                                     $(this).css('position','static');
+                                     console.log("map close");
+                                     });
                    
                    
         $("#dateMainList").listview();
