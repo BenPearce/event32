@@ -79,11 +79,11 @@ function setButtons(){
                           $("ev-desc-pop").html(desc);
                            */
                           
-                       
+                       //"https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50"
                            
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                            var html="<img id='ev-i-pic' src=''><div id ='ev-desc'i'>"+desc+"</div>";
+                            var html="<img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div id ='ev-desc'i'>"+desc+"</div>";
                           $("#ev-desc-pop").html(html);
                           
                           setInterval(function(){
