@@ -30,11 +30,13 @@ html, body {
 html{
     position: relative !important;
 }
-/*
+
 #ev-info-pop{
-    top:30px;
+    margin:auto;
+    width:90%;
+    /*height:80%;*/
 }
- */
+
 
 /*
  body{
@@ -81,6 +83,12 @@ html{
     /*background:pink;*/
     /*background:black;*/
     background:white;
+}
+
+#ev-i-pic{
+    width:200px;
+    height: 200px;
+    margin:auto;
 }
 /*
  #be-pat-2{
@@ -953,7 +961,7 @@ height:50px
 .row-wrap{
     padding:0px 0px;
     /*border-bottom:solid rgba(0, 0, 0, 0.1) 5px;*/
-    /*margin-bottom:5px;*/
+    margin-bottom:3px;
     /*border:solid rgba(0, 0, 0, 0.11) 5px;*/
     /*
      margin:auto!important;
