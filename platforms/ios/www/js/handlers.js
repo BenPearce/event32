@@ -58,9 +58,12 @@ function setButtons(){
                             //alert("rsvp");
                             var id = $(this).attr('data-evId');
                             console.log("map tap");
+                            
+                            var iframe = document.createElement('iframe');
+                            console.log("coordinate: "+eventList[id].venue.coordinate);
+                            iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
+                            $(".mapWrap").html(iframe);
                             $("#popupMap").popup("open");
-                            
-                            
                             });
 
     $(".ev-rsvp-button").tap(function(){

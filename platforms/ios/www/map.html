@@ -6,7 +6,9 @@
     charset="utf-8">
         <title>Map</title>
         <script>
+            console.log("map script");
             function initialize() {
+                 console.log("map init");
                 var vars = [],
                     hash;
                 var hashes
@@ -26,12 +28,12 @@
                 var lat = window.location.href.slice(window.location.href.indexOf('lat='), window.location.href.indexOf('&lng='));
                 var lng = window.location.href.slice(window.location.href.indexOf('lng='));
                 var coordinate = window.location.href.slice(window.location.href.indexOf('coordinate=') + 11);
-
+                console.log("map coord: "+coordinate);
                 coordinate = coordinate.replace('"', '');
                 var coordinates = coordinate.split(',');
 
                 var myLatlng = new google.maps.LatLng(coordinates[0], coordinates[1]);
-
+console.log("map myLatlng: "+myLatlng);
                 //var myLatlng = new google.maps.LatLng(parseInt(lat)+","+parseInt(lng));
                 var myOptions = {
                     zoom: 15,
