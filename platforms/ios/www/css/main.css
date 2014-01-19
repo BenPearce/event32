@@ -347,6 +347,7 @@ ul{
 }
 
 .divider-wrap{
+    margin-top:-3px;
     margin-bottom:-5px;
     height:50px;
     position:relative;
@@ -355,7 +356,7 @@ ul{
 .date-wrap-inner{
     height:45px;
     margin:0px 50px;
-    background:rgba(0, 0, 0, 0.1);
+    background:rgba(0, 0, 0, 0.10);
     /*color:rgba(6, 6, 6, 0.44);*/
     color:white;
 }
@@ -605,27 +606,8 @@ ul{
 	left:0px;
 }
 
-.friend-wrap{
-    margin-top:0px;
-    /*border-right:solid 5px rgba(0, 0, 0, 0.1);*/
-    /*border-top:solid 5px rgba(0, 0, 0, 0.1);*/
-    border-bottom:solid 55px rgba(0, 0, 0, 0.1);
-    display:block;
-    margin-right:-50px;
-	float:right;
-	position:relative;
-	height:50px;
-	width:50px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    /*box-shadow: 2px 2px 2px #888888;*/
-}
 
-.friend-img{
-border-right:solid rgba(0, 0, 0, 0.75) 1px;
-border-top:solid rgba(0, 0, 0, 0.75) 1px;
-border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
-}
+
 
 .quad-wrap{
     border-right:solid rgba(0, 0, 0, 0.75) 1px;
@@ -637,8 +619,6 @@ border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
     margin-top:0px;
     display:block;
     margin-left:-50px;
-    /*border-left:solid 5px rgba(0, 0, 0, 0.1);*/
-    /*border-top:solid 5px rgba(0, 0, 0, 0.1);*/
     border-bottom:solid 55px rgba(0, 0, 0, 0.1);
     float:left;
     position:relative;
@@ -647,6 +627,19 @@ border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
 }
+.friend-wrap{
+    margin-top:0px;
+    display:block;
+    margin-right:-50px;
+    border-bottom:solid 55px rgba(0, 0, 0, 0.1);
+	float:right;
+	position:relative;
+	height:50px;
+	width:50px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
 
 .fr-i-button{
     height:100%;
@@ -722,6 +715,16 @@ border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
     
 }
 
+.friend-img{
+    width: 50px;
+    height: 50px;
+    background: hsl(120, 100%, 25%);
+    display:block;
+    border-right:solid rgba(0, 0, 0, 0.75) 1px;
+    border-top:solid rgba(0, 0, 0, 0.75) 1px;
+    border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
+}
+
 #fb-login-button{
 	display:none;
 	margin:auto;
@@ -793,7 +796,7 @@ border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
 
 .right-ex-wrap{
     
-    
+    margin-top:3px;
     float:right;
     height:50px;
     width:50px;
@@ -962,6 +965,7 @@ height:50px
 .event-list-wrap-trans{
 	position:relative;
 	overflow-y:hidden;
+    /*margin-top:-3px;*/
     /*
      -webkit-transform-style: preserve-3d;
      
@@ -1187,6 +1191,7 @@ height:50px
 }
 
 .left-ex-wrap{
+    margin-top:3px;
     float:left;
     height:50px;
     width:50px;

@@ -53,6 +53,15 @@ $(document).bind('pageinit', function() {
 
 function setButtons(){
     console.log("set buttons");
+    
+    $('.ev-map-button').tap(function(){
+                            //alert("rsvp");
+                            var id = $(this).attr('data-evId');
+                            console.log("map tap");
+                            $("#popupMap").popup("open");
+                            
+                            
+                            });
 
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
@@ -166,11 +175,6 @@ function setEventTap(){
     $(".event-img-wrap").tap(function(){
                         $(".event-img").css('border','solid green 2px');
                         });
-     */
-    
-    /*
-     
-     
      */
     
     $(".friend-wrap").tap(function(){
@@ -416,8 +420,35 @@ function stickyList(){
                       */
     		       });//Doc Ready End
 
+function scale( width, height, padding, border ) {
+    var scrWidth = $( window ).width() - 30,
+    scrHeight = $( window ).height() - 30,
+    ifrPadding = 2 * padding,
+    ifrBorder = 2 * border,
+    ifrWidth = width + ifrPadding + ifrBorder,
+    ifrHeight = height + ifrPadding + ifrBorder,
+    h, w;
+    
+    if ( ifrWidth < scrWidth && ifrHeight < scrHeight ) {
+        w = ifrWidth;
+        h = ifrHeight;
+    } else if ( ( ifrWidth / scrWidth ) > ( ifrHeight / scrHeight ) ) {
+        w = scrWidth;
+        h = ( scrWidth / ifrWidth ) * ifrHeight;
+    } else {
+        h = scrHeight;
+        w = ( scrHeight / ifrHeight ) * ifrWidth;
+    }
+    
+    return {
+        'width': w - ( ifrPadding + ifrBorder ),
+        'height': h - ( ifrPadding + ifrBorder )
+    };
+};
+
 
 $( document ).on( "pageinit", function() {
+                 
                  $( "#popupMap iframe" )
                  .attr( "width", 0 )
                  .attr( "height", 0 );
@@ -447,6 +478,7 @@ $( document ).on( "pageinit", function() {
                                      .css( { "width": 0, "height" : 0 } );
                                      }
                                      });
+                 
                  });
 
 
@@ -454,7 +486,7 @@ $( document ).on( "pageinit", function() {
                    
                    $('#myPopupDiv').on('popupafteropen', function () {
                                        $(this).css('position','fixed');
-                                       $(this).css('top','50px');
+                                       $(this).css('top','100px');
                                        
                                       console.log("open");
                                       });
@@ -466,8 +498,8 @@ $( document ).on( "pageinit", function() {
                 
                    $('#ev-info-pop').on('popupafteropen', function () {
                                        $(this).css('position','fixed');
-                                       $(this).css('top','50px');
-                                       
+                                       $(this).css('top','100px');
+                                       $(this).css('margin-bottom','100px');
                                        console.log("open");
                                        });
                    
@@ -475,6 +507,8 @@ $( document ).on( "pageinit", function() {
                                        $(this).css('position','static');
                                        console.log("close");
                                        });
+                  
+                   
                    
                    
         $("#dateMainList").listview();

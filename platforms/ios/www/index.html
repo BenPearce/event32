@@ -71,10 +71,7 @@
             
            
             
-            <div data-role="popup" data-position-to="#dateMainList" style="margin-top:300px" id="popupMap1" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div  data-role="popup" id="mapWrap1" class="mapWrap"></div>
-            </div>
+
             <!--map popup-->
             <!--<ul style="margin:0px;position:relative;display:none;width:100%" data-content-theme="a" data-theme='a' id='subList1' class="subList"  data-role="listview"></ul>-->
             <div id="test-button"></div>
@@ -95,6 +92,17 @@
                     </ul>
                 </div>
                 
+            </div>
+            
+            <!--<div data-role="popup" data-position-to="#dateMainList"  id="popupMap" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+            <div data-role="popup"   id="popupMap" >
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <div  data-role="popup" id="mapWrap1" class="mapWrap"></div>
+            </div>-->
+            
+            <div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <iframe src="map.html" width="480" height="320" seamless></iframe>
             </div>
             
             <div data-role="popup" id="myPopupDiv">
