@@ -55,10 +55,21 @@ function setButtons(){
 
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
+                             var id = $(this).attr('data-evId');
                                console.log("rsvp tap");
                           $("#myPopupDiv" ).popup("open");
                         
                      });
+    
+    
+    $(".ev-i-button").tap(function(){
+                          
+                          var id = $(this).attr('data-evId');
+                          console.log(id);
+                          });
+    
+    
+
 
     /*
     
