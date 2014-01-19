@@ -83,8 +83,18 @@ function setButtons(){
                            
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                            var html="<img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div id ='ev-desc'i'>"+desc+"</div>";
+                            var html="<img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div>";
+                          $("#ev-desc-pop").addClass('ev-desc-i');
+                          
+                        
+                          
                           $("#ev-desc-pop").html(html);
+                          
+                          $("#ev-i-pic").css({
+                                             "margin": "auto",
+                                             "width": "200px",
+                                             "height": "200px"
+                                             });
                           
                           setInterval(function(){
                                       evILock = false;
