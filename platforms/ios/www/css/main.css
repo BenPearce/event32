@@ -88,7 +88,9 @@ html{
 #ev-i-pic{
     width:200px;
     height: 200px;
-    margin:auto;
+    margin:auto 15px;
+    display:block;
+
 }
 /*
  #be-pat-2{
