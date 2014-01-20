@@ -71,11 +71,25 @@ function setButtons(){
                              */
                             $("#map-wrap").html(iframe);
                             //$("#popupMap").html(iframe);
+                            /*
                             $("#popupMap").css({
                                                "margin": "auto",
                                                "width": "80%",
                                                "height": "70%"
                                                });
+                            */
+                            $("#popupMap").css({
+                                               "margin": "auto",
+                                               "width": "80%",
+                                               "height": "70%",
+                                               "position": "fixed",
+                                               "left": "10%",
+                                               "top":"12%"
+                                               });
+                            
+                            
+                            
+                            
                             /*
                             ("#popupMap iframe").css({
                                                      "margin": "auto",
