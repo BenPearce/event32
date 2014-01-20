@@ -348,7 +348,7 @@ ul{
 }
 
 .divider-wrap{
-    margin-top:-3px;
+    /*margin-top:-3px;*/
     /*margin-bottom:-5px;*/
     height:50px;
     position:relative;
@@ -797,7 +797,7 @@ ul{
 
 .right-ex-wrap{
     
-    margin-top:3px;
+    /*margin-top:3px;*/
     float:right;
     height:50px;
     width:50px;
@@ -1192,7 +1192,7 @@ height:50px
 }
 
 .left-ex-wrap{
-    margin-top:3px;
+    /*margin-top:3px;*/
     float:left;
     height:50px;
     width:50px;
