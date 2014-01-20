@@ -42,6 +42,8 @@ function makeEvent(data) {
     result.eveningListArray = new Array();
     result.eveningInstanceCount = {};
     result.dateHash = data.dateHash;
+    
+
     /*
       var tempDate = new Date(data.start_time.substring(0, data.start_time.indexOf('T')));
     //This line of code is critical if it is removed '00:00:00' will be listed as one day late
@@ -98,17 +100,23 @@ function makeEvent(data) {
     	    result.friendListHtml = result.friendListHtml + "<div class='event-sub-elem'><img class='event-list-elem-fixed-img' width=25 height=25 src='https://graph.facebook.com/"+fbArray[friendId].fbId+"/picture?width=50&height=50'><div class='event-sub-elem-name'>"+fbArray[friendId].name+"</div></div>";
     }
     
+
+    
              if (typeof data.start_time != "undefined"){
      	       result.start_time = data.start_time;
      }else{
      	  throw "eventStartTimeUndefined";  
      }
     
+        console.log("result.start_time "+result.start_time);
+    
     result.local = false;
     result.tonight = false;
     var temp = new Date(data.start_time);
     
     result.formattedTime = result.start_time.substr(result.start_time.indexOf("T") + 1);
+    
+    result.formattedTime =  moment.unix(result.formattedTime).format("MM/DD/YYYY");
     
     
     var temp1 = temp.getHours();

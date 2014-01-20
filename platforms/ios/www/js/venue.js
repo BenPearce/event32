@@ -67,8 +67,10 @@ function makeVenue(data) {
     result.venue_longitude = data.venue_longitude;
     result.coordinate =data.venue_latitude + ","+data.venue_longitude;
     result.name = data.venue_name;
+    /*
     console.log("mk venue lat: "+result.venue_latitude);
     console.log("mk venue long: "+result.venue_longitude);
+     */
     console.log("mk venue name: "+result.name);
     result.data;
     result.test = "test";

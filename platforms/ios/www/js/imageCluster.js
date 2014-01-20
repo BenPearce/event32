@@ -26,13 +26,18 @@ function getEventRow(eventId,eventClass,datIndex){
     var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
     var eventImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? eventPre + "https://graph.facebook.com/"+eventId +"/picture?width=50&height=50" + post1 : eventPre + "images/pinkX.png"+ post;
     
+    var startTime = eventList[eventId].formattedTime;
+    //var venueName = eventList[eventId].venue.name;
+    
+    var venueName =  eventList[eventId].venue.name != null ? eventList[eventId].venue.name  :  "" ;
+    
     if(eventList[eventId].friendIdArray.length == 0){
         
         return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+'<div class="event-outter">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="friend-name">'+friendName1+'</div><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+'<div class="friend-outter">'+friendImg+'</div></div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
-        return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">test</div></div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div class="ev-i-button" data-evId="'+eventId+'"></div><div class="ev-rsvp-button"></div><div class="ev-map-button" data-evId="'+eventId+'"></div></div></div></div><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div></div></div>';
+        return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+'</div></div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div class="ev-i-button" data-evId="'+eventId+'"></div><div class="ev-rsvp-button"></div><div class="ev-map-button" data-evId="'+eventId+'"></div></div></div></div><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div></div></div>';
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
