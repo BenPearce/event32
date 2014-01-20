@@ -83,12 +83,17 @@ function setButtons(){
                                                "width": "80%",
                                                "height": "70%",
                                                "position": "fixed",
-                                               "left": "10%",
-                                               "top":"12%"
+                                               "left": "-2%",
+                                               "top":"0%",
+                                               "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
+                                               "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
+                                               "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
+                                               "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                                                });
                             
                             
                             
+                        
                             
                             /*
                             ("#popupMap iframe").css({
@@ -537,7 +542,7 @@ $( document ).on( "pageinit", function() {
                    
                    $('#myPopupDiv').on('popupafteropen', function () {
                                        $(this).css('position','fixed');
-                                       $(this).css('top','100px');
+                                       //$(this).css('top','100px');
                                        
                                       console.log("open");
                                       });
@@ -549,7 +554,7 @@ $( document ).on( "pageinit", function() {
                 
                    $('#ev-info-pop').on('popupafteropen', function () {
                                        $(this).css('position','fixed');
-                                       $(this).css('top','100px');
+                                       //$(this).css('top','100px');
                                        $(this).css('margin-bottom','100px');
                                        console.log("open");
                                        });
@@ -561,7 +566,7 @@ $( document ).on( "pageinit", function() {
                   
                    $("#popupMap").on('popupafteropen', function () {
                                      $(this).css('position','fixed');
-                                     $(this).css('top','100px');
+                                     //$(this).css('top','100px');
                                      //$(this).css('margin-bottom','100px');
                                      console.log("map open");
                                      });
