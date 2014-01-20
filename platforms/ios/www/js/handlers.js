@@ -64,11 +64,17 @@ function setButtons(){
                             iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
                             
                             $("#popupMap").popup("open");
-                            $("#popupMap").html(iframe);
+                            //$("#popupMap").append(iframe);
+                            /*
+                            $("#map-wrap").html("");
+                            $("#map-wrap").html(iframe);
+                             */
+                            $("#map-wrap").html(iframe);
+                            //$("#popupMap").html(iframe);
                             $("#popupMap").css({
                                                "margin": "auto",
-                                               "width": "200px",
-                                               "height": "200px"
+                                               "width": "80%",
+                                               "height": "70%"
                                                });
                             /*
                             ("#popupMap iframe").css({
