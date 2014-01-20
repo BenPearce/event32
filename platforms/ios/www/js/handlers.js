@@ -65,6 +65,34 @@ function setButtons(){
                             
                             $("#popupMap").popup("open");
                             $("#popupMap").html(iframe);
+                            $("#popupMap").css({
+                                               "margin": "auto",
+                                               "width": "200px",
+                                               "height": "200px"
+                                               });
+                            /*
+                            ("#popupMap iframe").css({
+                                                     "margin": "auto",
+                                                     "width": "200px",
+                                                     "height": "200px"
+                                                     });
+                            */
+                            /*
+                            $("#popupMap iframe").contents().find( "#map_canvas" )
+                            .css( { "width": "200px!important", "height" : "200px"!important} );
+                            */
+                            /*
+                            $("#popupMap iframe")
+                            .css( { "width": "200px!important", "height" : "200px!important"} );
+                            
+                            $("#popupMap").find("#map_canvas")
+                            .css( { "width": "200px!important", "height" : "200px!important"} );
+                            
+                            $( "#popupMap iframe" )
+                            .attr( "width", "200" )
+                            .attr( "height", "200" );
+                */
+                            
                             });
 
     $(".ev-rsvp-button").tap(function(){
@@ -450,7 +478,7 @@ function scale( width, height, padding, border ) {
 
 
 $( document ).on( "pageinit", function() {
-                 /*
+                 
                  $( "#popupMap iframe" )
                  .attr( "width", 0 )
                  .attr( "height", 0 );
@@ -460,13 +488,14 @@ $( document ).on( "pageinit", function() {
                  
                  $( "#popupMap" ).on({
                                      popupbeforeposition: function() {
+                                     console.log("popupbeforeposition");
                                      var size = scale( 480, 320, 0, 1 ),
                                      w = size.width,
                                      h = size.height;
                                      
                                      $( "#popupMap iframe" )
-                                     .attr( "width", w )
-                                     .attr( "height", h );
+                                     .attr( "width", "200px" )
+                                     .attr( "height", "200px" );
                                      
                                      $( "#popupMap iframe" ).contents().find( "#map_canvas" )
                                      .css( { "width": w, "height" : h } );
@@ -480,7 +509,7 @@ $( document ).on( "pageinit", function() {
                                      .css( { "width": 0, "height" : 0 } );
                                      }
                                      });
-                 */
+            
                  });
 
 
@@ -511,7 +540,9 @@ $( document ).on( "pageinit", function() {
                                        });
                   
                    $("#popupMap").on('popupafteropen', function () {
-                                     $(this).css('position','static');
+                                     $(this).css('position','fixed');
+                                     $(this).css('top','100px');
+                                     //$(this).css('margin-bottom','100px');
                                      console.log("map open");
                                      });
                    
