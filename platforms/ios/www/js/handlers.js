@@ -166,7 +166,7 @@ function setButtons(){
                                                 "height": "70%",
                                                 "position": "fixed",
                                                 "left": "-2%",
-                                                "top":"5%",
+                                                "top":"5s%",
                                                 "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                 "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
                                                 "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
