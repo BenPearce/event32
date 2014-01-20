@@ -494,8 +494,8 @@ $( document ).on( "pageinit", function() {
                                      h = size.height;
                                      
                                      $( "#popupMap iframe" )
-                                     .attr( "width", "200px" )
-                                     .attr( "height", "200px" );
+                                     .attr( "width", "100%" )
+                                     .attr( "height", "100%" );
                                      
                                      $( "#popupMap iframe" ).contents().find( "#map_canvas" )
                                      .css( { "width": w, "height" : h } );
