@@ -108,16 +108,24 @@ function makeEvent(data) {
      	  throw "eventStartTimeUndefined";  
      }
     
-        console.log("result.start_time "+result.start_time);
+    
     
     result.local = false;
     result.tonight = false;
     var temp = new Date(data.start_time);
     
-    result.formattedTime = result.start_time.substr(result.start_time.indexOf("T") + 1);
+    //result.formattedTime = result.start_time.substr(result.start_time.indexOf("T") + 1);
     
-    result.formattedTime =  moment.unix(result.formattedTime).format("MM/DD/YYYY");
+   // result.formattedTime =  moment.unix(result.formattedTime).format("MM/DD/YYYY");
     
+    //result.formattedTime =  moment.utc(result.start_time).format('h:mmA');
+    //result.formattedTime =  moment.utc(result.start_time).format('h:mmA');
+    
+    var d = moment.utc(result.start_time);
+   result.formattedTime = d.local().format('h:mmA');
+    
+    console.log("result.start_time "+result.start_time);
+    console.log("result.formattedTime"+result.formattedTime);
     
     var temp1 = temp.getHours();
     //result.pictureUrl = data.picture.data.url;
