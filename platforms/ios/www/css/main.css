@@ -1205,7 +1205,7 @@ height:50px
 }
 
 .checkTouched{
-    background-image:url('../images/checkOrange.png')!important;
+    background-image:url('../images/checkOrangeBg.png')!important;
     background-position:center!important;
     background-repeat:no-repeat!important;
 }
