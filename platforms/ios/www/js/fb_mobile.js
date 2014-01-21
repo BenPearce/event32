@@ -48,6 +48,7 @@ function eventExpand(element){
     // if(evId>lastEvIndex){
     $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
     setButtons();
+    $("#more-events-"+exIndex).css("display","block");
     //}
 }
 
@@ -75,6 +76,7 @@ function contract(exIndex,elem,transition){
     $("#divider-wrap-"+exIndex).removeClass("cnt");
      $("#divider-wrap-"+exIndex).addClass("ex");
     console.log("contract end");
+    $("#more-events-"+exIndex).css("display","none");
 }
 
 function expand(cntIndex,elem){
@@ -93,6 +95,7 @@ function expand(cntIndex,elem){
     
     $("#divider-wrap-"+cntIndex).removeClass("ex");
     $("#divider-wrap-"+cntIndex).addClass("cnt");
+    $("#more-events-"+exIndex).css("display","none");
 }
 
 function popDate1(e,elem){
@@ -230,7 +233,7 @@ function popCal(){
             
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-wrap-in-"+i).css("height","245px");
-            $("#event-wrap-in-"+i).append("<div class='more-events'>"+moreText+" more events</div>");
+            $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
         }
     }
     
