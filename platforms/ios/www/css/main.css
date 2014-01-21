@@ -815,8 +815,9 @@ ul{
 
 .more-events-text-wrap-touched{
     /*background-image:url('../images/downArrowTouched.png')!important;*/
-    background-image:url('../images/downArrowOrange.png')!important;
-    
+    /*background-image:url('../images/downArrowOrange.png')!important;*/
+    background-image:url('../images/downArrowBgOrange.png')!important;
+
     background-position:center!important;
     background-repeat:no-repeat!important;
     /*background:green!important;*/
@@ -1248,7 +1249,8 @@ height:50px
      font-size:26pt;*/
     
     
-    background-image:url('../images/UpArrowOrange.png')!important;
+    /*background-image:url('../images/UpArrowOrange.png')!important;*/
+    background-image:url('../images/upArrowOrangeBg.png')!important;
     /*background-image:url('../images/upArrowTouched.png')!important;*/
     background-position:center!important;
     background-repeat:no-repeat!important;
