@@ -367,8 +367,10 @@ ul{
     font-family:helvetica neue;
     font-weight: normal;
     font-size:24pt;
+    /*
     line-height: 1em;
     height: 1em;
+     */
     /*position:absolute;
     top:5px;*/
 }
@@ -1351,6 +1353,7 @@ height:50px
 }
 
 .more-events{
+    margin-top: -2px;
     font-family:helvetica neue;
     font-weight: normal;
     margin-right:50px;
@@ -1359,4 +1362,7 @@ height:50px
     background: rgba(0, 0, 0, 0.34);
     color:white;
     height:25px;
+    border-left:solid black 1px;
+    border-right:solid black 1px;
+    border-bottom:solid black 1px;
 }
