@@ -59,24 +59,35 @@ function contract(exIndex,elem,transition){
         if(transition){
             console.log("contract trans");
             $("#event-wrap-in-"+exIndex).css("height","245px");
-            if(exIndex != lastIndex){
-                $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
-            }
+            //if(exIndex != lastIndex){
+                console.log("line before html trans");
+                $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+                    //$("#event-wrap-in-"+exIndex).html("");
+            //}
 
         }else{
             console.log("contract non-trans");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","245px");
-            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex));
+            console.log("line before html non-trans");
+            $("#event-wrap-in-"+exIndex).html("");
+       
+            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+
             $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
             $("#event-wrap-in-"+exIndex).height();
             $("#event-wrap-in-"+exIndex).removeClass("notransition");
+                //$("#event-wrap-in-"+exIndex).html("");
         }
-    
+
     $("#divider-wrap-"+exIndex).removeClass("cnt");
      $("#divider-wrap-"+exIndex).addClass("ex");
     console.log("contract end");
-    $("#more-events-"+exIndex).css("display","none");
+
+    var moreText = (dateHash[exIndex].eventList.length - 4);
+
+    $("#event-wrap-in-"+exIndex).css("height","245px");
+    $("#event-wrap-in-"+exIndex).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
 }
 
 function expand(cntIndex,elem){
@@ -95,7 +106,7 @@ function expand(cntIndex,elem){
     
     $("#divider-wrap-"+cntIndex).removeClass("ex");
     $("#divider-wrap-"+cntIndex).addClass("cnt");
-    $("#more-events-"+exIndex).css("display","none");
+    //$("#more-events-"+exIndex).css("display","none");
 }
 
 function popDate1(e,elem){
@@ -108,13 +119,18 @@ function popDate1(e,elem){
     selected = (expandedDate == k);
     below = (k<expandedDate);
     expanded = $(elem).is(".expanded");
-    
+
     if((lastIndex != k) & !firstExpand){
+        console.log("one");
         contract(lastIndex,exSelector,false);
         contract(k,elem,true);
     }else{
+        console.log("two");
         contract(k,elem,true);
     }
+
+    
+    
     /*
     
     if(expanded){
@@ -139,9 +155,11 @@ function popDate1(e,elem){
     exSelector = elem;
     console.log("pop date 1 end");
     setEventTap();
+    setButtons();
 }
 
 function popDate(e,elem){
+    console.log("popDate");
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
@@ -181,6 +199,7 @@ if(expanded){
     exSelector = elem;
     
     setEventTap();
+    setButtons();
 }
 
 var uiEventCount = 0;

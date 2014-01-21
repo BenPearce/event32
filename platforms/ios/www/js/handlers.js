@@ -450,6 +450,7 @@ function setEventTap(){
                                  });
         
         $(".more-events-text-wrap").touchend(function(e){
+                                             console.log("more events touch end");
                                              $(this).removeClass('more-events-text-wrap-touched');
                                              if(!moreEventsLocked){
                                              moreEventsLocked = true;
@@ -462,6 +463,7 @@ function setEventTap(){
                                                });
         
         $(".left-ex-button").touchend(function(e){
+                                      console.log("left ex touch end");
                                        console.log("te");
                                                 popDate1(e,this);
                                                });
