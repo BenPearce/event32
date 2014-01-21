@@ -221,6 +221,7 @@ function popCal(){
             
             if(typeof dateHash[i].eventList[3] != "undefined"){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
+                
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).css("height","165px");
@@ -229,7 +230,7 @@ function popCal(){
             
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-wrap-in-"+i).css("height","220px");
-            
+            //$("#event-wrap-in-"+i).append("<div class='more-events'>"+moreText+" more events</div>");
         }
     }
     
