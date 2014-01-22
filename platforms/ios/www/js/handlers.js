@@ -205,13 +205,13 @@ function setButtons(){
 
                     });
     */
-    $(".map-button").touchstart(function(){
-                                $(this).addClass('mapTouched');
+    $(".ev-map-button").touchstart(function(){
+                                $(this).addClass('ev-map-button-touched');
                                 
                                 });
     
-    $(".map-button").touchend(function(){
-                              $(this).removeClass('mapTouched');
+    $(".ev-map-button").touchend(function(){
+                              $(this).removeClass('ev-map-button-touched');
                               });
     
     $(".rsvp-button").touchstart(function(){

@@ -699,6 +699,14 @@ ul{
     /*border:solid red 5px;*/
 }
 
+.ev-map-button-touched{
+    background-image:url('../images/mapMrkOrangeBg.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
 .ev-i-button{
     height:100%;
     width:33%;
@@ -720,7 +728,7 @@ ul{
 .ev-map-button{
     height:100%;
     width:33%;
-    background-image:url('../images/mrk-trans-3.png')!important;
+    background-image:url('../images/mrk-trans-3.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
