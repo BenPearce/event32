@@ -690,10 +690,19 @@ ul{
     
 }
 
+.ev-info-touched{
+    background-image:url('../images/infoOrange.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+    border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+    /*border:solid red 5px;*/
+}
+
 .ev-i-button{
     height:100%;
     width:33%;
-     background-image:url('../images/info.png')!important;
+     background-image:url('../images/info.png');
      background-position:center;
      background-repeat:no-repeat;
     float:left;

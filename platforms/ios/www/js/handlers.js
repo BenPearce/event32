@@ -127,6 +127,13 @@ function setButtons(){
                           $("#myPopupDiv").popup("open");
                      });
     
+    $(".ev-i-button").touchstart(function(){
+                                 $(this).addClass("ev-info-touched");
+                                 });
+    
+    $(".ev-i-button").touchend(function(){
+                                 $(this).removeClass("ev-info-touched");
+                                 });
     
     $(".ev-i-button").tap(function(){
                           if(!evILock){
@@ -136,21 +143,11 @@ function setButtons(){
                          
                           console.log(id);
                           var desc = eventList[id].description;
-                          
-                          
-                           /*
-                          $("ev-desc-pop").html("");
-                          $("ev-desc-pop").html(desc);
-                           */
-                          
-                       //"https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50"
                            
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
                             var html="<img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div>";
                           $("#ev-desc-pop").addClass('ev-desc-i');
-                          
-                        
                           
                           $("#ev-desc-pop").html(html);
                           
@@ -178,7 +175,6 @@ function setButtons(){
                                       },600);
                           
                           }
-                           /*$('#ev-info-pop').css('overflow-y', 'scroll');*/
                           });
     
     
