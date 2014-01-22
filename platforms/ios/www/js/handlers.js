@@ -222,6 +222,16 @@ function setButtons(){
     $(".ev-rsvp-button").touchend(function(){
                                $(this).removeClass('ev-rsvp-button-touched');
                                });
+    
+    $(".fr-i-button").touchstart(function(){
+                                 console.log("ts");
+                               $(this).addClass('fr-i-button-touched');
+                               });
+    
+    $(".fr-i-button").touchend(function(){
+                               console.log("te");
+                               $(this).removeClass('fr-i-button-touched');
+                               });
 }
 
 var touchedDate;

@@ -667,11 +667,20 @@ ul{
     -webkit-user-select: none;
 }
 
+.fr-i-button-touched{
+    background-image:url('../images/infoOrange.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+
 
 .fr-i-button{
     height:100%;
     width:33%;
-    background-image:url('../images/info.png')!important;
+    background-image:url('../images/info.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
@@ -715,6 +724,7 @@ ul{
      background-repeat:no-repeat;
     float:left;
 }
+
 
 .ev-rsvp-button-touched{
 
