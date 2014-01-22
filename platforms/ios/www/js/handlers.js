@@ -232,6 +232,15 @@ function setButtons(){
                                console.log("te");
                                $(this).removeClass('fr-i-button-touched');
                                });
+    
+    $(".fr-mail-button").touchstart(function(){
+                                    $(this).addClass('fr-mail-button-touched');
+                                    });
+    
+    $(".fr-mail-button").touchend(function(){
+                                    $(this).removeClass('fr-mail-button-touched');
+                                    });
+    
 }
 
 var touchedDate;
