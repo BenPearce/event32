@@ -214,13 +214,13 @@ function setButtons(){
                               $(this).removeClass('ev-map-button-touched');
                               });
     
-    $(".rsvp-button").touchstart(function(){
-                                 $(this).addClass('checkTouched');
+    $(".ev-rsvp-button").touchstart(function(){
+                                 $(this).addClass('ev-rsvp-button-touched');
                                  
                                  });
     
-    $(".rsvp-button").touchend(function(){
-                               $(this).removeClass('checkTouched');
+    $(".ev-rsvp-button").touchend(function(){
+                               $(this).removeClass('ev-rsvp-button-touched');
                                });
 }
 

@@ -716,10 +716,17 @@ ul{
     float:left;
 }
 
+.ev-rsvp-button-touched{
+
+    background-image:url('../images/checkOrangeBg.png')!important;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
 .ev-rsvp-button{
     height:100%;
     width:33%;
-    background-image:url('../images/check-trans.png')!important;
+    background-image:url('../images/check-trans.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
