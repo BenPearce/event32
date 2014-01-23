@@ -47,10 +47,10 @@ function getEventRow(eventId,eventClass,datIndex){
         var preBR = '<img class="quadBr event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
         var post = '">';
         
-        var zero = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? preUL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : preUL + "images/pinkX.png"+ post;
-        var one = typeof eventList[eventId].friendIdArray[1] != "undefined" ? preUR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[1]].fbId +"/picture?width=25&height=25" + post : preUR + "images/pinkX.png"+ post;
-        var two = typeof eventList[eventId].friendIdArray[2] != "undefined" ? preBL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : preBL + "images/pinkX.png"+ post;
-        var three = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : preBR + "images/pinkX.png"+ post;
+        var zero = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? preUL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : preUL + "images/pinkX.png"+ post;
+        var one = typeof eventList[eventId].friendIdArray[1] != "undefined" ? preUR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[1]].fbId +"/picture?width=50&height=50" + post : preUR + "images/pinkX.png"+ post;
+        var two = typeof eventList[eventId].friendIdArray[2] != "undefined" ? preBL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[2]].fbId +"/picture?width=50&height=50" + post : preBL + "images/pinkX.png"+ post;
+        var three = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=50&height=50" + post : preBR + "images/pinkX.png"+ post;
         
         //return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"></div></div></div></div>';
         
