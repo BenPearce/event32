@@ -23,7 +23,7 @@ function getEventRow(eventId,eventClass,datIndex){
     var post = '"></div>';
     var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
     var titlePost = '"></div>';
-    var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : friendPre + "images/pinkX.png"+ post;
+    var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=100&height=100" + post : friendPre + "images/pinkX.png"+ post;
     var eventImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? eventPre + "https://graph.facebook.com/"+eventId +"/picture?width=50&height=50" + post1 : eventPre + "images/pinkX.png"+ post;
     
     var startTime = eventList[eventId].formattedTime;
