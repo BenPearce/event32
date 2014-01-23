@@ -249,10 +249,13 @@ function popCal(){
                 $("#event-wrap-in-"+i).css("height","165px");
                 continue;
             }
-            
+            if(dateHash[i].eventList.length > 4){
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-wrap-in-"+i).css("height","245px");
             $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
+            }else{
+                $("#event-wrap-in-"+i).css("height","220px");
+            }
         }
     }
     
