@@ -243,6 +243,8 @@ ul{
 #dateMainList {
     border-right:solid rgba(0, 0, 0, 0.1) 5px;
     border-left:solid rgba(0, 0, 0, 0.1) 5px;
+    /*border-right:solid black 5px;
+    border-left:solid black 5px;*/
 	width: 92%;
     margin: auto;
     margin-top:65px!important;
@@ -319,6 +321,7 @@ ul{
     height:50px;
     overflow-y:hidden;
     border-right:solid rgba(0, 0, 0, 0.1) 1px;
+    /*border-right:solid black 1px;*/
 }
 
 .friend-name-inner{
@@ -326,6 +329,7 @@ ul{
     height:50px;
     overflow-y:hidden;
     border-left:solid rgba(0, 0, 0, 0.1) 1px;
+    /*border-left:solid black 1px;*/
     /*position:absolute;*/
 }
 
@@ -358,6 +362,7 @@ ul{
     height:50px;
     margin:0px 50px;
     background:rgba(0, 0, 0, 0.10);
+    /*background:black;*/
     /*color:rgba(6, 6, 6, 0.44);*/
     color:white;
     /*position:relative;*/
@@ -640,13 +645,17 @@ ul{
     border-right:solid rgba(0, 0, 0, 0.75) 1px;
     border-top:solid rgba(0, 0, 0, 0.75) 1px;
     border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
+    height:50px;
+    width:50px;
+    position:relative;
 }
 
 .event-img-wrap{
     margin-top:0px;
     display:block;
-    margin-left:-50px;
+    margin-left:-51px;
     border-bottom:solid 55px rgba(0, 0, 0, 0.1);
+    /*border-bottom:solid 55px black;*/
     float:left;
     position:relative;
     width: 50px;
@@ -659,9 +668,9 @@ ul{
     display:block;
     margin-right:-51px;
     border-bottom:solid 55px rgba(0, 0, 0, 0.1);
+    /*border-bottom:solid 55px black;*/
 	float:right;
 	position:relative;
-
 	height:50px;
 	width:51px;
     -webkit-touch-callout: none;
@@ -671,12 +680,13 @@ ul{
 .friend-wrap-quad{
     margin-top:0px;
     display:block;
-    margin-right:-50px;
+    margin-right:-51px;
     border-bottom:solid 55px rgba(0, 0, 0, 0.1);
+    /*border-bottom:solid 55px black;*/
 	float:right;
 	position:relative;
 	height:50px;
-	width:50px;
+	width:51px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
 }
@@ -689,7 +699,15 @@ ul{
     background-repeat:no-repeat;
 }
 
-
+.fr-post-button{
+    
+    height:100%;
+    width:33%;
+    background-image:url('../images/postIcon50.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+}
 
 .fr-i-button{
     height:100%;
@@ -884,6 +902,7 @@ ul{
     height:50px;
     width:50px;
     background-color:rgba(3, 3, 3, 0.1);
+    /*background-color:black;*/
 }
 
 .more-events-text-wrap{
@@ -1276,6 +1295,7 @@ height:50px
     height:50px;
     width:50px;
     background-color:rgba(3, 3, 3, 0.1);
+    /*background-color:black;*/
 }
 
 .ev-desc-i{
@@ -1337,11 +1357,13 @@ height:50px
 
 .fr-button-exp{
     padding-left:1px;
+    /*float:left;*/
     /*border-bottom:solid blue 5px;*/
 }
 
 .ev-button-exp{
     padding-right:1px;
+    /*float:right;*/
     /*border-bottom:solid red 5px;*/
 }
 
