@@ -785,11 +785,18 @@ ul{
 
 .ev-i-button{
     height:100%;
-    width:33%;
+    width:32%;
      background-image:url('../images/info.png');
      background-position:center;
      background-repeat:no-repeat;
     float:left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+    border:solid black 1px;
 }
 
 
@@ -802,20 +809,34 @@ ul{
 
 .ev-rsvp-button{
     height:100%;
-    width:33%;
+    width:32%;
     background-image:url('../images/check-trans.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+    border:solid black 1px;
 }
 
 .ev-map-button{
     height:100%;
-    width:33%;
+    width:32%;
     background-image:url('../images/mrk-trans-3.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+    border:solid black 1px;
 }
 
 .friend-wrap-touched{
