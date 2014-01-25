@@ -777,6 +777,16 @@ height:150px!important;
     background-repeat:no-repeat;
 }
 
+.fr-button-bottom{
+    height: 50%;
+    width: 100%;
+}
+
+.fr-button-top{
+    height: 50%;
+    width: 100%;
+}
+
 .fr-post-button{
     
     height:100%;
