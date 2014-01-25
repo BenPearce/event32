@@ -487,6 +487,10 @@ height:150px!important;
    height:100px!important;
 }
 
+.friend-selected .fr-button-exp-wrap{
+    height:100px!important;
+}
+
 .event-selected{
   height:150px!important;
 }
@@ -1480,7 +1484,7 @@ height:50px
      */
     /*margin-top:5px;*/
     float:right;
-    width:0%;
+    width:100%;
     /*float:right;*/
     /*float:left;*/
     height:100%;
