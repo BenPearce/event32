@@ -476,19 +476,19 @@ ul{
 }
 
 .friend-selected .friend-outter{
-    height:150px;
+    height:150px!important;
 }
 
 .event-selected .event-outter{
-height:150px;
+height:150px!important;
 }
 
 .event-selected{
-  height:150px;
+  height:150px!important;
 }
 
 .friend-selected{
-    height:150px;
+    height:150px!important;
 }
 
 .friend-touched .friend-outter{
