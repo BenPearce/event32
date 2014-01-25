@@ -296,11 +296,11 @@ function setEventTap(){
                                     $(this).parents().eq(2).addClass('friend-selected');
                                     }else{
                                     
-                                    $("#friend-"+selectedEvId).parents().eq(3).addClass("notransition");
+                                    $("#friend-"+selectedEvId).parents().eq(4).addClass("notransition");
                                     $("#friend-"+selectedEvId).parents().eq(2).removeClass('friend-selected');
-                                    var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(2).height();
+                                    var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(3).height();
                                     $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
-                                    $("#friend-"+selectedEvId).parents().eq(3).removeClass("notransition");
+                                    $("#friend-"+selectedEvId).parents().eq(4).removeClass("notransition");
                                     
                                     }
                                     
@@ -344,11 +344,11 @@ function setEventTap(){
                                     
                                     console.log("touched & !selected");
                                     
-                                    $(this).parents().eq(3).addClass("notransition");
+                                    $(this).parents().eq(4).addClass("notransition");
                                     $(this).parents().eq(2).addClass('friend-selected');
-                                    var tempHeight = $(this).parents().eq(2).height();
+                                    var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).css('height', tempHeight + 50);
-                                    $(this).parents().eq(3).removeClass("notransition");
+                                    $(this).parents().eq(4).removeClass("notransition");
                                     
                                     }
                                     
@@ -413,7 +413,7 @@ function setEventTap(){
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     //$("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
-                                    var tempHeight1 = $("#"+selectedEvId).parents().eq(2).height();
+                                    var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     $("#"+selectedEvId).parents().eq(3).css('height',tempHeight1 - 50);
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
                                     
@@ -436,11 +436,11 @@ function setEventTap(){
                                     
                                     console.log("touched & !selected");
                                     
-                                    $(this).parents().eq(3).addClass("notransition");
+                                    $(this).parents().eq(4).addClass("notransition");
                                     $(this).parents().eq(2).addClass('event-selected');
-                                    var tempHeight = $(this).parents().eq(2).height();
+                                    var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(3).css('height', tempHeight + 50);
-                                    $(this).parents().eq(3).removeClass("notransition");
+                                    $(this).parents().eq(4).removeClass("notransition");
                                     
                                     }
                                     

@@ -475,6 +475,22 @@ ul{
     /*height:50px;*/
 }
 
+.friend-selected .friend-outter{
+    height:150px;
+}
+
+.event-selected .event-outter{
+height:150px;
+}
+
+.event-selected{
+  height:150px;
+}
+
+.friend-selected{
+    height:150px;
+}
+
 .friend-touched .friend-outter{
     /*width:50%;*/
     width:150px;
@@ -607,7 +623,7 @@ ul{
     /*margin-left:-5px;*/
 }
 
-
+/*
 .friend-selected .fr-button-exp-out{
     height:50px;
 }
@@ -615,7 +631,7 @@ ul{
 .event-selected .ev-button-exp-out{
     height:50px;
 }
-
+*/
 .show-friend-name .event-name{
     display:none;
 }
@@ -1175,7 +1191,8 @@ height:50px
 .row-wrap{
     padding:0px 0px;
     /*border-bottom:solid rgba(0, 0, 0, 0.1) 5px;*/
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     /*border:solid rgba(0, 0, 0, 0.11) 5px;*/
     /*
      margin:auto!important;
