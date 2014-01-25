@@ -356,6 +356,10 @@ ul{
     
 }
 
+.event-wrapper{
+    height:50px;
+}
+
 .divider-wrap{
     /*margin-top:-3px;*/
     /*margin-bottom:-5px;*/
