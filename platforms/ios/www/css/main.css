@@ -334,12 +334,13 @@ ul{
 }
 
 .friend-outter{
-    width:40%;
+    width:0%;
     /*margin-top: -50px;*/
     height:50px;
     /*margin-left:51px;*/
     /*margin-right:51px;*/
     float:right;
+    box-shadow: 2px 2px 2px #888888;
 }
 
 .event-outter{
@@ -348,9 +349,10 @@ ul{
     
     height:50px;
     float:left;
-    width:40%;
+    width:0%;
     /*margin-left:51px;*/
     /*margin-right:51px;*/
+    box-shadow: 2px 2px 2px #888888;
     
 }
 
@@ -431,7 +433,7 @@ ul{
     /*margin-left:50px;*/
     overflow-x:hidden;
     float:right;
-    width:0%;
+    width:50%;
     font-size:9pt;
     /* border-bottom:solid blue 1px;*/
     /*
@@ -459,7 +461,7 @@ ul{
     font-size:9pt;
     overflow-x:hidden;
     float:left;
-    width:0%;
+    width:50%;
     /*border-top:solid red 1px;*/
     /*border-top:solid rgba(0, 0, 0, 0.75) 1px;*/
     /*margin-top:5px;*/
@@ -469,6 +471,29 @@ ul{
     /*height:50px;*/
 }
 
+.friend-touched .friend-outter{
+    width:50%;
+    
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+}
+
+.event-touched .event-outter{
+    width:50%;
+    
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+}
+
+/*
 .friend-touched .friend-name{
     width:50%;
 
@@ -532,24 +557,17 @@ ul{
     -webkit-perspective: 500;
     -webkit-backface-visibility: hidden;
 }
-/*
- .friend-touched .fr-button-exp-out{
- width:98%;
- }
- */
 
-/*ev-button-exp-out*/
 .friend-touched .ev-button-exp-out{
-   /* width:0%;*/
+
 }
 
 .friend-touched .fr-button-exp-out{
-    /*width:100%;*/
+
 }
 
 .event-touched .fr-button-exp-out{
-    
-    /*width:0%;*/
+
 }
 
 .event-touched .ev-button-exp-out{
@@ -563,8 +581,8 @@ ul{
 .friend-touched .fr-button-exp{
     width:100%;
 }
+*/
 
-/*.ev-button-exp-out*/
 
 .fr-button-exp-out{
     /*float:right;*/
