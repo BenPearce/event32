@@ -358,6 +358,7 @@ function setEventTap(){
 
     
     $(".event-img-wrap").touchstart(function(){
+                                    
                                     console.log("ev-img-wrap trig");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
@@ -366,30 +367,44 @@ function setEventTap(){
                                     var touched = $(this).parents().eq(2).hasClass('event-touched');
                                     var selected = $(this).parents().eq(2).hasClass('event-selected');
                                     
+                                    
+                                    
                                     if($(this).parents().eq(2).hasClass('friend-selected')){
+                                    
                                     console.log("has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
-
+                                   
                                     }else if($("#"+selectedEvId).parents().eq(2).hasClass('event-selected')){
+                                    
+                                    var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
+                                     //$("#"+selectedEvId).parents().eq(3).css('height',tempHeight1 - 200);
                                     console.log("last selected has event-selected");
                                     console.log("last selected id: "+selectedEvId);
+                                    
+                                    
+                                    
                                      if($(this).parents().eq(2).hasClass('friend-selected')){
-                                    console.log("has friend-selected");
+                                    console.log("this has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
+                                    
                                      }else{
-                                    
                                     console.log("event cont else");
-                                    
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     //$("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                    $("#"+selectedEvId).parents().eq(3).css('height',tempHeight1 - 100);
+                                    //$("#"+selectedEvId).parents().eq(3).css('height',tempHeight1 - 100);
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
                                     }
+                                    
+                                    
+                                    
                                     }
+                                    
+                                    
+                                    
                                     
                                     if(!touched & !selected){
                                     console.log("!touched & !selected");
@@ -408,9 +423,25 @@ function setEventTap(){
                                     $(this).parents().eq(4).addClass("notransition");
                                     $(this).parents().eq(2).addClass('event-selected');
                                     var tempHeight = $(this).parents().eq(3).height();
+                                    if($("#"+selectedEvId).parents().eq(2).hasClass('event-selected')){
+                                    //$(this).parents().eq(3).css('height', tempHeight + 100);
+                                    console.log("last event selected");
+                                    }else{
+                                     console.log("last event selected else");
+                                    
+                                    if($("#"+selectedEvId).parents().eq(2).hasClass('event-selected')){
+                                    }else{
                                     $(this).parents().eq(3).css('height', tempHeight + 100);
-                                    $(this).parents().eq(4).removeClass("notransition");
                                     }
+                                    
+                                    }
+                                    $(this).parents().eq(4).removeClass("notransition");
+                                    
+                                    }
+                                    
+                                    
+                                    
+                                    
                                     selectedEvId = $(this).attr('id');
                                  });
 
