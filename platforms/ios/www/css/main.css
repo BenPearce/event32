@@ -366,10 +366,10 @@ ul{
 .date-wrap-inner{
     height:50px;
     margin:0px 50px;
-    background:rgba(0, 0, 0, 0.10);
+    /*background:rgba(0, 0, 0, 0.10);*/
     /*background:black;*/
     /*color:rgba(6, 6, 6, 0.44);*/
-    color:white;
+    color:black;
     /*position:relative;*/
 }
 
@@ -976,7 +976,7 @@ ul{
     float:right;
     height:50px;
     width:50px;
-    background-color:rgba(3, 3, 3, 0.1);
+    /*background-color:rgba(3, 3, 3, 0.1);*/
     /*background-color:black;*/
 }
 
@@ -1369,7 +1369,7 @@ height:50px
     float:left;
     height:50px;
     width:50px;
-    background-color:rgba(3, 3, 3, 0.1);
+    /*background-color:rgba(3, 3, 3, 0.1);*/
     /*background-color:black;*/
 }
 
