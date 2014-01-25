@@ -358,7 +358,7 @@ function setEventTap(){
 
     
     $(".event-img-wrap").touchstart(function(){
-                                    console.log("ing-wrap trig");
+                                    console.log("ev-img-wrap trig");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
                                     var isSelected = $(this).hasClass('event-selected') & $(this).hasClass('event-selected');
@@ -401,7 +401,8 @@ function setEventTap(){
                                     }
                                     */
                                     }else if($("#"+selectedEvId).parents().eq(2).hasClass('event-selected')){
-                                    
+                                    console.log("last selected has event-selected");
+                                    console.log("last selected id: "+selectedEvId);
                                      if($(this).parents().eq(2).hasClass('friend-selected')){
                                     console.log("has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
