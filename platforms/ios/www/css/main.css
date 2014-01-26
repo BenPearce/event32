@@ -865,7 +865,7 @@ height:150px!important;
     -webkit-transition: width .5s;
     -webkit-perspective: 500;
     -webkit-backface-visibility: hidden;
-    border:solid black 1px;
+    /*border:solid black 1px;*/
 }
 
 
@@ -889,7 +889,7 @@ height:150px!important;
     -webkit-transition: width .5s;
     -webkit-perspective: 500;
     -webkit-backface-visibility: hidden;
-    border:solid black 1px;
+    /*border:solid black 1px;*/
 }
 
 .ev-map-button{
@@ -905,7 +905,7 @@ height:150px!important;
     -webkit-transition: width .5s;
     -webkit-perspective: 500;
     -webkit-backface-visibility: hidden;
-    border:solid black 1px;
+    /*border:solid black 1px;*/
 }
 
 .friend-wrap-touched{
