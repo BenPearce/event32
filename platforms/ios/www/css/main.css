@@ -979,6 +979,10 @@ height:150px!important;
     /*display:block;*/
     
     background-image:url('../images/ArrowUpTrans.png')!important;
+    /*
+    background:red!important;
+    background-color:blue!important;
+     */
     /*background-image:url('../images/upArrowWhite.png')!important;*/
     background-position:center!important;
     background-repeat:no-repeat!important;
@@ -1011,7 +1015,8 @@ height:150px!important;
 .more-events-text-wrap-touched{
     /*background-image:url('../images/downArrowTouched.png')!important;*/
     /*background-image:url('../images/downArrowOrange.png')!important;*/
-    background-image:url('../images/downArrowBgOrange.png')!important;
+    /*background-image:url('../images/downArrowBgOrange.png')!important;*/
+    background-image:url('../images/ArrowDownBlackOrange.png')!important;
 
     background-position:center!important;
     background-repeat:no-repeat!important;
@@ -1448,7 +1453,8 @@ height:50px
     
     
     /*background-image:url('../images/UpArrowOrange.png')!important;*/
-    background-image:url('../images/upArrowOrangeBg.png')!important;
+    /*background-image:url('../images/upArrowOrangeBg.png')!important;*/
+    background-image:url('../images/ArrowUpBlackOrange.png')!important;
     /*background-image:url('../images/upArrowTouched.png')!important;*/
     background-position:center!important;
     background-repeat:no-repeat!important;
