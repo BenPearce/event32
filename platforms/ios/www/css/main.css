@@ -852,6 +852,25 @@ height:150px!important;
     background-repeat:no-repeat;
 }
 
+
+
+
+.ev-check-in-button{
+    
+    height:100%;
+    width:32%;
+    background-image:url('../images/rsvpIcon50.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+}
+
 .ev-tag-button{
     
     height:100%;
