@@ -501,7 +501,7 @@ height:150px!important;
 
 .friend-touched .friend-outter{
     /*width:50%;*/
-    width:150px;
+    width:75%;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
@@ -512,7 +512,7 @@ height:150px!important;
 
 .event-touched .event-outter{
     /*width:50%;*/
-    width:150px;
+    width:75%;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
