@@ -978,8 +978,8 @@ height:150px!important;
 .cnt .left-ex-button{
     /*display:block;*/
     
-    /*background-image:url('../images/ArrowUpTrans.png')!important;*/
-    background-image:url('../images/upArrowWhite.png')!important;
+    background-image:url('../images/ArrowUpTrans.png')!important;
+    /*background-image:url('../images/upArrowWhite.png')!important;*/
     background-position:center!important;
     background-repeat:no-repeat!important;
     -webkit-transition: opacity .5s ease-in;
@@ -1040,8 +1040,8 @@ height:150px!important;
     /*color:yellow;*/
     font-size:26pt;
     
-    /*background-image:url('../images/ArrowDownTrans.png');*/
-    background-image:url('../images/downArrowWhite.png');
+    background-image:url('../images/ArrowDownTrans.png');
+    /*background-image:url('../images/downArrowWhite.png');*/
     /*background-image:url('../images/ArrowDownTransUp.png');*/
     background-position:center;
     background-repeat:no-repeat;
