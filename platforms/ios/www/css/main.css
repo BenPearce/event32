@@ -476,11 +476,11 @@ ul{
 }
 
 .friend-selected .friend-outter{
-    height:150px!important;
+    height:170px!important;
 }
 
 .event-selected .event-outter{
-height:150px!important;
+height:170px!important;
 }
 
 .event-selected .ev-button-exp-wrap{
@@ -492,11 +492,11 @@ height:150px!important;
 }
 
 .event-selected{
-  height:150px!important;
+  height:170px!important;
 }
 
 .friend-selected{
-    height:150px!important;
+    height:170px!important;
 }
 
 .friend-touched .friend-outter{
@@ -965,9 +965,9 @@ height:150px!important;
 }
 
 .fnct-icon{
-    /*margin:5px;*/
-    height:100%;
-    width:32%;
+    margin:5px;
+    height:95%;
+    width:27%;
 }
 
 
