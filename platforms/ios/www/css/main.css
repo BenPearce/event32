@@ -1630,16 +1630,16 @@ height:50px
 }
 
 .more-events{
-    margin-top: -2px;
+    margin-top: 10px;
     font-family:helvetica neue;
     font-weight: normal;
-    margin-right:50px;
-    margin-left: 50px;
+    margin-right:5px;
+    /*margin-left: 50px;*/
     text-align: center;
-    /*background: rgba(0, 0, 0, 0.34);*/
+    box-shadow: 2px 2px 2px #888888;
     color:black;
     height:25px;
-    border-left:solid black 1px;
+    /*border-left:solid black 1px;
     border-right:solid black 1px;
-    border-bottom:solid black 1px;
+    border-bottom:solid black 1px;*/
 }
