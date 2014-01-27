@@ -475,6 +475,13 @@ ul{
     /*height:50px;*/
 }
 
+.left-fill{
+    height:100%;
+    margin-top:10px;
+    width:30px;
+    background:black;
+}
+
 .friend-selected .friend-outter{
     height:170px!important;
 }
@@ -720,9 +727,11 @@ height:170px!important;
 
 
 .quad-wrap{
+    /*
     border-right:solid rgba(0, 0, 0, 0.75) 1px;
     border-top:solid rgba(0, 0, 0, 0.75) 1px;
     border-bottom:solid rgba(0, 0, 0, 0.75) 1px;
+     */
     height:50px;
     width:50px;
     position:relative;
@@ -758,13 +767,13 @@ height:170px!important;
 .friend-wrap-quad{
     margin-top:0px;
     display:block;
-    margin-right:-51px;
+    /*margin-right:-51px;*/
     /*border-bottom:solid 55px rgba(0, 0, 0, 0.1);*/
     /*border-bottom:solid 55px black;*/
 	float:right;
 	position:relative;
 	height:50px;
-	width:51px;
+	width:50px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
 }

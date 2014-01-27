@@ -268,25 +268,74 @@ function setEventTap(){
     $(".friend-wrap").touchend(function(){
                                
                                });
-    
+    /*
+    $(".friend-wrapper").tap(function(){
+                               var evId = $(this).attr('data-evId');
+                               console.log("evId: "+evId);
+                               var dateId = $(this).attr('data-dateHash');
+                               var isSelected = $(this).hasClass('friend-selected') & $(this).hasClass('event-selected');
+                               
+                               var touched = $(this).parents().eq(2).hasClass('friend-touched');
+                               var selected = $(this).parents().eq(2).hasClass('friend-selected');
+                               
+                               if($("#friend-"+selectedEvId).parents().eq(2).hasClass('friend-selected')){
+                               
+                               if($(this).parents().eq(2).hasClass('event-selected')){
+                               console.log("has event-selected");
+                               $(this).parents().eq(2).removeClass('event-selected');
+                               $(this).parents().eq(2).addClass('friend-selected');
+                               }else{
+                               
+                               $("#friend-"+selectedEvId).parents().eq(4).addClass("notransition");
+                               $("#friend-"+selectedEvId).parents().eq(2).removeClass('friend-selected');
+                               var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(3).height();
+                               $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
+                               $("#friend-"+selectedEvId).parents().eq(4).removeClass("notransition");
+                               
+                               }
+                               
+                               }else if($(this).parents().eq(2).hasClass('event-selected')){
+                               console.log("has event-selected");
+                               $(this).parents().eq(2).removeClass('event-selected');
+                               $(this).parents().eq(2).addClass('friend-selected');
+                               
+                               }
+                               
+                               if(!touched & !selected){
+                               
+                               console.log("!touched & !selected");
+                               
+                               $(this).parents().eq(2).removeClass('event-touched');
+                               $(this).parents().eq(2).addClass('friend-touched');
+                               
+                               }else if(!touched & selected){
+                               
+                               console.log("!touched & selected");
+                               
+                               }else if (touched & !selected){
+                               
+                               console.log("touched & !selected");
+                               
+                               $(this).parents().eq(4).addClass("notransition");
+                               $(this).parents().eq(2).addClass('friend-selected');
+                               var tempHeight = $(this).parents().eq(3).height();
+                               $(this).parents().eq(2).css('height', tempHeight + 50);
+                               $(this).parents().eq(4).removeClass("notransition");
+                               
+                               }
+                               
+     
+                               selectedEvId = $(this).attr('data-evId');
+                               });
+    */
        $(".friend-wrap").touchstart(function(){
-                                    
+                                    console.log("friend-wrap tap");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
                                     var isSelected = $(this).hasClass('friend-selected') & $(this).hasClass('event-selected');
                                     
                                     var touched = $(this).parents().eq(2).hasClass('friend-touched');
                                     var selected = $(this).parents().eq(2).hasClass('friend-selected');
-                                    
-                                    /*
-                                    if( ((selectedEvId == $(this).attr('data-evId')) & (selectedEvId !== null))){
-                                    console.log("different friend 1");
-                                    sameRow = true;
-                                    
-                                    }else{
-                                    sameRow = flase;
-                                    }
-                                    */
 
                                     if($("#friend-"+selectedEvId).parents().eq(2).hasClass('friend-selected')){
                                     
@@ -309,24 +358,6 @@ function setEventTap(){
                                     $(this).parents().eq(2).removeClass('event-selected');
                                     $(this).parents().eq(2).addClass('friend-selected');
                                     
-                                    /*
-                                    if($(this).parents().eq(1).hasClass('event-selected')){
-                                    console.log("has event-selected");
-                                    $(this).parents().eq(1).removeClass('event-selected');
-                                    $(this).parents().eq(1).addClass('friend-selected');
-                                    }else{
-                                    
-                                    console.log("contract trig");
-                                    
-                                    $("#"+selectedEvId).parents().eq(3).addClass("notransition");
-                                    $("#"+selectedEvId).parents().eq(1).removeClass('friend-selected');
-                                    $("#"+selectedEvId).parents().eq(1).removeClass('event-selected');
-                                    var tempHeight1 = $("#"+selectedEvId).parents().eq(2).height();
-                                    $("#"+selectedEvId).parents().eq(2).css('height',tempHeight1 - 100);
-                                    $("#"+selectedEvId).parents().eq(3).removeClass("notransition");
-                                    
-                                    }
-                                    */
                                      }
                                     
                                     if(!touched & !selected){
