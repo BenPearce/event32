@@ -484,6 +484,7 @@ function setEventTap(){
     function setFriendTap(){
         console.log("set friend tap");
         $(".more-events-text-wrap").touchstart(function(){
+                                               console.log("more events start");
                                                $(this).addClass('more-events-text-wrap-touched');
                                                setInterval(function(){
                                                            moreEventsLocked = false;
@@ -491,7 +492,7 @@ function setEventTap(){
                                  });
         
         $(".more-events-text-wrap").touchend(function(e){
-                                             console.log("more events touch end");
+                                             console.log("more events start");
                                              $(this).removeClass('more-events-text-wrap-touched');
                                              if(!moreEventsLocked){
                                              moreEventsLocked = true;
@@ -500,15 +501,13 @@ function setEventTap(){
                                  });
         
         $(".left-ex-button").touchstart(function(){
-                                        console.log("ts");
+                                        console.log("less events start");
                                                });
         
         $(".left-ex-button").touchend(function(e){
-                                      console.log("left ex touch end");
-                                       console.log("te");
+                                      console.log("less events end");
                                                 popDate1(e,this);
                                                });
-        
     }
 
 function stickyList(){

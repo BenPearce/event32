@@ -58,7 +58,7 @@ function contract(exIndex,elem,transition){
 
         if(transition){
             console.log("contract trans");
-            $("#event-wrap-in-"+exIndex).css("height","260px");
+            $("#event-wrap-in-"+exIndex).css("height","280px");
             //if(exIndex != lastIndex){
                 console.log("line before html trans");
                 $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
@@ -68,7 +68,7 @@ function contract(exIndex,elem,transition){
         }else{
             console.log("contract non-trans");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
-            $("#event-wrap-in-"+exIndex).css("height","260px");
+            $("#event-wrap-in-"+exIndex).css("height","280px");
             console.log("line before html non-trans");
             $("#event-wrap-in-"+exIndex).html("");
        
@@ -86,7 +86,7 @@ function contract(exIndex,elem,transition){
 
     var moreText = (dateHash[exIndex].eventList.length - 4);
 
-    $("#event-wrap-in-"+exIndex).css("height","260px");
+    $("#event-wrap-in-"+exIndex).css("height","280px");
     $("#event-wrap-in-"+exIndex).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
 }
 
@@ -99,7 +99,7 @@ function expand(cntIndex,elem){
     
     $(elem).addClass("expanded");
     //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
-    var exHeight = ((55*(dateHash[cntIndex].eventList.length)));
+    var exHeight = ((60*(dateHash[cntIndex].eventList.length)));
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     dateLength[cntIndex] = exHeight;
@@ -129,8 +129,6 @@ function popDate1(e,elem){
         contract(k,elem,true);
     }
 
-    
-    
     /*
     
     if(expanded){
@@ -251,7 +249,7 @@ function popCal(){
             }
             if(dateHash[i].eventList.length > 4){
             var moreText = (dateHash[i].eventList.length - 4);
-            $("#event-wrap-in-"+i).css("height","260px");
+            $("#event-wrap-in-"+i).css("height","280px");
             $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
             }else{
                 $("#event-wrap-in-"+i).css("height","220px");
