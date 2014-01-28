@@ -99,7 +99,7 @@ function expand(cntIndex,elem){
     
     $(elem).addClass("expanded");
     //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
-    var exHeight = ((60*(dateHash[cntIndex].eventList.length)));
+    var exHeight = ((61*(dateHash[cntIndex].eventList.length)));
     $("#event-wrap-in-"+cntIndex).html(exHtml);
     $("#event-wrap-in-"+cntIndex).css("height",exHeight);
     dateLength[cntIndex] = exHeight;
