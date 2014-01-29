@@ -382,6 +382,7 @@ ul{
     /*background:rgba(0, 0, 0, 0.10);*/
     /*background:black;*/
     /*color:rgba(6, 6, 6, 0.44);*/
+    border-top:double rgba(0, 0, 0, 0.85) 3px;
     color:black;
     /*position:relative;*/
 }
@@ -1653,5 +1654,5 @@ height:50px
     height:25px;
     /*border-left:solid black 1px;
     border-right:solid black 1px;*/
-    border-bottom:double rgba(0, 0, 0, 0.85) 3px;
+    
 }
