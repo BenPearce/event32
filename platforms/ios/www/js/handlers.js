@@ -292,11 +292,7 @@ function setEventTap(){
                                     }else if(formerFriendSelected){
                                     console.log("former friend");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                    
-                                    
-                                    
-                                    
-                                    
+
                                         if(eventSelected){
                                         //console.log("former friend/event");
                                         console.log("this has friend-selected");

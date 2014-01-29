@@ -335,6 +335,7 @@ ul{
 
 .friend-outter{
     width:50px;
+    overflow-y:hidden;
     /*margin-top: -50px;*/
     height:50px;
     /*margin-left:51px;*/
@@ -346,6 +347,13 @@ ul{
 .event-outter{
     /*position:absolute;*/
     /*height:64px;*/
+    overflow-y:hidden;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
     
     height:50px;
     float:left;
@@ -453,14 +461,14 @@ ul{
 
 
 .event-name{
-    /*
+
      -webkit-transform-style: preserve-3d;
      -webkit-transform: translate3d(0px,0px,0px);
      transition: width .25s;
      -webkit-transition: width .2s;
      -webkit-perspective: 250;
      -webkit-backface-visibility: hidden;
-     */
+
     /*position:absolute;*/
     font-size:9pt;
     overflow-x:hidden;
@@ -508,7 +516,8 @@ height:170px!important;
 
 .friend-touched .friend-outter{
     /*width:50%;*/
-    width:75%;
+    /*width:75%;*/
+    width:210px;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
@@ -519,7 +528,8 @@ height:170px!important;
 
 .event-touched .event-outter{
     /*width:50%;*/
-    width:75%;
+    /*width:75%;*/
+    width:210px;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
@@ -543,14 +553,14 @@ height:170px!important;
 
 .event-touched .event-name{
     width:75%;
-
+/*
      -webkit-transform-style: preserve-3d;
      -webkit-transform: translate3d(0px,0px,0px);
      transition: width .5s;
      -webkit-transition: width .5s;
      -webkit-perspective: 500;
      -webkit-backface-visibility: hidden;
-
+*/
 }
 /*
 .friend-touched .fr-button-exp{
