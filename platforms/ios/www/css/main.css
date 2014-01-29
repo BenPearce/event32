@@ -1236,6 +1236,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6beff7f9', e
 height:50px
 }
 
+.is-sticky .date-wrap-inner{
+    border-top:solid black 0px!important;
+}
+
 .animateHeight{
     /*
      -webkit-transform-style: preserve-3d;
