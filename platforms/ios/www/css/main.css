@@ -366,6 +366,7 @@ ul{
 
 .event-wrapper{
     height:50px;
+    overflow-y:hidden;
 }
 
 .divider-wrap{
