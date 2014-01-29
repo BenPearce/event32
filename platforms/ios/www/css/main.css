@@ -475,6 +475,7 @@ ul{
     overflow-x:hidden;
     float:left;
     width:0%;
+    font-family:arial;
     /*border-top:solid red 1px;*/
     /*border-top:solid rgba(0, 0, 0, 0.75) 1px;*/
     /*margin-top:5px;*/
@@ -518,7 +519,7 @@ height:170px!important;
 .friend-touched .friend-outter{
     /*width:50%;*/
     /*width:75%;*/
-    width:210px;
+    width:225px;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
@@ -530,7 +531,7 @@ height:170px!important;
 .event-touched .event-outter{
     /*width:50%;*/
     /*width:75%;*/
-    width:210px;
+    width:225px;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: translate3d(0px,0px,0px);
     transition: width .5s;
