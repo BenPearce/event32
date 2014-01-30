@@ -853,6 +853,41 @@ height:170px!important;
     float:left;
 }
 
+.fr-comm-button-touched{
+    background-image:url('../images/infoOrange.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.fr-comm-button{
+    
+    background-image:url('../images/commentIcon_40.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+}
+
+.fr-half-button-touched{
+    background-image:url('../images/halfIcon_45.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.fr-half-button{
+    
+    background-image:url('../images/halfIcon_45.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+}
+
+
+
+
 .fr-mail-button{
 
     background-image:url('../images/mailIcon40.png');
