@@ -466,8 +466,9 @@
 	border: 1px solid 		#bbb /*{d-body-border}*/;
 	color: 					#333 /*{d-body-color}*/;
 	text-shadow: 0 /*{d-body-shadow-x}*/ 1px /*{d-body-shadow-y}*/ 0 /*{d-body-shadow-radius}*/ 	#fff /*{d-body-shadow-color}*/;
-	background: 			#fff /*{d-body-background-color}*/;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{d-body-background-start}*/), to( #fff /*{d-body-background-end}*/)); /* Saf4+, Chrome */
+    
+	background: 			#fff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff), to( #fff /*{d-body-background-end}*/)); /* Saf4+, Chrome */
 	background-image: -webkit-linear-gradient( #fff /*{d-body-background-start}*/, #fff /*{d-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
 	background-image:    -moz-linear-gradient( #fff /*{d-body-background-start}*/, #fff /*{d-body-background-end}*/); /* FF3.6 */
 	background-image:     -ms-linear-gradient( #fff /*{d-body-background-start}*/, #fff /*{d-body-background-end}*/); /* IE10 */
@@ -708,24 +709,37 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 .ui-btn-active {
 	border: 1px solid 		#2373a5 /*{global-active-border}*/;
-	background: 			#5393c5 /*{global-active-background-color}*/;
+	/*background: 			#5393c5*/;
+    background:orange;
+    /*
+    background: rgb(205,226,247);
+    background: -moz-linear-gradient(top,  rgba(205,226,247,1) 0%, rgba(218,220,237,1) 13%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(205,226,247,1)), color-stop(13%,rgba(218,220,237,1)));
+    background: -webkit-linear-gradient(top,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%);
+    background: -o-linear-gradient(top,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%);
+    background: -ms-linear-gradient(top,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%);
+    background: linear-gradient(to bottom,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 13%);    font-size:32pt!important;
+     */
 	font-weight: bold;
-	color: 					#fff /*{global-active-color}*/;
+	/*color: 					#fff;*/
+    color:black;
 	cursor: pointer;
 	text-shadow: 0 /*{global-active-shadow-x}*/ 1px /*{global-active-shadow-y}*/ 1px /*{global-active-shadow-radius}*/ #3373a5 /*{global-active-shadow-color}*/;
 	text-decoration: none;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #5393c5 /*{global-active-background-start}*/), to( #6facd5 /*{global-active-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #5393c5 /*{global-active-background-start}*/, #6facd5 /*{global-active-background-end}*/);
+    /*
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #5393c5), to( #6facd5));
+	background-image: -webkit-linear-gradient( #5393c5 , #6facd5);
+	background-image:    -moz-linear-gradient( #5393c5, #6facd5);
+	background-image:     -ms-linear-gradient( #5393c5, #6facd5);
+	background-image:      -o-linear-gradient( #5393c5, #6facd5);
+	background-image:         linear-gradient( #5393c5, #6facd5);
+     */
 	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-btn-active:visited,
 .ui-btn-active:hover,
 .ui-btn-active a.ui-link-inherit {
-	color: 					#fff /*{global-active-color}*/;
+	color: 					#fff;
 }
 /* button inner top highlight
 -----------------------------------------------------------------------------------------------------------*/
@@ -1824,7 +1838,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-btn-icon-notext { width: 24px; height: 24px; }
 .ui-btn-icon-notext .ui-btn-inner { padding: 0; height: 100%; }
 .ui-btn-icon-notext .ui-btn-inner .ui-icon { margin: 2px 1px 2px 3px; float: left; }
-.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; font-size:12pt;}
 .ui-btn-icon-notext .ui-btn-text { position: absolute; left: -9999px; }
 .ui-btn-icon-left .ui-btn-inner { padding: 0px 0px; }
 .ui-btn-icon-right .ui-btn-inner { padding-right: 40px; }
