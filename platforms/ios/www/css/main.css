@@ -791,13 +791,7 @@ height:170px!important;
     -webkit-user-select: none;
 }
 
-.fr-i-button-touched{
-    background-image:url('../images/infoOrange.png')!important;
-    /*background-image:url('../images/mailIcon40.png')!important;
-     border:solid red 5px;*/
-    background-position:center;
-    background-repeat:no-repeat;
-}
+
 
 .ev-button-bottom{
     height: 50%;
@@ -827,9 +821,33 @@ height:170px!important;
     float:left;
 }
 
+.fr-i-button-touched{
+    background-image:url('../images/infoOrange.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
 .fr-i-button{
 
     background-image:url('../images/info.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+}
+
+.fr-plus-button-touched{
+    background-image:url('../images/infoOrange.png')!important;
+    /*background-image:url('../images/mailIcon40.png')!important;
+     border:solid red 5px;*/
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.fr-plus-button{
+    
+    background-image:url('../images/plusIcon_40.png');
     background-position:center;
     background-repeat:no-repeat;
     float:left;
