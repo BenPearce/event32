@@ -155,6 +155,24 @@ li{
      */
 }
 
+.friend-score{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    /*border:solid black 1px;*/
+    height:15px;
+    width:15px;
+    color:black;
+    font-size: 10pt;
+    text-align: center;
+    padding-bottom:2px;
+    /*
+    background:black;
+    background:rgba(205,226,247,1);
+     */
+    background:rgba(205, 226, 247, 0.47);
+}
+
 #footer1{
     bottom: 0px;
     left: 0px;

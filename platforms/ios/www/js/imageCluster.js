@@ -16,7 +16,7 @@ function getEventRow(eventId,eventClass,datIndex){
     var eventName = typeof eventList[eventId] !=   "undefined"  ? eventList[eventId].name : "eventNameUndefined";
     var friendGroupName = typeof eventList[eventId] !=   "undefined"  ? eventList[eventId].name : "eventNameUndefined";
     
-    var friendPre = '<div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap"><img class="friend-img" style="pointer-events:none" width=50 height=50 src="';
+    var friendPre = '<div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap"><div class="friend-score">'+eventList[eventList[eventId].friendIdArray[0]].eventIdArray.length+'</div><img class="friend-img" style="pointer-events:none" width=50 height=50 src="';
     
     var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap"><img class="event-img" style="pointer-events:none" src="';
     var post1 = '"></div>';
