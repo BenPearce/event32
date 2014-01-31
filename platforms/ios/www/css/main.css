@@ -1232,13 +1232,6 @@ height:170px!important;
      -webkit-backface-visibility: hidden;
      */
 }
-/*
- .is-sticky{
- z-index:105;
- }
- */
-
-
 
 .background-div{
     position:fixed;
@@ -1303,7 +1296,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6beff7f9', e
     z-index:105;
 }
 
-
+/*
+.is-sticky .date-abrev-wrap{
+    border-bottom:solid rgba(218,220,237,1) 5px;
+}
+*/
 .is-sticky .date-wrap-inner{
 height:50px
 }
