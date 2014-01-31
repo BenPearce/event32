@@ -736,8 +736,25 @@ a.ui-link-inherit {
 }
 /* Active class used as the "on" state across all themes
 -----------------------------------------------------------------------------------------------------------*/
+
+.ui-btn-active .ui-btn-inner{
+    /*border:solid orange 3px!important;*/
+    color:white;
+    background: rgb(96,122,153); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(96,122,153,1) 0%, rgba(183,209,229,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(96,122,153,1)), color-stop(100%,rgba(183,209,229,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(96,122,153,1) 0%,rgba(183,209,229,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(96,122,153,1) 0%,rgba(183,209,229,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(96,122,153,1) 0%,rgba(183,209,229,1) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  rgba(96,122,153,1) 0%,rgba(183,209,229,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#607a99', endColorstr='#b7d1e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+
 .ui-btn-active {
-	border: 1px solid 		#2373a5 /*{global-active-border}*/;
+	/*border: 1px solid 		#2373a5;*/
+    /*border:solid orange 1px;*/
 	/*background: 			#5393c5*/;
     /*background:orange;*/
     
@@ -781,8 +798,13 @@ a.ui-link-inherit {
 .ui-btn-active a.ui-link-inherit {
 	color: 					#fff;
 }
+     
+  
+     
 /* button inner top highlight
 -----------------------------------------------------------------------------------------------------------*/
+
+
 .ui-btn-inner {
 	border-top: 1px solid 	#fff;
 	border-color: 			rgba(255,255,255,.3);
