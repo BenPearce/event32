@@ -710,7 +710,7 @@ a.ui-link-inherit {
 	border: 1px solid 		#2373a5 /*{global-active-border}*/;
 	background: 			#5393c5 /*{global-active-background-color}*/;
 	font-weight: bold;
-	color: 					#fff /*{global-active-color}*/;
+	color: 					black;
 	cursor: pointer;
 	/*text-shadow: 0 1px 1px  #3373a5;*/
 	text-decoration: none;
@@ -727,7 +727,7 @@ a.ui-link-inherit {
 .ui-btn-active:visited,
 .ui-btn-active:hover,
 .ui-btn-active a.ui-link-inherit {
-	color: 					#fff /*{global-active-color}*/;
+	color: 					black /*{global-active-color}*/;
 }
 /* button inner top highlight
 -----------------------------------------------------------------------------------------------------------*/
