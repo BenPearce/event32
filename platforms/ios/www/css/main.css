@@ -56,7 +56,7 @@ html{
     height:50px;
     background:black;
     padding:5px 5px;
-    margin-bottom:55px;
+    /*margin-bottom:55px;*/
     z-index: 200;
     background: -moz-linear-gradient(top,  rgba(179,200,229,0.57) 0%, rgba(205,226,247,0.13) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(179,200,229,0.57)), color-stop(100%,rgba(205,226,247,0.13))); /* Chrome,Safari4+ */
@@ -256,7 +256,7 @@ ul{
     border-left:solid black 5px;*/
 	width: 92%;
     margin: auto;
-    margin-top:65px!important;
+    /*margin-top:65px!important;*/
     background:none!important;
     padding-left:0px!important;
 }
