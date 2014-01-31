@@ -49,6 +49,7 @@ function eventExpand(element){
     $(document).scrollTop($(document).scrollTop() + $("#event-ex-"+evId).offset().top - descPos);
     setButtons();
     $("#more-events-"+exIndex).css("display","block");
+    //$("#event-wrap-in-"+exIndex).append("<div id='more-events-"+i+"' class='more-events'></div>");
     //}
 }
 
@@ -96,7 +97,7 @@ function expand(cntIndex,elem){
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
     }
-    
+    var exHtml = exHtml +"<div id='more-events-"+cntIndex+"' class='more-events'></div>";
     $(elem).addClass("expanded");
     //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
     var exHeight = ((61*(dateHash[cntIndex].eventList.length)));
@@ -106,6 +107,8 @@ function expand(cntIndex,elem){
     
     $("#divider-wrap-"+cntIndex).removeClass("ex");
     $("#divider-wrap-"+cntIndex).addClass("cnt");
+    $("#more-events-"+cntIndex).css("display","block");
+    //$("#event-wrap-in-"+cntIndex).append("<div id='more-events-"+cntIndex+"' class='more-events'></div>");
     //$("#more-events-"+exIndex).css("display","none");
 }
 
@@ -220,6 +223,7 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
+                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
             
@@ -227,7 +231,8 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","65px");
+                $("#event-wrap-in-"+i).css("height","75px");
+                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
             
@@ -235,7 +240,8 @@ function popCal(){
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","130px");
+                $("#event-wrap-in-"+i).css("height","140px");
+                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
             
@@ -244,7 +250,8 @@ function popCal(){
                 
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
-                $("#event-wrap-in-"+i).css("height","185px");
+                $("#event-wrap-in-"+i).css("height","205px");
+                 $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
             if(dateHash[i].eventList.length > 4){
@@ -252,7 +259,7 @@ function popCal(){
             $("#event-wrap-in-"+i).css("height","280px");
             $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
             }else{
-                $("#event-wrap-in-"+i).css("height","220px");
+                $("#event-wrap-in-"+i).css("height","260px");
             }
         }
     }
