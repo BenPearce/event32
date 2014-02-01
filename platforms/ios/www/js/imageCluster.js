@@ -24,10 +24,10 @@ function getEventRow(eventId,eventClass,datIndex){
     if(eventList[eventId].venue.local){
         console.log("local detected");
         local = "<div style='display:none' class='loc-icon'>L</div>";
-        localText = "<div style='display:inline' class='loc-text'> local</div>";
+        localText = "<div style='display:inline'>, <div style='display:inline' class='loc-text'> Local</div></div>";
     }else{
         local = "<div style='display:none' class='loc-icon'>L</div>";
-        localText = "<div style='display:none' class='loc-text'>, local</div>";
+        localText = "<div style='display:none'>, <div style='display:inline' class='loc-text'>, Local</div></div>";
     }
     
     var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap">'+local+'<img class="event-img" style="pointer-events:none" src="';

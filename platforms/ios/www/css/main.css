@@ -147,10 +147,12 @@ body {
 .loc-text{
     text-decoration:italic;
     font-style:italic;
+    font-weight:bold;
+    /*color:green;*/
 }
 
 .start-time{
-    text-decoration:italic;
+    /*text-decoration:italic;*/
     font-style:italic;
 }
 
