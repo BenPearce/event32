@@ -14,6 +14,7 @@ var lastIndex;
 var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
 var k;
 var lastEvIndex;
+var geoPosition;
 
 function eventExpand(element){
     console.log("event expand");
@@ -286,7 +287,7 @@ document.addEventListener('deviceready', function () {
                           }
                           });
 
-var geoPosition;
+
 
 function init() {
     FB.init({
@@ -310,9 +311,9 @@ function init() {
                                                                                    //console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
                                                                                                           
-                                                                                                          navigator.geolocation.getCurrentPosition(function(geoPosition){
+                                                                                                          navigator.geolocation.getCurrentPosition(function(pos){
                                                                                                  
-                                                                                                                                                   position = pos;
+                                                                                                                                                   geoPosition = pos;
                                                                                                                                                    popUi().done(function(){
                                                                                                                                                                 popCal();
                                                                                                                                                                 });

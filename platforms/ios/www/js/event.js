@@ -29,6 +29,7 @@ function event() {
     this.eveningInstanceCount;
     this.dateId;
     this.dateHash;
+    this.local;
 }
 
 function makeEvent(data) {
