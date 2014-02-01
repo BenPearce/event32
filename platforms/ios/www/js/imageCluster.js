@@ -18,13 +18,23 @@ function getEventRow(eventId,eventClass,datIndex){
     
     var friendPre = '<div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap"><div class="friend-score">'+eventList[eventList[eventId].friendIdArray[0]].eventIdArray.length+'</div><img class="friend-img" style="pointer-events:none" width=50 height=50 src="';
     
-    var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap"><img class="event-img" style="pointer-events:none" src="';
+    if(eventList[eventId].venue.local){
+        console.log("local detected");
+        var local = "<div style='display:block' class='loc-icon'>L</div>";
+    }else{
+        var local = "<div style='display:none' class='loc-icon'>L</div>";
+        console.log("else detected");
+    }
+    
+    var eventPre = '<div id="'+eventId+'" data-dateHash="'+datIndex+'" class="event-img-wrap">'+local+'<img class="event-img" style="pointer-events:none" src="';
     var post1 = '"></div>';
     var post = '"></div>';
     var friendTitlePre = '<div class="event-friend-img-wrap event-friend-img">';
     var titlePost = '"></div>';
     var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=100&height=100" + post : friendPre + "images/profileIcon1_25.png"+ post;
     var eventImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? eventPre + "https://graph.facebook.com/"+eventId +"/picture?width=50&height=50" + post1 : eventPre + "images/profileIcon1_25.png"+ post;
+    
+
     
     var startTime = eventList[eventId].formattedTime;
     //var venueName = eventList[eventId].venue.name;
