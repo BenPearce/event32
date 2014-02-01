@@ -286,6 +286,8 @@ document.addEventListener('deviceready', function () {
                           }
                           });
 
+var geoPosition;
+
 function init() {
     FB.init({
             appId: '253970731442450',
@@ -307,16 +309,17 @@ function init() {
                                                                updateEvents().done(function () {
                                                                                    //console.log("line before update attr");
                                                                                    updateEventAttr().done(function(){
-                                                                                                          popUi().done(function(){
-                                                                                                                       //console.log("pop UI done");
-                                                                                                                       popCal();
-                                                                                                                       //console.log("pop ui done");
-                                                                                                                       /*
-                                                                                                                        when.done(function(){
-                                                                                                                        console.log("pipe done");
-                                                                                                                        });
-                                                                                                                        */
-                                                                                                                       });
+                                                                                                          
+                                                                                                          navigator.geolocation.getCurrentPosition(function(geoPosition){
+                                                                                                 
+                                                                                                                                                   position = pos;
+                                                                                                                                                   popUi().done(function(){
+                                                                                                                                                                popCal();
+                                                                                                                                                                });
+                                                                                                                                                   }, locError);
+                                                                                                          
+                                                                                                         
+                                                                                                          
                                                                                                           });
                                                                                    });
                                                                });
