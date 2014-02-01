@@ -144,6 +144,16 @@ body {
     background:gray;
 }
 
+.loc-text{
+    text-decoration:italic;
+    font-style:italic;
+}
+
+.start-time{
+    text-decoration:italic;
+    font-style:italic;
+}
+
 li{
     /*
     margin-bottom:5px;
