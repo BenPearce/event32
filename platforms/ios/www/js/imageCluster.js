@@ -70,14 +70,28 @@ function getEventRow(eventId,eventClass,datIndex){
         var two = typeof eventList[eventId].friendIdArray[2] != "undefined" ? preBL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[2]].fbId +"/picture?width=50&height=50" + post : "";
         var three = typeof eventList[eventId].friendIdArray[1] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[1]].fbId +"/picture?width=50&height=50" + post : "";
         
-        var friendName2 = "fun "+eventList[eventId].friendIdArray.length;
+        var friendName2 = "";
         
         
-        for (var i=0;i<eventList[eventId].friendIdArray.length;i++)
-        {
+        for (var i=0;i<eventList[eventId].friendIdArray.length;i++){
             //friendName2 = friendName2 + " line "+i;
+            /*
+            if(i = 0){
+            
+            }else
+               */
+                if(0 < i < eventList[eventId].friendIdArray.length -1){
+                friendName2 = friendName2 +" ,";
+            }else{
+                friendName2 = friendName2 +" and" ;
+            }
             
             friendName2 = friendName2 + eventList[eventList[eventId].friendIdArray[i]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[i]].nameArray[1];
+            /*
+            if(i = eventList[eventId].friendIdArray.length -1){
+                friendName2 = friendName2 + " are going";
+            }
+    */
         }
         
              /*

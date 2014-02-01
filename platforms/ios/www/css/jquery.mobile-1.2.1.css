@@ -95,12 +95,15 @@
 	font-weight: bold;
 	color: 					#fff /*{a-bup-color}*/;
 	/*text-shadow: 0  1px 1px  #111 ;*/
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #444 /*{a-bup-background-start}*/), to( #2d2d2d /*{a-bup-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/);
+
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #444), to( #2d2d2d));
+	background-image: -webkit-linear-gradient( #444, #2d2d2d);
+	background-image:    -moz-linear-gradient( #444, #2d2d2d);
+	background-image:     -ms-linear-gradient( #444, #2d2d2d);
+	background-image:      -o-linear-gradient( #444, #2d2d2d);
+	background-image:         linear-gradient( #444, #2d2d2d);
+
+    /*background:black;*/
 }
 .ui-btn-up-a:visited,
 .ui-btn-up-a a.ui-link-inherit {
@@ -1827,7 +1830,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-btn-icon-notext { width: 24px; height: 24px; }
 .ui-btn-icon-notext .ui-btn-inner { padding: 0; height: 100%; }
 .ui-btn-icon-notext .ui-btn-inner .ui-icon { margin: 2px 1px 2px 3px; float: left; }
-.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.ui-btn-text { position: relative; z-index: 1; width: 100%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;font-weight:normal!important; }
 .ui-btn-icon-notext .ui-btn-text { position: absolute; left: -9999px; }
 .ui-btn-icon-left .ui-btn-inner { padding-left: 40px; }
 .ui-btn-icon-right .ui-btn-inner { padding-right: 40px; }

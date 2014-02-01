@@ -270,7 +270,17 @@ function popCal(){
     setButtons();
 }
 
+function locSuccess(position){
+    console.log("lat: "+position.coords.latitude);
+    console.log("lng: "+position.coords.longitude);
+}
+
+function locError(){
+    console.log("geo error");
+}
+
 document.addEventListener('deviceready', function () {
+                          navigator.geolocation.getCurrentPosition(locSuccess, locError);
                           window.fbAsyncInit = function () {
                           init();
                           }
