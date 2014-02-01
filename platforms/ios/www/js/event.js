@@ -122,7 +122,7 @@ function makeEvent(data) {
     //result.formattedTime =  moment.utc(result.start_time).format('h:mmA');
     
     var d = moment.utc(result.start_time);
-   result.formattedTime = d.local().format('h:mmA');
+   result.formattedTime = d.local().format('h:mma');
     
     console.log("result.start_time "+result.start_time);
     console.log("result.formattedTime"+result.formattedTime);
