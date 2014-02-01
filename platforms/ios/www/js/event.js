@@ -29,7 +29,6 @@ function event() {
     this.eveningInstanceCount;
     this.dateId;
     this.dateHash;
-    this.local;
 }
 
 function makeEvent(data) {
@@ -111,7 +110,7 @@ function makeEvent(data) {
     
     
     
-    result.local = false;
+
     result.tonight = false;
     var temp = new Date(data.start_time);
     

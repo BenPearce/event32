@@ -75,6 +75,12 @@ function makeVenue(data) {
     
     var temp = getDistanceFromLatLonInKm(geoPosition.coords.latitude,geoPosition.coords.longitude,result.venue_latitude,result.venue_longitude);
     
+    if(parseInt(temp) < 100){
+        result.local = true;
+    }else{
+        result.local = false;
+    }
+    
     console.log("distance km: "+temp);
     /*
     console.log("mk venue lat: "+result.venue_latitude);
