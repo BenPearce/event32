@@ -178,6 +178,7 @@ li{
     font-size: 10pt;
     text-align: center;
     padding-bottom:2px;
+    display:none;
     /*
     background:black;
     background:rgba(205,226,247,1);

@@ -51,19 +51,7 @@ function getEventRow(eventId,eventClass,datIndex){
         
     } else if (eventList[eventId].friendIdArray.length == 1){
         
-        //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+" "+startTime+'</div></div><div class="event-button-ex"></div></div></div><div class="friend-outter">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div></div>';
-        
-        //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+" "+startTime+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div data-evId="'+eventId+'" class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div></div></div>';
-        
-        
-        
                 return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button fnct-icon"></div><div class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
-
-        /*
-<div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div>
-        
-        <div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div data-evId="'+eventId+'" class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div>
-        */
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
@@ -72,12 +60,6 @@ function getEventRow(eventId,eventClass,datIndex){
         var preBL = '<img class="quadBl event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
         var preBR = '<img class="quadBr event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
         var post = '">';
-        /*
-        var zero = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? preUL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : preUL + "images/profileIcon1_25.png"+ post;
-        var one = typeof eventList[eventId].friendIdArray[1] != "undefined" ? preUR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[1]].fbId +"/picture?width=50&height=50" + post : preUR + "images/profileIcon1_25.png"+ post;
-        var two = typeof eventList[eventId].friendIdArray[2] != "undefined" ? preBL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[2]].fbId +"/picture?width=50&height=50" + post : preBL + "images/profileIcon1_25.png"+ post;
-        var three = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preBR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=50&height=50" + post : preBR + "images/profileIcon1_25.png"+ post;
-         */
         
         var zero = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? preUL + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=50&height=50" + post : "";
         var one = typeof eventList[eventId].friendIdArray[3] != "undefined" ? preUR + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[3]].fbId +"/picture?width=50&height=50" + post : "";
@@ -88,12 +70,7 @@ function getEventRow(eventId,eventClass,datIndex){
         
         
         for (var i=0;i<eventList[eventId].friendIdArray.length;i++){
-            //friendName2 = friendName2 + " line "+i;
-            /*
-            if(i = 0){
             
-            }else
-               */
                 if(0 < i < eventList[eventId].friendIdArray.length -1){
                 friendName2 = friendName2 +" ,";
             }else{
@@ -101,50 +78,10 @@ function getEventRow(eventId,eventClass,datIndex){
             }
             
             friendName2 = friendName2 + eventList[eventList[eventId].friendIdArray[i]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[i]].nameArray[1];
-            /*
-            if(i = eventList[eventId].friendIdArray.length -1){
-                friendName2 = friendName2 + " are going";
-            }
-    */
         }
-        
-             /*
-        for (i = 0;i<eventList[eventId].friendIdArray.length;i++){
-       
-            friendName2 = friendName2 + eventList[eventList[eventId].friendIdArray[i]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[i]].nameArray[1];
-        
-        }
-                */
-        
-        //eventList[eventList[eventId].friendIdArray[i]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[i]].nameArray[1]
-        
-        //return '<div class="row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"></div></div></div></div>';
-        
-       // return '<div class="event-touched row-wrap'+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div></div>';
-        
-        
-                //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+'</div></div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap-quad"><div class="quad-wrap">'+zero+one+two+three+'</div></div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div data-evId="'+eventId+'" class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div></div>';
-        
-          //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+'</div></div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap-quad"><div class="quad-wrap">'+zero+one+two+three+'</div></div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div></div>';
-        
-        //data-evid="632494350131001" id="friend-632494350131001"
-        
-          //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+" "+startTime+'</div></div></div></div><div class="ev-button-exp"><div class="left-fill"></div><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button fnct-icon"></div><div class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div data-evid="'+eventId+'" id="friend-'+eventId+'" class="event-friend-img friend-wrap-quad"><div class="quad-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div></div></div></div></div>';
-        
-                        //return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+venueName+" "+startTime+'</div></div></div></div><div class="ev-button-exp"><div class="left-fill"></div><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button fnct-icon"></div><div class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrapper"><div class="quad-wrap">'+zero+one+two+three+'</div></div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div></div></div></div></div>';
-        
-       // var friendPre = '<div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">';
-        
 
                 return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button fnct-icon"></div><div class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName2+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
         
-        
-        //<div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"><div class="fr-i-button"></div><div class="fr-mail-button"></div><div class="fr-post-button"></div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div data-evId="'+eventId+'" class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div>
-        
-        
-
-        
-        //return '<div class="event-touched row-wrap event-touched'+eventClass+'"><div class="event-outter">'+eventImg+'<div class="event-name"><div class="event-name-inner">'+eventName+'</div><div class="event-button-ex"></div></div></div><div class="friend-outter"><div  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div id="event-ex-'+eventId+'" class="event-ex"><div class="fr-button-exp"> <div class="fr-button-exp-out"><div class="fr-button-exp-wrap"></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-out"><div class="ev-button-exp-wrap"><div class="ev-i-button"></div><div class="ev-rsvp-button"></div><div class="ev-map-button"></div></div></div></div></div></div>';
         
     }
 }
@@ -163,30 +100,18 @@ function getEventHtml(evening){
 }
 
 function getMorebutton(k,text1,className){
-    //return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div></div></div>';
     
     return '<div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div>';
 }
 
 function getLeftExButton(k,text1,className){
-    //return '<div id="morEventsButton-'+k+'" class="more-events-button"><div class="cut-away-wrap"><div class="more-events-cut-away"></div></div><div class="more-events-text-wrap '+className+'"  data-dateId="'+k+'"></div></div></div>';
     
     return '<div class="left-ex-button '+className+'"  data-dateId="'+k+'">Hi</div>';
 }
 
 function getDateHeader(evening,k,cnt,ex){
-    /*
-    if(evening.eventList.length > 4){
-        var moreEventText = evening.eventList.length +" more events";
-          return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div><div class="more-events-header" id="more-events-header-'+k+'">'+moreEventText+'</div></div></div></div></div>';
-        
 
-        
-    }else{
-    */
     return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div></div></div></div>';
-    //}
-    
 }
 
 function getDescriptionHtml(description){
@@ -202,7 +127,6 @@ function getDateHeaderHtml(i,evening){
     var eventName = typeof evening !=   "undefined"  ? evening.name : "eventNameUndefined";
     
     var friendPre = '<div class="event-friend-img-wrap"><img class="event-friend-img" width=50 height=50 src="';
-    
     var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" width=25 height=25 src="';
     var preLeft = '<div class="event-friend-img-wrap-quad left"><img class="event-friend-img-quad" width=25 height=25 src="';
     var preRight = '<div class="event-friend-img-wrap-quad right"><img class="event-friend-img-quad" width=25 height=25 src="';
@@ -216,7 +140,6 @@ function getDateHeaderHtml(i,evening){
     var three = typeof evening.friendIdArray[3] != "undefined" ? preRight + "https://graph.facebook.com/"+eventList[evening.friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
     
     return '<div><div class="event-wrap" id="'+eventId+'"><div class="row-pic-wrap event-pic-wrap"></div><div class="row-title-wrap event-title-wrap"><div class="date-header">'+evening.formattedDate+'</div></div></div><div id = "eveningFriendGroup-'+i+'" class="event-friend-group-wrap"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div></div>';
-    
 }
 
 function getImage(elemId){
@@ -234,5 +157,3 @@ function getImage(elemId){
         return '<div class="attendee-wrap"><div class="attendee-block " style="height:50px;width:50px">'+zero+'</div></div>';
     }
 }
-
-
