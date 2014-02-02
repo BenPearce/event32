@@ -91,11 +91,7 @@ function setButtons(){
                                                "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                                                });
-                            
-                            
-                            
-                        
-                            
+
                             /*
                             ("#popupMap iframe").css({
                                                      "margin": "auto",
