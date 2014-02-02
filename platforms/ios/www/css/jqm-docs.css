@@ -97,17 +97,19 @@
     
     color:black;
 
+/*background:black;*/
     
     
-    background: rgb(205,226,247); /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  rgba(205,226,247,1) 0%, rgba(218,220,237,1) 46%, rgba(218,220,237,1) 99%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(205,226,247,1)), color-stop(46%,rgba(218,220,237,1)), color-stop(99%,rgba(218,220,237,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%); /* IE10+ */
-    background: linear-gradient(135deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde2f7', endColorstr='#dadced',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+    background: rgb(205,226,247);
+    background: -moz-linear-gradient(-45deg,  rgba(205,226,247,1) 0%, rgba(218,220,237,1) 46%, rgba(218,220,237,1) 99%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(205,226,247,1)), color-stop(46%,rgba(218,220,237,1)), color-stop(99%,rgba(218,220,237,1)));
+    background: -webkit-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%);
+    background: -o-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%);
+    background: -ms-linear-gradient(-45deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%);
+    background: linear-gradient(135deg,  rgba(205,226,247,1) 0%,rgba(218,220,237,1) 46%,rgba(218,220,237,1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cde2f7', endColorstr='#dadced',GradientType=1 );
+    
+     
     /*
     background: rgb(206,219,233);
     background: -moz-linear-gradient(top, rgba(206,219,233,1) 0%, rgba(38,85,139,1) 100%);
@@ -738,9 +740,10 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-btn-active .ui-btn-inner{
+
     color:white;
     background:black;
-    
+
     
     /*
     background: rgb(96,122,153);
