@@ -962,7 +962,9 @@ height:170px!important;
     background-repeat:no-repeat;
 }
 
-
+.fnct-icon{
+   box-shadow:2px 2px 2px #888888; 
+}
 
 
 .ev-buy-button{
