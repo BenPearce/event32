@@ -146,11 +146,36 @@ function setButtons(){
                            
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                            var html="<img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div>";
+                            var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div></div>";
                           $("#ev-desc-pop").addClass('ev-desc-i');
                           
                           $("#ev-desc-pop").html(html);
+                        
+                          $("#ev-info-pop").css({
+                                                /*"overflow-y":"hidden",*/
+                                                "padding":"10px"
+                                                });
                           
+                          $("#ev-desc-wrap").css({
+                                                 "overflow-y":"hidden!important",
+                                                 "width":"100%!important",
+                                                 "height":"100%!important"
+                                                 });
+
+                          
+                          $(".ev-desc-i").css({
+                                  "margin": "5px",
+                                  "word-wrap":"break-word",
+                                  "width": "100%",
+                                  "height":"385px",
+                                  "overflow-y":"scroll"
+              
+                          });
+                         
+                          $("#ev-i-pic").css({
+                                             "margin-bottom": "5px"
+                                             });
+                    
                           $("#ev-i-pic").css({
                                              "margin": "auto",
                                              "width": "200px",
@@ -158,6 +183,11 @@ function setButtons(){
                                              });
                           
                           $("#ev-info-pop").css({
+                                                /*
+                                                "-webkit-overflow-scrolling": "touch";
+                                                "overflow-y":"auto";
+                                                 */
+                                                
                                                 "margin": "auto",
                                                 "width": "80%",
                                                 "height": "70%",
@@ -555,6 +585,7 @@ $( document ).on( "pageinit", function() {
                                        });
                 
                    $('#ev-info-pop').on('popupafteropen', function () {
+                                        //$('body').css('overflow','hidden');
                                        $(this).css('position','fixed');
                                        //$(this).css('top','100px');
                                        $(this).css('margin-bottom','100px');
@@ -564,8 +595,9 @@ $( document ).on( "pageinit", function() {
                    $('#ev-info-pop').on('popupafterclose', function () {
                                        $(this).css('position','static');
                                        console.log("close");
+                                        //$('body').css('overflow','auto');
                                        });
-                  
+
                    $("#popupMap").on('popupafteropen', function () {
                                      $(this).css('position','fixed');
                                      //$(this).css('top','100px');
