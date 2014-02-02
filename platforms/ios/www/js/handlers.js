@@ -116,6 +116,9 @@ function setButtons(){
                 */
                             
                             });
+    
+
+    
 
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
@@ -264,6 +267,35 @@ function setButtons(){
                                     $(this).removeClass('fr-mail-button-touched');
                                     });
     
+    $(".fr-mail-button").tap(function(){
+                             console.log("mail tap");
+                             $("#fr-mail-pop").popup("open");
+                             //$("#fr-mail-pop").html("");
+                             var html="<div id='fr-mail-outter'>mail</div>";
+                             
+                             //$("#fr-mail-pop").addClass('ev-desc-i');
+                             
+                             $("#fr-mail-wrap").html(html);
+                             
+                             
+                             $("#fr-mail-pop").css({
+                                                   
+                                                   "margin": "auto",
+                                                   "width": "80%",
+                                                   "height": "70%",
+                                                   "position": "fixed",
+                                                   
+                                                   "left": "-5%",
+                                                   "top":"5%",
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
+                              
+                                                    });
+                              
+                             
+                             });
 }
 
 var touchedDate;
