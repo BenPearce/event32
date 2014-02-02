@@ -57,6 +57,7 @@ function setButtons(){
     $('.ev-map-button').tap(function(){
                             //alert("rsvp");
                             var id = $(this).attr('data-evId');
+                            
                             console.log("map fbId: "+id);
                             
                             var iframe = document.createElement('iframe');
