@@ -274,17 +274,18 @@ function setButtons(){
                              var html="<div id='fr-mail-outter'>mail</div>";
                              
                              //$("#fr-mail-pop").addClass('ev-desc-i');
-                             
+                             $("#fr-mail-wrap").html("");
                              $("#fr-mail-wrap").html(html);
                              
-                             
+                             //fr-mail-pop-popup
                              $("#fr-mail-pop").css({
                                                    
                                                    "margin": "auto",
-                                                   "width": "80%",
-                                                   "height": "70%",
+                                                   "width": "300px",
+                                                   "height": "300px",
+                                                   "background":"red!important",
                                                    "position": "fixed",
-                                                   
+                                                  
                                                    "left": "-5%",
                                                    "top":"5%",
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
@@ -293,7 +294,7 @@ function setButtons(){
                                                    "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                               
                                                     });
-                              
+                             
                              
                              });
 }
