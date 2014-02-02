@@ -271,31 +271,42 @@ function setButtons(){
                              console.log("mail tap");
                              $("#fr-mail-pop").popup("open");
                              //$("#fr-mail-pop").html("");
-                             var html="<div id='fr-mail-outter'>mail</div>";
+                             
+                             
+                             
+                             var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='40' rows='8' name='textarea' id='fr-mail-text'></textarea></div><input class='fr-mail-send' type='submit' value='Send'></div>";
                              
                              //$("#fr-mail-pop").addClass('ev-desc-i');
                              $("#fr-mail-wrap").html("");
                              $("#fr-mail-wrap").html(html);
                              
                              //fr-mail-pop-popup
+                             
+                             $("#fr-mail-outter").css({
+                                                "margin": "20px auto",
+                                                "width": "200px",
+                                                "height": "5850px"
+                                                });
+                             
+                      
+                             
                              $("#fr-mail-pop").css({
                                                    
                                                    "margin": "auto",
-                                                   "width": "300px",
-                                                   "height": "300px",
-                                                   "background":"red!important",
-                                                   "position": "fixed",
-                                                  
-                                                   "left": "-5%",
-                                                   "top":"5%",
+                                                   "width": "100%",
+                                                   "height": "440px",
+                                                   //"position": "absolute",
+                                                   //"position": "fixed",
+                                               
+                                                   "left": "-14%",
+                                                   "top":"2%",
+                                               
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                    "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
-                              
+                           
                                                     });
-                             
-                             
                              });
 }
 
