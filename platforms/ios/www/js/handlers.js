@@ -164,7 +164,6 @@ function setButtons(){
 
                           
                           $(".ev-desc-i").css({
-                                  "margin": "5px",
                                   "word-wrap":"break-word",
                                   "width": "100%",
                                   "height":"385px",
@@ -172,12 +171,9 @@ function setButtons(){
               
                           });
                          
-                          $("#ev-i-pic").css({
-                                             "margin-bottom": "5px"
-                                             });
                     
                           $("#ev-i-pic").css({
-                                             "margin": "auto",
+                                             "margin": "20px auto",
                                              "width": "200px",
                                              "height": "200px"
                                              });
@@ -192,7 +188,7 @@ function setButtons(){
                                                 "width": "80%",
                                                 "height": "70%",
                                                 "position": "fixed",
-                                                "left": "-2%",
+                                                "left": "-5%",
                                                 "top":"5s%",
                                                 "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                 "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
