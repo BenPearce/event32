@@ -249,6 +249,12 @@ function setButtons(){
                                $(this).removeClass('ev-rsvp-button-touched');
                                });
     
+    $(".ev-rsvp-button").tap(function(){
+                                  var id = $(this).attr('data-evId');
+                                  alert("You have RSVP'd to: "+eventList[id].name);
+                            
+                                  });
+    
     $(".fr-i-button").touchstart(function(){
                                  console.log("ts");
                                $(this).addClass('fr-i-button-touched');
@@ -272,7 +278,7 @@ function setButtons(){
                              $("#fr-mail-pop").popup("open");
                              //$("#fr-mail-pop").html("");
                              
-                             
+                            
                              
                              var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='40' rows='8' name='textarea' id='fr-mail-text'></textarea></div><input class='fr-mail-send' type='submit' value='Send'></div>";
                              
