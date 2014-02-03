@@ -272,6 +272,7 @@ function setButtons(){
                              /*$("#ev-rsvp-text").addClass('ev-desc-i');*/
                              
                              $("#ev-rsvp-text").html(html);
+                             //$(this).addClass("orange-check");
                              /*
                              $("#ev-rsvp-pop").css({
                                                    "padding":"10px",
@@ -397,27 +398,37 @@ function setButtons(){
                              
                              $("#fr-mail-pop").popup("open");
                              $("#fr-mail-text").html("");
-                             var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
+                             //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
+                             
+                             //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
+                             
+                             var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
+                             
                              //$("#fr-mail-text").addClass('ev-desc-i');
-                             $("#ev-desc-pop").addClass('fr-mail-i');
+                             //$("#ev-desc-pop").addClass('fr-mail-i');
                              $("#fr-mail-text").html(html);
                              
-                             $("#fr-mail-pop").css({
-                                                   "padding":"10px"
-                                                   });
+                            
                              
                              $("#fr-mail-text").css({
                                                     "overflow-y":"hidden!important",
                                                     "width":"100%!important",
-                                                    "height":"100%!important"
+                                                    "height":"100%!important",
+                                                    "margin":"auto"
                                                      });
                              
                              
                              $("#fr-mail-pic").css({
-                                                "margin": "20px auto",
+                                                "margin": "auto",
                                                 "width": "200px",
                                                 "height": "200px"
                                                 });
+                             
+                             $("#fr-mail-send").css({
+                                                   "margin": "10px auto",
+                                                   "width": "100%",
+                                                   "height": "40px"
+                                                   });
                              
                        
                              $(".fr-mail-i").css({
@@ -434,21 +445,46 @@ function setButtons(){
                                                 "width": "200px",
                                                 "height": "200px"
                                                 });
+                             /*
+                             $("#ev-rsvp-pop").css({
+                                                   "width": "230px",
+                                                   "height": "130px",
+                                                   "margin-left":"-28px",
+                                                   "padding":"10px",
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 50px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 50px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 100px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 150px"
+                                                   
+                                                   });
+                             */
                              
                  
                              $("#fr-mail-pop").css({
-                                                   
+                                                   /*
                                                    "margin": "auto",
                                                    "width": "80%",
                                                    "height": "70%",
+                                                   */
+                                                   
+                                                   "width": "250px",
+                                                   "height": "380px",
+                                                   "margin-left":"-48px",
+                                                   "padding":"10px",
+                                                   "top":"0px",
+                                                   "left":"0px",
+                                                   
                                                    "position": "fixed",
-                                                   "left": "-5%",
-                                                   "top":"5%",
-                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
-                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
-                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
-                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
+                                                   "z-index":"5000!important",
+                                                   //"left": "-5%",
+                                                   //"top":"5%",
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 60px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 60px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 50px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 310px"
                                                    });
+                             
+                             $(this).addClass("fixed-pop");
                            
                              
                              setInterval(function(){
@@ -814,6 +850,9 @@ $( document ).on( "pageinit", function() {
                                        $(this).css('position','static');
                                        console.log("close");
                                        });
+                   $("#ev-rsvp-pop").on('popupafterclose', function () {
+                                        console.log("rsvp page close");
+                                        });
                 
                    $('#ev-info-pop').on('popupafteropen', function () {
                                         //$('body').css('overflow','hidden');
