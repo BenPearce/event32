@@ -326,7 +326,7 @@ function setButtons(){
                                                 "height": "200px"
                                                 });
                              
-                 /*
+                 
                              $("#fr-mail-pop").css({
                                                    
                                                    "margin": "auto",
@@ -334,13 +334,13 @@ function setButtons(){
                                                    "height": "70%",
                                                    "position": "fixed",
                                                    "left": "-5%",
-                                                   "top":"5s%",
+                                                   "top":"5%",
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                    "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                                                    });
-                           */
+                           
                              
                              setInterval(function(){
                                          frMailLock = false;
