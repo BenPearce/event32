@@ -318,8 +318,8 @@ function setButtons(){
                                                 });
                              
                              $("#ev-rsvp-pop a").css({
-                                                     "margin-right":"-15px",
-                                                     "margin-top": "30px"
+                                                     "margin-right":"18px",
+                                                     "margin-top": "100px"
                              });
                              
                              $("#ev-rsvp-pop").css({
