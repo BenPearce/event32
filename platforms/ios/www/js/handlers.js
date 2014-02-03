@@ -417,9 +417,11 @@ function setButtons(){
                              
                              //    var friendName1 = typeof eventList[eventList[eventId].friendIdArray[0]] !=   "undefined"  ?eventList[eventList[eventId].friendIdArray[0]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[0]].nameArray[1]+" is going" : "event-undefined";
                              
-                             //var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[q]+"";
+                             //var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[q]+"</div>";
                              
-                             //console.log("frName "+frName);
+                             var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[1]+"</div>";
+                             
+                             console.log("frName "+frName);
                              
                              var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
                              
