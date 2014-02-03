@@ -119,13 +119,14 @@ function setButtons(){
     
 
     
-
+/*
     $(".ev-rsvp-button").tap(function(){
                      //alert("rsvp");
                              var id = $(this).attr('data-evId');
                                console.log("rsvp tap");
                           $("#myPopupDiv").popup("open");
                      });
+ */
     
     $(".ev-i-button").touchstart(function(){
                                  $(this).addClass("ev-info-touched");
@@ -249,11 +250,90 @@ function setButtons(){
                                $(this).removeClass('ev-rsvp-button-touched');
                                });
     
+    var rsvpLock = false;
+    
     $(".ev-rsvp-button").tap(function(){
+                             console.log("ev-rsvp-tap");
+                             /*
                                   var id = $(this).attr('data-evId');
                                   alert("You have RSVP'd to: "+eventList[id].name);
+                             */
+                             if(!rsvpLock){
+                             rsvpLock = true;
+                             console.log("ev-i tap");
+                             var id = $(this).attr('data-evId');
+                             
+                             console.log(id);
+                             var desc = eventList[id].description;
+                             
+                             $("#ev-rsvp-pop").popup("open");
+                             $("#ev-rsvp-text").html("");
+                             var html="<div id='ev-rsvp-wrap'><img id='ev-rsvp-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-rsvp-i'>"+desc+"</div></div>";
+                             $("#ev-rsvp-text").addClass('ev-desc-i');
+                             
+                             $("#ev-rsvp-text").html(html);
+                             
+                             $("#ev-rsvp-pop").css({
+                                                   /*"overflow-y":"hidden",*/
+                                                   "padding":"10px"
+                                                   });
+                             
+                             $("#ev-rsvp-text").css({
+                                                    "overflow-y":"hidden!important",
+                                                    "width":"100%!important",
+                                                    "height":"100%!important"
+                                                    });
+                             
+                           
+                             $(".ev-rsvp-i").css({
+                                                 "word-wrap":"break-word",
+                                                 "width": "100%",
+                                                 "height":"385px",
+                                                 "overflow-y":"scroll"
+                                                 
+                                                 });
+                             
+                             
+                             $("#ev-rsvp-pic").css({
+                                                "margin": "20px auto",
+                                                "width": "200px",
+                                                "height": "200px"
+                                                });
+                             
+                             $("#ev-rsvp-pop").css({
+                                                   /*
+                                                    "-webkit-overflow-scrolling": "touch";
+                                                    "overflow-y":"auto";
+                                                    */
+                                                   
+                                                   "margin": "auto",
+                                                   "width": "80%",
+                                                   "height": "70%",
+                                                   "position": "fixed",
+                                                   "left": "-5%",
+                                                   "top":"5%",
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
+                                                   
+                                                   });
+                             
+                             setInterval(function(){
+                                         rsvpLock = false;
+                                         },600);
+                             
+                             }
+                             
                             
                                   });
+    
+    /*
+     <div data-role="popup" id="ev-rsvp-pop">
+     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+     <div id="ev-rsvp-text">desc</div>
+     </div>
+     */
     
     $(".fr-i-button").touchstart(function(){
                                  console.log("ts");
