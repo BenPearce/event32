@@ -423,7 +423,7 @@ function setButtons(){
                              
                              console.log("frName "+frName);
                              
-                             var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
+                             var html="<div id='fr-mail-outter'><div id='fr-mail-head'><div id='mail-to'>To:</div><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[eventList[id].friendIdArray[0]].fbId +"/picture?width=50&height=50'><div id='fr-mail-name'>"+frName+"</div></div><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
                              
                              //$("#fr-mail-text").addClass('ev-desc-i');
                              //$("#ev-desc-pop").addClass('fr-mail-i');
@@ -444,11 +444,35 @@ function setButtons(){
                                                     "margin":"auto"
                                                     });
                              
+                             $("#mail-to").css({
+                                               "width":"50px",
+                                               "height":"50px",
+                                               "font-size": "26pt",
+                                               "margin-right":"8px",
+                                               /*"display": "inline-block",*/
+                                               "float": "left"
+                                               });
+                             
+                             $("#fr-mail-head").css({
+                                                    "height": "50px",
+                                                    "display": "block",
+                                                    "margin-bottom": "20px"
+                                                    });
                              
                              $("#fr-mail-pic").css({
-                                                   "margin": "auto",
-                                                   "width": "200px",
-                                                   "height": "200px"
+                                                   "width": "50px",
+                                                   "height": "50px",
+                                                   /*"display": "inline-block",*/
+                                                   "float": "left"
+                                                   });
+                             
+                             $("#fr-mail-name").css({
+                                                    "width":"50px",
+                                                    "height":"50px",
+                                                    /*"display": "inline-block",*/
+                                                    "float": "left",
+                                                    "margin-left": "7px",
+                                                    "font-size": "14pt"
                                                    });
                              
                              $("#fr-mail-send").css({
@@ -495,7 +519,7 @@ function setButtons(){
                                                     */
                                                    
                                                    "width": "250px",
-                                                   "height": "380px",
+                                                   "height": "350px",
                                                    "margin-left":"-48px",
                                                    "padding":"10px",
                                                    "top":"0px",
