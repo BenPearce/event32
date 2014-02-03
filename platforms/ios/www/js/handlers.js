@@ -415,6 +415,12 @@ function setButtons(){
                              
                              //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
                              
+                             //    var friendName1 = typeof eventList[eventList[eventId].friendIdArray[0]] !=   "undefined"  ?eventList[eventList[eventId].friendIdArray[0]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[0]].nameArray[1]+" is going" : "event-undefined";
+                             
+                             //var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[q]+"";
+                             
+                             //console.log("frName "+frName);
+                             
                              var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
                              
                              //$("#fr-mail-text").addClass('ev-desc-i');
