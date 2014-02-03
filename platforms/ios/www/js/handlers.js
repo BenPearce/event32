@@ -317,11 +317,20 @@ function setButtons(){
                                                 "height": "50px",
                                                    "display":"inline-block"
                                                 });
-                             
+                             /*
                              $("#ev-rsvp-pop a").css({
                                                      "margin-right":"18px",
                                                      "margin-top": "100px"
                              });
+                             */
+                             
+                             $("#ev-rsvp-pop a").tap(function(){
+                                                     //alert("tap");
+                                                     //$( "#myPopupDiv" ).popup( "close" )
+                                                     $("#ev-rsvp-pop").popup("close");
+                                                     $("#ev-rsvp-pop").css({"display":"none"});
+                                                     console.log("done");
+                                                     });
                              
                              $("#ev-rsvp-pop").css({
                                                    /*
@@ -331,11 +340,12 @@ function setButtons(){
                                                    /*"margin": "auto",*/
                                                    "width": "230px",
                                                    "height": "130px",
-                                                   "margin-left":"-28px",
+                                                   "margin-left":"-15px",
                                                    "padding":"10px",
                                                    "position":"fixed",
                                                    "top":"0px",
                                                    "left":"0px",
+                                                   "display":"block",
                                                    /*"margin-top": "30px",*/
                                                    
                                                    /*
