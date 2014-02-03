@@ -307,16 +307,19 @@ function setButtons(){
                                                     */
                                                    
                                                    "margin": "auto",
-                                                   "width": "80%",
-                                                   "height": "70%",
-                                                   "position": "fixed",
-                                                   "left": "-5%",
-                                                   "top":"5%",
+                                                   "width": "200px",
+                                                   "height": "300px",
+                                                   /*
+                                                   "position": "absolute",
+                                                   
+                                                   "left": "5px",
+                                                   "top":"5px",
+                                                    */
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
                                                    "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                    "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
-                                                   
+                                                  
                                                    });
                              
                              setInterval(function(){
