@@ -290,7 +290,7 @@ function setButtons(){
                              $("#fr-mail-text").html("");
                              var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
                              //$("#fr-mail-text").addClass('ev-desc-i');
-                             
+                             $("#ev-desc-pop").addClass('fr-mail-i');
                              $("#fr-mail-text").html(html);
                              
                              $("#fr-mail-pop").css({
