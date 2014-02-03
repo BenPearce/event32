@@ -273,6 +273,84 @@ function setButtons(){
                                     $(this).removeClass('fr-mail-button-touched');
                                     });
     
+    var frMailLock = false;
+    
+    $(".fr-mail-button").tap(function(){
+                             console.log("fr mail start");
+                             if(!frMailLock){
+                             console.log("inside fr mail lock")
+                             frMailLock = true;
+                             //console.log("ev-i tap");
+                             var id = $(this).attr('data-evId');
+                             
+                             console.log("id: "+id);
+                             var desc = eventList[id].description;
+                             
+                             $("#fr-mail-pop").popup("open");
+                             $("#fr-mail-text").html("");
+                             var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
+                             //$("#fr-mail-text").addClass('ev-desc-i');
+                             
+                             $("#fr-mail-text").html(html);
+                             
+                             $("#fr-mail-pop").css({
+                                                   "padding":"10px"
+                                                   });
+                             
+                             $("#fr-mail-text").css({
+                                                    "overflow-y":"hidden!important",
+                                                    "width":"100%!important",
+                                                    "height":"100%!important"
+                                                     });
+                             
+                             
+                             $("#fr-mail-pic").css({
+                                                "margin": "20px auto",
+                                                "width": "200px",
+                                                "height": "200px"
+                                                });
+                             
+                       
+                             $(".fr-mail-i").css({
+                                                 "word-wrap":"break-word",
+                                                 "width": "100%",
+                                                 "height":"385px",
+                                                 "overflow-y":"scroll"
+                                                 
+                                                 });
+                           
+                             
+                             $("#fr-mail-i").css({
+                                                "margin": "20px auto",
+                                                "width": "200px",
+                                                "height": "200px"
+                                                });
+                             
+                 /*
+                             $("#fr-mail-pop").css({
+                                                   
+                                                   "margin": "auto",
+                                                   "width": "80%",
+                                                   "height": "70%",
+                                                   "position": "fixed",
+                                                   "left": "-5%",
+                                                   "top":"5s%",
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
+                                                   });
+                           */
+                             
+                             setInterval(function(){
+                                         frMailLock = false;
+                                         },600);
+                             
+                             }
+                              console.log("fr mail end");
+                             });
+    
+    /*
     $(".fr-mail-button").tap(function(){
                              console.log("mail tap");
                              $("#fr-mail-pop").popup("open");
@@ -314,6 +392,7 @@ function setButtons(){
                            
                                                     });
                              });
+     */
 }
 
 var touchedDate;
