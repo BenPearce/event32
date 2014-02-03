@@ -472,7 +472,7 @@ function setButtons(){
                                                    "margin-left":"-48px",
                                                    "padding":"10px",
                                                    "top":"0px",
-                                                   "left":"0px",
+                                                   "left":"14px",
                                                    
                                                    "position": "fixed",
                                                    "z-index":"5000!important",
