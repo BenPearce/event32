@@ -264,18 +264,27 @@ function setButtons(){
                              var id = $(this).attr('data-evId');
                              
                              console.log(id);
-                             var desc = eventList[id].description;
+                             var name = eventList[id].name;
                              
                              $("#ev-rsvp-pop").popup("open");
                              $("#ev-rsvp-text").html("");
-                             var html="<div id='ev-rsvp-wrap'><img id='ev-rsvp-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-rsvp-i'>"+desc+"</div></div>";
-                             $("#ev-rsvp-text").addClass('ev-desc-i');
+                             var html="<div id='ev-rsvp-wrap'><div id='rsvp-head'>You Have RSVP'd to:</div><div id='rsvp-ev-wrap'><img id='ev-rsvp-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-rsvp-i'>"+name+"</div></div></div>";
+                             /*$("#ev-rsvp-text").addClass('ev-desc-i');*/
                              
                              $("#ev-rsvp-text").html(html);
-                             
+                             /*
                              $("#ev-rsvp-pop").css({
+                                                   "padding":"10px",
+                                                   "padding-top":"30px!important"
+                                                   });
+                             */
+                             $("#rsvp-head").css({
                                                    /*"overflow-y":"hidden",*/
-                                                   "padding":"10px"
+                                                   "margin":"10px auto",
+                                                "width":"95%",
+                                                 "font-size":"16pt",
+                                                 "font-style":"bold",
+                                                 "margin-bottom":"10px"
                                                    });
                              
                              $("#ev-rsvp-text").css({
@@ -284,41 +293,58 @@ function setButtons(){
                                                     "height":"100%!important"
                                                     });
                              
+                             $("#rsvp-ev-wrap").css({
+                               "box-shadow": "2px 2px 2px #888888"
+                               });
                            
                              $(".ev-rsvp-i").css({
                                                  "word-wrap":"break-word",
-                                                 "width": "100%",
-                                                 "height":"385px",
-                                                 "overflow-y":"scroll"
-                                                 
+                                                 "width": "175px",
+                                                 "height":"50px",
+                                                 "overflow-y":"scroll",
+                                                 "display":"inline-block",
+                                                 "font-size":"8pt",
+                                                 "height": "40px",
+                                                 "margin-bottom": "13px",
+                                                 "margin-left": "5px"
                                                  });
                              
                              
                              $("#ev-rsvp-pic").css({
-                                                "margin": "20px auto",
-                                                "width": "200px",
-                                                "height": "200px"
+                                                "margin": "auto",
+                                                "width": "50px",
+                                                "height": "50px",
+                                                   "display":"inline-block"
                                                 });
+                             
+                             $("#ev-rsvp-pop a").css({
+                                                     "margin-right":"-15px",
+                                                     "margin-top": "30px"
+                             });
                              
                              $("#ev-rsvp-pop").css({
                                                    /*
                                                     "-webkit-overflow-scrolling": "touch";
                                                     "overflow-y":"auto";
                                                     */
+                                                   /*"margin": "auto",*/
+                                                   "width": "230px",
+                                                   "height": "130px",
+                                                   "margin-left":"-28px",
+                                                   "padding":"10px",
+                                                   /*"margin-top": "30px",*/
                                                    
-                                                   "margin": "auto",
-                                                   "width": "200px",
-                                                   "height": "300px",
                                                    /*
                                                    "position": "absolute",
                                                    
                                                    "left": "5px",
                                                    "top":"5px",
                                                     */
-                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
-                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
-                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
-                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
+                                                   
+                                                   "border-right": "solid rgba(0, 0, 0, 0.65) 50px",
+                                                   "border-left": "solid rgba(0, 0, 0, 0.65) 50px",
+                                                   "border-top": "solid rgba(0, 0, 0, 0.65) 100px",
+                                                   "border-bottom": "solid rgba(0, 0, 0, 0.65) 250px"
                                                   
                                                    });
                              
