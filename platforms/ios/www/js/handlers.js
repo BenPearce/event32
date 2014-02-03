@@ -333,6 +333,9 @@ function setButtons(){
                                                    "height": "130px",
                                                    "margin-left":"-28px",
                                                    "padding":"10px",
+                                                   "position":"fixed",
+                                                   "top":"0px",
+                                                   "left":"0px",
                                                    /*"margin-top": "30px",*/
                                                    
                                                    /*
