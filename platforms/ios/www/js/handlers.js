@@ -415,7 +415,14 @@ function setButtons(){
                              
                              //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
                              
-                             var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
+                             //var frName = eventList[eventList[id].friendIdArray[0].nameArray[1]];
+                             //console.log("frName "+frName);
+                             
+                            // var html="<div id='fr-mail-outter'><div id='fr-mail-head'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div id='fr-mail-name'>"+frName+"</div></div><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
+                             
+                              var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
+                             
+                                var friendName1 = typeof eventList[eventList[eventId].friendIdArray[0]] !=   "undefined"  ?eventList[eventList[eventId].friendIdArray[0]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[0]].nameArray[1]+" is going" : "event-undefined";
                              
                              //$("#fr-mail-text").addClass('ev-desc-i');
                              //$("#ev-desc-pop").addClass('fr-mail-i');
