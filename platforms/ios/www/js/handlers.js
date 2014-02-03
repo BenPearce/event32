@@ -421,7 +421,13 @@ function setButtons(){
                              //$("#ev-desc-pop").addClass('fr-mail-i');
                              $("#fr-mail-text").html(html);
                              
-                            
+                             $("#fr-mail-pop a").tap(function(){
+                                                     //alert("tap");
+                                                     //$( "#myPopupDiv" ).popup( "close" )
+                                                     $("#fr-mail-pop").popup("close");
+                                                     $("#fr-mail-pop").css({"display":"none"});
+                                                     console.log("done");
+                                                     });
                              
                              $("#fr-mail-text").css({
                                                     "overflow-y":"hidden!important",
@@ -486,7 +492,7 @@ function setButtons(){
                                                    "padding":"10px",
                                                    "top":"0px",
                                                    "left":"14px",
-                                                   
+                                                   "display":"block",
                                                    "position": "fixed",
                                                    "z-index":"5000!important",
                                                    //"left": "-5%",
