@@ -83,9 +83,13 @@ function setButtons(){
                             "width":"100%"
                             });
                             
+                            
                             $("#popupMap .map-back").tap(function(){
-                                                         $("#popupMap").css({"display":"none"});
-                                                         });
+                                                         $("#popupMap").popup("close");
+                                                         //$("#popupMap").css({"display":"none"});
+                                                          });
+                            
+                            
                             
                             //var ifr = $('#map-wrap iframe');
                             
@@ -100,13 +104,14 @@ function setButtons(){
                              });
                              */
                             
-                            
+                            /*
                             $(".ui-popup iframe").css({
                                                       "display":"block"
                             });
-                            
+                            */
                             
                             $("#popupMap").css({
+                                               "display":"block",
                                                "margin": "auto",
                                                "width": "80%",
                                                "height": "70%",
@@ -176,7 +181,7 @@ function setButtons(){
                           
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                          var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div></div>";
+                          var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture'><div class ='ev-desc-i'>"+desc+"</div></div>";
                           //$("#ev-desc-pop").addClass('ev-desc-i');
                           
                           $("#ev-desc-pop").html(html);
@@ -941,6 +946,7 @@ $(document).on("pageinit", "#date-page", function (event) {
                $('#ev-info-pop').on('popupafterclose', function () {
                                     $(this).css('position','static');
                                     console.log("close");
+                                     //$(".foot").css({"position":"fixed!important"});
                                     //$('body').css('overflow','auto');
                                     });
                
@@ -954,6 +960,7 @@ $(document).on("pageinit", "#date-page", function (event) {
                $("#popupMap").on('popupafterclose', function () {
                                  $(this).css('position','static');
                                  console.log("map close");
+                                 //$(".foot").css({"position":"fixed!important"});
                                  });
                
                
