@@ -62,7 +62,7 @@ function setButtons(){
                             
                             var iframe = document.createElement('iframe');
                             console.log("coordinate: "+eventList[id].venue.coordinate);
-                            iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
+                            
                             
                             $("#popupMap").popup("open");
                             //$("#popupMap").append(iframe);
@@ -72,9 +72,20 @@ function setButtons(){
                              */
                             $("#map-wrap").html(iframe);
                             
-                            var ifr = $('#map-wrap iframe');
+                            $("#map-wrap iframe").attr("src","map.html?coordinate=" + eventList[id].venue.coordinate);
+                            //iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
                             
-                            ifr.src = ifr.src;
+                            $("#map-wrap iframe").trigger('create');
+                            $("#map-wrap").trigger('create');
+                            
+                            $("#map-wrap iframe").css({
+                            "height": "100%",
+                            "width":"100%"
+                            });
+                            
+                            //var ifr = $('#map-wrap iframe');
+                            
+                            //ifr.src = ifr.src;
                             
                             //$("#popupMap").html(iframe);
                             /*
