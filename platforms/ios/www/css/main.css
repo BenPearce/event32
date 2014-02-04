@@ -984,9 +984,37 @@ height:170px!important;
     box-shadow:2px 2px 2px #888888;
 }
 
+.checkTouched{
+    background-image:url('../images/checkOrangeBg.png')!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+}
+
 .ev-check-in-button{
     
 
+    background-image:url('../images/check-trans.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    float:left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
+    box-shadow:2px 2px 2px #888888;
+}
+
+.ev-rsvp-button-touched{
+    
+    background-image:url('../images/checkOrangeBg.png')!important;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.ev-rsvp-button{
+    
     background-image:url('../images/rsvpIcon50.png');
     background-position:center;
     background-repeat:no-repeat;
@@ -998,6 +1026,7 @@ height:170px!important;
     -webkit-perspective: 500;
     -webkit-backface-visibility: hidden;
     box-shadow:2px 2px 2px #888888;
+    /*border:solid black 1px;*/
 }
 
 .ev-tag-button{
@@ -1033,28 +1062,6 @@ height:170px!important;
 }
 
 
-.ev-rsvp-button-touched{
-
-    background-image:url('../images/checkOrangeBg.png')!important;
-    background-position:center;
-    background-repeat:no-repeat;
-}
-
-.ev-rsvp-button{
-
-    background-image:url('../images/check-trans.png');
-    background-position:center;
-    background-repeat:no-repeat;
-    float:left;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: width .5s;
-    -webkit-transition: width .5s;
-    -webkit-perspective: 500;
-    -webkit-backface-visibility: hidden;
-    box-shadow:2px 2px 2px #888888;
-    /*border:solid black 1px;*/
-}
 
 .ev-map-button{
 
@@ -1097,7 +1104,7 @@ height:170px!important;
 	/*display: inline-block;*/
     width: 50px;
     height: 50px;
-    background: hsl(120, 100%, 25%);
+    /*background: hsl(120, 100%, 25%);*/
     display:block;
     /*margin-left: 5px;*/
     
@@ -1106,7 +1113,7 @@ height:170px!important;
 .friend-img{
     width: 50px;
     height: 50px;
-    background: hsl(120, 100%, 25%);
+    /*background: hsl(120, 100%, 25%);*/
     display:block;
     /*
     border-right:solid rgba(0, 0, 0, 0.75) 1px;
@@ -1588,11 +1595,6 @@ height:50px
     /*width: 100%;*/
 }
 
-.checkTouched{
-    background-image:url('../images/checkOrangeBg.png')!important;
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-}
 
 .mapTouched{
     background-image:url('../images/mapMrkOrange.png')!important;

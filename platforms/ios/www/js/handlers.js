@@ -71,6 +71,11 @@ function setButtons(){
                              $("#map-wrap").html(iframe);
                              */
                             $("#map-wrap").html(iframe);
+                            
+                            var ifr = $('#map-wrap iframe');
+                            
+                            ifr.src = ifr.src;
+                            
                             //$("#popupMap").html(iframe);
                             /*
                              $("#popupMap").css({
@@ -79,6 +84,13 @@ function setButtons(){
                              "height": "70%"
                              });
                              */
+                            
+                            
+                            $(".ui-popup iframe").css({
+                                                      "display":"block"
+                            });
+                            
+                            
                             $("#popupMap").css({
                                                "margin": "auto",
                                                "width": "80%",
@@ -137,9 +149,11 @@ function setButtons(){
                                });
     
     $(".ev-i-button").tap(function(){
+                          console.log("ev-i-tap");
                           if(!evILock){
+                          console.log("ev-i in");
                           evILock= true;
-                          console.log("ev-i tap");
+                          
                           var id = $(this).attr('data-evId');
                           
                           console.log(id);
@@ -148,12 +162,11 @@ function setButtons(){
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
                           var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-desc-i'>"+desc+"</div></div>";
-                          $("#ev-desc-pop").addClass('ev-desc-i');
+                          //$("#ev-desc-pop").addClass('ev-desc-i');
                           
                           $("#ev-desc-pop").html(html);
                           
                           $("#ev-info-pop").css({
-                                                /*"overflow-y":"hidden",*/
                                                 "padding":"10px"
                                                 });
                           
@@ -167,9 +180,9 @@ function setButtons(){
                           $(".ev-desc-i").css({
                                               "word-wrap":"break-word",
                                               "width": "100%",
-                                              "height":"385px",
-                                              "overflow-y":"scroll"
-                                              
+                                              "height":"140px",
+                                              "overflow-y":"scroll",
+                                              "font-size":"10pt"
                                               });
                           
                           
@@ -180,17 +193,13 @@ function setButtons(){
                                              });
                           
                           $("#ev-info-pop").css({
-                                                /*
-                                                 "-webkit-overflow-scrolling": "touch";
-                                                 "overflow-y":"auto";
-                                                 */
-                                                
+                                                "display":"block",
                                                 "margin": "auto",
                                                 "width": "80%",
                                                 "height": "70%",
                                                 "position": "fixed",
-                                                "left": "-5%",
-                                                "top":"5s%",
+                                                "left": "-15px",
+                                                "top":"0px",
                                                 "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
                                                 "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
                                                 "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
@@ -199,7 +208,7 @@ function setButtons(){
                           
                           setInterval(function(){
                                       evILock = false;
-                                      },600);
+                                      },700);
                           
                           }
                           });
@@ -902,14 +911,15 @@ $(document).on("pageinit", "#date-page", function (event) {
                                    console.log("close");
                                    });
                $("#ev-rsvp-pop").on('popupafterclose', function () {
+                                    $(this).css('display','none');
                                     console.log("rsvp page close");
                                     });
                
                $('#ev-info-pop').on('popupafteropen', function () {
                                     //$('body').css('overflow','hidden');
-                                    $(this).css('position','fixed');
+                                    //$(this).css('position','fixed');
                                     //$(this).css('top','100px');
-                                    $(this).css('margin-bottom','100px');
+                                   // $(this).css('margin-bottom','100px');
                                     console.log("open");
                                     });
                
