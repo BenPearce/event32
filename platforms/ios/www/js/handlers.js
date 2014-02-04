@@ -83,6 +83,10 @@ function setButtons(){
                             "width":"100%"
                             });
                             
+                            $("#popupMap .map-back").tap(function(){
+                                                         $("#popupMap").css({"display":"none"});
+                                                         });
+                            
                             //var ifr = $('#map-wrap iframe');
                             
                             //ifr.src = ifr.src;
