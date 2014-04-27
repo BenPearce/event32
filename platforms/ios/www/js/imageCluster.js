@@ -110,6 +110,7 @@ function getLeftExButton(k,text1,className){
 
 function getDateHeader(evening,k,cnt,ex){
 
+    console.log("date header: "+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]);
     return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div></div></div></div>';
 }
 

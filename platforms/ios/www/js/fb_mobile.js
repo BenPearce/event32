@@ -212,6 +212,7 @@ function popCal(){
             
             
             var dateHeader;
+            console.log("date hash 0: "+dateHash[i]);
             if(dateHash[i].eventList.length < 3){
                 dateHeader = getDateHeader(dateHash[i],i,"","");
             }else{

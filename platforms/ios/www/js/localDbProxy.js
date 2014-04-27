@@ -5,6 +5,7 @@ var friendList = {};
 var dateHash = new Array();
 
 function createTable1(){
+    //console.log("create table");
     var dfd = $.Deferred();
     var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db1.transaction(function (tx) {
@@ -56,12 +57,12 @@ function fbStampToDbTime(fbTimeOffSet){
 }
 
 function updateFriends() {
-    console.log("update friends trig");
+    //console.log("update friends trig");
     var dfd = $.Deferred();
     getFriendsFb().done(function (friendParse) {
                         //console.log("get friends trig");
                         insertFriendsDb(friendParse).done(function () {
-                                                          console.log("insert friends trig");
+                                                          //console.log("insert friends trig");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -84,14 +85,14 @@ function deleteExpiredFriendsEvents(){
 }
 
 var updateEvents = function () {
-    console.log("update events trig");
+    //console.log("update events trig");
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
                                                          deleteExpiredFriendsEvents().done(function(){
-                                                                                              console.log("delete expired");
+                                                                                              //console.log("delete expired");
                                                                                            insertEventIdsDb(friendEventsParse).done(function(){
-                                                                                                       console.log("insert events id");
+                                                                                                       //console.log("insert events id");
                                                                                                                                     dfd.resolve("blah");
                                                                                                                                     });
                                                                                            });
@@ -169,13 +170,14 @@ function insertEventIdsDb(friendEventsParse) {
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
+                    //console.log("insert Events: "+friendEventsParse[i].start_time)
                     //console.log("insert Event ID: "+friendEventsParse[i].eid);
                     count = count +1;
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
                     }
                     }, errorCB6, function () {
                     
-                    console.log("insert Event ID Success Count: "+count);
+                    //console.log("insert Event ID Success Count: "+count);
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
                     dfd.resolve("reesolved");
@@ -254,8 +256,7 @@ var updateEventAttr = function () {
                                                                                                                               getEventsImplementation().done(function(){
                                                                                                                                                              
                                                                                                                                                              dfd.resolve("friendIdList1");                                                     });
-                                                                                                                              
-                                                                                                                              });
+                                                                                                                                                                                                                                                           });
                                                                                        });
                                                             });
                          });
@@ -356,7 +357,7 @@ function insertEventArrtDb(eventAttrParse) {
                                   );
                     }
                     }, errorCB8, function () {
-                    console.log("insert Event Attr success count: "+count);
+                    //console.log("insert Event Attr success count: "+count);
                     var eventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", eventsUpdateTime);
                     //console.log("insert Event Attr res");
@@ -375,7 +376,7 @@ function updateDateIntegerDb(){
                                    count = count +1;
                                    //console.log("line before update");
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
-                                                 console.log("update dateHash count: "+count);
+                                                 //console.log("update dateHash count: "+count);
                                                  
                                                  tx.executeSql('SELECT dateHash, id, dateHash FROM EVENTS', [], function (tx, results) {
                                                                /*
@@ -592,7 +593,7 @@ function popUi(){
                                   
                                   fin.then(function(){
                                            //console.log("fin done");
-                                           console.log("masterEventCount: "+masterEventCount);
+                                           //console.log("masterEventCount: "+masterEventCount);
                                            dfd.resolve("tx1");
                                            });
                                   
