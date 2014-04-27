@@ -56,12 +56,12 @@ function fbStampToDbTime(fbTimeOffSet){
 }
 
 function updateFriends() {
-    //console.log("update friends trig");
+    console.log("update friends trig");
     var dfd = $.Deferred();
     getFriendsFb().done(function (friendParse) {
                         //console.log("get friends trig");
                         insertFriendsDb(friendParse).done(function () {
-                                                          //console.log("insert friends trig");
+                                                          console.log("insert friends trig");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -84,11 +84,14 @@ function deleteExpiredFriendsEvents(){
 }
 
 var updateEvents = function () {
+    console.log("update events trig");
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
                                                          deleteExpiredFriendsEvents().done(function(){
+                                                                                              console.log("delete expired");
                                                                                            insertEventIdsDb(friendEventsParse).done(function(){
+                                                                                                       console.log("insert events id");
                                                                                                                                     dfd.resolve("blah");
                                                                                                                                     });
                                                                                            });
@@ -98,7 +101,7 @@ var updateEvents = function () {
 }
 
 function getFriendsFb() {
-    //console.log("getFriendsFb");
+     //console.log("getFriendsFb");
     var dfd = $.Deferred();
     //console.log("getFriendsFb1");
     //console.log("accessToken "+accessToken);

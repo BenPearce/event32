@@ -181,7 +181,7 @@ function setButtons(){
                           
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
-                          var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture'><div class ='ev-desc-i'>"+desc+"</div></div>";
+                          var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?height=200&width=200'><div class ='ev-desc-i'>"+desc+"</div></div>";
                           //$("#ev-desc-pop").addClass('ev-desc-i');
                           
                           $("#ev-desc-pop").html(html);
