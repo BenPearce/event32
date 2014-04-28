@@ -65,7 +65,7 @@ function populateCalendar(calendar){
 if(typeof calendar[i].eventIdArray[0] != "undefined"){
 	
 //$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(calendar[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-list-wrap-"+i+"' class='event-list-wrap'></div></div></li>");
-    console.log("Calendar i "+calendar[i]);
+    //console.log("Calendar i "+calendar[i]);
 	$("#dateMainList").append("<li class='date-list-elem-outter' style='z-index:"+(28-i)+"' id='date-elem-"+i+"-list' name='"+i+"' >"+getDateHeader(calendar[i])+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'></div></li>");
 		     
 $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdArray[0]].fbId,"topEvent"));
@@ -289,7 +289,7 @@ function deg2rad(deg) {
         $.each(batchCallArray, function (i, val) {
             friendsEventObj.batch = batch
             FB.api('/', 'post', val, $.proxy(function (response) {
-                                             console.log("batch itterate resp: "+JSON.stringify(response));
+                                             //console.log("batch itterate resp: "+JSON.stringify(response));
                 this.data = response;
                 //Parsing through friends Event Object
                 $.each(response, $.proxy(function (friendIndex, friendValue) {

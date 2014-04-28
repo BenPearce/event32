@@ -52,16 +52,16 @@ $(document).bind('pageinit', function() {
                  });
 
 function setButtons(){
-    console.log("set buttons");
+    //console.log("set buttons");
     
     $('.ev-map-button').tap(function(){
                             //alert("rsvp");
                             var id = $(this).attr('data-evId');
                             
-                            console.log("map fbId: "+id);
+                            //console.log("map fbId: "+id);
                             
                             var iframe = document.createElement('iframe');
-                            console.log("coordinate: "+eventList[id].venue.coordinate);
+                            //console.log("coordinate: "+eventList[id].venue.coordinate);
                             
                             
                             $("#popupMap").popup("open");
@@ -169,14 +169,14 @@ function setButtons(){
                                });
     
     $(".ev-i-button").tap(function(){
-                          console.log("ev-i-tap");
+                          //console.log("ev-i-tap");
                           if(!evILock){
-                          console.log("ev-i in");
+                          //console.log("ev-i in");
                           evILock= true;
                           
                           var id = $(this).attr('data-evId');
                           
-                          console.log(id);
+                          //console.log(id);
                           var desc = eventList[id].description;
                           
                           $("#ev-info-pop").popup("open");
@@ -282,17 +282,17 @@ function setButtons(){
     var rsvpLock = false;
     
     $(".ev-rsvp-button").tap(function(){
-                             console.log("ev-rsvp-tap");
+                             //console.log("ev-rsvp-tap");
                              /*
                               var id = $(this).attr('data-evId');
                               alert("You have RSVP'd to: "+eventList[id].name);
                               */
                              if(!rsvpLock){
                              rsvpLock = true;
-                             console.log("ev-i tap");
+                             //console.log("ev-i tap");
                              var id = $(this).attr('data-evId');
                              
-                             console.log(id);
+                             //console.log(id);
                              var name = eventList[id].name;
                              
                              $("#ev-rsvp-pop").popup("open");
@@ -358,7 +358,7 @@ function setButtons(){
                                                      //$( "#myPopupDiv" ).popup( "close" )
                                                      $("#ev-rsvp-pop").popup("close");
                                                      $("#ev-rsvp-pop").css({"display":"none"});
-                                                     console.log("done");
+                                                     //console.log("done");
                                                      });
                              
                              $("#ev-rsvp-pop").css({
@@ -408,12 +408,12 @@ function setButtons(){
      */
     
     $(".fr-i-button").touchstart(function(){
-                                 console.log("ts");
+                                 //console.log("ts");
                                  $(this).addClass('fr-i-button-touched');
                                  });
     
     $(".fr-i-button").touchend(function(){
-                               console.log("te");
+                               //console.log("te");
                                $(this).removeClass('fr-i-button-touched');
                                });
     
@@ -428,14 +428,14 @@ function setButtons(){
     var frMailLock = false;
     
     $(".fr-mail-button").tap(function(){
-                             console.log("fr mail start");
+                             //console.log("fr mail start");
                              if(!frMailLock){
-                             console.log("inside fr mail lock")
+                             //console.log("inside fr mail lock")
                              frMailLock = true;
                              //console.log("ev-i tap");
                              var id = $(this).attr('data-evId');
                              
-                             console.log("id: "+id);
+                             //console.log("id: "+id);
                              var desc = eventList[id].description;
                              
                              $("#fr-mail-pop").popup("open");
@@ -450,7 +450,7 @@ function setButtons(){
                              
                              var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[1]+"</div>";
                              
-                             console.log("frName "+frName);
+                             //console.log("frName "+frName);
                              
                              var html="<div id='fr-mail-outter'><div id='fr-mail-head'><div id='mail-to'>To:</div><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[eventList[id].friendIdArray[0]].fbId +"/picture?width=50&height=50'><div id='fr-mail-name'>"+frName+"</div></div><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
                              
@@ -463,7 +463,7 @@ function setButtons(){
                                                      //$( "#myPopupDiv" ).popup( "close" )
                                                      $("#fr-mail-pop").popup("close");
                                                      $("#fr-mail-pop").css({"display":"none"});
-                                                     console.log("done");
+                                                     //console.log("done");
                                                      });
                              
                              $("#fr-mail-text").css({
@@ -572,7 +572,7 @@ function setButtons(){
                                          },600);
                              
                              }
-                             console.log("fr mail end");
+                             //console.log("fr mail end");
                              });
     
     /*
@@ -628,7 +628,7 @@ var first = true;
 var dateCnt = false;
 
 function setEventTap(){
-    console.log("set event tap");
+    //console.log("set event tap");
     /*
      $(".event-img-wrap").css('border','solid red 2px');
      
@@ -647,7 +647,7 @@ function setEventTap(){
                                });
     
     $(".friend-wrap").touchstart(function(){
-                                 console.log("friend-wrap tap");
+                                 //console.log("friend-wrap tap");
                                  var evId = $(this).attr('data-evId');
                                  var dateId = $(this).attr('data-dateHash');
                                  var isSelected = $(this).hasClass('friend-selected') & $(this).hasClass('event-selected');
@@ -662,21 +662,21 @@ function setEventTap(){
                                  
                                  if(eventSelected){
                                  
-                                 console.log("has friend-selected");
+                                 //console.log("has friend-selected");
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  }else if(formerFriendSelected){
-                                 console.log("former friend");
+                                 //console.log("former friend");
                                  var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                  
                                  if(eventSelected){
                                  //console.log("former friend/event");
-                                 console.log("this has friend-selected");
+                                 //console.log("this has friend-selected");
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  }else{
-                                 console.log("friend cont else");
+                                 //console.log("friend cont else");
                                  $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                  var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                  $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
@@ -713,13 +713,13 @@ function setEventTap(){
                                  
                                  
                                  if(!touched & !selected){
-                                 console.log("!touched & !selected");
+                                 //console.log("!touched & !selected");
                                  $(this).parents().eq(2).removeClass('event-touched');
                                  $(this).parents().eq(2).addClass('friend-touched');
                                  }else if(!touched & selected){
-                                 console.log("!touched & selected");
+                                 //console.log("!touched & selected");
                                  }else if (touched & !selected){
-                                 console.log("touched & !selected go");
+                                 //console.log("touched & !selected go");
                                  $(this).parents().eq(4).addClass("notransition");
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  var tempHeight = $(this).parents().eq(3).height();
@@ -733,7 +733,7 @@ function setEventTap(){
     
     $(".event-img-wrap").touchstart(function(){
                                     
-                                    console.log("ev-img-wrap trig");
+                                    //console.log("ev-img-wrap trig");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
                                     var isSelected = $(this).hasClass('event-selected') & $(this).hasClass('event-selected');
@@ -746,21 +746,21 @@ function setEventTap(){
                                     
                                     if(friendSelected){
                                     
-                                    console.log("has friend-selected");
+                                    //console.log("has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
                                     
                                     }else if(formerEventSelected){
                                     
-                                    console.log("former event selected");
+                                    //console.log("former event selected");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     
                                     if(friendSelected){
-                                    console.log("this has friend-selected");
+                                    //console.log("this has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
                                     }else{
-                                    console.log("event cont else");
+                                    //console.log("event cont else");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
@@ -770,21 +770,21 @@ function setEventTap(){
                                     }
                                     
                                     if(!touched & !selected){
-                                    console.log("!touched & !selected");
+                                    //console.log("!touched & !selected");
                                     $(this).parents().eq(2).removeClass('friend-touched');
                                     $(this).parents().eq(2).addClass('event-touched');
                                     }else if(!touched & selected){
-                                    console.log("!touched & selected");
+                                    //console.log("!touched & selected");
                                     }else if (touched & !selected){
-                                    console.log("touched & !selected");
+                                    //console.log("touched & !selected");
                                     $(this).parents().eq(4).addClass("notransition");
                                     var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).addClass('event-selected');
                                     
                                     if(formerEventSelected){
-                                    console.log("last event selected");
+                                    //console.log("last event selected");
                                     }else{
-                                    console.log("last event selected else");
+                                    //console.log("last event selected else");
                                     if(formerEventSelected){
                                     
                                     }else{
@@ -806,9 +806,9 @@ function setEventTap(){
 }
 
 function setFriendTap(){
-    console.log("set friend tap");
+    //console.log("set friend tap");
     $(".more-events-text-wrap").touchstart(function(){
-                                           console.log("more events start");
+                                           //console.log("more events start");
                                            $(this).addClass('more-events-text-wrap-touched');
                                            setInterval(function(){
                                                        moreEventsLocked = false;
@@ -816,7 +816,7 @@ function setFriendTap(){
                                            });
     
     $(".more-events-text-wrap").touchend(function(e){
-                                         console.log("more events start");
+                                         //console.log("more events start");
                                          $(this).removeClass('more-events-text-wrap-touched');
                                          if(!moreEventsLocked){
                                          moreEventsLocked = true;
@@ -825,19 +825,19 @@ function setFriendTap(){
                                          });
     
     $(".left-ex-button").touchstart(function(){
-                                    console.log("less events start");
+                                    //console.log("less events start");
                                     });
     
     $(".left-ex-button").touchend(function(e){
-                                  console.log("less events end");
+                                  //console.log("less events end");
                                   popDate1(e,this);
                                   });
 }
 
 function stickyList(){
-    console.log("stick list trig");
+    //console.log("stick list trig");
     $(".date-row").sticky({ topSpacing: 0 });
-    console.log("stick list end");
+    //console.log("stick list end");
 }
 
 //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
@@ -892,7 +892,7 @@ $( document ).on( "pageinit", function() {
                  
                  $( "#popupMap" ).on({
                                      popupbeforeposition: function() {
-                                     console.log("popupbeforeposition");
+                                     //console.log("popupbeforeposition");
                                      var size = scale( 480, 320, 0, 1 ),
                                      w = size.width,
                                      h = size.height;
@@ -923,16 +923,16 @@ $(document).on("pageinit", "#date-page", function (event) {
                                    $(this).css('position','fixed');
                                    //$(this).css('top','100px');
                                    
-                                   console.log("open");
+                                   //console.log("open");
                                    });
                
                $('#myPopupDiv').on('popupafterclose', function () {
                                    $(this).css('position','static');
-                                   console.log("close");
+                                   //console.log("close");
                                    });
                $("#ev-rsvp-pop").on('popupafterclose', function () {
                                     $(this).css('display','none');
-                                    console.log("rsvp page close");
+                                    //console.log("rsvp page close");
                                     });
                
                $('#ev-info-pop').on('popupafteropen', function () {
@@ -940,12 +940,12 @@ $(document).on("pageinit", "#date-page", function (event) {
                                     //$(this).css('position','fixed');
                                     //$(this).css('top','100px');
                                    // $(this).css('margin-bottom','100px');
-                                    console.log("open");
+                                    //console.log("open");
                                     });
                
                $('#ev-info-pop').on('popupafterclose', function () {
                                     $(this).css('position','static');
-                                    console.log("close");
+                                    //console.log("close");
                                      //$(".foot").css({"position":"fixed!important"});
                                     //$('body').css('overflow','auto');
                                     });
@@ -954,12 +954,12 @@ $(document).on("pageinit", "#date-page", function (event) {
                                  $(this).css('position','fixed');
                                  //$(this).css('top','100px');
                                  //$(this).css('margin-bottom','100px');
-                                 console.log("map open");
+                                 //console.log("map open");
                                  });
                
                $("#popupMap").on('popupafterclose', function () {
                                  $(this).css('position','static');
-                                 console.log("map close");
+                                 //console.log("map close");
                                  //$(".foot").css({"position":"fixed!important"});
                                  });
                

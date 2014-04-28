@@ -80,10 +80,10 @@ function makeEvening(integer) {
     //result.convertedData = integerToDate(integer);
     result.convertedData = integer;
     result.convertedData = integerToDate(integer);
-    console.log("get day: "+result.convertedData.getDay());
+    //console.log("get day: "+result.convertedData.getDay());
     //console.log("week day: "+result.weekArray[3]);
     result.weekDayLong = result.weekDay[result.convertedData.getDay()]
-    console.log("weekDayLong "+result.weekDayLong);
+    //console.log("weekDayLong "+result.weekDayLong);
     result.formattedDate = result.convertedData.toString().substr(0, result.convertedData.toString().indexOf(":") - 3);
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
     result.dateStringArray = result.formattedDate.split(" ");

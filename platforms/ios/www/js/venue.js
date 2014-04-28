@@ -23,7 +23,7 @@ function venue() {
 }
 
 function makeVenue(data) {
-    console.log("make venue triggered");
+    //console.log("make venue triggered");
     var result = new venue();
     /*
     var proximity = makeListElement(data);
@@ -66,8 +66,6 @@ function makeVenue(data) {
     //geoPosition.coords.latitude
     //geoPosition.coords.longitude
     
-    
-    
     result.venue_latitude = data.venue_latitude;
     result.venue_longitude = data.venue_longitude;
     result.coordinate =data.venue_latitude + ","+data.venue_longitude;
@@ -81,12 +79,12 @@ function makeVenue(data) {
         result.local = false;
     }
     
-    console.log("distance km: "+temp);
+    //console.log("distance km: "+temp);
     /*
     console.log("mk venue lat: "+result.venue_latitude);
     console.log("mk venue long: "+result.venue_longitude);
      */
-    console.log("mk venue name: "+result.name);
+    //console.log("mk venue name: "+result.name);
     result.data;
     result.test = "test";
     result.eventDomClone = $("<div class='venueEvent' data-role='collapsible' data-collapsed='true'><h3></h3><p></p></div>");

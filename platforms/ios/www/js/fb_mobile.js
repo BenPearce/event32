@@ -17,7 +17,7 @@ var lastEvIndex;
 var geoPosition;
 
 function eventExpand(element){
-    console.log("event expand");
+    //console.log("event expand");
     var descPos;
     var dateId = $(element).attr('data-dateHash');
     var evId = $(element).attr("id");
@@ -55,23 +55,23 @@ function eventExpand(element){
 }
 
 function contract(exIndex,elem,transition){
-    console.log("contract start");
+    //console.log("contract start");
     $(elem).removeClass("expanded");
 
         if(transition){
-            console.log("contract trans");
+            //console.log("contract trans");
             $("#event-wrap-in-"+exIndex).css("height","280px");
             //if(exIndex != lastIndex){
-                console.log("line before html trans");
+                //console.log("line before html trans");
                 $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
                     //$("#event-wrap-in-"+exIndex).html("");
             //}
 
         }else{
-            console.log("contract non-trans");
+            //console.log("contract non-trans");
             $("#event-wrap-in-"+exIndex).addClass("notransition");
             $("#event-wrap-in-"+exIndex).css("height","280px");
-            console.log("line before html non-trans");
+            //console.log("line before html non-trans");
             $("#event-wrap-in-"+exIndex).html("");
        
             $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
@@ -84,7 +84,7 @@ function contract(exIndex,elem,transition){
 
     $("#divider-wrap-"+exIndex).removeClass("cnt");
      $("#divider-wrap-"+exIndex).addClass("ex");
-    console.log("contract end");
+    //console.log("contract end");
 
     var moreText = (dateHash[exIndex].eventList.length - 4);
 
@@ -93,7 +93,7 @@ function contract(exIndex,elem,transition){
 }
 
 function expand(cntIndex,elem){
-    console.log("expand");
+    //console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
         var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
@@ -114,7 +114,7 @@ function expand(cntIndex,elem){
 }
 
 function popDate1(e,elem){
-    console.log("pop date 1");
+    //console.log("pop date 1");
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
@@ -125,11 +125,11 @@ function popDate1(e,elem){
     expanded = $(elem).is(".expanded");
 
     if((lastIndex != k) & !firstExpand){
-        console.log("one");
+        //console.log("one");
         contract(lastIndex,exSelector,false);
         contract(k,elem,true);
     }else{
-        console.log("two");
+        //console.log("two");
         contract(k,elem,true);
     }
 
@@ -155,13 +155,13 @@ function popDate1(e,elem){
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
-    console.log("pop date 1 end");
+    //console.log("pop date 1 end");
     setEventTap();
     setButtons();
 }
 
 function popDate(e,elem){
-    console.log("popDate");
+    //console.log("popDate");
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
@@ -212,7 +212,7 @@ function popCal(){
             
             
             var dateHeader;
-            console.log("date hash 0: "+dateHash[i]);
+            //console.log("date hash 0: "+dateHash[i]);
             if(dateHash[i].eventList.length < 3){
                 dateHeader = getDateHeader(dateHash[i],i,"","");
             }else{
@@ -273,12 +273,12 @@ function popCal(){
 }
 
 function locSuccess(position){
-    console.log("lat: "+position.coords.latitude);
-    console.log("lng: "+position.coords.longitude);
+    //console.log("lat: "+position.coords.latitude);
+    //console.log("lng: "+position.coords.longitude);
 }
 
 function locError(){
-    console.log("geo error");
+    //console.log("geo error");
 }
 
 document.addEventListener('deviceready', function () {

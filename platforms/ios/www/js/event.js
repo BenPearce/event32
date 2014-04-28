@@ -124,8 +124,8 @@ function makeEvent(data) {
     var d = moment.utc(result.start_time);
    result.formattedTime = d.local().format('h:mma');
     
-    console.log("result.start_time "+result.start_time);
-    console.log("result.formattedTime"+result.formattedTime);
+    //console.log("result.start_time "+result.start_time);
+    //console.log("result.formattedTime"+result.formattedTime);
     
     var temp1 = temp.getHours();
     //result.pictureUrl = data.picture.data.url;
