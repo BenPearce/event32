@@ -75,9 +75,9 @@ function deleteExpiredFriendsEvents(){
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     var stat1 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
-                    var stat2 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')";
+                    //var stat2 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')";
                     
-                    tx.executeSql(stat2,function(){console.log("Error");},function(){
+                    tx.executeSql(stat1,function(){console.log("Error");},function(){
                                   dfd.resolve("friendParse");
                                   });
                     });
@@ -276,8 +276,8 @@ function insertEventArrtDb(eventAttrParse) {
                     
                     //venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
                     
-                    
-                    
+                    //Not getting any of todays dates
+                    console.log("Insert Event Attr db date: "+eventAttrParse[i].start_time);
                     
 
                     
@@ -371,10 +371,14 @@ function updateDateIntegerDb(){
     var dfd = $.Deferred();
     var db10 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db10.transaction(function (tx) {
-                     tx.executeSql('SELECT start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
+                     tx.executeSql('SELECT name, start_time, id, dateHash FROM EVENTS', [], function (tx, results) {
                                    for (var i = 0; i < results.rows.length; i++) {
                                    count = count +1;
-                                   //console.log("line before update");
+                                   //At this pooint were not getting any of todays dates
+                                   //console.log("event name: "+results.rows.item(i).name);
+                                   //console.log("start time db insert: "+results.rows.item(i).start_time);
+                                   //console.log("date to int Insert: "+dateToInteger(results.rows.item(i).start_time));
+                                   
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                                  //console.log("update dateHash count: "+count);
                                                  

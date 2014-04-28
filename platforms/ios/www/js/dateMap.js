@@ -35,7 +35,7 @@ function daysBetween(startDate, endDate) {
 }
 
 function dateToInteger(date){
-    console.log("date to int date input: "+date);
+    //console.log("date to int date input: "+date);
     //console.log("mark");
     //var d = new Date(fbTimeOffSet.replace(' ', 'T'));
 	var temp = new Date(date.replace(' ', 'T'));
@@ -48,13 +48,13 @@ function dateToInteger(date){
     //console.log("temp1 Get f year: "+temp.getFullYear());
     //console.log("temp1 Get year: "+temp.getYear());
     //console.log("temp1 TS: "+temp.getTime());
-        temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
+    temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
      //console.log("temp: "+temp);
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
    // console.log("today: "+today);
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
-    console.log("date to int date output: "+ dateHash);
+    //console.log("date to int date output: "+ dateHash);
 	//return  dateHash;
     return  daysBetween(today, temp);
 }
@@ -76,10 +76,10 @@ function dateToInt(fbDate){
 }
 */
 function integerToDate(integer){
-    console.log("input dateHash: "+integer)
+    //console.log("input dateHash: "+integer)
     integer = integer;
 	var today = new Date();
 	var temp = new Date(today.getFullYear(),today.getMonth(), today.getDate() +integer);
-    console.log("Output date: "+temp)
+    //console.log("Output date: "+temp)
 	return temp;
 }
