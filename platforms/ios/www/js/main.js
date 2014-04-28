@@ -195,8 +195,9 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
         }, this))
         return batchCallArray;
     }
-
+/*
     function parseEvent(value, friendID) {
+        console.log("parse Event");
         try {
             var event = makeEvent(value);
         } catch (err) {
@@ -209,6 +210,7 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
                     fbArray[value.id] = event;
                     eveningHash[parseInt(event.dateId)].eventIdArray.push(value.id);
                     //mainCalendar.init();
+                    
                     mainCalendar.eveningArray[parseInt(event.dateId)].eventIdArray.push(value.id);
                     
                     eveningHash[parseInt(event.dateId)].friendListEventCalendarState = eveningHash[parseInt(event.dateId)].friendListEventCalendarState & setBit(0, 3); 
@@ -265,7 +267,7 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
             }
         } else {}
     }
-
+*/
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below

@@ -74,7 +74,6 @@ function makeEvening(integer) {
     }
     
     result.friendListEventCalendarState = setBit(0,0);
-    
     //result.friendListEventCalendarState & setBit (0,3)
     result.id = integer;
     //result.convertedData = integerToDate(integer);
@@ -86,9 +85,9 @@ function makeEvening(integer) {
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
     console.log("formatted Date: "+result.formattedDate);
     result.dateStringArray = result.formattedDate.split(" ");
-    console.log("dateStringArray[2] "+result.dateStringArray[2]);
+    //console.log("dateStringArray[2] "+result.dateStringArray[2]);
     //if(){
-    console.log(result.dateStringArray[1]);
+    //console.log(result.dateStringArray[1]);
     //result.monthNumber = result.dateStringArray[0] = "Jan" ?   result.dateStringArray[0] = "Feb" ?     : "2"  : "1";
     if(result.dateStringArray[1] == "Jan"){
         result.monthNumber = "1";
@@ -115,7 +114,7 @@ function makeEvening(integer) {
     }else if((result.dateStringArray[1] == "Dec")|(result.dateStringArray[1] == "Dec")){
         result.monthNumber = "12";
     }
-    console.log(result.monthNumber);
+    //console.log(result.monthNumber);
     /*
      dateStringArray[0] = "Feb" ? "2" :
      dateStringArray[0] = "Feb" ? "3" :
@@ -133,6 +132,7 @@ function makeEvening(integer) {
     
     //result.dateCode = dateToInteger(result.convertedData);
     result.dateCode = integer;
+    
     result.domClone = $("<div><li class='evening' id='date-elem-"+result.id+"-list'><div class='date-list-elem' id='date-elem-"+result.id+"'><div class='date-wrap'><div class='day-name-wrap'></div><div class='day-num-wrap'></div><div class='month-wrap'></div></div><div class='date-img-cluster'><div class='date-img-cluster-inner'><div class='img-cluster-top'></div><div class='img-cluster-bot'></div></div></div></div><div class='eventExpand'></div></li></div>");
     
     result.domClone.attr('id', integer);
