@@ -48,67 +48,25 @@ function setSwipe(evSel){
 }
 
 $(document).bind('pageinit', function() {
-                 //setButtons();
                  });
 
 function setButtons(){
-    //console.log("set buttons");
-    
     $('.ev-map-button').tap(function(){
-                            //alert("rsvp");
                             var id = $(this).attr('data-evId');
-                            
-                            //console.log("map fbId: "+id);
-                            
                             var iframe = document.createElement('iframe');
-                            //console.log("coordinate: "+eventList[id].venue.coordinate);
-                            
-                            
                             $("#popupMap").popup("open");
-                            //$("#popupMap").append(iframe);
-                            /*
-                             $("#map-wrap").html("");
-                             $("#map-wrap").html(iframe);
-                             */
                             $("#map-wrap").html(iframe);
-                            
                             $("#map-wrap iframe").attr("src","map.html?coordinate=" + eventList[id].venue.coordinate);
-                            //iframe.src = "map.html?coordinate=" + eventList[id].venue.coordinate;
-                            
                             $("#map-wrap iframe").trigger('create');
                             $("#map-wrap").trigger('create');
-                            
                             $("#map-wrap iframe").css({
                             "height": "100%",
                             "width":"100%"
                             });
                             
-                            
                             $("#popupMap .map-back").tap(function(){
                                                          $("#popupMap").popup("close");
-                                                         //$("#popupMap").css({"display":"none"});
                                                           });
-                            
-                            
-                            
-                            //var ifr = $('#map-wrap iframe');
-                            
-                            //ifr.src = ifr.src;
-                            
-                            //$("#popupMap").html(iframe);
-                            /*
-                             $("#popupMap").css({
-                             "margin": "auto",
-                             "width": "80%",
-                             "height": "70%"
-                             });
-                             */
-                            
-                            /*
-                            $(".ui-popup iframe").css({
-                                                      "display":"block"
-                            });
-                            */
                             
                             $("#popupMap").css({
                                                "display":"block",
@@ -123,42 +81,7 @@ function setButtons(){
                                                "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                                                });
-                            
-                            /*
-                             ("#popupMap iframe").css({
-                             "margin": "auto",
-                             "width": "200px",
-                             "height": "200px"
-                             });
-                             */
-                            /*
-                             $("#popupMap iframe").contents().find( "#map_canvas" )
-                             .css( { "width": "200px!important", "height" : "200px"!important} );
-                             */
-                            /*
-                             $("#popupMap iframe")
-                             .css( { "width": "200px!important", "height" : "200px!important"} );
-                             
-                             $("#popupMap").find("#map_canvas")
-                             .css( { "width": "200px!important", "height" : "200px!important"} );
-                             
-                             $( "#popupMap iframe" )
-                             .attr( "width", "200" )
-                             .attr( "height", "200" );
-                             */
-                            
-                            });
-    
-    
-    
-    /*
-     $(".ev-rsvp-button").tap(function(){
-     //alert("rsvp");
-     var id = $(this).attr('data-evId');
-     console.log("rsvp tap");
-     $("#myPopupDiv").popup("open");
-     });
-     */
+                                                    });
     
     $(".ev-i-button").touchstart(function(){
                                  $(this).addClass("ev-info-touched");
@@ -169,34 +92,22 @@ function setButtons(){
                                });
     
     $(".ev-i-button").tap(function(){
-                          //console.log("ev-i-tap");
                           if(!evILock){
-                          //console.log("ev-i in");
                           evILock= true;
-                          
                           var id = $(this).attr('data-evId');
-                          
-                          //console.log(id);
                           var desc = eventList[id].description;
-                          
                           $("#ev-info-pop").popup("open");
                           $("#ev-desc-pop").html("");
                           var html="<div id='ev-desc-wrap'><img id='ev-i-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?height=200&width=200'><div class ='ev-desc-i'>"+desc+"</div></div>";
-                          //$("#ev-desc-pop").addClass('ev-desc-i');
-                          
                           $("#ev-desc-pop").html(html);
-                          
                           $("#ev-info-pop").css({
                                                 "padding":"10px"
                                                 });
-                          
                           $("#ev-desc-wrap").css({
                                                  "overflow-y":"hidden!important",
                                                  "width":"100%!important",
                                                  "height":"100%!important"
                                                  });
-                          
-                          
                           $(".ev-desc-i").css({
                                               "word-wrap":"break-word",
                                               "width": "100%",
@@ -204,14 +115,11 @@ function setButtons(){
                                               "overflow-y":"scroll",
                                               "font-size":"10pt"
                                               });
-                          
-                          
                           $("#ev-i-pic").css({
                                              "margin": "20px auto",
                                              "width": "200px",
                                              "height": "200px"
                                              });
-                          
                           $("#ev-info-pop").css({
                                                 "display":"block",
                                                 "margin": "auto",
@@ -225,42 +133,12 @@ function setButtons(){
                                                 "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
                                                 "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
                                                 });
-                          
                           setInterval(function(){
                                       evILock = false;
                                       },700);
-                          
                           }
                           });
     
-    
-    
-    
-    /*
-     
-     .checkTouched
-     
-     .mapTouched
-     */
-    
-    /*
-     $(".map-button").tap(function(){
-     console.log("ev id "+$(this).attr('data-evId'));
-     //eventList[
-     var evId = $(this).attr('data-evId');
-     console.log("event: "+eventList[evId]);
-     console.log("venue: "+eventList[evId].venue);
-     console.log("latitude: "+eventList[evId].venue.venue_latitude);
-     console.log("longitude: "+eventList[evId].venue.venue_longitude);
-     var iframe = document.createElement('iframe');
-     iframe.src = "map.html?coordinate="+eventList[evId].venue.venue_longitude+","+eventList[evId].venue.venue_latitude;
-     $(".mapWrap").html(iframe);
-     $(".mapWrap").append("chomp");
-     console.log("map click done");
-     //$(".popupMap1").html(iframe);
-     
-     });
-     */
     $(".ev-map-button").touchstart(function(){
                                    $(this).addClass('ev-map-button-touched');
                                    
@@ -282,34 +160,16 @@ function setButtons(){
     var rsvpLock = false;
     
     $(".ev-rsvp-button").tap(function(){
-                             //console.log("ev-rsvp-tap");
-                             /*
-                              var id = $(this).attr('data-evId');
-                              alert("You have RSVP'd to: "+eventList[id].name);
-                              */
                              if(!rsvpLock){
                              rsvpLock = true;
-                             //console.log("ev-i tap");
                              var id = $(this).attr('data-evId');
-                             
-                             //console.log(id);
                              var name = eventList[id].name;
-                             
                              $("#ev-rsvp-pop").popup("open");
                              $("#ev-rsvp-text").html("");
                              var html="<div id='ev-rsvp-wrap'><div id='rsvp-head'>You Have RSVP'd to:</div><div id='rsvp-ev-wrap'><img id='ev-rsvp-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='ev-rsvp-i'>"+name+"</div></div></div>";
-                             /*$("#ev-rsvp-text").addClass('ev-desc-i');*/
-                             
                              $("#ev-rsvp-text").html(html);
-                             //$(this).addClass("orange-check");
-                             /*
-                              $("#ev-rsvp-pop").css({
-                              "padding":"10px",
-                              "padding-top":"30px!important"
-                              });
-                              */
+
                              $("#rsvp-head").css({
-                                                 /*"overflow-y":"hidden",*/
                                                  "margin":"10px auto",
                                                  "width":"95%",
                                                  "font-size":"16pt",
@@ -346,27 +206,13 @@ function setButtons(){
                                                    "height": "50px",
                                                    "display":"inline-block"
                                                    });
-                             /*
-                              $("#ev-rsvp-pop a").css({
-                              "margin-right":"18px",
-                              "margin-top": "100px"
-                              });
-                              */
                              
                              $("#ev-rsvp-pop a").tap(function(){
-                                                     //alert("tap");
-                                                     //$( "#myPopupDiv" ).popup( "close" )
                                                      $("#ev-rsvp-pop").popup("close");
                                                      $("#ev-rsvp-pop").css({"display":"none"});
-                                                     //console.log("done");
                                                      });
                              
                              $("#ev-rsvp-pop").css({
-                                                   /*
-                                                    "-webkit-overflow-scrolling": "touch";
-                                                    "overflow-y":"auto";
-                                                    */
-                                                   /*"margin": "auto",*/
                                                    "width": "230px",
                                                    "height": "130px",
                                                    "margin-left":"-15px",
@@ -375,45 +221,23 @@ function setButtons(){
                                                    "top":"0px",
                                                    "left":"0px",
                                                    "display":"block",
-                                                   /*"margin-top": "30px",*/
-                                                   
-                                                   /*
-                                                    "position": "absolute",
-                                                    
-                                                    "left": "5px",
-                                                    "top":"5px",
-                                                    */
-                                                   
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 50px",
                                                    "border-left": "solid rgba(0, 0, 0, 0.65) 50px",
                                                    "border-top": "solid rgba(0, 0, 0, 0.65) 100px",
                                                    "border-bottom": "solid rgba(0, 0, 0, 0.65) 250px"
-                                                   
                                                    });
                              
                              setInterval(function(){
                                          rsvpLock = false;
                                          },600);
-                             
                              }
-                             
-                             
                              });
     
-    /*
-     <div data-role="popup" id="ev-rsvp-pop">
-     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-     <div id="ev-rsvp-text">desc</div>
-     </div>
-     */
-    
     $(".fr-i-button").touchstart(function(){
-                                 //console.log("ts");
                                  $(this).addClass('fr-i-button-touched');
                                  });
     
     $(".fr-i-button").touchend(function(){
-                               //console.log("te");
                                $(this).removeClass('fr-i-button-touched');
                                });
     
@@ -428,42 +252,18 @@ function setButtons(){
     var frMailLock = false;
     
     $(".fr-mail-button").tap(function(){
-                             //console.log("fr mail start");
                              if(!frMailLock){
-                             //console.log("inside fr mail lock")
                              frMailLock = true;
-                             //console.log("ev-i tap");
                              var id = $(this).attr('data-evId');
-                             
-                             //console.log("id: "+id);
                              var desc = eventList[id].description;
-                             
                              $("#fr-mail-pop").popup("open");
                              $("#fr-mail-text").html("");
-                             //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
-                             
-                             //var html="<div id='ev-desc-wrap'><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[id].fbId +"/picture?width=50&height=50'><div class ='fr-mail-i'>"+desc+"</div></div>";
-                             
-                             //    var friendName1 = typeof eventList[eventList[eventId].friendIdArray[0]] !=   "undefined"  ?eventList[eventList[eventId].friendIdArray[0]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[0]].nameArray[1]+" is going" : "event-undefined";
-                             
-                             //var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[q]+"</div>";
-                             
                              var frName = "<div id='fr-mail-first'>"+eventList[eventList[id].friendIdArray[0]].nameArray[0]+"</div><div id='fr-mail-last'>"+eventList[eventList[id].friendIdArray[0]].nameArray[1]+"</div>";
-                             
-                             //console.log("frName "+frName);
-                             
                              var html="<div id='fr-mail-outter'><div id='fr-mail-head'><div id='mail-to'>To:</div><img id='fr-mail-pic' src='https://graph.facebook.com/"+eventList[eventList[id].friendIdArray[0]].fbId +"/picture?width=50&height=50'><div id='fr-mail-name'>"+frName+"</div></div><div data-role='fieldcontain'><textarea cols='38' rows='12' name='textarea' id='fr-mail-text'></textarea></div><input id='fr-mail-send' type='submit' value='Send'></div>";
-                             
-                             //$("#fr-mail-text").addClass('ev-desc-i');
-                             //$("#ev-desc-pop").addClass('fr-mail-i');
                              $("#fr-mail-text").html(html);
-                             
                              $("#fr-mail-pop a").tap(function(){
-                                                     //alert("tap");
-                                                     //$( "#myPopupDiv" ).popup( "close" )
                                                      $("#fr-mail-pop").popup("close");
                                                      $("#fr-mail-pop").css({"display":"none"});
-                                                     //console.log("done");
                                                      });
                              
                              $("#fr-mail-text").css({
@@ -478,7 +278,6 @@ function setButtons(){
                                                "height":"50px",
                                                "font-size": "26pt",
                                                "margin-right":"8px",
-                                               /*"display": "inline-block",*/
                                                "float": "left"
                                                });
                              
@@ -491,14 +290,12 @@ function setButtons(){
                              $("#fr-mail-pic").css({
                                                    "width": "50px",
                                                    "height": "50px",
-                                                   /*"display": "inline-block",*/
                                                    "float": "left"
                                                    });
                              
                              $("#fr-mail-name").css({
                                                     "width":"50px",
                                                     "height":"50px",
-                                                    /*"display": "inline-block",*/
                                                     "float": "left",
                                                     "margin-left": "7px",
                                                     "font-size": "14pt"
@@ -510,43 +307,20 @@ function setButtons(){
                                                     "height": "40px"
                                                     });
                              
-                             
                              $(".fr-mail-i").css({
                                                  "word-wrap":"break-word",
                                                  "width": "100%",
                                                  "height":"385px",
                                                  "overflow-y":"scroll"
-                                                 
                                                  });
-                             
                              
                              $("#fr-mail-i").css({
                                                  "margin": "20px auto",
                                                  "width": "200px",
                                                  "height": "200px"
                                                  });
-                             /*
-                              $("#ev-rsvp-pop").css({
-                              "width": "230px",
-                              "height": "130px",
-                              "margin-left":"-28px",
-                              "padding":"10px",
-                              "border-right": "solid rgba(0, 0, 0, 0.65) 50px",
-                              "border-left": "solid rgba(0, 0, 0, 0.65) 50px",
-                              "border-top": "solid rgba(0, 0, 0, 0.65) 100px",
-                              "border-bottom": "solid rgba(0, 0, 0, 0.65) 150px"
-                              
-                              });
-                              */
-                             
-                             
+
                              $("#fr-mail-pop").css({
-                                                   /*
-                                                    "margin": "auto",
-                                                    "width": "80%",
-                                                    "height": "70%",
-                                                    */
-                                                   
                                                    "width": "250px",
                                                    "height": "350px",
                                                    "margin-left":"-48px",
@@ -556,8 +330,6 @@ function setButtons(){
                                                    "display":"block",
                                                    "position": "fixed",
                                                    "z-index":"5000!important",
-                                                   //"left": "-5%",
-                                                   //"top":"5%",
                                                    "border-right": "solid rgba(0, 0, 0, 0.65) 60px",
                                                    "border-left": "solid rgba(0, 0, 0, 0.65) 60px",
                                                    "border-top": "solid rgba(0, 0, 0, 0.65) 50px",
@@ -566,58 +338,11 @@ function setButtons(){
                              
                              $(this).addClass("fixed-pop");
                              
-                             
                              setInterval(function(){
                                          frMailLock = false;
                                          },600);
-                             
                              }
-                             //console.log("fr mail end");
                              });
-    
-    /*
-     $(".fr-mail-button").tap(function(){
-     console.log("mail tap");
-     $("#fr-mail-pop").popup("open");
-     //$("#fr-mail-pop").html("");
-     
-     
-     
-     var html="<div id='fr-mail-outter'><div data-role='fieldcontain'><textarea cols='40' rows='8' name='textarea' id='fr-mail-text'></textarea></div><input class='fr-mail-send' type='submit' value='Send'></div>";
-     
-     //$("#fr-mail-pop").addClass('ev-desc-i');
-     $("#fr-mail-wrap").html("");
-     $("#fr-mail-wrap").html(html);
-     
-     //fr-mail-pop-popup
-     
-     $("#fr-mail-outter").css({
-     "margin": "20px auto",
-     "width": "200px",
-     "height": "5850px"
-     });
-     
-     
-     
-     $("#fr-mail-pop").css({
-     
-     "margin": "auto",
-     "width": "100%",
-     "height": "440px",
-     //"position": "absolute",
-     //"position": "fixed",
-     
-     "left": "-14%",
-     "top":"2%",
-     
-     "border-right": "solid rgba(0, 0, 0, 0.65) 40px",
-     "border-left": "solid rgba(0, 0, 0, 0.65) 40px",
-     "border-top": "solid rgba(0, 0, 0, 0.65) 60px",
-     "border-bottom": "solid rgba(0, 0, 0, 0.65) 60px"
-     
-     });
-     });
-     */
 }
 
 var touchedDate;
@@ -628,26 +353,15 @@ var first = true;
 var dateCnt = false;
 
 function setEventTap(){
-    //console.log("set event tap");
-    /*
-     $(".event-img-wrap").css('border','solid red 2px');
-     
-     $(".event-img-wrap").tap(function(){
-     $(".event-img").css('border','solid green 2px');
-     });
-     */
     
     $(".friend-wrap").tap(function(){
-                          
                           /*$(this).parent().addClass('events-touched');*/
                           });
     
     $(".friend-wrap").touchend(function(){
-                               
                                });
     
     $(".friend-wrap").touchstart(function(){
-                                 //console.log("friend-wrap tap");
                                  var evId = $(this).attr('data-evId');
                                  var dateId = $(this).attr('data-dateHash');
                                  var isSelected = $(this).hasClass('friend-selected') & $(this).hasClass('event-selected');
@@ -657,26 +371,18 @@ function setEventTap(){
                                  var friendSelected = $(this).parents().eq(2).hasClass('friend-selected');
                                  var eventSelected = $(this).parents().eq(2).hasClass('event-selected');
                                  var formerEventSelected = $("#"+selectedEvId).parents().eq(2).hasClass('event-selected');
-                                 
-                                 
-                                 
+
                                  if(eventSelected){
-                                 
-                                 //console.log("has friend-selected");
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  }else if(formerFriendSelected){
-                                 //console.log("former friend");
                                  var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                  
                                  if(eventSelected){
-                                 //console.log("former friend/event");
-                                 //console.log("this has friend-selected");
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  }else{
-                                 //console.log("friend cont else");
                                  $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                  var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                  $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
@@ -687,80 +393,39 @@ function setEventTap(){
                                  }else if(formerEventSelected){
                                  
                                  }
-                                 
-                                 /*
-                                  if(formerFriendSelected){
-                                  
-                                  if(eventSelected){
-                                  console.log("has event-selected");
-                                  $(this).parents().eq(2).removeClass('event-selected');
-                                  $(this).parents().eq(2).addClass('friend-selected');
-                                  }else{
-                                  $("#friend-"+selectedEvId).parents().eq(4).addClass("notransition");
-                                  $("#friend-"+selectedEvId).parents().eq(2).removeClass('friend-selected');
-                                  var tempHeight3 = $("#friend-"+selectedEvId).parents().eq(3).height();
-                                  $("#friend-"+selectedEvId).parents().eq(2).css('height',tempHeight3 - 50);
-                                  $("#friend-"+selectedEvId).parents().eq(4).removeClass("notransition");
-                                  }
-                                  
-                                  }else if(eventSelected){
-                                  console.log("has event-selected");
-                                  $(this).parents().eq(2).removeClass('event-selected');
-                                  $(this).parents().eq(2).addClass('friend-selected');
-                                  }
-                                  */
-                                 
-                                 
-                                 
+
                                  if(!touched & !selected){
-                                 //console.log("!touched & !selected");
                                  $(this).parents().eq(2).removeClass('event-touched');
                                  $(this).parents().eq(2).addClass('friend-touched');
                                  }else if(!touched & selected){
-                                 //console.log("!touched & selected");
                                  }else if (touched & !selected){
-                                 //console.log("touched & !selected go");
                                  $(this).parents().eq(4).addClass("notransition");
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  var tempHeight = $(this).parents().eq(3).height();
                                  $(this).parents().eq(3).css('height', tempHeight + 100);
                                  $(this).parents().eq(4).removeClass("notransition");
-                                 
                                  }
                                  selectedEvId = $(this).attr('data-evId');
                                  });
     
-    
     $(".event-img-wrap").touchstart(function(){
-                                    
-                                    //console.log("ev-img-wrap trig");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
                                     var isSelected = $(this).hasClass('event-selected') & $(this).hasClass('event-selected');
-                                    
                                     var touched = $(this).parents().eq(2).hasClass('event-touched');
                                     var selected = $(this).parents().eq(2).hasClass('event-selected');
                                     var friendSelected = $(this).parents().eq(2).hasClass('friend-selected');
                                     var formerEventSelected = $("#"+selectedEvId).parents().eq(2).hasClass('event-selected');
                                     
-                                    
                                     if(friendSelected){
-                                    
-                                    //console.log("has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
-                                    
                                     }else if(formerEventSelected){
-                                    
-                                    //console.log("former event selected");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                    
                                     if(friendSelected){
-                                    //console.log("this has friend-selected");
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
                                     }else{
-                                    //console.log("event cont else");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
@@ -770,21 +435,16 @@ function setEventTap(){
                                     }
                                     
                                     if(!touched & !selected){
-                                    //console.log("!touched & !selected");
                                     $(this).parents().eq(2).removeClass('friend-touched');
                                     $(this).parents().eq(2).addClass('event-touched');
                                     }else if(!touched & selected){
-                                    //console.log("!touched & selected");
                                     }else if (touched & !selected){
-                                    //console.log("touched & !selected");
                                     $(this).parents().eq(4).addClass("notransition");
                                     var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).addClass('event-selected');
                                     
                                     if(formerEventSelected){
-                                    //console.log("last event selected");
                                     }else{
-                                    //console.log("last event selected else");
                                     if(formerEventSelected){
                                     
                                     }else{
@@ -793,7 +453,6 @@ function setEventTap(){
                                     }
                                     
                                     $(this).parents().eq(4).removeClass("notransition");
-                                    
                                     }
                                     
                                     selectedEvId = $(this).attr('id');
@@ -802,13 +461,10 @@ function setEventTap(){
     
     $(".event-img-wrap").touchend(function(){
                                   });
-    
 }
 
 function setFriendTap(){
-    //console.log("set friend tap");
     $(".more-events-text-wrap").touchstart(function(){
-                                           //console.log("more events start");
                                            $(this).addClass('more-events-text-wrap-touched');
                                            setInterval(function(){
                                                        moreEventsLocked = false;
@@ -816,7 +472,6 @@ function setFriendTap(){
                                            });
     
     $(".more-events-text-wrap").touchend(function(e){
-                                         //console.log("more events start");
                                          $(this).removeClass('more-events-text-wrap-touched');
                                          if(!moreEventsLocked){
                                          moreEventsLocked = true;
@@ -825,33 +480,20 @@ function setFriendTap(){
                                          });
     
     $(".left-ex-button").touchstart(function(){
-                                    //console.log("less events start");
                                     });
     
     $(".left-ex-button").touchend(function(e){
-                                  //console.log("less events end");
                                   popDate1(e,this);
                                   });
 }
 
 function stickyList(){
-    //console.log("stick list trig");
     $(".date-row").sticky({ topSpacing: 0 });
-    //console.log("stick list end");
 }
 
 //Doc readey happens when initial fb button page is loaded, is not triggereed after auth
 $(document).ready(function () {
-                  
-                  
                   $("#header").sticky({ topSpacing: 0 });
-                  /*
-                   $("#all").click(function(){
-                   alert("exListHeight: "+exListHeight);
-                   var y = $(window).scrollTop();  //your current y position on the page
-                   $(window).scrollTop(y-(74*(exListHeight - 3)));
-                   });
-                   */
                   });//Doc Ready End
 
 function scale( width, height, padding, border ) {
@@ -892,7 +534,6 @@ $( document ).on( "pageinit", function() {
                  
                  $( "#popupMap" ).on({
                                      popupbeforeposition: function() {
-                                     //console.log("popupbeforeposition");
                                      var size = scale( 480, 320, 0, 1 ),
                                      w = size.width,
                                      h = size.height;
@@ -921,48 +562,29 @@ $(document).on("pageinit", "#date-page", function (event) {
                
                $('#myPopupDiv').on('popupafteropen', function () {
                                    $(this).css('position','fixed');
-                                   //$(this).css('top','100px');
-                                   
-                                   //console.log("open");
                                    });
                
                $('#myPopupDiv').on('popupafterclose', function () {
                                    $(this).css('position','static');
-                                   //console.log("close");
                                    });
                $("#ev-rsvp-pop").on('popupafterclose', function () {
                                     $(this).css('display','none');
-                                    //console.log("rsvp page close");
                                     });
                
                $('#ev-info-pop').on('popupafteropen', function () {
-                                    //$('body').css('overflow','hidden');
-                                    //$(this).css('position','fixed');
-                                    //$(this).css('top','100px');
-                                   // $(this).css('margin-bottom','100px');
-                                    //console.log("open");
                                     });
                
                $('#ev-info-pop').on('popupafterclose', function () {
                                     $(this).css('position','static');
-                                    //console.log("close");
-                                     //$(".foot").css({"position":"fixed!important"});
-                                    //$('body').css('overflow','auto');
                                     });
                
                $("#popupMap").on('popupafteropen', function () {
                                  $(this).css('position','fixed');
-                                 //$(this).css('top','100px');
-                                 //$(this).css('margin-bottom','100px');
-                                 //console.log("map open");
                                  });
                
                $("#popupMap").on('popupafterclose', function () {
                                  $(this).css('position','static');
-                                 //console.log("map close");
-                                 //$(".foot").css({"position":"fixed!important"});
                                  });
-               
                
                $("#dateMainList").listview();
                $("#dateMainList").listview('refresh');

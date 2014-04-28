@@ -90,7 +90,6 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
 	}
 	setFriendTap()
 }
-
         //iphone width 320px
         //FQL SELECT uid, eid, rsvp_status FROM event_member WHERE uid = me() And start_time > 1379480400
         //Logic Functions
