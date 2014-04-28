@@ -173,7 +173,7 @@ function insertEventIdsDb(friendEventsParse) {
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db4.transaction(function (tx) {
                     for (i = 1; i <= friendEventsParse.length - 1; i++) {
-                    //console.log("insert Events: "+friendEventsParse[i].start_time)
+                    //console.log("insert Events: "+friendEventsParse[i].start_time);
                     //console.log("insert Event ID: "+friendEventsParse[i].eid);
                     count = count +1;
                     tx.executeSql("INSERT INTO FRIENDS_EVENTS ('eventFbId','friendFbId','startTime','touched','formattedDate') VALUES (?,?,?,?,?)", [friendEventsParse[i].eid, friendEventsParse[i].uid, friendEventsParse[i].start_time, todaysStamp,fbStampToDbDate(friendEventsParse[i].start_time)]);
@@ -379,8 +379,8 @@ function updateDateIntegerDb(){
                                    count = count +1;
                                    //At this pooint were not getting any of todays dates
                                    //console.log("event name: "+results.rows.item(i).name);
-                                   //console.log("start time db insert: "+results.rows.item(i).start_time);
-                                   //console.log("date to int Insert: "+dateToInteger(results.rows.item(i).start_time));
+                                   console.log("start time db insert: "+results.rows.item(i).start_time);
+                                   console.log("date to int Insert: "+dateToInteger(results.rows.item(i).start_time));
                                    
                                    tx.executeSql("UPDATE 'EVENTS' SET dateHash = "+dateToInteger(results.rows.item(i).start_time)+" WHERE id ="+results.rows.item(i).id,function(){console.log("Error");},function(){
                                                  //console.log("update dateHash count: "+count);
@@ -498,6 +498,8 @@ masterEventCount = masterEventCount +1;
                        event.friendIdArray.push(friend.fbId);
                   eventList[event.fbId] = event;
                       //dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
+                      //console.log("event.dateHash "+event.dateHash);
+                      //console.log("event.dateHash "+event.start_time);
                       dateHash[event.dateHash].eventList.push(event.fbId);
                       }else{
                        eventList[event.fbId].friendIdArray.push(friend.fbId);
@@ -535,7 +537,11 @@ function getFriendsEventsDb(friendRow,tx){
                   
                   for(m=0;m<=results.rows.length - 1;m++){
                   //console.log("loop");
-                  //console.log("event ID: "+results.rows.item(m).eventFbId);
+                  console.log("event Date: "+results.rows.item(m).startTime);
+                  console.log("event Date Hash: "+results.rows.item(m).dateHash);
+                  console.log("event Date Hash: "+results.rows.item(m).eventFbId);
+                  console.log("mark");
+                  JSON.stringify("JSON "+JSON.stringify(results.rows.item(m)));
                   //constructCalObject(fbId,tx,friend);
                   prmis1.push(constructCalObject1(results.rows.item(m).eventFbId,tx,friend));
                   }

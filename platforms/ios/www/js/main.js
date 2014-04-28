@@ -168,6 +168,7 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
     }
 
     function getBatchCallArray(response) {
+        console.log("get Batch Call Array");
         var batchCallArray = new Array();
         var count = 0;
         //Parsing through friends to construct tracking array
@@ -195,6 +196,7 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
         }, this))
         return batchCallArray;
     }
+ 
 /*
     function parseEvent(value, friendID) {
         console.log("parse Event");
@@ -268,6 +270,8 @@ $("#event-list-wrap-trans-" + i).append(getEventRow(fbArray[calendar[i].eventIdA
         } else {}
     }
 */
+
+
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -287,6 +291,7 @@ function deg2rad(deg) {
 }
 
     function batchItterate(batchCallArray) {
+         console.log("get Batch Call It");
         friendCount1 = 0;
         $.each(batchCallArray, function (i, val) {
             friendsEventObj.batch = batch
@@ -310,7 +315,7 @@ function deg2rad(deg) {
                 	 for (var i = 0; i < 28; i++) {
                 	 eveningHash[i].generateHtml();	 
                 	 }
-                	
+
 populateCalendar(eveningHash);
                 }
             }, this))
@@ -320,3 +325,4 @@ populateCalendar(eveningHash);
             batch = new Array();
         }); //End of batch call each
     }
+
