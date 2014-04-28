@@ -149,10 +149,13 @@ function getEventIdsFb(friendIdList) {
     var dfd = $.Deferred();
     FB.api({
            method: 'fql.query',
-           query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN(" + friendIdList + ") AND start_time >= now() AND rsvp_status = 'attending'",
+           //The top query is more efficient but it's filtering out todays dates
+           //query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN(" + friendIdList + ") AND start_time >= now() AND rsvp_status = 'attending'",
+            query: "SELECT eid,uid,rsvp_status,start_time  FROM event_member WHERE uid IN(" + friendIdList + ") AND rsvp_status = 'attending'",
            access_token: accessToken
            },
            function (friendEventsParse) {
+           console.log("get fb events: "+JSON.stringify(friendEventsParse));
            dfd.resolve(friendEventsParse);
            });
     return dfd.promise();
