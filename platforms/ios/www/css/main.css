@@ -792,6 +792,10 @@ height:120px!important;
     position:relative;
 }
 
+.invisible{
+    display:none;
+}
+
 .event-img-wrap{
     margin-top:0px;
     display:block;
