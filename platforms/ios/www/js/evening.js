@@ -80,41 +80,42 @@ function makeEvening(integer) {
     //result.convertedData = integerToDate(integer);
     result.convertedData = integer;
     result.convertedData = integerToDate(integer);
-    //console.log("get day: "+result.convertedData.getDay());
-    //console.log("week day: "+result.weekArray[3]);
     result.weekDayLong = result.weekDay[result.convertedData.getDay()]
     //console.log("weekDayLong "+result.weekDayLong);
     result.formattedDate = result.convertedData.toString().substr(0, result.convertedData.toString().indexOf(":") - 3);
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
+    console.log("formatted Date: "+result.formattedDate);
     result.dateStringArray = result.formattedDate.split(" ");
+    console.log("dateStringArray[2] "+result.dateStringArray[2]);
     //if(){
-    
+    console.log(result.dateStringArray[1]);
     //result.monthNumber = result.dateStringArray[0] = "Jan" ?   result.dateStringArray[0] = "Feb" ?     : "2"  : "1";
     if(result.dateStringArray[1] == "Jan"){
         result.monthNumber = "1";
-    }else if(result.dateStringArray[1] == "Feb"){
+    }else if((result.dateStringArray[1] == "Feb")|(result.dateStringArray[1] == "February")){
         result.monthNumber = "2";
-    }else if(result.dateStringArray[1] == "Mar"){
+    }else if((result.dateStringArray[1] == "Mar")|(result.dateStringArray[1] == "March")){
         result.monthNumber = "3";
-    }else if(result.dateStringArray[1] == "April"){
+    }else if((result.dateStringArray[1] == "April")|(result.dateStringArray[1] == "Apr")){
         result.monthNumber = "4";
     }else if(result.dateStringArray[1] == "May"){
         result.monthNumber = "5";
-    }else if(result.dateStringArray[1] =="June"){
+    }else if((result.dateStringArray[1] =="June")|(result.dateStringArray[1] =="June")){
         result.monthNumber = "6";
-    }else if(result.dateStringArray[1] == "July"){
+    }else if((result.dateStringArray[1] == "July")|(result.dateStringArray[1] == "Jul")){
         result.monthNumber = "7";
-    }else if(result.dateStringArray[1] == "Aug"){
+    }else if((result.dateStringArray[1] == "Aug")|(result.dateStringArray[1] == "August")){
         result.monthNumber = "8";
-    }else if(result.dateStringArray[1] == "Sept"){
+    }else if((result.dateStringArray[1] == "Sept")|(result.dateStringArray[1] == "Sep")|(result.dateStringArray[1] == "Septmber")){
         result.monthNumber = "9";
-    }else if(result.dateStringArray[1] == "Oct"){
+    }else if((result.dateStringArray[1] == "Oct")|(result.dateStringArray[1] == "October")){
         result.monthNumber = "10";
-    }else if(result.dateStringArray[1] == "Nov"){
+    }else if((result.dateStringArray[1] == "Nov")|(result.dateStringArray[1] == "November")){
         result.monthNumber = "11";
-    }else if(result.dateStringArray[1] == "Dec"){
+    }else if((result.dateStringArray[1] == "Dec")|(result.dateStringArray[1] == "Dec")){
         result.monthNumber = "12";
     }
+    console.log(result.monthNumber);
     /*
      dateStringArray[0] = "Feb" ? "2" :
      dateStringArray[0] = "Feb" ? "3" :

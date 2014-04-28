@@ -155,7 +155,7 @@ function getEventIdsFb(friendIdList) {
            access_token: accessToken
            },
            function (friendEventsParse) {
-           console.log("get fb events: "+JSON.stringify(friendEventsParse));
+           //console.log("get fb events: "+JSON.stringify(friendEventsParse));
            dfd.resolve(friendEventsParse);
            });
     return dfd.promise();
@@ -280,7 +280,7 @@ function insertEventArrtDb(eventAttrParse) {
                     //venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
                     
                     //Not getting any of todays dates
-                    console.log("Insert Event Attr db date: "+eventAttrParse[i].start_time);
+                    //console.log("Insert Event Attr db date: "+eventAttrParse[i].start_time);
                     
 
                     
