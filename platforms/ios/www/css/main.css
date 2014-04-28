@@ -534,7 +534,23 @@ ul{
 }
 
 .friend-selected .friend-outter{
-    height:170px!important;
+    height:120px!important;
+}
+
+.friend-selected{
+    height:120px!important;
+}
+
+.friend-touched .friend-outter{
+    /*width:50%;*/
+    /*width:75%;*/
+    width:225px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0px,0px,0px);
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    -webkit-perspective: 500;
+    -webkit-backface-visibility: hidden;
 }
 
 .event-selected .event-outter{
@@ -554,21 +570,6 @@ height:120px!important;
   height:120px!important;
 }
 
-.friend-selected{
-    height:170px!important;
-}
-
-.friend-touched .friend-outter{
-    /*width:50%;*/
-    /*width:75%;*/
-    width:225px;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: translate3d(0px,0px,0px);
-    transition: width .5s;
-    -webkit-transition: width .5s;
-    -webkit-perspective: 500;
-    -webkit-backface-visibility: hidden;
-}
 
 .event-touched .event-outter{
     /*width:50%;*/
