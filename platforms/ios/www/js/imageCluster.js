@@ -39,7 +39,7 @@ function getEventRow(eventId,eventClass,datIndex){
     var friendImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[eventList[eventId].friendIdArray[0]].fbId +"/picture?width=100&height=100" + post : friendPre + "images/profileIcon1_25.png"+ post;
     var eventImg = typeof eventList[eventId].friendIdArray[0] != "undefined"  ? eventPre + "https://graph.facebook.com/"+eventId +"/picture?width=50&height=50" + post1 : eventPre + "images/profileIcon1_25.png"+ post;
     
-
+    
     
     var startTime = "<div style='display:inline' class='start-time'>"+eventList[eventId].formattedTime+"</div>";
     //var venueName = eventList[eventId].venue.name;
@@ -53,7 +53,7 @@ function getEventRow(eventId,eventClass,datIndex){
     } else if (eventList[eventId].friendIdArray.length == 1){
         /*
          code for quad button
-                return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-rsvp-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
+         return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-rsvp-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
          */
         
         return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-rsvp-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div></div></div></div></div>';
@@ -76,7 +76,7 @@ function getEventRow(eventId,eventClass,datIndex){
         
         for (var i=0;i<eventList[eventId].friendIdArray.length;i++){
             
-                if(0 < i < eventList[eventId].friendIdArray.length -1){
+            if(0 < i < eventList[eventId].friendIdArray.length -1){
                 friendName2 = friendName2 +" ,";
             }else{
                 friendName2 = friendName2 +" and" ;
@@ -84,8 +84,8 @@ function getEventRow(eventId,eventClass,datIndex){
             
             friendName2 = friendName2 + eventList[eventList[eventId].friendIdArray[i]].nameArray[0]  + " " + eventList[eventList[eventId].friendIdArray[i]].nameArray[1];
         }
-
-                return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button data-evId="'+eventId+'" fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName2+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
+        
+        return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div class="ev-rsvp-button data-evId="'+eventId+'" fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper"><div data-evId="'+eventId+'"  id="friend-'+eventId+'" data-dateHash="'+datIndex+'" class="event-friend-img friend-wrap">'+zero+one+two+three+'</div><div class="friend-name"><div class="friend-name-inner">'+friendName2+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
     }
 }
 
@@ -113,7 +113,7 @@ function getLeftExButton(k,text1,className){
 }
 
 function getDateHeader(evening,k,cnt,ex){
-
+    
     return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div></div></div></div>';
 }
 
