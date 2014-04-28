@@ -51,8 +51,12 @@ function getEventRow(eventId,eventClass,datIndex){
         return '<div class="row-wrap '+eventClass+'"><div class="event-wrap '+eventClass+'"><div class="row-pic event-pic">'+'<div class="event-outter">'+eventImg+'</div></div><div class="row-title-wrap event-title-wrap"><div class="friend-name">'+friendName1+'</div><div class="row-title event-title">'+eventName+'</div></div></div><div class="friend-wrap"><div class="row-pic-wrap friend-pic-wrap" id="friend-'+eventId+'"><div class="row-pic friend-pic">'+'<div class="friend-outter">'+friendImg+'</div></div></div></div><div id="event-ex-'+eventId+'" class="event-ex"></div></div>';
         
     } else if (eventList[eventId].friendIdArray.length == 1){
-        
+        /*
+         code for quad button
                 return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-rsvp-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div><div class="ev-button-bottom"><div data-evId="'+eventId+'" class="ev-tag-button fnct-icon"></div><div class="ev-check-in-button fnct-icon"></div><div class="ev-buy-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div><div class="fr-button-bottom"><div class="fr-plus-button fnct-icon"></div><div class="fr-comm-button fnct-icon"></div><div class="fr-half-button fnct-icon"></div></div></div></div></div></div>';
+         */
+        
+        return '<div class="event-touched row-wrap '+eventClass+'"><div class="event-outter"><div class="event-wrapper">'+eventImg+'<div class="event-name"><div class="event-name-inner"><div class="event-title">'+eventName+'</div><div class="event-extra-info">'+startTime+localText+'</div></div></div></div><div class="ev-button-exp"><div class="ev-button-exp-wrap"><div class="ev-button-top"><div data-evId="'+eventId+'" class="ev-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-rsvp-button fnct-icon"></div><div data-evId="'+eventId+'" class="ev-map-button fnct-icon"></div></div></div></div></div><div class="friend-outter"><div class="friend-wrapper">'+friendImg+'<div class="friend-name"><div class="friend-name-inner">'+friendName1+'</div></div></div><div class="fr-button-exp"><div class="fr-button-exp-wrap"><div class="fr-button-top"><div class="fr-i-button fnct-icon"></div><div data-evId="'+eventId+'" class="fr-mail-button fnct-icon"></div><div class="fr-post-button fnct-icon"></div></div></div></div></div></div>';
         
     } else {
         var pre = '<img class="event-friend-img-quad" style="pointer-events:none" width=25 height=25 src="';
@@ -110,7 +114,6 @@ function getLeftExButton(k,text1,className){
 
 function getDateHeader(evening,k,cnt,ex){
 
-    //console.log("date header: "+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]);
     return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div></div></div></div>';
 }
 

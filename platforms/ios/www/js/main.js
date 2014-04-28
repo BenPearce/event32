@@ -30,7 +30,6 @@
     var tempDate = new Date();
     var todaysStamp = tempDate.getDate();
 
-
    var date = new Date();
    var todaysStamp = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
 
@@ -39,8 +38,6 @@
 function populateDate(k,e){
           var exHeight = ((74*34)+50);            
           var moreText = " More Events";
-    
-    
 
 			if(expandedDate != null){
 
