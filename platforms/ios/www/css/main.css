@@ -538,10 +538,11 @@ ul{
 }
 
 .event-selected .event-outter{
-height:170px!important;
+height:120px!important;
 }
 
 .event-selected .ev-button-exp-wrap{
+   /*height:100px!important;*/
    height:100px!important;
 }
 
@@ -550,7 +551,7 @@ height:170px!important;
 }
 
 .event-selected{
-  height:170px!important;
+  height:120px!important;
 }
 
 .friend-selected{
