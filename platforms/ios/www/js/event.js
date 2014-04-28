@@ -29,13 +29,62 @@ function event() {
     this.eveningInstanceCount;
     this.dateId;
     this.dateHash;
+    this.hasVenue;
 }
 
 function makeEvent(data) {
     var result = new event();
     var proximity = makeListElement(data);
     $.extend(result, proximity);
-    result.venue = makeVenue(data);
+    
+   // console.log("typeof data.venue_latitude "+typeof data.venue_latitude);
+    //console.log("typeof result.venue_longitude "+typeof data.venue_longitude);
+    
+    //result.venue = makeVenue(data);
+    
+    if((typeof data.venue_latitude == "string")&&(typeof data.venue_longitude == "string")){
+     
+        result.venue = makeVenue(data);
+        result.hasVenue = true;
+        /*
+        console.log("string trig");
+        console.log("lat: "+data.venue_latitude);
+        console.log("lng: "+data.venue_longitude);
+         */
+
+    }else if((typeof data.venue_latitude == "object")|(typeof data.venue_longitude == "object")){
+        result.venue = makeVenue(data);
+result.hasVenue = false;
+        /*
+        console.log("Object trig");
+        console.log(JSON.stringify(data.venue_latitude));
+        console.log("lat: "+data.venue_latitude);
+        console.log("lng: "+data.venue_longitude);
+         */
+    
+    }else{
+        
+        console.log("uncaught");
+    }
+    
+
+    /*
+    if((typeof data.venue_latitude == "string")&&(typeof data.venue_longitude == "string")){
+        
+            result.venue = makeVenue(data);
+        console.log("string trig");
+        
+    }else if(typeof data.venue_latitude == "object")|(typeof data.venue_longitude == "object")){
+        
+        console.log("Object trig");
+        console.log(JSON.stringify(data.venue_latitude));
+        
+    }else{
+        
+        console.log("uncaught");
+    }
+*/
+    
     result.data = data;
     result.type = "event";
     result.localDisplay ="";
