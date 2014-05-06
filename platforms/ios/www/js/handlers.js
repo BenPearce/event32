@@ -446,7 +446,7 @@ function setEventTap(){
                                        console.log("else condition");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                    $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
+                                    $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 65);
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
                                     }
@@ -477,7 +477,7 @@ function setEventTap(){
                                     console.log("former event selected 2");
                                     }else{
                                     
-                                    $(this).parents().eq(3).css('height', tempHeight + 100);
+                                    $(this).parents().eq(3).css('height', tempHeight + 65);
                                     
                                     }
                                     }
