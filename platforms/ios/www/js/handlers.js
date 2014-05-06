@@ -383,11 +383,23 @@ function setEventTap(){
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  }else{
+                                  if(!(selectedEvId == $(this).attr('data-evId'))){
+                                 console.log("other friend if");
                                  $("#"+selectedEvId).parents().eq(4).addClass("notransition");
-                                 var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                 $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
+                                 //var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
+                                 //$("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
                                  $("#"+selectedEvId).parents().eq(2).removeClass('friend-selected');
                                  $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
+                                 
+                                 }else{
+                                  console.log("Same friend if");
+                                 $("#"+selectedEvId).parents().eq(4).addClass("notransition");
+                                 var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
+                                 $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 65);
+                                 $("#"+selectedEvId).parents().eq(2).removeClass('friend-selected');
+                                 $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
+                                 }
+                                 
                                  }
                                  
                                  }else if(formerEventSelected){
@@ -395,15 +407,41 @@ function setEventTap(){
                                  }
 
                                  if(!touched & !selected){
+                                 
+                                 console.log("not touched not selected");
                                  $(this).parents().eq(2).removeClass('event-touched');
                                  $(this).parents().eq(2).addClass('friend-touched');
+                                 
                                  }else if(!touched & selected){
+                                 
                                  }else if (touched & !selected){
+                                 
+                                 console.log("touched & !selected height");
+                                 
+                                 
+                                 
                                  $(this).parents().eq(4).addClass("notransition");
                                  $(this).parents().eq(2).addClass('friend-selected');
+                                 
                                  var tempHeight = $(this).parents().eq(3).height();
-                                 $(this).parents().eq(3).css('height', tempHeight + 100);
+                                 $(this).parents().eq(3).css('height', tempHeight + 65);
+                       /*
+                                 //formerFriendSelected
+                                 if(formerFriendSelected){
+                                 console.log("former event selected 1");
+                                 }else{
+                                 
+                                 if(formerFriendSelected){
+                                 console.log("former event selected 2");
+                                 }else{
+                                 var tempHeight = $(this).parents().eq(3).height();
+                                 $(this).parents().eq(3).css('height', tempHeight + 65);
+                                 }
+                                 */
+                                 
+                                 
                                  $(this).parents().eq(4).removeClass("notransition");
+                                 
                                  }
                                  selectedEvId = $(this).attr('data-evId');
                                  });
@@ -435,20 +473,25 @@ function setEventTap(){
                                     
                                     
                                     }else{
+                                    
                                     if(!(selectedEvId == $(this).attr('id'))){
+                                    
                                     console.log("not condition");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     //var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     //$("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
+                                    
                                     }else{
+                                    
                                        console.log("else condition");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 65);
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
+                                    
                                     }
                                     
                                     }
