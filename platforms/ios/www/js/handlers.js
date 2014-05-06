@@ -409,6 +409,7 @@ function setEventTap(){
                                  });
     
     $(".event-img-wrap").touchstart(function(){
+                                    console.log("ev img touch");
                                     var evId = $(this).attr('data-evId');
                                     var dateId = $(this).attr('data-dateHash');
                                     var isSelected = $(this).hasClass('event-selected') & $(this).hasClass('event-selected');
@@ -418,37 +419,66 @@ function setEventTap(){
                                     var formerEventSelected = $("#"+selectedEvId).parents().eq(2).hasClass('event-selected');
                                     
                                     if(friendSelected){
+                                    
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
+                                    
                                     }else if(formerEventSelected){
+                                    console.log("former event selected 3");
+                                    
+                                    //if(!(selectedEvId == $(this).attr('id'))){
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     if(friendSelected){
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
+                                    //}
+                                    
+                                    
                                     }else{
+                                    if(!(selectedEvId == $(this).attr('id'))){
+                                    console.log("not condition");
+                                    $("#"+selectedEvId).parents().eq(4).addClass("notransition");
+                                    //var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
+                                    //$("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
+                                    $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
+                                    $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
+                                    }else{
+                                       console.log("else condition");
                                     $("#"+selectedEvId).parents().eq(4).addClass("notransition");
                                     var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                     $("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
                                     $("#"+selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#"+selectedEvId).parents().eq(4).removeClass("notransition");
                                     }
+                                    
+                                    }
+                                    
+                                    
                                     }
                                     
                                     if(!touched & !selected){
+                                    
                                     $(this).parents().eq(2).removeClass('friend-touched');
                                     $(this).parents().eq(2).addClass('event-touched');
+                                    
                                     }else if(!touched & selected){
+                                    
                                     }else if (touched & !selected){
+                                    
                                     $(this).parents().eq(4).addClass("notransition");
                                     var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).addClass('event-selected');
                                     
                                     if(formerEventSelected){
+                                    console.log("former event selected 1");
                                     }else{
-                                    if(formerEventSelected){
                                     
+                                    if(formerEventSelected){
+                                    console.log("former event selected 2");
                                     }else{
+                                    
                                     $(this).parents().eq(3).css('height', tempHeight + 100);
+                                    
                                     }
                                     }
                                     
