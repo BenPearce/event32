@@ -1,86 +1,42 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta
-    charset="utf-8">
-        <title>Map</title>
-                <!--<script src="js/google.map.js"></script>-->
-                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false" />
-
-        <script>
-            console.log("map script");
-            google.maps.event.addDomListener(window, 'load', initialize);
-
-           function initialize() {
-                 console.log("map init");
-                var vars = [],
-                    hash;
-                var hashes
-
-                    function getUrlVars() { // Read a page's GET URL variables and return them as an associative array.
-                      console.log("get URL Vars");
-                        hashes = window.location.href.slice(window.location.href.indexOf('coordinate=') + 1).split('&');
-
-                        for (var i = 0; i < hashes.length; i++) {
-                            hash = hashes[i].split('=');
-                            vars.push(hash[0]);
-                            vars[hash[0]] = hash[1];
-                        }
-                        return vars;
-                    }
-
-                var lat = window.location.href.slice(window.location.href.indexOf('lat='), window.location.href.indexOf('&lng='));
-                var lng = window.location.href.slice(window.location.href.indexOf('lng='));
-                var coordinate = window.location.href.slice(window.location.href.indexOf('coordinate=') + 11);
-                console.log("map coord: "+coordinate);
-                coordinate = coordinate.replace('"', '');
-                var coordinates = coordinate.split(',');
-
-                var myLatlng = new google.maps.LatLng(coordinates[0], coordinates[1]);
-console.log("map myLatlng: "+myLatlng);
-                //var myLatlng = new google.maps.LatLng(parseInt(lat)+","+parseInt(lng));
-                var myOptions = {
-                    zoom: 15,
-                    center: myLatlng,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                }
-                var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-                 console.log("new map");
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    //title:"Hello World!"
-                });
-     console.log("marker");
-                // To add the marker to the map, call setMap();
-                marker.setMap(map);
-                console.log("end");
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+            <title>Main Page</title>
+            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+            <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+            <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header"><h1>Main Page</h1></div>
+            <div data-role="content"><p><a href="map.html">Map</a></p></div>
+        </div>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript">
+            // When map page opens get location and display map
+             google.maps.event.addDomListener(window, 'load', initialize);
+            //$(this).live("pagecreate", function() {
+            
+            function initialize(){
+                         console.log("init");
+                                if(navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(function(position){
+                                                                         initialize(position.coords.latitude,position.coords.longitude);
+                                                                         });
+                                }
             }
-        
+                                //});
+                                
+                                function initialize(lat,lng) {
+                                    var latlng = new google.maps.LatLng(lat, lng);
+                                    var myOptions = {
+                                        zoom: 8,
+                                        center: latlng,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+                                }
         </script>
-        <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
-        <!--<script src="js/google.map.js"></script>-->
-            <style>
-                html {
-                    height: 100%;
-                    width:100%;
-                }
-                body {
-                    margin: 0;
-                    padding: 0;
-                    height: 100%;
-                    width:100%;
-                }
-                #map_canvas {
-                    height: 100%;
-                    width:100%;
-                }
-            </style>
-</head>
-<!--<body onload="initialize()">-->
-
-    <div id="map_canvas"></div>
-
-        </body>
-
+    </body>
 </html>
