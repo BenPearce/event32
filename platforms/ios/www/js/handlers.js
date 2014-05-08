@@ -425,7 +425,7 @@ function setEventTap(){
                                  
                                  var tempHeight = $(this).parents().eq(3).height();
                                  $(this).parents().eq(3).css('height', tempHeight + 65);
-                       /*
+                                 /*
                                  //formerFriendSelected
                                  if(formerFriendSelected){
                                  console.log("former event selected 1");
