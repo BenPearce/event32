@@ -506,15 +506,20 @@ function setEventTap() {
                                     $(this).parents().eq(4).addClass("notransition");
                                     var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).addClass('event-selected');
-                                    
+                                    /*
                                     if (formerEventSelected) {
                                     
                                     } else {
    
                                     if (!formerEventSelected) {
                                     $(this).parents().eq(3).css('height', tempHeight + 65);
-
                                     }
+                                    
+                                    }
+                                    */
+                                    if (!formerEventSelected & !formerEventSelected) {
+                                    $(this).parents().eq(3).css('height', tempHeight + 65);
+
                                     }
                                     
                                     $(this).parents().eq(4).removeClass("notransition");
