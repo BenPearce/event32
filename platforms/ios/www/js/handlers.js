@@ -381,13 +381,18 @@ function setEventTap() {
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else if (formerFriendSelected) {
+                                 
                                  var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                  
                                  if (eventSelected) {
+                                 
                                  $(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
+                                 
                                  } else {
+                                 
                                  if (!(selectedEvId == $(this).attr('data-evId'))) {
+                                 
                                  $("#" + selectedEvId).parents().eq(4).addClass("notransition");
                                  //var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
                                  //$("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
@@ -395,12 +400,14 @@ function setEventTap() {
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                  
                                  } else {
-                                 console.log("Same friend if");
+                                 
+
                                  $("#" + selectedEvId).parents().eq(4).addClass("notransition");
                                  var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                  $("#" + selectedEvId).parents().eq(3).height(tempHeight1 - 65);
                                  $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
+                                 
                                  }
                                  
                                  }
@@ -418,11 +425,7 @@ function setEventTap() {
                                  } else if (!touched & selected) {
                                  
                                  } else if (touched & !selected) {
-                                 
-                                 console.log("touched & !selected height");
-                                 
-                                 
-                                 
+
                                  $(this).parents().eq(4).addClass("notransition");
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
@@ -507,13 +510,18 @@ function setEventTap() {
                                     if (formerEventSelected) {
                                     
                                     } else {
-                                    
+                                    /*
                                     if (formerEventSelected) {
                                     
                                     } else {
                                     
                                     $(this).parents().eq(3).css('height', tempHeight + 65);
                                     
+                                    }
+                                    */
+                                    if (!formerEventSelected) {
+                                    $(this).parents().eq(3).css('height', tempHeight + 65);
+
                                     }
                                     }
                                     
