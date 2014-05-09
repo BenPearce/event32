@@ -499,7 +499,7 @@ function setEventTap() {
                                     $(this).parents().eq(2).removeClass('friend-touched');
                                     $(this).parents().eq(2).addClass('event-touched');
                                     
-                                    } else if (!touched & selected) {
+                                    //} else if (!touched & selected) {
                                     
                                     } else if (touched & !selected) {
                                     
@@ -513,6 +513,7 @@ function setEventTap() {
                                     }
                                     
                                     $(this).parents().eq(4).removeClass("notransition");
+                                    
                                     }
                                     
                                     selectedEvId = $(this).attr('id');
