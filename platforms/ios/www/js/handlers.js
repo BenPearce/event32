@@ -470,13 +470,6 @@ function setEventTap() {
                                     
                                     var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                     
-                                    /*
-                                    if (friendSelected) {
-                                    $(this).parents().eq(2).removeClass('friend-selected');
-                                    $(this).parents().eq(2).addClass('event-selected');
-                                    
-                                    } else {
-                                    */
                                     if (!(selectedEvId == $(this).attr('id'))) {
                                     
                                     $("#" + selectedEvId).parents().eq(4).addClass("notransition");
@@ -492,7 +485,6 @@ function setEventTap() {
                                     $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                     
                                     }
-                                  // }
                                     
                                     }
                                     
