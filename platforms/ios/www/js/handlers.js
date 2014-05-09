@@ -498,9 +498,7 @@ function setEventTap() {
                                     
                                     $(this).parents().eq(2).removeClass('friend-touched');
                                     $(this).parents().eq(2).addClass('event-touched');
-                                    
-                                    //} else if (!touched & selected) {
-                                    
+
                                     } else if (touched & !selected) {
                                     
                                     $(this).parents().eq(4).addClass("notransition");
