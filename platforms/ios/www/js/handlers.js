@@ -510,15 +510,7 @@ function setEventTap() {
                                     if (formerEventSelected) {
                                     
                                     } else {
-                                    /*
-                                    if (formerEventSelected) {
-                                    
-                                    } else {
-                                    
-                                    $(this).parents().eq(3).css('height', tempHeight + 65);
-                                    
-                                    }
-                                    */
+   
                                     if (!formerEventSelected) {
                                     $(this).parents().eq(3).css('height', tempHeight + 65);
 
