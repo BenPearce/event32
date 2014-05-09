@@ -350,6 +350,7 @@ function setButtons() {
 
 var touchedDate;
 var selectedEvId = null;
+var selectedFrId = null;
 var sameRow;
 var sameDate;
 var first = true;
@@ -373,11 +374,11 @@ function setEventTap() {
                                  var formerFriendSelected = $("#friend-" + selectedEvId).parents().eq(2).hasClass('friend-selected');
                                  var friendSelected = $(this).parents().eq(2).hasClass('friend-selected');
                                  var eventSelected = $(this).parents().eq(2).hasClass('event-selected');
-                                 var formerEventSelected = $("#" + selectedEvId).parents().eq(2).hasClass('event-selected');
+                                 var formerEventSelected = $("#" + selectedFrId).parents().eq(2).hasClass('event-selected');
                                  
                                  if (eventSelected) {
-                                 
-                                 $(this).parents().eq(2).removeClass('event-selected');
+                                 console.log("event selected slide");
+                                 //$(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else if (formerFriendSelected) {
@@ -386,7 +387,7 @@ function setEventTap() {
                                  
                                  if (eventSelected) {
                                  
-                                 $(this).parents().eq(2).removeClass('event-selected');
+                                 //$(this).parents().eq(2).removeClass('event-selected');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else {
@@ -448,7 +449,8 @@ function setEventTap() {
                                  $(this).parents().eq(4).removeClass("notransition");
                                  
                                  }
-                                 selectedEvId = $(this).attr('data-evId');
+                                 //selectedEvId = $(this).attr('data-evId');
+                                 selectedFrId = $(this).attr('data-evId');
                                  });
     
     $(".event-img-wrap").touchstart(function () {
@@ -461,21 +463,25 @@ function setEventTap() {
                                     var friendSelected = $(this).parents().eq(2).hasClass('friend-selected');
                                     var formerEventSelected = $("#" + selectedEvId).parents().eq(2).hasClass('event-selected');
                                     
+                                    //Some friend selected
                                     if (friendSelected) {
                                     
                                     $(this).parents().eq(2).removeClass('friend-selected');
                                     $(this).parents().eq(2).addClass('event-selected');
                                     
+                                    //Some event selected
                                     } else if (formerEventSelected) {
-                                    
+                                    console.log("former event selected");
                                     var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                     
+                                    //Is this the event already selected
                                     if (!(selectedEvId == $(this).attr('id'))) {
                                     
                                     $("#" + selectedEvId).parents().eq(4).addClass("notransition");
                                     $("#" + selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                     
+                                    //This event isn't already selected
                                     } else {
                                     
                                     $("#" + selectedEvId).parents().eq(4).addClass("notransition");
@@ -485,7 +491,6 @@ function setEventTap() {
                                     $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                     
                                     }
-                                    
                                     }
                                     
                                     if (!touched & !selected) {
@@ -494,7 +499,7 @@ function setEventTap() {
                                     $(this).parents().eq(2).addClass('event-touched');
 
                                     } else if (touched & !selected) {
-                                    
+                                    console.log("expand");
                                     $(this).parents().eq(4).addClass("notransition");
                                     var tempHeight = $(this).parents().eq(3).height();
                                     $(this).parents().eq(2).addClass('event-selected');
