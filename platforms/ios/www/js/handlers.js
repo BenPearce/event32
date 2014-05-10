@@ -384,19 +384,10 @@ function setEventTap() {
                                  
                                  var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                  
-                                 /*
-                                 if (eventSelected) {
-
-                                 $(this).parents().eq(2).addClass('friend-selected');
-                                 
-                                 } else {
-                                  */
                                  
                                  if (!(selectedEvId == $(this).attr('data-evId'))) {
                                  
                                  $("#" + selectedEvId).parents().eq(4).addClass("notransition");
-                                 //var tempHeight1 = $("#"+selectedEvId).parents().eq(3).height();
-                                 //$("#"+selectedEvId).parents().eq(3).height(tempHeight1 - 100);
                                  $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                  
@@ -410,8 +401,6 @@ function setEventTap() {
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                  
                                  }
-                                 
-                                 //}
                                  
                                  } else if (formerEventSelected) {
                                  
