@@ -377,8 +377,7 @@ function setEventTap() {
                                  var formerEventSelected = $("#" + selectedFrId).parents().eq(2).hasClass('event-selected');
                                  
                                  if (eventSelected) {
-                                 console.log("event selected slide");
-                                 //$(this).parents().eq(2).removeClass('event-selected');
+
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else if (formerFriendSelected) {
@@ -386,8 +385,7 @@ function setEventTap() {
                                  var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                  
                                  if (eventSelected) {
-                                 
-                                 //$(this).parents().eq(2).removeClass('event-selected');
+
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else {
@@ -432,24 +430,11 @@ function setEventTap() {
                                  
                                  var tempHeight = $(this).parents().eq(3).height();
                                  $(this).parents().eq(3).css('height', tempHeight + 65);
-                                 /*
-                                  //formerFriendSelected
-                                  if(formerFriendSelected){
-                                  console.log("former event selected 1");
-                                  }else{
-                                  
-                                  if(formerFriendSelected){
-                                  console.log("former event selected 2");
-                                  }else{
-                                  var tempHeight = $(this).parents().eq(3).height();
-                                  $(this).parents().eq(3).css('height', tempHeight + 65);
-                                  }
-                                  */
+
                                  
                                  $(this).parents().eq(4).removeClass("notransition");
                                  
                                  }
-                                 //selectedEvId = $(this).attr('data-evId');
                                  selectedFrId = $(this).attr('data-evId');
                                  });
     
