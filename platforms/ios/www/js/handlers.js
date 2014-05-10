@@ -384,11 +384,13 @@ function setEventTap() {
                                  
                                  var tempHeight1 = $("#" + selectedEvId).parents().eq(3).height();
                                  
+                                 /*
                                  if (eventSelected) {
 
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else {
+                                  */
                                  
                                  if (!(selectedEvId == $(this).attr('data-evId'))) {
                                  
@@ -409,7 +411,7 @@ function setEventTap() {
                                  
                                  }
                                  
-                                 }
+                                 //}
                                  
                                  } else if (formerEventSelected) {
                                  
@@ -438,6 +440,7 @@ function setEventTap() {
                                  selectedFrId = $(this).attr('data-evId');
                                  });
     
+   
     $(".event-img-wrap").touchstart(function () {
                                     
                                     var evId = $(this).attr('data-evId');
