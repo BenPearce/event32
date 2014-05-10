@@ -377,11 +377,10 @@ function setEventTap() {
                                  var eventSelected = $(this).parents().eq(2).hasClass('event-selected');
                                  var formerEventSelected = $("#" + selectedEvId).parents().eq(2).hasClass('event-selected');
                                  
-                                 if (eventSelected) {
-                                 //console.log("friendSelected: "+friendSelected);
-                                 //if (friendSelected) {
+                                 //if (eventSelected) {
+                                 console.log("friendSelected: "+friendSelected);
+                                 if (friendSelected) {
                                  console.log("friend selected");
-                                 
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  } else if (formerFriendSelected) {
@@ -425,8 +424,9 @@ function setEventTap() {
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  
                                  var tempHeight = $(this).parents().eq(3).height();
+                                 if (!formerFriendSelected) {
                                  $(this).parents().eq(3).css('height', tempHeight + 65);
-
+                                 }
                                  
                                  $(this).parents().eq(4).removeClass("notransition");
                                  
