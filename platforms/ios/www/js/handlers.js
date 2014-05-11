@@ -357,15 +357,15 @@ var first = true;
 var dateCnt = false;
 var selectedBool = false;
 
-function setEventTap() {
+function setEventTap(selPrefix) {
     console.log("set event tap");
-    $(".friend-wrap").tap(function () {
+    $(selPrefix+".friend-wrap").tap(function () {
                           /*$(this).parent().addClass('events-touched');*/
                           });
     
-    $(".friend-wrap").touchend(function () {});
+    $(selPrefix+".friend-wrap").touchend(function () {});
     
-    $(".friend-wrap").touchstart(function () {
+    $(selPrefix+".friend-wrap").touchstart(function () {
                                  console.log("!!!!!!!!!!!!");
 
                                  var evId = $(this).attr('data-evId');
@@ -454,7 +454,7 @@ function setEventTap() {
                                  });
     
    
-    $(".event-img-wrap").touchstart(function () {
+    $(selPrefix+".event-img-wrap").touchstart(function () {
                                     console.log("!!!!!!!!!!!!");
                                     console.log("selectedEvId tap: "+selectedEvId);
 
@@ -557,44 +557,31 @@ function setEventTap() {
                                     });
     
     
-    $(".event-img-wrap").touchend(function () {});
+    $(selPrefix+".event-img-wrap").touchend(function () {});
 }
 
 
 function contract(exIndex,elem,transition){
-    //console.log("contract start");
     $(elem).removeClass("expanded");
     
     if(transition){
-        //console.log("contract trans");
         $("#event-wrap-in-"+exIndex).css("height","280px");
-        //if(exIndex != lastIndex){
-        //console.log("line before html trans");
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
-        //$("#event-wrap-in-"+exIndex).html("");
-        //}
-        
+
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"added",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
     }else{
-        //console.log("contract non-trans");
         $("#event-wrap-in-"+exIndex).addClass("notransition");
         $("#event-wrap-in-"+exIndex).css("height","280px");
-        //console.log("line before html non-trans");
         $("#event-wrap-in-"+exIndex).html("");
-        
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"added",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
         
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         $("#event-wrap-in-"+exIndex).height();
         $("#event-wrap-in-"+exIndex).removeClass("notransition");
-        //$("#event-wrap-in-"+exIndex).html("");
     }
     
     $("#divider-wrap-"+exIndex).removeClass("cnt");
     $("#divider-wrap-"+exIndex).addClass("ex");
-    //console.log("contract end");
-    
-    var moreText = (dateHash[exIndex].eventList.length - 4);
-    
+    var moreText = (dateHash[exIndex].eventList.length - 4);    
     $("#event-wrap-in-"+exIndex).css("height","280px");
     $("#event-wrap-in-"+exIndex).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
 }
@@ -620,7 +607,7 @@ function popDate1(e,elem){
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
-    setEventTap();
+    setEventTap("added");
     setButtons();
 }
 
@@ -646,7 +633,7 @@ function popDate(e,elem){
     lastIndex = k;
     exSelector = elem;
     
-    setEventTap();
+    setEventTap("added");
     setButtons();
 }
 

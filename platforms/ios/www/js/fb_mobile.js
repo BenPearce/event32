@@ -142,7 +142,7 @@ function popCal(){
     
     stickyList();
     setFriendTap();
-    setEventTap();
+    setEventTap("");
     setButtons();
 }
 
