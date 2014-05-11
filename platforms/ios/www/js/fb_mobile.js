@@ -113,96 +113,7 @@ function expand(cntIndex,elem){
     //$("#more-events-"+exIndex).css("display","none");
 }
 
-function popDate1(e,elem){
-    //console.log("pop date 1");
-    k = $(elem).attr('data-dateId');
-    var $this = $("date-elem-"+k+"-list");
-    pos = $("#date-elem-"+k+"-list").offset().top;
-    $doc = $(document);
-    firstExpand = (lastIndex == null);
-    selected = (expandedDate == k);
-    below = (k<expandedDate);
-    expanded = $(elem).is(".expanded");
 
-    if((lastIndex != k) & !firstExpand){
-        //console.log("one");
-        contract(lastIndex,exSelector,false);
-        contract(k,elem,true);
-    }else{
-        //console.log("two");
-        contract(k,elem,true);
-    }
-
-    /*
-    
-    if(expanded){
-        if((lastIndex != k) & !firstExpand){
-            contract(lastIndex,exSelector,false);
-            contract(k,elem,true);
-        }else{
-            contract(k,elem,true);
-        }
-        
-    }else if(!expanded){
-        if((lastIndex != k) & !firstExpand){
-            contract(lastIndex,exSelector,false);
-            expand(k,elem);
-        }else{
-            expand(k,elem);
-        }
-    }
-     */
-    exListHeight = dateHash[k].eventList.length;
-    lastIndex = k;
-    exSelector = elem;
-    //console.log("pop date 1 end");
-    setEventTap();
-    setButtons();
-}
-
-function popDate(e,elem){
-    //console.log("popDate");
-    k = $(elem).attr('data-dateId');
-    var $this = $("date-elem-"+k+"-list");
-    pos = $("#date-elem-"+k+"-list").offset().top;
-    $doc = $(document);
-    firstExpand = (lastIndex == null);
-    selected = (expandedDate == k);
-    below = (k<expandedDate);
-    expanded = $(elem).is(".expanded");
-    
-    if((lastIndex != k) & !firstExpand){
-        contract(lastIndex,exSelector,false);
-        expand(k,elem);
-    }else{
-        expand(k,elem);
-    }
-    /*
-    
-if(expanded){
-    if((lastIndex != k) & !firstExpand){
-        contract(lastIndex,exSelector,false);
-        contract(k,elem,true);
-    }else{
-        contract(k,elem,true);
-    }
-    
-}else if(!expanded){
-    if((lastIndex != k) & !firstExpand){
-        contract(lastIndex,exSelector,false);
-        expand(k,elem);
-    }else{
-        expand(k,elem);
-    }
-}
-     */
-    exListHeight = dateHash[k].eventList.length;
-    lastIndex = k;
-    exSelector = elem;
-    
-    setEventTap();
-    setButtons();
-}
 
 var uiEventCount = 0;
 
@@ -212,7 +123,7 @@ function popCal(){
             
             
             var dateHeader;
-            //console.log("date hash 0: "+dateHash[i]);
+
             if(dateHash[i].eventList.length < 3){
                 dateHeader = getDateHeader(dateHash[i],i,"","");
             }else{
