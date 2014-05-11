@@ -358,7 +358,7 @@ var dateCnt = false;
 var selectedBool = false;
 
 function setEventTap(selPrefix) {
-    console.log("set event tap");
+    console.log("set event tap selPrefix: "+selPrefix);
     $(selPrefix+".friend-wrap").tap(function () {
                           /*$(this).parent().addClass('events-touched');*/
                           });
@@ -561,18 +561,39 @@ function setEventTap(selPrefix) {
 }
 
 
+function expand(cntIndex,elem){
+    //console.log("expand");
+    var exHtml = "";
+    for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
+    }
+    var exHtml = exHtml +"<div id='more-events-"+cntIndex+"' class='more-events'></div>";
+    $(elem).addClass("expanded");
+    //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
+    var exHeight = ((61*(dateHash[cntIndex].eventList.length)));
+    $("#event-wrap-in-"+cntIndex).html(exHtml);
+    $("#event-wrap-in-"+cntIndex).css("height",exHeight);
+    dateLength[cntIndex] = exHeight;
+    
+    $("#divider-wrap-"+cntIndex).removeClass("ex");
+    $("#divider-wrap-"+cntIndex).addClass("cnt");
+    $("#more-events-"+cntIndex).css("display","block");
+    //$("#event-wrap-in-"+cntIndex).append("<div id='more-events-"+cntIndex+"' class='more-events'></div>");
+    //$("#more-events-"+exIndex).css("display","none");
+}
+
 function contract(exIndex,elem,transition){
     $(elem).removeClass("expanded");
     
     if(transition){
         $("#event-wrap-in-"+exIndex).css("height","280px");
 
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"added",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
     }else{
         $("#event-wrap-in-"+exIndex).addClass("notransition");
         $("#event-wrap-in-"+exIndex).css("height","280px");
         $("#event-wrap-in-"+exIndex).html("");
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"added",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
         
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         $("#event-wrap-in-"+exIndex).height();
@@ -607,7 +628,7 @@ function popDate1(e,elem){
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
-    setEventTap("added");
+    setEventTap(".added ");
     setButtons();
 }
 
@@ -633,7 +654,7 @@ function popDate(e,elem){
     lastIndex = k;
     exSelector = elem;
     
-    setEventTap("added");
+    setEventTap(".added ");
     setButtons();
 }
 

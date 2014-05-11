@@ -54,30 +54,6 @@ function eventExpand(element){
     //}
 }
 
-
-function expand(cntIndex,elem){
-    //console.log("expand");
-    var exHtml = "";
-    for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
-    }
-    var exHtml = exHtml +"<div id='more-events-"+cntIndex+"' class='more-events'></div>";
-    $(elem).addClass("expanded");
-    //var exHeight = ((74*(dateHash[cntIndex].eventList.length)));
-    var exHeight = ((61*(dateHash[cntIndex].eventList.length)));
-    $("#event-wrap-in-"+cntIndex).html(exHtml);
-    $("#event-wrap-in-"+cntIndex).css("height",exHeight);
-    dateLength[cntIndex] = exHeight;
-    
-    $("#divider-wrap-"+cntIndex).removeClass("ex");
-    $("#divider-wrap-"+cntIndex).addClass("cnt");
-    $("#more-events-"+cntIndex).css("display","block");
-    //$("#event-wrap-in-"+cntIndex).append("<div id='more-events-"+cntIndex+"' class='more-events'></div>");
-    //$("#more-events-"+exIndex).css("display","none");
-}
-
-
-
 var uiEventCount = 0;
 
 function popCal(){

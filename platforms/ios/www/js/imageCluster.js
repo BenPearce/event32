@@ -4,6 +4,7 @@
 //test
 
 function getEventRow(eventId,eventClass,datIndex){
+    console.log("eventClass: "+eventClass);
     var eventRowHtml;
     
     var eventImageClusterHtml;
