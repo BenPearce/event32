@@ -54,43 +54,6 @@ function eventExpand(element){
     //}
 }
 
-function contract(exIndex,elem,transition){
-    //console.log("contract start");
-    $(elem).removeClass("expanded");
-
-        if(transition){
-            //console.log("contract trans");
-            $("#event-wrap-in-"+exIndex).css("height","280px");
-            //if(exIndex != lastIndex){
-                //console.log("line before html trans");
-                $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
-                    //$("#event-wrap-in-"+exIndex).html("");
-            //}
-
-        }else{
-            //console.log("contract non-trans");
-            $("#event-wrap-in-"+exIndex).addClass("notransition");
-            $("#event-wrap-in-"+exIndex).css("height","280px");
-            //console.log("line before html non-trans");
-            $("#event-wrap-in-"+exIndex).html("");
-       
-            $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
-
-            $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
-            $("#event-wrap-in-"+exIndex).height();
-            $("#event-wrap-in-"+exIndex).removeClass("notransition");
-                //$("#event-wrap-in-"+exIndex).html("");
-        }
-
-    $("#divider-wrap-"+exIndex).removeClass("cnt");
-     $("#divider-wrap-"+exIndex).addClass("ex");
-    //console.log("contract end");
-
-    var moreText = (dateHash[exIndex].eventList.length - 4);
-
-    $("#event-wrap-in-"+exIndex).css("height","280px");
-    $("#event-wrap-in-"+exIndex).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
-}
 
 function expand(cntIndex,elem){
     //console.log("expand");
