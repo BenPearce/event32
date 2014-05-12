@@ -12,10 +12,7 @@
                 
                 </head>
     <body>
-        
-        
 
-        
         <div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
@@ -27,59 +24,26 @@
             
             <div data-role="header" id="header">
             </div>
-            
 
-            
             <!--<div id="sticky-block"></div>-->
         <div class="ui-widget" id="top-elem" >
             <input id="tags" type="search">
             </div>
-            <!--<img id="bg-img-ul" class="background" src="images/sand_text_sclUp.png" />
-            <img id="bg-img-ur" class="background" src="images/sand_text_sclUp.png" />
-            <img id="bg-img-bl" class="background" src="images/sand_text_sclUp.png" />
-            <img id="bg-img-br" class="background" src="images/sand_text_sclUp.png" />-->
+
             <div id="bg-img-ul-div" class="background-div"></div>
             <div id="bg-img-ur-div" class="background-div"></div>
             <div id="bg-img-bl-div" class="background-div"></div>
             <div id="bg-img-br-div" class="background-div"></div>
-            <!--<div class="be-pat" id="be-pat-1">
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                <div class="be-text">//////////////////////////////////////////////////</div>
-                
-            </div>-->
             <a data-role='button' id = 'fb-login-button'>Facebook Login</a>
             <div id="fb-root"></div>
 
-
-            <!--map popup-->
-            <!--<ul style="margin:0px;position:relative;display:none;width:100%" data-content-theme="a" data-theme='a' id='subList1' class="subList"  data-role="listview"></ul>-->
             <div id="test-button"></div>
     
             <ul  data-role='none' style="position:relative" class="mainList pageWidth" id="dateMainList">
             </ul>
 
             <div id="bot-elem"></div>
-            
-            
-            
+
             <div data-role="footer" data-update-page-padding ="false" data-tap-toggle="false" data-position="fixed" id="footer1" class="footer-docs foot" style="display:inline!important;position:fixed!important">
                 <div data-role="navbar" id="footer-nav1" data-tap-toggle="false" data-visible-on-page-show="false">
                     <ul data-tap-toggle="false">
@@ -87,35 +51,17 @@
                      <li><a class="ui-btn-active"  id="testButton" data-prefetch>Dates</a></li>
                      <li><a class="ui-btn-active"  id="testButton" data-prefetch>Bands</a></li>
                      <li><a class="ui-btn-active"  id="testButton" data-prefetch>Venues</a></li>
-                     <!--<li><a class="ui-btn-active"  id="testButton" data-prefetch>Groups</a></li>-->
-                        <!--<button id="show_map" onclick="app.showMap();">showMap</button>
-                        <button id="show_map" onclick="app.changeMapType();">changeMapType</button>
-                        <button id="hide_map" onclick="app.hideMap();" style="display:none;">hideMap</button>
-                        <button id="clear_map_pins" onclick="app.clearMapPins();" style="display:none;">clearMapPins</button>-->
                    
                     </ul>
                 </div>
                 
             </div>
-            
-            <!--<div data-role="popup" data-position-to="#dateMainList"  id="popupMap" class="pop-map"  data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
-            <div data-role="popup"   id="popupMap" >
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-             
-            </div>-->
-            
+                        
             <div data-role="popup" id="popupMap">
                 <!--<div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">-->
                 <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right map-back">Close</a>
                 <div id="map-wrap"></div>
-                <!--<div  data-role="popup" id="mapWrap1" class="mapWrap"></div>-->
-                <!--<iframe src="map.html" width="480" height="320" seamless></iframe>-->
             </div>
-            
-            <!--<div data-role="popup" id="myPopupDiv">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <p>This is a completely basic popup, no options set.</p>
-            </div>-->
             
             <div data-role="popup" id="ev-info-pop">
                 <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
@@ -132,11 +78,6 @@
                 <div id="ev-rsvp-text">desc</div>
             </div>
             
-            <!--<div data-role="popup" id="fr-mail-pop">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div id="fr-mail-wrap">desc</div>
-            </div>-->
-            
             <!-- /footer -->
         </div>
         <script>
@@ -144,13 +85,7 @@
             </script>
         
         <script src="js/jquery-1.7.1.min.js"></script>
-        <!--<script src="http://jquerymobile.com/demos/1.2.0-alpha.1/docs/_assets/js/jqm-docs.js"></script>-->
-        <!--<script src="http://jquerymobile.com/demos/1.2.0-alpha.1/js/jquery.mobile-1.2.0-alpha.1.js"></script>-->
         <script src="js/jquery.mobile-1.2.0-alpha.1.js"></script>
-        <!--<script src="js/jquery.mobile-1.2.1.js"></script>-->
-        
-        
-        <!--<script src="http://jquerymobile.com/demos/1.2.0/docs/pages/popup/popup-examples.js"></script>-->
         <script src="js/popup/popup-examples.js"></script>
         
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
@@ -165,8 +100,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         
         <script src="js/MapKit.js"></script>
-        
-        <!--<script src="js/mapTest.js"></script>-->
+
         <script src="js/index.js"></script>
         <script>
             app.initialize();
