@@ -394,7 +394,9 @@ function setEventTap(selPrefix) {
                                  }
                                  var tempHeight = $(this).parents().eq(3).height();
 
-                                 if (!selectedBool){
+                                 //if (!selectedBool){
+                                   if(!($(this).parents().eq(3).hasClass('hasSelected'))){
+
                                  
                                  //if (!formerFriendSelected) {
                                  //console.log("height increase");
@@ -408,6 +410,8 @@ function setEventTap(selPrefix) {
                                  $(this).parents().eq(2).addClass('friend-touched');
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  selectedBool = true;
+                                 $(this).parents().eq(3).addClass('hasSelected');
+
                                   //return;
                                  } else if (formerSelected) {
                                  //console.log("former event selected fr");
@@ -418,7 +422,7 @@ function setEventTap(selPrefix) {
                                  $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                  $("#" + selectedEvId).parents().eq(2).removeClass('event-selected');
                                  selectedBool = false;
-
+                                 $(this).parents().eq(3).removeClass('hasSelected');
 
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                  
@@ -431,7 +435,7 @@ function setEventTap(selPrefix) {
                                  $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                  $("#" + selectedEvId).parents().eq(2).removeClass('event-selected');
                                  selectedBool = false;
-
+                                 $(this).parents().eq(3).removeClass('hasSelected');
                                  $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                  
                                  }
@@ -446,6 +450,8 @@ function setEventTap(selPrefix) {
                                  $(this).parents().eq(4).addClass("notransition");
                                  $(this).parents().eq(2).addClass('friend-selected');
                                  selectedBool = true;
+                                 $(this).parents().eq(3).addClass('hasSelected');
+
                                  $(this).parents().eq(4).removeClass("notransition");
 
                                  }
@@ -477,10 +483,13 @@ function setEventTap(selPrefix) {
                                     
                                     //if (!formerEventSelected) {
                                     var tempHeight = $(this).parents().eq(3).height();
+                                              console.log("selected bool: "+selectedBool);
+                                              
+                                    //if (!selectedBool){
+                                    if(!($(this).parents().eq(3).hasClass('hasSelected'))){
 
-                                    if (!selectedBool){
                                     
-                                    //console.log("height increase");
+                                    console.log("height increase");
                                     
                                     $(this).parents().eq(3).css('height', tempHeight + 65);
                                     
@@ -495,7 +504,7 @@ function setEventTap(selPrefix) {
 
                                     $(this).parents().eq(2).addClass('event-selected');
                                     selectedBool = true;
-
+                                    $(this).parents().eq(3).addClass('hasSelected');
                                     //Some event selected
                                     } else if (formerSelected) {
                                     //console.log("former event selected ev");
@@ -512,7 +521,7 @@ function setEventTap(selPrefix) {
                                     $("#" + selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                     selectedBool = false;
-
+                                    $(this).parents().eq(3).removeClass('hasSelected');
 
                                     $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                     
@@ -527,7 +536,7 @@ function setEventTap(selPrefix) {
                                     $("#" + selectedEvId).parents().eq(2).removeClass('event-selected');
                                     $("#" + selectedEvId).parents().eq(2).removeClass('friend-selected');
                                     selectedBool = false;
-
+                                    $(this).parents().eq(3).removeClass('hasSelected');
                                     $("#" + selectedEvId).parents().eq(4).removeClass("notransition");
                                     
                                     }
@@ -540,6 +549,7 @@ function setEventTap(selPrefix) {
 
                                     $(this).parents().eq(2).addClass('event-selected');
                                     selectedBool = true;
+                                    $(this).parents().eq(3).addClass('hasSelected');
 
                                     //console.log("ev select added");
 
