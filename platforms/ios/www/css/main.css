@@ -289,6 +289,7 @@ ul{
     margin: auto;
     /*margin-top:65px!important;*/
     background:none!important;
+    padding-bottom:0px! important;
     padding-left:0px!important;
 }
 
