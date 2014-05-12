@@ -359,6 +359,7 @@ var selectedBool = false;
 
 function setEventTap(selPrefix) {
     console.log("set event tap selPrefix: "+selPrefix);
+    
     $(selPrefix+".friend-wrap").tap(function () {
                           /*$(this).parent().addClass('events-touched');*/
                           });
@@ -619,6 +620,8 @@ function contract(exIndex,elem,transition){
 
 function popDate1(e,elem){
     console.log("pop date 1");
+    console.log("pop date 1");
+    $("#event-wrap-in-"+k).removeClass("hasSelected");
     k = $(elem).attr('data-dateId');
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
@@ -645,6 +648,7 @@ function popDate1(e,elem){
 function popDate(e,elem){
     console.log("popDate");
     k = $(elem).attr('data-dateId');
+    $("#event-wrap-in-"+k).removeClass("hasSelected");
     var $this = $("date-elem-"+k+"-list");
     pos = $("#date-elem-"+k+"-list").offset().top;
     $doc = $(document);
