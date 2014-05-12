@@ -99,19 +99,19 @@ function makeEvening(integer) {
         result.monthNumber = "4";
     }else if(result.dateStringArray[1] == "May"){
         result.monthNumber = "5";
-    }else if((result.dateStringArray[1] =="June")|(result.dateStringArray[1] =="June")){
+    }else if((result.dateStringArray[1] =="June")|(result.dateStringArray[1] =="Jun")){
         result.monthNumber = "6";
     }else if((result.dateStringArray[1] == "July")|(result.dateStringArray[1] == "Jul")){
         result.monthNumber = "7";
     }else if((result.dateStringArray[1] == "Aug")|(result.dateStringArray[1] == "August")){
         result.monthNumber = "8";
-    }else if((result.dateStringArray[1] == "Sept")|(result.dateStringArray[1] == "Sep")|(result.dateStringArray[1] == "Septmber")){
+    }else if((result.dateStringArray[1] == "Sept")|(result.dateStringArray[1] == "Sep")|(result.dateStringArray[1] == "September")){
         result.monthNumber = "9";
     }else if((result.dateStringArray[1] == "Oct")|(result.dateStringArray[1] == "October")){
         result.monthNumber = "10";
     }else if((result.dateStringArray[1] == "Nov")|(result.dateStringArray[1] == "November")){
         result.monthNumber = "11";
-    }else if((result.dateStringArray[1] == "Dec")|(result.dateStringArray[1] == "Dec")){
+    }else if((result.dateStringArray[1] == "Dec")|(result.dateStringArray[1] == "December")){
         result.monthNumber = "12";
     }
     //console.log(result.monthNumber);
