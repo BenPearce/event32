@@ -565,7 +565,7 @@ function expand(cntIndex,elem){
     //console.log("expand");
     var exHtml = "";
     for(i=0;i<=dateHash[cntIndex].eventList.length - 1;i++){
-        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"",cntIndex);
+        var exHtml = exHtml +getEventRow(eventList[dateHash[k].eventList[i]].fbId,"added",cntIndex);
     }
     var exHtml = exHtml +"<div id='more-events-"+cntIndex+"' class='more-events'></div>";
     $(elem).addClass("expanded");
@@ -588,12 +588,12 @@ function contract(exIndex,elem,transition){
     if(transition){
         $("#event-wrap-in-"+exIndex).css("height","280px");
 
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"cntAdded",exIndex));
     }else{
         $("#event-wrap-in-"+exIndex).addClass("notransition");
         $("#event-wrap-in-"+exIndex).css("height","280px");
         $("#event-wrap-in-"+exIndex).html("");
-        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"",exIndex));
+        $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"cntAdded",exIndex));
         
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         $("#event-wrap-in-"+exIndex).height();
@@ -628,7 +628,7 @@ function popDate1(e,elem){
     exListHeight = dateHash[k].eventList.length;
     lastIndex = k;
     exSelector = elem;
-    setEventTap(".added ");
+    setEventTap(".cntAdded ");
     setButtons();
 }
 
