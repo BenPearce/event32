@@ -132,6 +132,7 @@ function locError(){
 }
 
 document.addEventListener('deviceready', function () {
+
                           navigator.geolocation.getCurrentPosition(locSuccess, locError);
                           window.fbAsyncInit = function () {
                           init();
