@@ -133,6 +133,7 @@ function locError(){
 
 document.addEventListener('resume', function(){
                           alert("resume");
+                          populateUi();
                           }, false);
 
 document.addEventListener('deviceready', function () {
