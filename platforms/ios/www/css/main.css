@@ -1133,14 +1133,17 @@ height:120px!important;
 #fb-login-button{
 	display:block;
 	margin:auto;
-	width:350px;
+	width:90%;
 	height:50px;
-	margin-top:10px;
+    line-height: 50px;
+	margin-top:50px;
 	margin-bottom:10px;
 }
 
 #bf-fb-logo{
 margin:auto;
+display:block;
+margin-top:130px;
 }
 
 #fb-login-page{
