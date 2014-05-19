@@ -131,14 +131,40 @@ function locError(){
     //console.log("geo error");
 }
 
-document.addEventListener('deviceready', function () {
+document.addEventListener('resume', function(){
+                          alert("resume");
+                          }, false);
 
+document.addEventListener('deviceready', function () {
+                          alert("device ready");
                           navigator.geolocation.getCurrentPosition(locSuccess, locError);
                           window.fbAsyncInit = function () {
                           init();
                           }
                           });
 
+function populateUi(){
+    createTable1().done(function(){
+                        //console.log("create table");
+                        updateFriends().done(function () {
+                                             //console.log("update friends");
+                                             updateEvents().done(function () {
+                                                                 //console.log("line before update attr");
+                                                                 updateEventAttr().done(function(){
+                                                                                        
+                                                                                        navigator.geolocation.getCurrentPosition(function(pos){
+                                                                                                                                 
+                                                                                                                                 geoPosition = pos;
+                                                                                                                                 popUi().done(function(){
+                                                                                                                                              popCal();
+                                                                                                                                              });
+                                                                                                                                 }, locError);
+                                                                                        
+                                                                                        });
+                                                                 });
+                                             });
+                        });
+}
 
 
 function init() {
@@ -155,6 +181,8 @@ function init() {
                       
                       alert("connected");
                       accessToken = response.authResponse.accessToken;
+                      populateUi();
+                     /*
                       createTable1().done(function(){
                                           //console.log("create table");
                                           updateFriends().done(function () {
@@ -171,12 +199,12 @@ function init() {
                                                                                                                                                                 });
                                                                                                                                                    }, locError);
                                                                                                           
-                                                                                                         
-                                                                                                          
                                                                                                           });
                                                                                    });
                                                                });
                                           });
+                      */
+                      
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");
@@ -196,8 +224,11 @@ $(document).ready(function () {
                                                                if (response.authResponse) {
                                                                accessToken = response.authResponse.accessToken;
                                                                $("#fb-login-button").css('display', 'none');
+                                                               alert("facebook auth");
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
+                                                               
                                                                } else {
+                                                               alert("No auth");
                                                                console.log('User cancelled login or did not fully authorize.');
                                                                }
                                                                }, this), {
