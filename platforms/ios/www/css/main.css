@@ -1131,12 +1131,21 @@ height:120px!important;
 }
 
 #fb-login-button{
-	display:none;
+	display:block;
 	margin:auto;
 	width:350px;
 	height:50px;
 	margin-top:10px;
 	margin-bottom:10px;
+}
+
+#fb-login-page{
+position:absolute;
+z-index:201;
+width:100%;
+height:100%;
+top:0px;
+bottom:0px;
 }
 
 .more-events-button{

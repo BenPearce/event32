@@ -211,11 +211,11 @@ function init() {
                       } else if (response.status == "not_authorized") {
                       alert("not_authorized");
                       $("#fb-login-button").text("Facebook Authorization");
-                      $("#fb-login-button").css('display', 'block');
+                      $("#fb-login-page").css('display', 'block');
                       } else if (response.status == "unknown") {
                       alert("unknown");
                       $("#fb-login-button").text("Facebook Login");
-                      $("#fb-login-button").css('display', 'block');
+                      //$("#fb-login-page").css('display', 'block');
                       }
                       });
     window.localStorage.setItem('firstRun', '1');
@@ -226,7 +226,7 @@ $(document).ready(function () {
                                               FB.login($.proxy(function (response) {
                                                                if (response.authResponse) {
                                                                accessToken = response.authResponse.accessToken;
-                                                               $("#fb-login-button").css('display', 'none');
+                                                               $("#fb-login-page").css('display', 'none');
                                                                alert("facebook auth");
                                                                /*
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
