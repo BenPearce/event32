@@ -1139,6 +1139,10 @@ height:120px!important;
 	margin-bottom:10px;
 }
 
+#bf-fb-logo{
+margin:auto;
+}
+
 #fb-login-page{
 position:absolute;
 z-index:201;
@@ -1146,6 +1150,7 @@ width:100%;
 height:100%;
 top:0px;
 bottom:0px;
+background:white;
 }
 
 .more-events-button{
