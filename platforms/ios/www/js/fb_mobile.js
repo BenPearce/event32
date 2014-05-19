@@ -225,7 +225,10 @@ $(document).ready(function () {
                                                                accessToken = response.authResponse.accessToken;
                                                                $("#fb-login-button").css('display', 'none');
                                                                alert("facebook auth");
+                                                               /*
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
+                                                                */
+                                                               populateUi();
                                                                
                                                                } else {
                                                                alert("No auth");
