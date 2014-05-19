@@ -145,6 +145,7 @@ document.addEventListener('deviceready', function () {
                           });
 
 function populateUi(){
+   // navigator.splashscreen.show();
     createTable1().done(function(){
                         //console.log("create table");
                         updateFriends().done(function () {
@@ -158,6 +159,7 @@ function populateUi(){
                                                                                                                                  geoPosition = pos;
                                                                                                                                  popUi().done(function(){
                                                                                                                                               popCal();
+                                                                                                                                              //navigator.splashscreen.hide();
                                                                                                                                               });
                                                                                                                                  }, locError);
                                                                                         
