@@ -568,24 +568,13 @@ function setEventTap(selPrefix) {
     $(selPrefix+".friend-wrap").tap(function () {
                                     friendTap($(this));
                           });
-    /*
-    $(selPrefix+".friend-wrap").touchend(function () {});
-    
-    
-    
-    
-    $(selPrefix+".friend-wrap").touchstart(function () {
-     
-                                 });
-    */
+
    
     $(selPrefix+".event-img-wrap").tap(function () {
                                     console.log("!!!!!!!!!!!!");
                                               
                                               eventTap($(this));
-                                       });
-                                              
-                                    
+                                       });                                
 }
 
 
