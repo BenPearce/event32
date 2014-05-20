@@ -3,7 +3,7 @@
 //We should create list elements with handlers set and create some low cpu expansion for header click event
 //test
 
-
+/*
 function getEventHtml(evening){
     console.log("getEventHtml");
     if(evening.eventIdArray.length == 0){
@@ -17,7 +17,7 @@ function getEventHtml(evening){
         return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent") + getEventRow(evening.eventIdArray[3],"topEvent");
     }
 }
-
+*/
 function getEventRow(eventId,eventClass,datIndex){
     console.log("eventClass: "+eventClass);
      console.log("getEventRow");
@@ -140,28 +140,7 @@ function getDescriptionHtml(description){
 function generateButtons(evId){
     return '<div class="button-wrap" id="button-wrap-'+evId+'"><div class = "map-button" data-evId="'+evId+'" id="map-button-'+evId+'"></div><div class = "rsvp-button" id="rsvp-button-'+evId+'" data-evId="'+evId+'"></div></div>';
 }
-/*
-function getDateHeaderHtml(i,evening){
-     console.log("get date header html");
-    var friendName = typeof eventList[evening.friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+eventList[evening.friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + eventList[evening.friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
-    var eventName = typeof evening !=   "undefined"  ? evening.name : "eventNameUndefined";
-    
-    var friendPre = '<div class="event-friend-img-wrap"><img class="event-friend-img" width=50 height=50 src="';
-    var pre = '<div class="event-friend-img-wrap-quad"><img class="event-friend-img-quad" width=25 height=25 src="';
-    var preLeft = '<div class="event-friend-img-wrap-quad left"><img class="event-friend-img-quad" width=25 height=25 src="';
-    var preRight = '<div class="event-friend-img-wrap-quad right"><img class="event-friend-img-quad" width=25 height=25 src="';
-    var post = '"></div>';
-    var friendImgQuad = typeof evening.friendIdArray[0] != "undefined"  ? friendPre + "https://graph.facebook.com/"+eventList[evening.friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : friendPre + "images/pinkX.png"+ post;
-    var friendNameQuad = typeof evening.friendIdArray[0] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+eventList[evening.friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + eventList[evening.friendIdArray[0]].nameArray[1] +"</div><div class='extra-attendees-wrap'>+ "+(evening.friendIdArray.length - 1)+" more</div>" : "event-undefined";
-    
-    var zero = typeof evening.friendIdArray[0] != "undefined"  ? preLeft + "https://graph.facebook.com/"+eventList[evening.friendIdArray[0]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-    var one = typeof evening.friendIdArray[1] != "undefined" ? preRight + "https://graph.facebook.com/"+eventList[evening.friendIdArray[1]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-    var two = typeof evening.friendIdArray[2] != "undefined" ? preLeft + "https://graph.facebook.com/"+eventList[evening.friendIdArray[2]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-    var three = typeof evening.friendIdArray[3] != "undefined" ? preRight + "https://graph.facebook.com/"+eventList[evening.friendIdArray[3]].fbId +"/picture?width=25&height=25" + post : pre + "images/pinkX.png"+ post;
-    
-    return '<div><div class="event-wrap" id="'+eventId+'"><div class="row-pic-wrap event-pic-wrap"></div><div class="row-title-wrap event-title-wrap"><div class="date-header">'+evening.formattedDate+'</div></div></div><div id = "eveningFriendGroup-'+i+'" class="event-friend-group-wrap"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div></div>';
-}
-*/
+
 function getImage(elemId){
 	
     var pre = '<div class="event-friend-img-wrap" ><img class="event-friend-img" width=50 height=50 src="';
