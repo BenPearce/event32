@@ -1,4 +1,5 @@
 var moreEventsLocked = false;
+var lessEventsLocked = false;
 var moreEventExLock = false;
 var evILock = false;
 
@@ -722,9 +723,24 @@ function setFriendTap() {
                                       $(this).removeClass('left-ex-button-touched');
                                  console.log("touch end");
                                   });
+    
     $(".ex .left-ex-button").tap(function (e) {
+                                 
                                  console.log("tap");
-                                      popDate1(e, this);
+
+                                 
+                                 if(!lessEventsLocked){
+                                 
+                                 lessEventsLocked = true;
+                                    popDate1(e, this);
+                                 
+                                 setInterval(function () {
+                                             lessEventsLocked  = false;
+                                             }, 600);
+                                 
+                                // }
+                                 
+                                 }
                                       });
     
     
