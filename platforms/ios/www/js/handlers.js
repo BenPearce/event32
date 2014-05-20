@@ -606,6 +606,11 @@ function contract(exIndex,elem,transition){
         $("#event-wrap-in-"+exIndex).html("");
         $("#event-wrap-in-"+exIndex).html(getEventRow(eventList[dateHash[exIndex].eventList[0]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[1]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[2]].fbId,"cntAdded",exIndex)+getEventRow(eventList[dateHash[exIndex].eventList[3]].fbId,"cntAdded",exIndex));
         
+        console.log("eventList[dateHash[exIndex].eventList[1]: "+eventList[dateHash[exIndex].eventList[1]]);
+        console.log("eventList[dateHash[exIndex]: "+eventList[dateHash[exIndex]]);
+        console.log("dateHash[exIndex]: "+dateHash[exIndex]);
+        console.log("exIndex: "+exIndex);
+        
         $doc.scrollTop($doc.scrollTop() + $("#date-elem-"+k+"-list").offset().top - pos);
         $("#event-wrap-in-"+exIndex).height();
         $("#event-wrap-in-"+exIndex).removeClass("notransition");
@@ -673,14 +678,14 @@ function popDate(e,elem){
 }
 
 function setFriendTap() {
-    $(".more-events-text-wrap").touchstart(function () {
+    $(".ex .more-events-text-wrap").touchstart(function () {
                                            $(this).addClass('more-events-text-wrap-touched');
                                            setInterval(function () {
                                                        moreEventsLocked = false;
                                                        }, 600);
                                            });
     
-    $(".more-events-text-wrap").touchend(function (e) {
+    $(".ex .more-events-text-wrap").touchend(function (e) {
                                          console.log("more event touch end");
                                          $(this).removeClass('more-events-text-wrap-touched');
                                          if (!moreEventsLocked) {
@@ -689,9 +694,9 @@ function setFriendTap() {
                                          }
                                          });
     
-    $(".left-ex-button").touchstart(function () {});
+    $(".ex .left-ex-button").touchstart(function () {});
     
-    $(".left-ex-button").touchend(function (e) {
+    $(".ex .left-ex-button").touchend(function (e) {
                                   popDate1(e, this);
                                   });
 }
