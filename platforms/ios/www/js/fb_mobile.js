@@ -57,13 +57,14 @@ function eventExpand(element){
 var uiEventCount = 0;
 
 function popCal(){
+    console.log("popCal");
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
             
             
             var dateHeader;
 
-            if(dateHash[i].eventList.length < 3){
+            if(dateHash[i].eventList.length < 4){
                 dateHeader = getDateHeader(dateHash[i],i,"","");
             }else{
                 dateHeader = getDateHeader(dateHash[i],i,"","ex");
@@ -72,6 +73,7 @@ function popCal(){
             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' >"+dateHeader+"<div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
 
             if(typeof dateHash[i].eventList[0] != "undefined"){
+                console.log("event list[0]: "+eventList[dateHash[i].eventList[0]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
@@ -80,6 +82,7 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[1] != "undefined"){
+                console.log("event list[1]: "+eventList[dateHash[i].eventList[1]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
@@ -89,8 +92,10 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[2] != "undefined"){
+                console.log("event list[2]: "+eventList[dateHash[i].eventList[2]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
+                console.log("eventList[2] undef, date header: "+dateHeader);
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).css("height","140px");
                 $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
@@ -98,14 +103,17 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[3] != "undefined"){
+                console.log("event list[3]: "+eventList[dateHash[i].eventList[3]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
                 
             }else{
+                console.log("eventList[3] undef, date header: "+dateHeader);
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).css("height","205px");
                  $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
+            console.log("line after cont, indes: "+i);
             if(dateHash[i].eventList.length > 4){
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-wrap-in-"+i).css("height","280px");
