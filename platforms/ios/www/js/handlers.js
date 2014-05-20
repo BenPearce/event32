@@ -714,14 +714,16 @@ function setFriendTap() {
                                              });
     
     $(".ex .left-ex-button").touchstart(function () {
+                                        console.log("touch start");
                                         $(this).addClass('left-ex-button-touched');
                                         });
     
     $(".ex .left-ex-button").touchend(function (e) {
                                       $(this).removeClass('left-ex-button-touched');
-                                 
+                                 console.log("touch end");
                                   });
     $(".ex .left-ex-button").tap(function (e) {
+                                 console.log("tap");
                                       popDate1(e, this);
                                       });
     
