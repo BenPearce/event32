@@ -1175,20 +1175,7 @@ background:white;
     border-top:solid black 1px;
 }
 
-.cnt .left-ex-button{
-    /*display:block;*/
-    
-    background-image:url('../images/ArrowUpTrans.png')!important;
-    /*
-    background:red!important;
-    background-color:blue!important;
-     */
-    /*background-image:url('../images/upArrowWhite.png')!important;*/
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-    -webkit-transition: opacity .5s ease-in;
-    opacity: 1;
-}
+
 
 .ex .more-events-text-wrap{
     /*display:block;*/
@@ -1222,6 +1209,8 @@ background:white;
     background-repeat:no-repeat!important;
     /*background:green!important;*/
 }
+
+
 
 .right-ex-wrap{
     
@@ -1650,30 +1639,34 @@ height:50px
     height:50px;
     width:50px;
     
-    /*border-left:solid black 5px;*/
-    /*display:none;*/
+
     -webkit-transition: opacity .5s ease-out;
     opacity: 0;
-    /* for some reason I need this to get rid of a gap*/
-    /* border:solid 5px black;*/
-    /*box-shadow: 2px 2px 2px #888888;*/
-    /*color:yellow;
-     font-size:26pt;*/
-    
-    
-    /*background-image:url('../images/UpArrowOrange.png')!important;*/
-    /*background-image:url('../images/upArrowOrangeBg.png')!important;*/
-    background-image:url('../images/ArrowUpBlackOrange.png')!important;
-    /*background-image:url('../images/upArrowTouched.png')!important;*/
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-    /*
-     background-image:url('../images/arrow_up.png');
+
+   /* background-image:url('../images/ArrowUpBlackOrange.png')!important;*/
+
+     /*background-image:url('../images/arrow_up.png');*/
      background-position:center;
      background-repeat:no-repeat;
-     */
-    /*background-attachment: fixed;*/
+
     float:left;
+}
+
+.left-ex-button-touched{
+   background-image:url('../images/ArrowUpBlackOrange.png')!important;
+
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+}
+
+.cnt .left-ex-button{
+
+    background-image:url('../images/ArrowUpTrans.png');
+
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    -webkit-transition: opacity .5s ease-in;
+    opacity: 1;
 }
 
 .right-ex-button{

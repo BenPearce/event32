@@ -713,11 +713,19 @@ function setFriendTap() {
                                              }
                                              });
     
-    $(".ex .left-ex-button").touchstart(function () {});
+    $(".ex .left-ex-button").touchstart(function () {
+                                        $(this).addClass('left-ex-button-touched');
+                                        });
     
     $(".ex .left-ex-button").touchend(function (e) {
-                                  popDate1(e, this);
+                                      $(this).removeClass('left-ex-button-touched');
+                                 
                                   });
+    $(".ex .left-ex-button").tap(function (e) {
+                                      popDate1(e, this);
+                                      });
+    
+    
 }
 
 function stickyList() {
