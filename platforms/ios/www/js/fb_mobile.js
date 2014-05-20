@@ -141,7 +141,7 @@ function locError(){
 
 document.addEventListener('resume', function(){
                           alert("resume");
-                          populateUi();
+                          initializeUi();
                           }, false);
 
 document.addEventListener('deviceready', function () {
@@ -152,14 +152,14 @@ document.addEventListener('deviceready', function () {
                           }
                           });
 
-function populateUi(){
+function initializeUi(){
    // navigator.splashscreen.show();
     createTable1().done(function(){
-                        //console.log("create table");
+                        console.log("create table");
                         updateFriends().done(function () {
-                                             //console.log("update friends");
+                                             console.log("update friends");
                                              updateEvents().done(function () {
-                                                                 //console.log("line before update attr");
+                                                                 console.log("line before update attr");
                                                                  updateEventAttr().done(function(){
                                                                                         
                                                                                         navigator.geolocation.getCurrentPosition(function(pos){
@@ -194,7 +194,7 @@ function init() {
                       $("#fb-login-page").css('display', 'none');
 
                       accessToken = response.authResponse.accessToken;
-                      populateUi();
+                      initializeUi();
                      /*
                       createTable1().done(function(){
                                           //console.log("create table");
@@ -241,7 +241,7 @@ $(document).ready(function () {
                                                                /*
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
                                                                 */
-                                                               populateUi();
+                                                               initializeUi();
                                                                
                                                                } else {
                                                                alert("No auth");

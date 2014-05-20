@@ -243,6 +243,10 @@ function setButtons() {
                                $(this).removeClass('fr-i-button-touched');
                                });
     
+    $(".fr-i-button").tap(function () {
+                               $(this).removeClass('fr-i-button-touched');
+                               });
+    
     $(".fr-mail-button").touchstart(function () {
                                     $(this).addClass('fr-mail-button-touched');
                                     });
