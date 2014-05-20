@@ -680,19 +680,38 @@ function popDate(e,elem){
 function setFriendTap() {
     $(".ex .more-events-text-wrap").touchstart(function () {
                                            $(this).addClass('more-events-text-wrap-touched');
+                                               /*
                                            setInterval(function () {
                                                        moreEventsLocked = false;
                                                        }, 600);
+                                                */
                                            });
     
     $(".ex .more-events-text-wrap").touchend(function (e) {
-                                         console.log("more event touch end");
+                                         //console.log("more event touch end");
                                          $(this).removeClass('more-events-text-wrap-touched');
-                                         if (!moreEventsLocked) {
+                                         /*
+                                             if (!moreEventsLocked) {
                                          moreEventsLocked = true;
                                          popDate(e, this);
                                          }
+                                            */
                                          });
+    
+    $(".ex .more-events-text-wrap").tap(function (e) {
+                                             console.log("more event touch end");
+                                             $(this).removeClass('more-events-text-wrap-touched');
+                                             if (!moreEventsLocked) {
+                                        
+                                        
+                                             moreEventsLocked = true;
+                                             popDate(e, this);
+                                        setInterval(function () {
+                                                    moreEventsLocked = false;
+                                                    }, 600);
+                                        
+                                             }
+                                             });
     
     $(".ex .left-ex-button").touchstart(function () {});
     
