@@ -3,8 +3,24 @@
 //We should create list elements with handlers set and create some low cpu expansion for header click event
 //test
 
+
+function getEventHtml(evening){
+    console.log("getEventHtml");
+    if(evening.eventIdArray.length == 0){
+    }else if(evening.eventIdArray.length == 1){
+        return getEventRow(evening.eventIdArray[0],"topEvent");
+    }else if(evening.eventIdArray.length == 2){
+        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent");
+    }else if(evening.eventIdArray.length == 3){
+        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent");
+    }else{
+        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent") + getEventRow(evening.eventIdArray[3],"topEvent");
+    }
+}
+
 function getEventRow(eventId,eventClass,datIndex){
     console.log("eventClass: "+eventClass);
+     console.log("getEventRow");
     var eventRowHtml;
     
     var eventImageClusterHtml;
@@ -100,18 +116,7 @@ function getEventRow(eventId,eventClass,datIndex){
     }
 }
 
-function getEventHtml(evening){
-    if(evening.eventIdArray.length == 0){
-    }else if(evening.eventIdArray.length == 1){
-        return getEventRow(evening.eventIdArray[0],"topEvent");
-    }else if(evening.eventIdArray.length == 2){
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent");
-    }else if(evening.eventIdArray.length == 3){
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent");
-    }else{
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent") + getEventRow(evening.eventIdArray[3],"topEvent");
-    }
-}
+
 
 function getMorebutton(k,text1,className){
     
@@ -124,7 +129,7 @@ function getLeftExButton(k,text1,className){
 }
 
 function getDateHeader(evening,k,cnt,ex){
-    
+    console.log("get date header");
     return '<div id="divider-wrap-'+evening.id+'" class="divider-wrap '+cnt+' '+ex+'"><div id="dateDisplayer-'+evening.id+'"  class="date-row opaque"><div class = "date-abrev-wrap"><div class="left-ex-wrap"><div class="left-ex-button"  data-dateId="'+k+'"></div></div><div class="right-ex-wrap"><div class="more-events-text-wrap"  data-dateId="'+k+'"></div></div><div class="date-wrap-inner"><div class="date-header"><div class="date-header">'+evening.weekDayLong+' '+evening.monthNumber+'.'+evening.dateStringArray[2]+'</div></div></div></div></div></div>';
 }
 
@@ -135,8 +140,9 @@ function getDescriptionHtml(description){
 function generateButtons(evId){
     return '<div class="button-wrap" id="button-wrap-'+evId+'"><div class = "map-button" data-evId="'+evId+'" id="map-button-'+evId+'"></div><div class = "rsvp-button" id="rsvp-button-'+evId+'" data-evId="'+evId+'"></div></div>';
 }
-
+/*
 function getDateHeaderHtml(i,evening){
+     console.log("get date header html");
     var friendName = typeof eventList[evening.friendIdArray[0]] !=   "undefined"  ?"<div class='friend-first-name-wrap'>"+eventList[evening.friendIdArray[0]].nameArray[0]  + "</div><div class='friend-first-last-wrap'>" + eventList[evening.friendIdArray[0]].nameArray[1] +"</div>" : "event-undefined";
     var eventName = typeof evening !=   "undefined"  ? evening.name : "eventNameUndefined";
     
@@ -155,7 +161,7 @@ function getDateHeaderHtml(i,evening){
     
     return '<div><div class="event-wrap" id="'+eventId+'"><div class="row-pic-wrap event-pic-wrap"></div><div class="row-title-wrap event-title-wrap"><div class="date-header">'+evening.formattedDate+'</div></div></div><div id = "eveningFriendGroup-'+i+'" class="event-friend-group-wrap"><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+zero+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+one+'</div></div></div><div class="attendee-quad-row"><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+two+'</div></div><div class="friend-pic-wrap-quad"><div class="friend-pic-quad">'+three+'</div></div></div></div></div></div>';
 }
-
+*/
 function getImage(elemId){
 	
     var pre = '<div class="event-friend-img-wrap" ><img class="event-friend-img" width=50 height=50 src="';
