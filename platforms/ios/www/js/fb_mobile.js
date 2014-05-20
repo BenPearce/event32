@@ -183,6 +183,8 @@ function init() {
                       if (response.status == "connected") {
                       
                       alert("connected");
+                      $("#fb-login-page").css('display', 'none');
+
                       accessToken = response.authResponse.accessToken;
                       populateUi();
                      /*
