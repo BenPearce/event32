@@ -706,11 +706,11 @@ function setFriendTap() {
                                         
                                         
                                              moreEventsLocked = true;
-                                             popDate(e, this);
+                                        
                                         setInterval(function () {
                                                     moreEventsLocked = false;
                                                     }, 600);
-                                        
+                                        popDate(e, this);
                                              }
                                              });
     
@@ -732,12 +732,12 @@ function setFriendTap() {
                                  if(!lessEventsLocked){
                                  
                                  lessEventsLocked = true;
-                                    popDate1(e, this);
+                             
                                  
                                  setInterval(function () {
                                              lessEventsLocked  = false;
                                              }, 600);
-                                 
+                                        popDate1(e, this);
                                 // }
                                  
                                  }
