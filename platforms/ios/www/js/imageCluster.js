@@ -3,21 +3,7 @@
 //We should create list elements with handlers set and create some low cpu expansion for header click event
 //test
 
-/*
-function getEventHtml(evening){
-    console.log("getEventHtml");
-    if(evening.eventIdArray.length == 0){
-    }else if(evening.eventIdArray.length == 1){
-        return getEventRow(evening.eventIdArray[0],"topEvent");
-    }else if(evening.eventIdArray.length == 2){
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent");
-    }else if(evening.eventIdArray.length == 3){
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent");
-    }else{
-        return getEventRow(evening.eventIdArray[0],"topEvent") + getEventRow(evening.eventIdArray[1],"topEvent") + getEventRow(evening.eventIdArray[2],"topEvent") + getEventRow(evening.eventIdArray[3],"topEvent");
-    }
-}
-*/
+
 function getEventRow(eventId,eventClass,datIndex){
     console.log("eventClass: "+eventClass);
      console.log("getEventRow");
