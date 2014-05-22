@@ -171,6 +171,7 @@ function getFriendsDb() {
 }
 
 function insertEventIdsDb(friendEventsParse) {
+    console.log("inserd Events Triggered");
     var count = 0;
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
@@ -183,6 +184,7 @@ function insertEventIdsDb(friendEventsParse) {
                     
                     var friendsEventsUpdateTime = new Date().getTime();
                     window.localStorage.setItem("friendUpdateTime", friendsEventsUpdateTime);
+                    console.log("evens inserted");
                     dfd.resolve("reesolved");
                     });
     return dfd.promise();
@@ -254,6 +256,24 @@ function insertEventArrtDb(eventAttrParse) {
                     //venue_street,venue_city,venue_state,venue_country,venue_zip,venue_latitude,venue_longitude,venue_id,venue_name,venue_located_in
                     
                     //Not getting any of todays dates
+                    
+                    console.log("incoming eId: "+eventAttrParse[i].eid);
+                
+                    //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = "+eventAttrParse[i].eid, [], function (tx, results) {
+                    //tx.executeSql("SELECT * FROM EVENTS", [], function (tx, results) {
+                    tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
+                                  
+                                 // tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS", [], function (tx, results) {
+
+
+                    console.log("results.touched rows: "+results.rows);
+                                  console.log("results.touched length: "+results.rows.length);
+
+                                  console.log("results.eventFbId 0: "+results.rows.item(0).eventFbId);
+                                  console.log("results.eventFbId 0: "+results.rows.item(0).touched);
+                    //console.log("results.eventFbId 1: "+results.rows.item(1).eventFbId);
+                    });
+                    
 
                     tx.executeSql("INSERT INTO EVENTS ("
                                   +'formattedTime'+"," //1
@@ -336,6 +356,8 @@ function insertEventArrtDb(eventAttrParse) {
                     });
     return dfd.promise();
 }
+
+
 
 function getEventsDb(){
     //var count = 0;
