@@ -259,9 +259,10 @@ function insertEventArrtDb(eventAttrParse) {
                     
                     console.log("incoming eId: "+eventAttrParse[i].eid);
                 
-                    //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = "+eventAttrParse[i].eid, [], function (tx, results) {
-                    //tx.executeSql("SELECT * FROM EVENTS", [], function (tx, results) {
-                    tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
+           
+                    //tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
+                                  
+                    tx.executeSql("SELECT eventFbId, touched from EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
                                   
                                  // tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS", [], function (tx, results) {
 
@@ -271,6 +272,8 @@ function insertEventArrtDb(eventAttrParse) {
 
                                   console.log("results.eventFbId 0: "+results.rows.item(0).eventFbId);
                                   console.log("results.eventFbId 0: "+results.rows.item(0).touched);
+                                  //console.log("update time: "+eventAttrParse[i].update_time);
+                                  
                     //console.log("results.eventFbId 1: "+results.rows.item(1).eventFbId);
                     });
                     
