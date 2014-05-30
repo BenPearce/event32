@@ -135,6 +135,7 @@ function deleteExpiredFriendsEvents(){
                                   dfd.resolve("friendParse");
                                   });
                     });
+    
     return dfd.promise();
 }
 
