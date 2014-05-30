@@ -141,7 +141,7 @@ function locError(){
 
 document.addEventListener('resume', function(){
                           alert("resume");
-                          initializeUi();
+                          //initializeUi();
                           }, false);
 
 document.addEventListener('deviceready', function () {
