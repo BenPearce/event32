@@ -59,7 +59,7 @@ function eventExpand(element){
 var uiEventCount = 0;
 
 function updateCal(){
-    
+    console.log("update cal trig");
     var today = new Date();
     //lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
     //lastUpdateInt = dateToIntegerReg(lastUpdateDate);
@@ -183,6 +183,7 @@ document.addEventListener('deviceready', function () {
 
 function initializeUi(){
    // navigator.splashscreen.show();
+    alert("initialize UI");
     createTable1().done(function(){
                         console.log("create table");
                         updateFriends().done(function () {
@@ -274,11 +275,15 @@ $(document).ready(function () {
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
                                                                 */
                                                                console.log("line before initializeUI_2");
+                                                               alert("hi");
                                                                initializeUi();
                                                                
+                                                               //Update Cal isn't triggering and a bun of other stuff is
                                                                document.addEventListener('resume', function(){
                                                                                          alert("resume");
+                                                                                         console.Log("before updateCal");
                                                                                          updateCal();
+                                                                                         console.Log("after updateCal");
                                                                                          //initializeUi();
                                                                                          }, false);
                                                                
