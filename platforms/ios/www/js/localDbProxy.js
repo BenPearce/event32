@@ -442,10 +442,7 @@ function constructCalObject1(fbId,tx,friend){
     /*
      tx.executeSql("SELECT EVENTS.start_time as start_time, EVENTS.description as description,FRIENDS_EVENTS.friendFbId as frId,EVENTS.dateHash as dateHash,EVENTS.name as name, FRIENDS_EVENTS.eventFbId as evId, EVENTS.eventFbId as frEvId FROM FRIENDS_EVENTS JOIN EVENTS ON FRIENDS_EVENTS.eventFbId = EVENTS.eventFbId WHERE EVENTS.eventFbId = '"+fbId+"'", [], function (tx, results) {
      */
-    var today = new Date();
-        lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
-    lastUpdateInt = dateToIntegerReg(lastUpdateDate);
-    console.log("new dm after:lastUpdateInt "+lastUpdateInt);
+
     
     
     tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {

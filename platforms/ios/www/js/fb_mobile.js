@@ -59,9 +59,24 @@ function eventExpand(element){
 var uiEventCount = 0;
 
 function updateCal(){
+    
+    var today = new Date();
+    //lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
+    //lastUpdateInt = dateToIntegerReg(lastUpdateDate);
+     lastUpdateInt = dateToIntegerReg(today);
+    console.log("new dm after:lastUpdateInt "+lastUpdateInt);
+    
+    
      for (i=0;i<33;i++){
+         
+         if(dateHash[i].eventList.length < 4){
+             dateHeader = getDateHeader(dateHash[i],i,"","");
+         }else{
+             dateHeader = getDateHeader(dateHash[i],i,"","ex");
+         }
+         
          //$("#dateDisplayer-"+evening.id)
-         //$("#date-header-wrap-"+i)
+         $("#date-header-wrap-"+i).html(dateHeader);
      }
 }
 
@@ -148,17 +163,22 @@ function locError(){
     //console.log("geo error");
 }
 
-document.addEventListener('resume', function(){
-                          alert("resume");
-                          //initializeUi();
-                          }, false);
+
 
 document.addEventListener('deviceready', function () {
                           alert("device ready");
                           navigator.geolocation.getCurrentPosition(locSuccess, locError);
+                          /*
+                          window.addEventListener('fbAsyncInit', function(){
+                                                  console.log("fbAsyncInit trig");
+                                                    init();
+                                                  }, false);
+                           */
+                          
                           window.fbAsyncInit = function () {
                           init();
-                          }
+                           }
+                         
                           });
 
 function initializeUi(){
@@ -203,7 +223,8 @@ function init() {
                       $("#fb-login-page").css('display', 'none');
 
                       accessToken = response.authResponse.accessToken;
-                      initializeUi();
+                      console.log("lone before initializeUi_1");
+                      //initializeUi();
                      /*
                       createTable1().done(function(){
                                           //console.log("create table");
@@ -242,6 +263,8 @@ function init() {
 
 $(document).ready(function () {
                   $("#fb-login-button").click(function () {
+                                              
+                                              
                                               FB.login($.proxy(function (response) {
                                                                if (response.authResponse) {
                                                                accessToken = response.authResponse.accessToken;
@@ -250,11 +273,25 @@ $(document).ready(function () {
                                                                /*
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
                                                                 */
+                                                               console.log("line before initializeUI_2");
                                                                initializeUi();
+                                                               
+                                                               document.addEventListener('resume', function(){
+                                                                                         alert("resume");
+                                                                                         updateCal();
+                                                                                         //initializeUi();
+                                                                                         }, false);
                                                                
                                                                } else {
                                                                alert("No auth");
                                                                console.log('User cancelled login or did not fully authorize.');
+                                                               /*
+                                                               document.addEventListener('resume', function(){
+                                                                                         alert("resume");
+                                                                                         updateCal();
+                                                                                         //initializeUi();
+                                                                                         }, false);
+                                                                */
                                                                }
                                                                }, this), {
                                                        scope: 'user_events,friends_events'
