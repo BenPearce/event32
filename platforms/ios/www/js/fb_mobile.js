@@ -15,6 +15,8 @@ var crossBrowserEvent = 'webkitAnimationEnd oanimationend msAnimationEnd animati
 var k;
 var lastEvIndex;
 var geoPosition;
+var lastUpdateDate;
+var lastUpdateInt;
 
 function eventExpand(element){
     //console.log("event expand");
