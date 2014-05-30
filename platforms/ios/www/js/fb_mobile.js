@@ -58,34 +58,14 @@ function eventExpand(element){
 
 var uiEventCount = 0;
 
-function updateCal(){
-    console.log("update cal trig");
-    var today = new Date();
-    //lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
-    //lastUpdateInt = dateToIntegerReg(lastUpdateDate);
-     lastUpdateInt = dateToIntegerReg(today);
-    console.log("new dm after:lastUpdateInt "+lastUpdateInt);
-    
-    
-     for (i=0;i<33;i++){
-         
-         if(dateHash[i].eventList.length < 4){
-             dateHeader = getDateHeader(dateHash[i],i,"","");
-         }else{
-             dateHeader = getDateHeader(dateHash[i],i,"","ex");
-         }
-         
-         //$("#dateDisplayer-"+evening.id)
-         $("#date-header-wrap-"+i).html(dateHeader);
-     }
-}
+
 
 function popCal(){
-    console.log("popCal");
+    //console.log("popCal");
+    var today = new Date();
     for (i=0;i<33;i++){
         if(typeof dateHash[i] != 'undefined'){
-            
-            
+
             var dateHeader;
 
             if(dateHash[i].eventList.length < 4){
@@ -97,7 +77,7 @@ function popCal(){
             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' ><div id='date-header-wrap-"+i+"' "+dateHeader+"</div><div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
 
             if(typeof dateHash[i].eventList[0] != "undefined"){
-                console.log("event list[0]: "+eventList[dateHash[i].eventList[0]].name+" date has: "+i);
+                //console.log("event list[0]: "+eventList[dateHash[i].eventList[0]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
@@ -106,7 +86,7 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[1] != "undefined"){
-                console.log("event list[1]: "+eventList[dateHash[i].eventList[1]].name+" date has: "+i);
+                //console.log("event list[1]: "+eventList[dateHash[i].eventList[1]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
             }else{
                 var moreText = (dateHash[i].eventList.length - 4);
@@ -116,10 +96,10 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[2] != "undefined"){
-                console.log("event list[2]: "+eventList[dateHash[i].eventList[2]].name+" date has: "+i);
+                //console.log("event list[2]: "+eventList[dateHash[i].eventList[2]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
             }else{
-                console.log("eventList[2] undef, date header: "+dateHeader);
+                //console.log("eventList[2] undef, date header: "+dateHeader);
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).css("height","140px");
                 $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
@@ -127,17 +107,17 @@ function popCal(){
             }
             
             if(typeof dateHash[i].eventList[3] != "undefined"){
-                console.log("event list[3]: "+eventList[dateHash[i].eventList[3]].name+" date has: "+i);
+                //console.log("event list[3]: "+eventList[dateHash[i].eventList[3]].name+" date has: "+i);
                 $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
                 
             }else{
-                console.log("eventList[3] undef, date header: "+dateHeader);
+                //console.log("eventList[3] undef, date header: "+dateHeader);
                 var moreText = (dateHash[i].eventList.length - 4);
                 $("#event-wrap-in-"+i).css("height","205px");
                  $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
                 continue;
             }
-            console.log("line after cont, indes: "+i);
+            //console.log("line after cont, indes: "+i);
             if(dateHash[i].eventList.length > 4){
             var moreText = (dateHash[i].eventList.length - 4);
             $("#event-wrap-in-"+i).css("height","280px");
@@ -152,6 +132,7 @@ function popCal(){
     setFriendTap();
     setEventTap("");
     setButtons();
+         lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
 }
 
 function locSuccess(position){
@@ -176,14 +157,28 @@ document.addEventListener('deviceready', function () {
                            */
                           
                           window.fbAsyncInit = function () {
+                          //alert("facebook synch");
                           init();
                            }
                          
                           });
 
+document.addEventListener('pause', function () {
+                          document.addEventListener('resume', function(){
+                                                    alert("resume");
+                                                    //alert("resume 1");
+                                                    //console.Log("before updateCal");
+                                                    updateCal();
+                                                    //alert("update cal");
+                                                    //console.Log("after updateCal");
+                                                    //initializeUi();
+                                                    }, false);
+                          
+                          });
+
 function initializeUi(){
-   // navigator.splashscreen.show();
-    alert("initialize UI");
+   //navigator.splashscreen.show();
+    //alert("initialize UI");
     createTable1().done(function(){
                         console.log("create table");
                         updateFriends().done(function () {
@@ -208,6 +203,8 @@ function initializeUi(){
 }
 
 
+
+
 function init() {
     FB.init({
             appId: '253970731442450',
@@ -220,12 +217,12 @@ function init() {
                       alert("fb login: "+JSON.stringify(response));
                       if (response.status == "connected") {
                       
-                      alert("connected");
+                      //alert("connected");
                       $("#fb-login-page").css('display', 'none');
 
                       accessToken = response.authResponse.accessToken;
                       console.log("lone before initializeUi_1");
-                      //initializeUi();
+                      initializeUi();
                      /*
                       createTable1().done(function(){
                                           //console.log("create table");
@@ -262,6 +259,131 @@ function init() {
     window.localStorage.setItem('firstRun', '1');
 }
 
+
+function updateCal(){
+    console.log("update cal trig");
+    alert("update Cal");
+    console.log("update cal trig 1");
+     var today = new Date();
+    
+        var yesterday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
+    
+    var lastUpdateInt = dateToIntegerReg(yesterday);
+
+    
+     var temp =new Date(today.getFullYear(),today.getMonth(), today.getDate());
+    
+    
+     var todayInt = dateToIntegerReg(temp);
+    
+    
+
+
+    
+    
+    alert("today: "+temp);
+    alert("today Int: "+ todayInt);
+    
+    var daysElapsed = lastUpdateInt;
+    
+    
+     console.log("new dm after:lastUpdateInt "+lastUpdateInt);
+         alert("update cal");
+    
+     for (i=0;i<33;i++){
+         
+         if((i +lastUpdateInt) <= 0){
+             
+             $("#date-elem-"+i+"-list").remove();
+             
+             
+         } else if (33 >= (i +lastUpdateInt) > 0){
+             
+             if(dateHash[i].eventList.length < 4){
+                 dateHeader = getDateHeader(dateHash[i],i,"","");
+             }else{
+                 dateHeader = getDateHeader(dateHash[i],i,"","ex");
+             }
+             
+              $("#date-header-wrap-"+i).html(dateHeader);
+             
+                    }else{
+                    
+                        if(typeof dateHash[i] != 'undefined'){
+                            
+                            var dateHeader;
+                            
+                            if(dateHash[i].eventList.length < 4){
+                                dateHeader = getDateHeader(dateHash[i],i,"","");
+                            }else{
+                                dateHeader = getDateHeader(dateHash[i],i,"","ex");
+                            }
+                            
+                            $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' ><div id='date-header-wrap-"+i+"' "+dateHeader+"</div><div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
+                            
+                            if(typeof dateHash[i].eventList[0] != "undefined"){
+                                //console.log("event list[0]: "+eventList[dateHash[i].eventList[0]].name+" date has: "+i);
+                                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[0]].fbId,"topEvent",i));
+                            }else{
+                                var moreText = (dateHash[i].eventList.length - 4);
+                                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
+                                continue;
+                            }
+                            
+                            if(typeof dateHash[i].eventList[1] != "undefined"){
+                                //console.log("event list[1]: "+eventList[dateHash[i].eventList[1]].name+" date has: "+i);
+                                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[1]].fbId,"topEvent",i));
+                            }else{
+                                var moreText = (dateHash[i].eventList.length - 4);
+                                $("#event-wrap-in-"+i).css("height","75px");
+                                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
+                                continue;
+                            }
+                            
+                            if(typeof dateHash[i].eventList[2] != "undefined"){
+                                //console.log("event list[2]: "+eventList[dateHash[i].eventList[2]].name+" date has: "+i);
+                                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[2]].fbId,"topEvent",i));
+                            }else{
+                                //console.log("eventList[2] undef, date header: "+dateHeader);
+                                var moreText = (dateHash[i].eventList.length - 4);
+                                $("#event-wrap-in-"+i).css("height","140px");
+                                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
+                                continue;
+                            }
+                            
+                            if(typeof dateHash[i].eventList[3] != "undefined"){
+                                //console.log("event list[3]: "+eventList[dateHash[i].eventList[3]].name+" date has: "+i);
+                                $("#event-wrap-in-"+i).append(getEventRow(eventList[dateHash[i].eventList[3]].fbId,"topEvent"));
+                                
+                            }else{
+                                //console.log("eventList[3] undef, date header: "+dateHeader);
+                                var moreText = (dateHash[i].eventList.length - 4);
+                                $("#event-wrap-in-"+i).css("height","205px");
+                                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'></div>");
+                                continue;
+                            }
+                            //console.log("line after cont, indes: "+i);
+                            if(dateHash[i].eventList.length > 4){
+                                var moreText = (dateHash[i].eventList.length - 4);
+                                $("#event-wrap-in-"+i).css("height","280px");
+                                $("#event-wrap-in-"+i).append("<div id='more-events-"+i+"' class='more-events'>"+moreText+" more events</div>");
+                            }else{
+                                $("#event-wrap-in-"+i).css("height","260px");
+                            }
+                        }
+
+                        
+                    }
+     
+
+     
+     //$("#dateDisplayer-"+evening.id)
+    // $("#date-header-wrap-"+i).html(dateHeader);
+      }
+    alert("done");
+     lastUpdateDate = new Date(today.getFullYear(),today.getMonth(), today.getDate());
+}
+
 $(document).ready(function () {
                   $("#fb-login-button").click(function () {
                                               
@@ -270,25 +392,19 @@ $(document).ready(function () {
                                                                if (response.authResponse) {
                                                                accessToken = response.authResponse.accessToken;
                                                                $("#fb-login-page").css('display', 'none');
-                                                               alert("facebook auth");
+                                                               //alert("facebook auth");
                                                                /*
                                                                $.proxy(mainInit('https://graph.facebook.com/me/friends?fields=picture,name,id&access_token=' + accessToken), this);
                                                                 */
                                                                console.log("line before initializeUI_2");
-                                                               alert("hi");
+                                                               //alert("hi");
                                                                initializeUi();
                                                                
                                                                //Update Cal isn't triggering and a bun of other stuff is
-                                                               document.addEventListener('resume', function(){
-                                                                                         alert("resume");
-                                                                                         console.Log("before updateCal");
-                                                                                         updateCal();
-                                                                                         console.Log("after updateCal");
-                                                                                         //initializeUi();
-                                                                                         }, false);
+                                                     
                                                                
                                                                } else {
-                                                               alert("No auth");
+                                                               //alert("No auth");
                                                                console.log('User cancelled login or did not fully authorize.');
                                                                /*
                                                                document.addEventListener('resume', function(){

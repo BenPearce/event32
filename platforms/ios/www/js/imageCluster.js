@@ -5,8 +5,8 @@
 
 
 function getEventRow(eventId,eventClass,datIndex){
-    console.log("eventClass: "+eventClass);
-     console.log("getEventRow");
+    //console.log("eventClass: "+eventClass);
+     //console.log("getEventRow");
     var eventRowHtml;
     
     var eventImageClusterHtml;

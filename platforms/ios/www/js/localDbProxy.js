@@ -249,9 +249,10 @@ function deleteExpiredEvents(){
 
 function tester(tx,updateTime,eventAttrParse){
     
-       console.log("updateTime_4: "+updateTime);
+       //console.log("updateTime_4: "+updateTime);
     
     tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
+                  /*
                     console.log("updateTime_5: "+updateTime);
 
                   console.log("results.touched rows: "+results.rows);
@@ -259,7 +260,7 @@ function tester(tx,updateTime,eventAttrParse){
                   
                   console.log("results.eventFbId 0: "+results.rows.item(0).eventFbId);
                   console.log("results.touched 0: "+results.rows.item(0).touched);
-                  
+                  */
 
 
                   });

@@ -83,7 +83,7 @@ function makeEvening(integer) {
     //console.log("weekDayLong "+result.weekDayLong);
     result.formattedDate = result.convertedData.toString().substr(0, result.convertedData.toString().indexOf(":") - 3);
     //result.formattedDate.substr(0, result.formattedDate.toString().indexOf(" "));
-    console.log("formatted Date: "+result.formattedDate);
+    //console.log("formatted Date: "+result.formattedDate);
     result.dateStringArray = result.formattedDate.split(" ");
     //console.log("dateStringArray[2] "+result.dateStringArray[2]);
     //if(){

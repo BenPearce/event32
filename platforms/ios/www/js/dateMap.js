@@ -40,7 +40,10 @@ function dateToInteger(date){
     temp =new Date(temp.getFullYear(),temp.getMonth(), temp.getDate());
 	var today = new Date();
 	today =new Date(today.getFullYear(),today.getMonth(), today.getDate());
+        console.log("dti temp: "+temp);
+        console.log("dti today: "+today);
     var dateHash = Math.round((temp.getTime() - today.getTime())/(1000*60*60*24)) + 1;
+    console.log("date to int output: "+dateHash);
 	return  dateHash;
 }
 
