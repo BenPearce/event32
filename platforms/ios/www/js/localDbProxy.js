@@ -210,7 +210,7 @@ function getEventAttrFb(friendIdList1) {
     var dfd = $.Deferred();
     FB.api({
            method: 'fql.query',
-           query: "SELECT name,eid,start_time,description,venue FROM event WHERE eid IN (" + friendIdList1 + ")",
+           query: "SELECT name,eid,start_time,description,venue,update_time FROM event WHERE eid IN (" + friendIdList1 + ")",
            access_token: accessToken
            },
            function (eventAttrParse) {
@@ -258,7 +258,7 @@ function insertEventArrtDb(eventAttrParse) {
                     //Not getting any of todays dates
                     
                     console.log("incoming eId: "+eventAttrParse[i].eid);
-                    
+                    console.log("update time 1: "+eventAttrParse[i].update_time);
                     //tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = "+eventAttrParse[i].eid, [], function (tx, results) {
                     //tx.executeSql("SELECT * FROM EVENTS", [], function (tx, results) {
                     tx.executeSql("SELECT eventFbId, touched from FRIENDS_EVENTS WHERE eventFbId = '"+eventAttrParse[i].eid+"'", [], function (tx, results) {
@@ -270,7 +270,8 @@ function insertEventArrtDb(eventAttrParse) {
                                   console.log("results.touched length: "+results.rows.length);
                                   
                                   console.log("results.eventFbId 0: "+results.rows.item(0).eventFbId);
-                                  console.log("results.eventFbId 0: "+results.rows.item(0).touched);
+                                  console.log("results.touched 0: "+results.rows.item(0).touched);
+                                  //console.log("update time: "+eventAttrParse[i].update_time);
                                   //console.log("results.eventFbId 1: "+results.rows.item(1).eventFbId);
                                   });
                     
