@@ -444,8 +444,6 @@ function constructCalObject1(fbId,tx,friend){
     
     tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                   
-                  
-                  //for(l=0;l<results.rows.length; l++){
                   if(parseInt(results.rows.item(0).dateHash)<33){
                   masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
@@ -457,22 +455,18 @@ function constructCalObject1(fbId,tx,friend){
                   if(typeof eventList[event.fbId] == 'undefined'){
                   event.friendIdArray.push(friend.fbId);
                   eventList[event.fbId] = event;
-                  //dateHash[event.dateHash].eventList.push(eventList[event.fbId].fbId);
                   dateHash[event.dateHash].eventList.push(event.fbId);
                   }else{
                   eventList[event.fbId].friendIdArray.push(friend.fbId);
                   }
-                  //friend.eventIdArray.push(eventList[event.fbId].fbId);
                   friend.eventIdArray.push(event.fbId);
-                  
                   }
                   //This is misnamed as it contains friend id's as well
                   eventList[friend.fbId] = friend;
-                  // }
                   dfd.resolve("tx1");
-                  //dfd.resolve("tx1");
                   }, errorCB2);
     return dfd.promise();
+    
 }
 
 var masterEventCount;
