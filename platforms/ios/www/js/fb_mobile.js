@@ -320,7 +320,7 @@ function updateCal(){
     
     alert("Math.abs(lastUpdateInt): "+Math.abs(lastUpdateInt));
     
-     for (i=0;i<33;i++){
+     for (i=0;i<35;i++){
          
          if((i +lastUpdateInt) < 0){
              
@@ -348,13 +348,15 @@ function updateCal(){
              
                         if(typeof dateHash[(i + Math.abs(lastUpdateInt))] != 'undefined'){
                             
+                            i = (i + Math.abs(lastUpdateInt));
+                            
                             var dateHeader;
-                            alert("dateHash[i].eventList.length: "+dateHash[i + Math.abs(lastUpdateInt)].eventList.length);
+                            alert("dateHash[i].eventList.length: "+dateHash[i].eventList.length);
                             
                             if(dateHash[i].eventList.length < 4){
-                                dateHeader = getDateHeader(dateHash[i + Math.abs(lastUpdateInt)],i,"","");
+                                dateHeader = getDateHeader(dateHash[i],i,"","");
                             }else{
-                                dateHeader = getDateHeader(dateHash[i + Math.abs(lastUpdateInt)],i,"","ex");
+                                dateHeader = getDateHeader(dateHash[i],i,"","ex");
                             }
                             
                             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' ><div id='date-header-wrap-"+i+"' "+dateHeader+"</div><div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");

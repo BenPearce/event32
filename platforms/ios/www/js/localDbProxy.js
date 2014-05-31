@@ -45,12 +45,12 @@ var updateEvents = function () {
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
-                                                         deleteExpiredFriendsEvents().done(function(){
+                                                         //deleteExpiredFriendsEvents().done(function(){
                                                                                            insertEventIdsDb(friendEventsParse).done(function(){
                                                                                                                                     dfd.resolve("blah");
                                                                                                                                     });
                                                                                            });
-                                                         });
+                                                         //});
                         });
     return dfd.promise();
 }
@@ -59,12 +59,12 @@ var updateEventAttr = function () {
     var dfd = $.Deferred();
     getEventIDsDb().done(function (friendIdList1) {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
-                                                            deleteExpiredEvents().done(function(){
+                                                            //deleteExpiredEvents().done(function(){
                                                                                        insertEventArrtDb(eventAttrParse).done(function(){
                                                                                                                               getEventsImplementation().done(function(){
                                                                                                                                                              dfd.resolve("friendIdList1");                                                     });
                                                                                                                               });
-                                                                                       });
+                                                                                     //  });
                                                             });
                          });
     return dfd.promise();
@@ -461,10 +461,13 @@ function constructCalObject1(fbId,tx,friend){
                   if(parseInt(results.rows.item(0).dateHash)<35){
                   
                   /*
-                  if(parseInt(results.rows.item(0).dateHash) = 33){
+                  if( parseInt(results.rows.item(0).dateHash) = 33 ){
                   alert("33 come across");
-                  }
+                   }
                    */
+                  
+                  console.log("date hash com across: "+results.rows.item(0).dateHash);
+                  
                   
                   masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
