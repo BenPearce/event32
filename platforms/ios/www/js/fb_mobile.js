@@ -297,8 +297,9 @@ function updateCal(){
              $("#date-elem-"+i+"-list").remove();
              
              
-         } else if (33 >= (i +lastUpdateInt) > 0){
+         } else if (33 > (i +lastUpdateInt) > 0){
              
+             /*
              if(dateHash[i].eventList.length < 4){
                  dateHeader = getDateHeader(dateHash[i],i,"","");
              }else{
@@ -306,7 +307,7 @@ function updateCal(){
              }
              
               $("#date-header-wrap-"+i).html(dateHeader);
-             
+             */
                     }else{
                     
                         if(typeof dateHash[i] != 'undefined'){
