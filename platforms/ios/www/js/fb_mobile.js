@@ -205,7 +205,7 @@ function initializeUi(){
 
 function updateUi(){
     //navigator.splashscreen.show();
-    alert("update UI 1");
+    //alert("update UI 1");
     createTable1().done(function(){
                         //console.log("create table");
                          //alert("update UI 2");
@@ -289,38 +289,24 @@ function init() {
 
 
 function updateCal(){
-    console.log("update cal trig");
-    //alert("update Cal");
-    console.log("update cal trig 1");
+    //console.log("update cal trig");
+    alert("update Cal");
      var today = new Date();
     
         var yesterday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
     
-    var lastUpdateInt = dateToIntegerReg(yesterday) -1;
+    var lastUpdateInt = dateToIntegerReg(lastUpdateDate) -1;
 
-    
      var temp =new Date(today.getFullYear(),today.getMonth(), today.getDate());
     
     
      var todayInt = dateToIntegerReg(temp);
     
     
-
-
-    
-    
-    //alert("today: "+temp);
-    //alert("today Int: "+ todayInt);
-    
     var daysElapsed = lastUpdateInt;
     
     
-     console.log("new dm after:lastUpdateInt "+lastUpdateInt);
-         //alert("update cal");
-    
-    alert("Math.abs(lastUpdateInt): "+Math.abs(lastUpdateInt));
-    
-     for (i=0;i<35;i++){
+     for (i=0;i<33;i++){
          
          if((i +lastUpdateInt) < 0){
              
@@ -343,15 +329,15 @@ function updateCal(){
              
              //Math.abs(-7.25);
              
-             alert("date hash type number: "+(i + Math.abs(lastUpdateInt)));
-               alert("date Hash type "+typeof dateHash[(i + Math.abs(lastUpdateInt))]);
+             //alert("date hash type number: "+(i + Math.abs(lastUpdateInt)));
+               //alert("date Hash type "+typeof dateHash[(i + Math.abs(lastUpdateInt))]);
              
                         if(typeof dateHash[(i + Math.abs(lastUpdateInt))] != 'undefined'){
                             
                             i = (i + Math.abs(lastUpdateInt));
                             
                             var dateHeader;
-                            alert("dateHash[i].eventList.length: "+dateHash[i].eventList.length);
+                            //alert("dateHash[i].eventList.length: "+dateHash[i].eventList.length);
                             
                             if(dateHash[i].eventList.length < 4){
                                 dateHeader = getDateHeader(dateHash[i],i,"","");

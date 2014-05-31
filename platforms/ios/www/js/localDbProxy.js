@@ -30,11 +30,11 @@ function createTable1(){
 
 function updateFriends() {
     var dfd = $.Deferred();
-    alert("update friends 1");
+    //alert("update friends 1");
     getFriendsFb().done(function (friendParse) {
-                         alert("update friends 2");
+                         //alert("update friends 2");
                         insertFriendsDb(friendParse).done(function () {
-                                                           alert("update friends 3");
+                                                           //alert("update friends 3");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -45,12 +45,12 @@ var updateEvents = function () {
     var dfd = $.Deferred();
     getFriendsDb().done(function (friendIdList) {
                         getEventIdsFb(friendIdList).done(function (friendEventsParse) {
-                                                         //deleteExpiredFriendsEvents().done(function(){
+                                                         deleteExpiredFriendsEvents().done(function(){
                                                                                            insertEventIdsDb(friendEventsParse).done(function(){
                                                                                                                                     dfd.resolve("blah");
                                                                                                                                     });
                                                                                            });
-                                                         //});
+                                                         });
                         });
     return dfd.promise();
 }
@@ -59,12 +59,12 @@ var updateEventAttr = function () {
     var dfd = $.Deferred();
     getEventIDsDb().done(function (friendIdList1) {
                          getEventAttrFb(friendIdList1).done(function (eventAttrParse) {
-                                                            //deleteExpiredEvents().done(function(){
+                                                            deleteExpiredEvents().done(function(){
                                                                                        insertEventArrtDb(eventAttrParse).done(function(){
                                                                                                                               getEventsImplementation().done(function(){
                                                                                                                                                              dfd.resolve("friendIdList1");                                                     });
                                                                                                                               });
-                                                                                     //  });
+                                                                                       });
                                                             });
                          });
     return dfd.promise();
@@ -458,7 +458,7 @@ function constructCalObject1(fbId,tx,friend){
     tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                   
                   //Make sure date is within scope of our calendar
-                  if(parseInt(results.rows.item(0).dateHash)<35){
+                  if(parseInt(results.rows.item(0).dateHash)<33){
                   
                   /*
                   if( parseInt(results.rows.item(0).dateHash) = 33 ){
