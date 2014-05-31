@@ -30,8 +30,11 @@ function createTable1(){
 
 function updateFriends() {
     var dfd = $.Deferred();
+    alert("update friends 1");
     getFriendsFb().done(function (friendParse) {
+                         alert("update friends 2");
                         insertFriendsDb(friendParse).done(function () {
+                                                           alert("update friends 3");
                                                           dfd.resolve(friendParse);
                                                           });
                         });
@@ -127,8 +130,13 @@ function fbStampToDbTime(fbTimeOffSet){
 function deleteExpiredFriendsEvents(){
     var dfd = $.Deferred();
     var db4 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    var todaysDate = getTodaysDate();
+    //var today = new date();
+   //var future = new Date(today.getTime() + (3*(24 * 60 * 60 * 1000)));
+    
+    
     db4.transaction(function (tx) {
-                    var stat1 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('"+getTodaysDate()+"')";
+                    var stat1 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('"+todaysDate+"')";
                     //var stat2 = "DELETE FROM FRIENDS_EVENTS WHERE formattedDate < date('2014-01-11')";
                     
                     tx.executeSql(stat1,function(){console.log("Error");},function(){
@@ -438,6 +446,7 @@ function getTodaysDate(){
 }
 
 function constructCalObject1(fbId,tx,friend){
+    //alert("construct cal");
     var dfd = $.Deferred();
     //var count = 0;
     /*
@@ -449,7 +458,14 @@ function constructCalObject1(fbId,tx,friend){
     tx.executeSql("SELECT * FROM EVENTS WHERE eventFbId = '"+fbId+"'", [], function (tx, results) {
                   
                   //Make sure date is within scope of our calendar
-                  if(parseInt(results.rows.item(0).dateHash)<33){
+                  if(parseInt(results.rows.item(0).dateHash)<35){
+                  
+                  /*
+                  if(parseInt(results.rows.item(0).dateHash) = 33){
+                  alert("33 come across");
+                  }
+                   */
+                  
                   masterEventCount = masterEventCount +1;
                   var event = makeEvent(results.rows.item(0));
                   

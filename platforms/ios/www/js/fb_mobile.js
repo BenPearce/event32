@@ -168,7 +168,8 @@ document.addEventListener('pause', function () {
                                                     alert("resume");
                                                     //alert("resume 1");
                                                     //console.Log("before updateCal");
-                                                    updateCal();
+                                                    //updateCal();
+                                                    updateUi();
                                                     //alert("update cal");
                                                     //console.Log("after updateCal");
                                                     //initializeUi();
@@ -202,7 +203,34 @@ function initializeUi(){
                         });
 }
 
-
+function updateUi(){
+    //navigator.splashscreen.show();
+    alert("update UI 1");
+    createTable1().done(function(){
+                        //console.log("create table");
+                         //alert("update UI 2");
+                        updateFriends().done(function () {
+                                              //alert("update UI 3");
+                                             //console.log("update friends");
+                                             updateEvents().done(function () {
+                                                                  //alert("update UI 3.1");
+                                                                 //console.log("line before update attr");
+                                                                 updateEventAttr().done(function(){
+                                                                                         //alert("update UI 4");
+                                                                                        navigator.geolocation.getCurrentPosition(function(pos){
+                                                                                                                                 
+                                                                                                                                 geoPosition = pos;
+                                                                                                                                 popUi().done(function(){
+                                                                                                                                              updateCal();
+                                                                                                                                              //navigator.splashscreen.hide();
+                                                                                                                                              });
+                                                                                                                                 }, locError);
+                                                                                        
+                                                                                        });
+                                                                 });
+                                             });
+                        });
+}
 
 
 function init() {
@@ -214,14 +242,14 @@ function init() {
             });
     //if(window.localStorage.getItem('firstRun')==null){
     FB.getLoginStatus(function (response) {
-                      alert("fb login: "+JSON.stringify(response));
+                      //alert("fb login: "+JSON.stringify(response));
                       if (response.status == "connected") {
                       
                       //alert("connected");
                       $("#fb-login-page").css('display', 'none');
 
                       accessToken = response.authResponse.accessToken;
-                      console.log("lone before initializeUi_1");
+                      //console.log("lone before initializeUi_1");
                       initializeUi();
                      /*
                       createTable1().done(function(){
@@ -262,13 +290,13 @@ function init() {
 
 function updateCal(){
     console.log("update cal trig");
-    alert("update Cal");
+    //alert("update Cal");
     console.log("update cal trig 1");
      var today = new Date();
     
         var yesterday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
     
-    var lastUpdateInt = dateToIntegerReg(yesterday);
+    var lastUpdateInt = dateToIntegerReg(yesterday) -1;
 
     
      var temp =new Date(today.getFullYear(),today.getMonth(), today.getDate());
@@ -281,23 +309,25 @@ function updateCal(){
 
     
     
-    alert("today: "+temp);
-    alert("today Int: "+ todayInt);
+    //alert("today: "+temp);
+    //alert("today Int: "+ todayInt);
     
     var daysElapsed = lastUpdateInt;
     
     
      console.log("new dm after:lastUpdateInt "+lastUpdateInt);
-         alert("update cal");
+         //alert("update cal");
+    
+    alert("Math.abs(lastUpdateInt): "+Math.abs(lastUpdateInt));
     
      for (i=0;i<33;i++){
          
-         if((i +lastUpdateInt) <= 0){
+         if((i +lastUpdateInt) < 0){
              
              $("#date-elem-"+i+"-list").remove();
              
              
-         } else if (33 > (i +lastUpdateInt) > 0){
+        // } else if (33 > (i - lastUpdateInt) > 0){
              
              /*
              if(dateHash[i].eventList.length < 4){
@@ -307,17 +337,24 @@ function updateCal(){
              }
              
               $("#date-header-wrap-"+i).html(dateHeader);
-             */
-                    }else{
-                    
-                        if(typeof dateHash[i] != 'undefined'){
+             *///
+                    }
+         else if ( (i + Math.abs(lastUpdateInt)) > 32 ){
+             
+             //Math.abs(-7.25);
+             
+             alert("date hash type number: "+(i + Math.abs(lastUpdateInt)));
+               alert("date Hash type "+typeof dateHash[(i + Math.abs(lastUpdateInt))]);
+             
+                        if(typeof dateHash[(i + Math.abs(lastUpdateInt))] != 'undefined'){
                             
                             var dateHeader;
+                            alert("dateHash[i].eventList.length: "+dateHash[i + Math.abs(lastUpdateInt)].eventList.length);
                             
                             if(dateHash[i].eventList.length < 4){
-                                dateHeader = getDateHeader(dateHash[i],i,"","");
+                                dateHeader = getDateHeader(dateHash[i + Math.abs(lastUpdateInt)],i,"","");
                             }else{
-                                dateHeader = getDateHeader(dateHash[i],i,"","ex");
+                                dateHeader = getDateHeader(dateHash[i + Math.abs(lastUpdateInt)],i,"","ex");
                             }
                             
                             $("#dateMainList").append("<li data-role='list-divider' class='date-list-elem-outter'  id='date-elem-"+i+"-list' name='"+i+"' ><div id='date-header-wrap-"+i+"' "+dateHeader+"</div><div id='event-list-wrap-trans-"+i+"' class='event-list-wrap-trans'><div id='event-wrap-in-"+i+"' class='event-wrap-in animateHeight'></div></div></li>");
